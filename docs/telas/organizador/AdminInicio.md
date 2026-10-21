@@ -160,7 +160,7 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
 - Os textos "Lucca", "3 eventos", "10 relatos", "Sai em 11/11, às 18h" e a lista "Publicados por você" são dados de exemplo.
 - O `<title>` do arquivo é "Meu Carajás Organizadores – Painel" (no singular, diferente de "Organizadores" na Entrada).
 
-## Famílias cadastradas (acrescentada em 21/10/2026, decisão A-13/A-14)
+## Famílias cadastradas (acrescentada em 21/10/2026, decisão A-14)
 
 No fim do Painel, depois de "Publicados por você":
 
