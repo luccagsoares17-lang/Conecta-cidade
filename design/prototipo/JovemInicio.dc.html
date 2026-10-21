@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Conecta Cidade – Início do morador jovem</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 52px 20px 20px 20px; display: flex; flex-direction: column; gap: 12px">
+
+    <div style="display: flex; align-items: center; justify-content: space-between">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <svg width="30" height="36" viewBox="0 0 100 120" aria-hidden="true"><path d="M50 114 C50 114 12 74 12 46 A38 38 0 1 1 88 46 C88 74 50 114 50 114 Z" fill="#1E5B40"></path><path d="M34 36 L66 36 L50 62 Z" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round"></path><circle cx="34" cy="36" r="8" fill="#FFFFFF"></circle><circle cx="66" cy="36" r="8" fill="#FFFFFF"></circle><circle cx="50" cy="62" r="10" fill="#E07A3F"></circle></svg>
+        <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.3px">Conecta Cidade</span>
+      </div>
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; background: #FBE6DA; color: #8E3714; padding: 6px 10px; border-radius: 8px">Jovem</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.4px">E aí, Lucca!</span>
+      <span style="font-size: 15px; color: #4F5E55">O que tem para a galera do Núcleo</span>
+    </div>
+
+    <div style="background: #13241B; color: #FFFFFF; border-radius: 20px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px">
+      <span style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: #FFD27A">Comitê Jovem Entre Fases</span><a href="https://instagram.com/entrefasescks" style="font-size: 12px; font-weight: 700; color: #FFFFFF">@entrefasescks</a></span>
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-size: 18px; font-weight: 700">Próximo: CineFases · sábado, 7/11</span>
+      <span style="font-size: 13px; color: #CFE3D7">Ingresso: 1 kg de alimento. Já viraram 33 cestas básicas para a Via Autismo.</span>
+      <span style="font-size: 13px; font-weight: 700; color: #FFFFFF; margin-top: 4px">Vota no próximo evento:</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{votes}}" as="v" hint-placeholder-count="5">
+          <button onClick="{{v.pick}}" aria-pressed="{{v.pressed}}" style="border: 1px solid {{v.border}}; cursor: pointer; height: 38px; padding: 0 14px; border-radius: 19px; font-size: 13px; font-weight: 700; background: {{v.bg}}; color: {{v.fg}}">{{v.label}}</button>
+        </sc-for>
+      </div>
+      <span style="font-size: 12px; color: #CFE3D7">{{voteMsg}}</span>
+    </div>
+
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Bora?</span>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+      <a href="JovemEventos.dc.html" style="text-decoration: none; box-sizing: border-box; background: #FFFFFF; border-radius: 20px; padding: 14px; height: 92px; display: flex; flex-direction: column; justify-content: space-between">
+        <span style="width: 36px; height: 36px; border-radius: 11px; background: #DCEDE2; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path><path d="m9 16 2 2 4-4"></path></svg></span>
+        <span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px; color: #13241B">Eventos</span><span style="font-size: 12px; color: #4F5E55">Cinema, culinária, games</span></span>
+      </a>
+      <a href="JovemGuia.dc.html" style="text-decoration: none; box-sizing: border-box; background: #FFFFFF; border-radius: 20px; padding: 14px; height: 92px; display: flex; flex-direction: column; justify-content: space-between">
+        <span style="width: 36px; height: 36px; border-radius: 11px; background: #DFE9F5; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#24578C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg></span>
+        <span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px; color: #13241B">Oportunidades</span><span style="font-size: 12px; color: #4F5E55">Vestibular, estágio, cursos</span></span>
+      </a>
+      <a href="JovemTrilhas.dc.html" style="text-decoration: none; box-sizing: border-box; background: #FFFFFF; border-radius: 20px; padding: 14px; height: 92px; display: flex; flex-direction: column; justify-content: space-between">
+        <span style="width: 36px; height: 36px; border-radius: 11px; background: #E3EEDC; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3F6B1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2.5 14 9h2.5L13 15h10l-3.5-6H22z"></path><path d="M18 15v6.5"></path><circle cx="7" cy="3.8" r="1.6"></circle><path d="M7.3 6.8 6 13"></path><path d="M6 13l-2.5 8.5"></path><path d="M6 13l3 3.2v5.3"></path><path d="M3.5 10.5 7.2 8l2.6 2.6"></path><path d="M2 21.5h20"></path></svg></span>
+        <span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px; color: #13241B">Trilhas</span><span style="font-size: 12px; color: #4F5E55">Só em grupo</span></span>
+      </a>
+      <a href="JovemAvisos.dc.html" style="text-decoration: none; box-sizing: border-box; background: #FFFFFF; border-radius: 20px; padding: 14px; height: 92px; display: flex; flex-direction: column; justify-content: space-between">
+        <span style="width: 36px; height: 36px; border-radius: 11px; background: #F8EDC9; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7A5806" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg></span>
+        <span style="display: flex; flex-direction: column"><span style="font-weight: 700; font-size: 15px; color: #13241B">Avisos</span><span style="font-size: 12px; color: #4F5E55">O que rola na cidade</span></span>
+      </a>
+    </div>
+
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Só com liberação do gestor da casa</span>
+
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; opacity: 1">
+      <span style="width: 40px; height: 40px; border-radius: 12px; background: #E2E7E0; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5E55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
+      <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px; color: #4F5E55">Carona</span><span style="font-size: 12px; color: #4F5E55">Só com liberação do responsável</span></span>
+      <button onClick="{{askRide}}" aria-pressed="{{rideAttr}}" style="border: none; cursor: pointer; height: 40px; padding: 0 12px; border-radius: 20px; font-weight: 700; font-size: 13px; background: {{rideBg}}; color: {{rideFg}}; flex-shrink: 0">{{rideLabel}}</button>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 12px 14px; display: flex; align-items: center; gap: 12px">
+      <span style="width: 40px; height: 40px; border-radius: 12px; background: #E2E7E0; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5E55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
+      <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px; color: #4F5E55">Desapego</span><span style="font-size: 12px; color: #4F5E55">Vender e combinar entrega é com o gestor</span></span>
+    </div>
+
+  </div>
+
+  <nav aria-label="Navegação principal" style="flex-shrink: 0; height: 80px; background: #FFFFFF; border-top: 1px solid #E2E7E0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px; box-sizing: border-box">
+    <a href="JovemInicio.dc.html" aria-current="page" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #B4471C; font-size: 11px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"></path></svg>Início</a>
+    <a href="JovemEventos.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Eventos</a>
+    <a href="JovemTrilhas.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2.5 14 9h2.5L13 15h10l-3.5-6H22z"></path><path d="M18 15v6.5"></path><path d="M2 21.5h20"></path></svg>Trilhas</a>
+    <a href="JovemFamilia.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="7" r="3"></circle><circle cx="17" cy="9" r="2.4"></circle><path d="M2.5 20a5.5 5.5 0 0 1 11 0"></path><path d="M13.5 20a4 4 0 0 1 8 0"></path></svg>Família</a>
+    <a href="Login.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>Perfil</a>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { vote: null, asked: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const votes = ['Cinema', 'Culinária', 'Videogame', 'Vôlei', 'Futebol'].map((label) => {
+      const on = s.vote === label;
+      return {
+        label: label,
+        pressed: on ? 'true' : 'false',
+        bg: on ? '#FFD27A' : 'transparent',
+        fg: on ? '#13241B' : '#FFFFFF',
+        border: on ? '#FFD27A' : '#4F6B5C',
+        pick: () => this.setState({ vote: label })
+      };
+    });
+    return {
+      votes: votes,
+      voteMsg: s.vote ? 'Voto registrado: ' + s.vote + '. O Comitê vê o resultado.' : 'Seu voto ajuda o Comitê a escolher.',
+      asked: s.asked,
+      rideAttr: s.asked ? 'true' : 'false',
+      rideLabel: s.asked ? 'Pedido enviado' : 'Pedir liberação',
+      rideBg: s.asked ? '#DCEDE2' : '#13241B',
+      rideFg: s.asked ? '#17432F' : '#FFFFFF',
+      askRide: () => this.setState({ asked: !this.state.asked })
+    };
+  }
+}
+</script>
+</body>
+</html>

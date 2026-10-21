@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Conecta Cidade – Desapego</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input{font-family:inherit}
+.sheet > *{flex-shrink:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; position: relative; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+
+  <div style="padding: 52px 20px 8px 20px; display: flex; align-items: center; gap: 12px; flex-shrink: 0">
+    <a href="Main.dc.html" aria-label="Voltar para o início" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></a>
+    <span style="display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.4px">Desapego</span><span style="font-size: 13px; color: #4F5E55">Vender, comprar e doar entre vizinhos</span></span>
+  </div>
+
+  <div style="display: flex; gap: 8px; overflow-x: auto; padding: 8px 20px; flex-shrink: 0">
+    <sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+      <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="flex-shrink: 0; border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 16px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+    </sc-for>
+  </div>
+
+  <div style="padding: 4px 20px 8px 20px; flex-shrink: 0">
+    <button onClick="{{toggleMove}}" aria-pressed="{{moveAttr}}" style="width: 100%; border: none; cursor: pointer; text-align: left; background: #FFFFFF; border-radius: 16px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; min-height: 52px">
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; background: #FBE6DA; color: #8E3714; padding: 3px 8px; border-radius: 6px">Mudança</span>
+      <span style="flex-grow: 1; font-size: 14px; font-weight: 600; color: #13241B">Só de quem está indo embora</span>
+      <span style="width: 46px; height: 28px; border-radius: 14px; background: {{trackBg}}; display: flex; align-items: center; justify-content: {{knobSide}}; padding: 3px; box-sizing: border-box; flex-shrink: 0"><span style="width: 22px; height: 22px; border-radius: 11px; background: #FFFFFF"></span></span>
+    </button>
+  </div>
+
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 4px 20px 100px 20px; display: flex; flex-direction: column; gap: 10px">
+    <sc-if value="{{toast}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #DCEDE2; border-radius: 16px; padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17432F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 6 9 17l-5-5"></path></svg><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 14px; color: #17432F">Anúncio publicado!</span><span style="font-size: 13px; color: #13241B">Ele já aparece para todos os vizinhos do Núcleo. Quando vender, marque como vendido.</span></span></div>
+    </sc-if>
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0">
+    <span style="display: flex; align-items: center; gap: 10px">
+      <span style="width: 40px; height: 40px; border-radius: 20px; background: #FFD27A; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"></path></svg></span>
+      <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 800; font-size: 16px">{{rkTitle}}</span><span style="font-size: 12px; color: #4F5E55">Quem mais vende e o que mais sai no Desapego</span></span>
+    </span>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #F4F6F1; border-radius: 20px; padding: 3px; gap: 3px">
+      <sc-for list="{{rkTabs}}" as="t" hint-placeholder-count="2">
+        <button onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="border: none; cursor: pointer; height: 38px; border-radius: 17px; font-weight: 700; font-size: 13px; background: {{t.bg}}; color: #13241B">{{t.label}}</button>
+      </sc-for>
+    </div>
+    <sc-for list="{{rkList}}" as="p" hint-placeholder-count="3">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid #EEF1EC">
+        <span style="width: 28px; height: 28px; border-radius: 14px; background: {{p.posBg}}; color: {{p.posFg}}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0">{{p.pos}}</span>
+        <span style="width: 38px; height: 38px; border-radius: 19px; background: {{p.avBg}}; color: {{p.avFg}}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0">{{p.ini}}</span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 14px">{{p.name}}</span><span style="font-size: 12px; color: #4F5E55">{{p.meta}}</span></span>
+        <span style="display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0">
+          <sc-if value="{{p.hasStars}}" hint-placeholder-val="{{ true }}"><span aria-label="{{p.aria}}" style="font-size: 13px; letter-spacing: 1px"><span style="color: #D4A017">{{p.full}}</span><span style="color: #C9D2CB">{{p.empty}}</span></span></sc-if>
+          <span style="font-size: 12px; font-weight: 700; color: #13241B">{{p.score}}</span>
+        </span>
+      </div>
+    </sc-for>
+    <button onClick="{{rkToggle}}" aria-expanded="{{rkAttr}}" style="border: 2px solid #13241B; cursor: pointer; height: 44px; border-radius: 22px; font-weight: 700; font-size: 14px; background: #FFFFFF; color: #13241B">{{rkLabel}}</button>
+  </div>
+
+    <sc-for list="{{items}}" as="it" hint-placeholder-count="4">
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; gap: 12px; align-items: center">
+        <span style="width: 76px; height: 76px; border-radius: 14px; background: {{it.tint}}; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; font-weight: 700; color: #4F5E55"><sc-if value="{{it.is.sofa}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="6" y="22" width="52" height="20" rx="6" fill="#B4471C"></rect><rect x="10" y="30" width="20" height="12" rx="3" fill="#E07A3F"></rect><rect x="34" y="30" width="20" height="12" rx="3" fill="#E07A3F"></rect><rect x="3" y="30" width="9" height="18" rx="4" fill="#8E3714"></rect><rect x="52" y="30" width="9" height="18" rx="4" fill="#8E3714"></rect><rect x="10" y="40" width="44" height="8" rx="2" fill="#B4471C"></rect><rect x="9" y="48" width="4" height="6" fill="#5A2A12"></rect><rect x="51" y="48" width="4" height="6" fill="#5A2A12"></rect></svg></sc-if><sc-if value="{{it.is.mesa}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="10" y="26" width="44" height="6" rx="2" fill="#8E5A2B"></rect><rect x="14" y="32" width="4" height="20" fill="#6E4320"></rect><rect x="46" y="32" width="4" height="20" fill="#6E4320"></rect><rect x="2" y="18" width="5" height="20" rx="2" fill="#C98A4B"></rect><rect x="2" y="34" width="12" height="4" rx="1" fill="#C98A4B"></rect><rect x="3" y="38" width="3" height="14" fill="#A06A35"></rect><rect x="11" y="38" width="3" height="14" fill="#A06A35"></rect><rect x="57" y="18" width="5" height="20" rx="2" fill="#C98A4B"></rect><rect x="50" y="34" width="12" height="4" rx="1" fill="#C98A4B"></rect><rect x="50" y="38" width="3" height="14" fill="#A06A35"></rect><rect x="58" y="38" width="3" height="14" fill="#A06A35"></rect><ellipse cx="32" cy="24" rx="6" ry="3" fill="#FFFFFF"></ellipse></svg></sc-if><sc-if value="{{it.is.micro}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="6" y="16" width="52" height="34" rx="5" fill="#9AA6AE"></rect><rect x="11" y="21" width="32" height="24" rx="3" fill="#1F2A33"></rect><rect x="14" y="24" width="12" height="6" rx="2" fill="#3E5160"></rect><rect x="47" y="22" width="7" height="4" rx="1" fill="#E07A3F"></rect><circle cx="50.5" cy="33" r="3" fill="#5D6B75"></circle><circle cx="50.5" cy="42" r="3" fill="#5D6B75"></circle><rect x="10" y="50" width="6" height="3" fill="#5D6B75"></rect><rect x="48" y="50" width="6" height="3" fill="#5D6B75"></rect></svg></sc-if><sc-if value="{{it.is.bike}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><circle cx="16" cy="42" r="11" fill="none" stroke="#13241B" stroke-width="4"></circle><circle cx="48" cy="42" r="11" fill="none" stroke="#13241B" stroke-width="4"></circle><path d="M16 42 L27 26 L42 26 L48 42 M27 26 L33 42 L42 26 M33 42 L16 42" fill="none" stroke="#1E5B40" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"></path><path d="M24 22 H31" stroke="#13241B" stroke-width="4" stroke-linecap="round"></path><path d="M42 26 L40 19 H46" fill="none" stroke="#13241B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if><sc-if value="{{it.is.livros}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="10" y="42" width="44" height="9" rx="2" fill="#24578C"></rect><rect x="13" y="33" width="40" height="9" rx="2" fill="#D4A017"></rect><rect x="9" y="24" width="42" height="9" rx="2" fill="#B4471C"></rect><rect x="14" y="15" width="36" height="9" rx="2" fill="#1E5B40"></rect><rect x="14" y="45" width="34" height="2" fill="#FFFFFF" opacity=".6"></rect><rect x="17" y="36" width="30" height="2" fill="#FFFFFF" opacity=".6"></rect><rect x="13" y="27" width="32" height="2" fill="#FFFFFF" opacity=".6"></rect><rect x="18" y="18" width="26" height="2" fill="#FFFFFF" opacity=".6"></rect></svg></sc-if><sc-if value="{{it.is.infantil}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><path d="M20 12 L12 16 L6 26 L14 30 L18 25 L18 52 L46 52 L46 25 L50 30 L58 26 L52 16 L44 12 C42 17 37 19 32 19 C27 19 22 17 20 12 Z" fill="#6A47A8"></path><path d="M24 34 h16" stroke="#FFD27A" stroke-width="4" stroke-linecap="round"></path><circle cx="32" cy="42" r="3" fill="#FFD27A"></circle></svg></sc-if><sc-if value="{{it.is.geladeira}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="16" y="6" width="32" height="52" rx="5" fill="#DDE3E6" stroke="#9AA6AE" stroke-width="2"></rect><line x1="16" y1="24" x2="48" y2="24" stroke="#9AA6AE" stroke-width="2"></line><rect x="40" y="12" width="3" height="8" rx="1.5" fill="#5D6B75"></rect><rect x="40" y="30" width="3" height="14" rx="1.5" fill="#5D6B75"></rect><rect x="20" y="58" width="4" height="3" fill="#5D6B75"></rect><rect x="40" y="58" width="4" height="3" fill="#5D6B75"></rect></svg></sc-if><sc-if value="{{it.is.tv}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="4" y="12" width="56" height="34" rx="3" fill="#13241B"></rect><rect x="7" y="15" width="50" height="28" rx="1" fill="#24578C"></rect><path d="M7 37 L22 26 L32 33 L42 24 L57 34 V43 H7 Z" fill="#5FA8D3"></path><circle cx="46" cy="21" r="3" fill="#FFD27A"></circle><rect x="29" y="46" width="6" height="6" fill="#13241B"></rect><rect x="20" y="52" width="24" height="3" rx="1.5" fill="#13241B"></rect></svg></sc-if><sc-if value="{{it.is.guarda}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="8" y="8" width="48" height="46" rx="3" fill="#C98A4B"></rect><line x1="20" y1="8" x2="20" y2="54" stroke="#8E5A2B" stroke-width="2"></line><line x1="32" y1="8" x2="32" y2="54" stroke="#8E5A2B" stroke-width="2"></line><line x1="44" y1="8" x2="44" y2="54" stroke="#8E5A2B" stroke-width="2"></line><circle cx="17" cy="31" r="1.6" fill="#5A2A12"></circle><circle cx="29" cy="31" r="1.6" fill="#5A2A12"></circle><circle cx="35" cy="31" r="1.6" fill="#5A2A12"></circle><circle cx="47" cy="31" r="1.6" fill="#5A2A12"></circle><rect x="10" y="54" width="4" height="4" fill="#5A2A12"></rect><rect x="50" y="54" width="4" height="4" fill="#5A2A12"></rect></svg></sc-if><sc-if value="{{it.is.ventilador}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><circle cx="32" cy="22" r="16" fill="#FFFFFF" stroke="#24578C" stroke-width="3"></circle><path d="M32 22 C28 12 36 10 36 16 Z M32 22 C42 20 42 28 36 27 Z M32 22 C26 30 22 24 26 21 Z" fill="#5FA8D3"></path><circle cx="32" cy="22" r="3" fill="#24578C"></circle><rect x="30" y="38" width="4" height="16" fill="#24578C"></rect><ellipse cx="32" cy="56" rx="12" ry="3" fill="#24578C"></ellipse></svg></sc-if><sc-if value="{{it.is.chuteira}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><path d="M6 40 C6 32 14 30 20 30 L30 22 C34 20 38 22 38 26 L40 32 C48 32 58 34 58 42 L58 46 L6 46 Z" fill="#13241B"></path><path d="M22 30 L34 30 M24 34 L36 34" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path><path d="M40 36 C46 36 52 38 54 42" fill="none" stroke="#E07A3F" stroke-width="3" stroke-linecap="round"></path><rect x="10" y="46" width="4" height="5" fill="#9AA6AE"></rect><rect x="22" y="46" width="4" height="5" fill="#9AA6AE"></rect><rect x="38" y="46" width="4" height="5" fill="#9AA6AE"></rect><rect x="50" y="46" width="4" height="5" fill="#9AA6AE"></rect></svg></sc-if><sc-if value="{{it.is.jaqueta}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><path d="M22 8 L12 12 L6 50 L16 52 L18 30 L18 56 L46 56 L46 30 L48 52 L58 50 L52 12 L42 8 L32 18 Z" fill="#3E6FA8"></path><path d="M32 18 L32 56" stroke="#24578C" stroke-width="2"></path><path d="M22 8 L32 18 L42 8" fill="none" stroke="#24578C" stroke-width="3"></path><rect x="22" y="28" width="7" height="6" rx="1" fill="#24578C"></rect><rect x="35" y="28" width="7" height="6" rx="1" fill="#24578C"></rect><circle cx="34" cy="38" r="1.4" fill="#FFD27A"></circle><circle cx="34" cy="46" r="1.4" fill="#FFD27A"></circle></svg></sc-if><sc-if value="{{it.is.novo}}" hint-placeholder-val="{{ false }}"><svg width="60" height="60" viewBox="0 0 64 64" role="img" aria-label="Foto ilustrativa: {{it.t}}"><rect x="12" y="18" width="40" height="30" rx="5" fill="none" stroke="#4F5E55" stroke-width="3"></rect><circle cx="32" cy="33" r="8" fill="none" stroke="#4F5E55" stroke-width="3"></circle><path d="M24 18 L27 13 H37 L40 18" fill="none" stroke="#4F5E55" stroke-width="3" stroke-linejoin="round"></path></svg></sc-if></span>
+        <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1; min-width: 0">
+          <span style="display: flex; gap: 6px">
+            <sc-if value="{{it.move}}" hint-placeholder-val="{{ true }}"><span style="font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; background: #FBE6DA; color: #8E3714; padding: 2px 6px; border-radius: 5px">Mudança</span></sc-if>
+            <sc-if value="{{it.pending}}" hint-placeholder-val="{{ false }}"><span style="font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; background: #F8EDC9; color: #6B4D05; padding: 2px 6px; border-radius: 5px">Em análise</span></sc-if>
+            <sc-if value="{{it.donate}}" hint-placeholder-val="{{ false }}"><span style="font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; background: #DCEDE2; color: #17432F; padding: 2px 6px; border-radius: 5px">Doação</span></sc-if>
+          </span>
+          <span style="font-weight: 700; font-size: 15px">{{it.t}}</span>
+          <span style="font-size: 12px; color: #4F5E55">{{it.cat}}</span>
+          <span style="font-weight: 800; font-size: 15px; color: {{it.priceColor}}">{{it.price}}</span>
+          <span style="font-size: 12px; font-weight: 700; color: #1E5B40">{{it.cLabel}}</span>
+        </span>
+        <button onClick="{{it.toggleC}}" aria-expanded="{{it.openAttr}}" aria-label="Ver comentários do anúncio" style="width: 44px; height: 44px; border-radius: 22px; border: none; cursor: pointer; background: {{it.chatBg}}; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E5B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></button>
+      </div>
+      <sc-if value="{{it.open}}" hint-placeholder-val="{{ false }}">
+        <div style="border-top: 1px solid #EEF1EC; padding-top: 10px; display: flex; flex-direction: column; gap: 12px">
+          <sc-for list="{{it.comments}}" as="c" hint-placeholder-count="3">
+            <div style="display: flex; gap: 10px; align-items: flex-start">
+              <span style="width: 32px; height: 32px; border-radius: 16px; background: {{c.bg}}; color: {{c.fg}}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0">{{c.ini}}</span>
+              <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+                <span style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="font-weight: 700; font-size: 13px; color: #13241B">{{c.who}}</span><sc-if value="{{c.seller}}" hint-placeholder-val="{{ false }}"><span style="font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; background: #FBE6DA; color: #8E3714; padding: 2px 6px; border-radius: 5px">Anunciante</span></sc-if><span style="font-size: 11px; color: #4F5E55">{{c.time}}</span></span>
+                <span style="font-size: 14px; color: #13241B">{{c.text}}</span>
+              </span>
+            </div>
+          </sc-for>
+          <span style="display: flex; gap: 8px">
+            <input type="text" aria-label="Escrever um comentário" value="{{draft}}" onChange="{{setDraft}}" placeholder="Pergunte ou faça uma oferta" style="flex-grow: 1; min-width: 0; height: 44px; border-radius: 22px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 14px; color: #13241B; background: #FFFFFF; font-family: inherit">
+            <button onClick="{{it.send}}" style="border: none; cursor: pointer; height: 44px; padding: 0 16px; border-radius: 22px; background: #1E5B40; color: #FFFFFF; font-weight: 700; font-size: 14px; flex-shrink: 0">Enviar</button>
+          </span>
+          <span style="font-size: 11px; color: #4F5E55">Endereço e telefone só por mensagem privada no app.</span>
+        </div>
+      </sc-if>
+      </div>
+    </sc-for>
+    <sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 24px; text-align: center; font-size: 14px; color: #4F5E55">Nenhum anúncio nessa categoria ainda.</div>
+    </sc-if>
+  </div>
+
+  <button onClick="{{openForm}}" style="position: absolute; right: 20px; bottom: 28px; height: 56px; padding: 0 22px; border: none; cursor: pointer; border-radius: 28px; background: #B4471C; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 8px; box-shadow: 0 6px 18px rgba(19,36,27,0.18)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Anunciar</button>
+
+  <sc-if value="{{showForm}}" hint-placeholder-val="{{ false }}">
+    <div style="position: absolute; inset: 0; background: rgba(19,36,27,0.45); display: flex; flex-direction: column; justify-content: flex-end">
+      <div class="sheet" style="background: #F4F6F1; border-radius: 28px 28px 0 0; max-height: 780px; overflow-y: auto; padding: 20px 20px 28px 20px; display: flex; flex-direction: column; gap: 14px">
+        <span style="display: flex; align-items: center; justify-content: space-between">
+          <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px">Novo anúncio</span>
+          <button onClick="{{closeForm}}" aria-label="Fechar" style="width: 44px; height: 44px; border-radius: 22px; border: none; cursor: pointer; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+        </span>
+        <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+          <button onClick="{{togglePhoto}}" style="height: 120px; border-radius: 16px; border: {{photoBorder}}; cursor: pointer; background: {{photoBg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #13241B; font-weight: 700; font-size: 14px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"></rect><circle cx="12" cy="13" r="3.5"></circle><path d="M8.5 6 10 4h4l1.5 2"></path></svg>{{photoLabel}}</button>
+          <span style="display: flex; flex-direction: column; gap: 6px"><label for="adTitle" style="font-size: 13px; font-weight: 700">O que você está anunciando</label><input id="adTitle" type="text" value="{{fTitle}}" onChange="{{setTitle}}" placeholder="Ex.: Geladeira duplex" style="height: 50px; border-radius: 14px; border: 1px solid #C9D2CB; padding: 0 16px; font-size: 16px; color: #13241B; background: #FFFFFF"></span>
+          <span style="font-size: 13px; font-weight: 700">Categoria</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{fCats}}" as="c" hint-placeholder-count="3">
+              <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+            </sc-for>
+          </div>
+          <span style="font-size: 13px; font-weight: 700">Você quer</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{fKinds}}" as="c" hint-placeholder-count="3">
+              <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{isSell}}" hint-placeholder-val="{{ true }}">
+            <span style="display: flex; flex-direction: column; gap: 6px"><label for="adPrice" style="font-size: 13px; font-weight: 700">Preço (R$)</label><input id="adPrice" type="text" inputmode="numeric" value="{{fPrice}}" onChange="{{setPrice}}" placeholder="Ex.: 800" style="height: 50px; border-radius: 14px; border: 1px solid #C9D2CB; padding: 0 16px; font-size: 16px; color: #13241B; background: #FFFFFF"></span>
+          </sc-if>
+          <sc-if value="{{isDonate}}" hint-placeholder-val="{{ false }}">
+            <span style="font-size: 13px; color: #4F5E55">Doações podem ir para vizinhos ou para ONGs de Parauapebas, como a Via Autismo.</span>
+          </sc-if>
+          <span style="display: flex; flex-direction: column; gap: 6px"><label for="adDesc" style="font-size: 13px; font-weight: 700">Descrição curta</label><input id="adDesc" type="text" placeholder="Estado, tamanho, retirada…" style="height: 50px; border-radius: 14px; border: 1px solid #C9D2CB; padding: 0 16px; font-size: 16px; color: #13241B; background: #FFFFFF"></span>
+          <button onClick="{{toggleFMove}}" aria-pressed="{{fMoveAttr}}" style="border: none; cursor: pointer; text-align: left; background: #F4F6F1; border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; min-height: 56px">
+            <span style="display: flex; flex-direction: column; flex-grow: 1"><span style="font-weight: 700; font-size: 14px; color: #13241B">Estou de mudança</span><span style="font-size: 12px; color: #4F5E55">Coloca o selo para quem chegou achar mais rápido</span></span>
+            <span style="width: 46px; height: 28px; border-radius: 14px; background: {{fMoveTrack}}; display: flex; align-items: center; justify-content: {{fMoveKnob}}; padding: 3px; box-sizing: border-box; flex-shrink: 0"><span style="width: 22px; height: 22px; border-radius: 11px; background: #FFFFFF"></span></span>
+          </button>
+        </div>
+        <span style="font-size: 12px; color: #4F5E55">O anúncio aparece na hora para os vizinhos. A conversa acontece no app, sem mostrar seu telefone.</span>
+        <span style="font-size: 13px; font-weight: 700; color: #8E3714">{{fMissing}}</span>
+        <button onClick="{{publish}}" style="border: none; cursor: pointer; height: 56px; border-radius: 28px; font-weight: 700; font-size: 16px; background: {{pubBg}}; color: {{pubFg}}; flex-shrink: 0">Publicar anúncio</button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { openC: 'Geladeira duplex', draft: '', added: {}, cat: 'Todos', onlyMove: false, form: false, mine: [], toast: false, fTitle: '', fCat: 'Móveis', fKind: 'Vender', fPrice: '', fMove: false, fPhoto: false };
+  }
+  renderVals() {
+    const all = [
+      { t: 'Sofá de 3 lugares', cat: 'Móveis', price: 'R$ 600', move: true, donate: false, tint: '#FBE6DA', k: 'sofa' },
+      { t: 'Geladeira duplex', cat: 'Eletrônicos', price: 'R$ 1.200', move: true, donate: false, tint: '#DFE9F5', k: 'geladeira' },
+      { t: 'Mesa com 4 cadeiras', cat: 'Móveis', price: 'R$ 450', move: true, donate: false, tint: '#FBE6DA', k: 'mesa' },
+      { t: 'Smart TV 43 polegadas', cat: 'Eletrônicos', price: 'R$ 900', move: true, donate: false, tint: '#DFE9F5', k: 'tv' },
+      { t: 'Guarda-roupa 4 portas', cat: 'Móveis', price: 'R$ 550', move: true, donate: false, tint: '#FBE6DA', k: 'guarda' },
+      { t: 'Micro-ondas 20 litros', cat: 'Eletrônicos', price: 'R$ 250', move: true, donate: false, tint: '#DFE9F5', k: 'micro' },
+      { t: 'Bicicleta aro 26', cat: 'Esportes', price: 'R$ 300', move: false, donate: false, tint: '#E3EEDC', k: 'bike' },
+      { t: 'Chuteira tamanho 38', cat: 'Esportes', price: 'R$ 60', move: false, donate: false, tint: '#E3EEDC', k: 'chuteira' },
+      { t: 'Livros para o vestibular', cat: 'Livros', price: 'Grátis', move: false, donate: true, tint: '#F8EDC9', k: 'livros' },
+      { t: 'Ventilador de coluna', cat: 'Eletrônicos', price: 'R$ 80', move: false, donate: false, tint: '#DFE9F5', k: 'ventilador' },
+      { t: 'Jaqueta jeans tamanho M', cat: 'Roupas', price: 'R$ 70', move: false, donate: false, tint: '#ECE4F5', k: 'jaqueta' },
+      { t: 'Roupas infantis', cat: 'Roupas', price: 'Grátis', move: false, donate: true, tint: '#ECE4F5', k: 'infantil' }
+    ];
+    const COMMENTS = {"Sofá de 3 lugares": {"seller": "Rafael Moura", "list": [{"who": "Ana Souza", "text": "Ainda está disponível? Tenho muito interesse!", "time": "há 2 h"}, {"who": "Pedro Lima", "text": "Faz por R$ 500? Busco hoje mesmo.", "time": "há 1 h"}, {"who": "*", "text": "Faço por R$ 550, Pedro. Te chamei no privado.", "time": "há 40 min"}]}, "Geladeira duplex": {"seller": "Carla Mendes", "list": [{"who": "Juliana Costa", "text": "Onde fica a casa? Queria dar uma olhada antes de comprar.", "time": "há 3 h"}, {"who": "*", "text": "Fica na Rua Jari, quarteirão 2. Te mandei o número da casa por mensagem.", "time": "há 2 h"}, {"who": "Diego Martins", "text": "O freezer gela bem? Ela tem quantos anos?", "time": "há 30 min"}]}, "Mesa com 4 cadeiras": {"seller": "Bruno Santos", "list": [{"who": "Elisa Rocha", "text": "As cadeiras estão inteiras? Tenho interesse.", "time": "há 5 h"}, {"who": "*", "text": "Todas inteiras, só tem um arranhão pequeno no tampo.", "time": "há 4 h"}]}, "Smart TV 43 polegadas": {"seller": "Marcos Pereira", "list": [{"who": "Felipe Araújo", "text": "Aceita R$ 800 no Pix?", "time": "há 1 h"}, {"who": "*", "text": "Fecho em R$ 850, Felipe. Vem buscar quando quiser.", "time": "há 20 min"}]}, "Guarda-roupa 4 portas": {"seller": "Helena Castro", "list": [{"who": "Beatriz Nunes", "text": "Vocês desmontam para levar? Moro na Rua Purus.", "time": "ontem"}, {"who": "*", "text": "Desmonto sim! Só precisa buscar até sábado, a mudança é domingo.", "time": "ontem"}]}, "Micro-ondas 20 litros": {"seller": "Gustavo Pires", "list": [{"who": "Thiago Rocha", "text": "Posso passar aí às 18h para ver funcionando?", "time": "há 3 h"}, {"who": "*", "text": "Pode sim! Te mando o endereço no privado.", "time": "há 2 h"}]}, "Bicicleta aro 26": {"seller": "Sandra Melo", "list": [{"who": "Paulo Santos", "text": "Faz R$ 250? É para o meu filho ir para a escola.", "time": "há 6 h"}, {"who": "*", "text": "Faço R$ 270 e dou o cadeado junto.", "time": "há 5 h"}]}, "Chuteira tamanho 38": {"seller": "José Ferreira", "list": [{"who": "Davi Ribeiro", "text": "Ainda tem? Uso 38 certinho!", "time": "há 1 h"}, {"who": "*", "text": "Tenho! Só usei duas vezes.", "time": "há 50 min"}]}, "Livros para o vestibular": {"seller": "Carlos Nogueira", "list": [{"who": "Ana Clara", "text": "Que legal doar! Tem livro de matemática?", "time": "há 4 h"}, {"who": "*", "text": "Tem de matemática e de física. Pode vir buscar.", "time": "há 3 h"}]}, "Ventilador de coluna": {"seller": "Fernanda Dias", "list": [{"who": "Bruno Santos", "text": "Ele faz muito barulho? Quero para o quarto.", "time": "há 2 h"}]}, "Jaqueta jeans tamanho M": {"seller": "Juliana Costa", "list": [{"who": "Elisa Rocha", "text": "Qual a medida do ombro? Aceita R$ 50?", "time": "há 1 h"}]}, "Roupas infantis": {"seller": "Pedro Lima", "list": [{"who": "Marina Ribeiro", "text": "Serve para 4 anos? Posso buscar amanhã?", "time": "ontem"}, {"who": "*", "text": "Tem de 3 a 5 anos. Pode sim, fico em casa à tarde.", "time": "ontem"}]}};
+    const s = this.state;
+    const items = s.mine.concat(all).filter((i) => (s.cat === 'Todos' || i.cat === s.cat) && (!s.onlyMove || i.move))
+      .map((i) => {
+        const base = COMMENTS[i.t] || { seller: 'Você', list: [] };
+        const extra = (s.added || {})[i.t] || [];
+        const list = base.list.concat(extra).map((c) => {
+          const seller = c.who === '*';
+          const who = seller ? base.seller : c.who;
+          return { who: who, text: c.text, time: c.time, seller: seller, ini: who.charAt(0), bg: seller ? '#FBE6DA' : (c.me ? '#DCEDE2' : '#DFE9F5'), fg: seller ? '#8E3714' : (c.me ? '#17432F' : '#24578C') };
+        });
+        const open = s.openC === i.t;
+        return Object.assign({ pending: false }, i, {
+          priceColor: i.donate ? '#1E5B40' : '#13241B',
+          is: { [i.k || 'novo']: true },
+          comments: list,
+          cLabel: list.length ? list.length + (list.length > 1 ? ' comentários' : ' comentário') : 'Sem comentários ainda',
+          open: open,
+          openAttr: open ? 'true' : 'false',
+          chatBg: open ? '#DCEDE2' : '#F4F6F1',
+          toggleC: () => this.setState({ openC: this.state.openC === i.t ? null : i.t, draft: '' }),
+          send: () => {
+            const txt = (this.state.draft || '').trim();
+            if (!txt) return;
+            const a = Object.assign({}, this.state.added || {});
+            a[i.t] = (a[i.t] || []).concat([{ who: 'Lucca Ribeiro (você)', text: txt, time: 'agora', me: true }]);
+            this.setState({ added: a, draft: '' });
+          }
+        });
+      });
+    const cats = ['Todos', 'Móveis', 'Eletrônicos', 'Roupas', 'Livros', 'Esportes'].map((label) => {
+      const on = label === s.cat;
+      return {
+        label: label,
+        pressed: on ? 'true' : 'false',
+        bg: on ? '#13241B' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#13241B',
+        border: on ? '#13241B' : '#D5DDD6',
+        pick: () => this.setState({ cat: label })
+      };
+    });
+    const mk = (labels, cur, key) => labels.map((label) => { const on = label === cur; return { label: label, pressed: on ? 'true' : 'false', bg: on ? '#13241B' : '#FFFFFF', fg: on ? '#FFFFFF' : '#13241B', border: on ? '#13241B' : '#C9D2CB', pick: () => this.setState({ [key]: label }) }; });
+    const miss = [];
+    if (!s.fPhoto) miss.push('foto');
+    if (!(s.fTitle || '').trim()) miss.push('o que é');
+    if (s.fKind === 'Vender' && !s.fPrice) miss.push('preço');
+    const ready = miss.length === 0;
+    const RK = {"Vendedores": [["Rafael Moura", "38 vendas · responde rápido", 4.9, 64, "avaliações"], ["Carla Mendes", "33 vendas", 4.9, 52, "avaliações"], ["Helena Castro", "29 vendas · selo mudança", 4.8, 47, "avaliações"], ["Gustavo Pires", "26 vendas", 4.8, 40, "avaliações"], ["Bruno Santos", "24 vendas", 4.7, 36, "avaliações"], ["Juliana Costa", "21 vendas", 4.7, 31, "avaliações"], ["Marcos Pereira", "19 vendas", 4.6, 28, "avaliações"], ["Sandra Melo", "17 vendas · doa muito", 4.6, 25, "avaliações"], ["José Ferreira", "15 vendas", 4.5, 22, "avaliações"], ["Fernanda Dias", "13 vendas", 4.3, 19, "avaliações"]], "Mais vendidos": [["Geladeiras", "Eletrônicos", null, 14, "vendas"], ["Sofás", "Móveis", null, 12, "vendas"], ["Bicicletas", "Esportes", null, 11, "vendas"], ["Mesas com cadeiras", "Móveis", null, 9, "vendas"], ["Micro-ondas", "Eletrônicos", null, 9, "vendas"], ["Guarda-roupas", "Móveis", null, 8, "vendas"], ["Livros de vestibular", "Livros · doação", null, 8, "doações"], ["TVs", "Eletrônicos", null, 7, "vendas"], ["Ventiladores", "Eletrônicos", null, 6, "vendas"], ["Roupas infantis", "Roupas · doação", null, 6, "doações"]]};
+    const RK_T = {"Vendedores": "Ranking · Top 10 vendedores", "Mais vendidos": "Ranking · Top 10 vendas"};
+    const RK_TAB = () => this.state.rkTab || "Vendedores";
+    return {
+      cats: cats,
+      rkTitle: RK_T[RK_TAB()],
+      rkTabs: Object.keys(RK).length > 1 ? Object.keys(RK).map((k) => ({ label: k, pressed: k === RK_TAB() ? 'true' : 'false', bg: k === RK_TAB() ? '#FFFFFF' : 'transparent', pick: () => this.setState({ rkTab: k }) })) : [],
+      rkList: RK[RK_TAB()].slice(0, this.state.rkOpen ? 10 : 3).map((p, i) => {
+        const stars = p[2] === null ? 0 : Math.round(p[2]);
+        const medal = [['#FFD27A', '#13241B'], ['#DCE3E8', '#13241B'], ['#E9C3A0', '#13241B']][i] || ['#F4F6F1', '#4F5E55'];
+        return { pos: String(i + 1), posBg: medal[0], posFg: medal[1], name: p[0], meta: p[1], ini: p[0].charAt(0), avBg: ['#DCEDE2', '#DFE9F5', '#FBE6DA', '#ECE4F5', '#F8EDC9'][i % 5], avFg: ['#17432F', '#24578C', '#8E3714', '#5B3A8C', '#6B4D05'][i % 5],
+          hasStars: p[2] !== null, full: '★'.repeat(stars), empty: '★'.repeat(5 - stars), aria: p[2] === null ? '' : p[2].toFixed(1).replace('.', ',') + ' de 5 estrelas',
+          score: p[2] === null ? p[3] + ' ' + p[4] : p[2].toFixed(1).replace('.', ',') + ' · ' + p[3] + ' ' + p[4] };
+      }),
+      rkAttr: this.state.rkOpen ? 'true' : 'false',
+      rkLabel: this.state.rkOpen ? 'Mostrar só o top 3' : 'Ver o top 10 completo',
+      rkToggle: () => this.setState({ rkOpen: !this.state.rkOpen }),
+
+      draft: s.draft,
+      setDraft: (e) => this.setState({ draft: e.target.value }),
+      items: items,
+      empty: items.length === 0,
+      moveAttr: s.onlyMove ? 'true' : 'false',
+      trackBg: s.onlyMove ? '#B4471C' : '#9AA69F',
+      knobSide: s.onlyMove ? 'flex-end' : 'flex-start',
+      toggleMove: () => this.setState({ onlyMove: !this.state.onlyMove }),
+      toast: s.toast,
+      showForm: s.form,
+      openForm: () => this.setState({ form: true, toast: false }),
+      closeForm: () => this.setState({ form: false }),
+      togglePhoto: () => this.setState({ fPhoto: !this.state.fPhoto }),
+      photoBg: s.fPhoto ? '#FBE6DA' : '#F4F6F1',
+      photoBorder: s.fPhoto ? '2px solid #B4471C' : '2px dashed #9AA69F',
+      photoLabel: s.fPhoto ? 'Foto adicionada · toque para trocar' : 'Adicionar fotos',
+      fTitle: s.fTitle,
+      setTitle: (e) => this.setState({ fTitle: e.target.value }),
+      fPrice: s.fPrice,
+      setPrice: (e) => this.setState({ fPrice: e.target.value.replace(/[^0-9]/g, '') }),
+      fCats: mk(['Móveis', 'Eletrônicos', 'Roupas', 'Livros', 'Esportes'], s.fCat, 'fCat'),
+      fKinds: mk(['Vender', 'Doar'], s.fKind, 'fKind'),
+      isSell: s.fKind === 'Vender',
+      isDonate: s.fKind === 'Doar',
+      fMoveAttr: s.fMove ? 'true' : 'false',
+      fMoveTrack: s.fMove ? '#B4471C' : '#9AA69F',
+      fMoveKnob: s.fMove ? 'flex-end' : 'flex-start',
+      toggleFMove: () => this.setState({ fMove: !this.state.fMove }),
+      fMissing: ready ? ' ' : 'Falta: ' + miss.join(', '),
+      pubBg: ready ? '#B4471C' : '#C9D2CB',
+      pubFg: ready ? '#FFFFFF' : '#4F5E55',
+      publish: () => {
+        if (!ready) return;
+        const st = this.state;
+        const tints = { 'Móveis': '#FBE6DA', 'Eletrônicos': '#DFE9F5', 'Roupas': '#ECE4F5', 'Livros': '#F8EDC9', 'Esportes': '#E3EEDC' };
+        const ad = { t: st.fTitle.trim(), cat: st.fCat, price: st.fKind === 'Doar' ? 'Grátis' : 'R$ ' + st.fPrice, move: st.fMove, donate: st.fKind === 'Doar', tint: tints[st.fCat], pending: false };
+        this.setState({ mine: [ad].concat(st.mine), form: false, toast: true, cat: 'Todos', onlyMove: false, fTitle: '', fPrice: '', fMove: false, fPhoto: false, fKind: 'Vender' });
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

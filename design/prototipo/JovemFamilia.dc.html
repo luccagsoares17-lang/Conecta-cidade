@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Conecta Cidade Jovem – Família</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input{font-family:inherit}
+.sc > *{flex-shrink:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+
+  <div style="padding: 52px 20px 8px 20px; display: flex; align-items: center; gap: 12px; flex-shrink: 0">
+    <span style="display: flex; flex-direction: column; flex-grow: 1"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.4px">Família</span><span style="font-size: 13px; color: #4F5E55">Rua Japurá, 12 · código CKS-4821</span></span>
+    <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; background: #FBE6DA; color: #8E3714; padding: 6px 10px; border-radius: 8px">Jovem</span>
+  </div>
+
+  <div class="sc" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 6px 20px 24px 20px; display: flex; flex-direction: column; gap: 12px">
+
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Quem mora com você</span>
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 4px 14px; display: flex; flex-direction: column">
+      <sc-for list="{{members}}" as="m" hint-placeholder-count="3">
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1EC">
+          <span style="width: 46px; height: 46px; border-radius: 23px; background: {{m.bg}}; color: {{m.fg}}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 17px; flex-shrink: 0">{{m.ini}}</span>
+          <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px">{{m.name}}</span><span style="font-size: 13px; color: #4F5E55">{{m.role}}</span></span>
+          <span style="font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px; background: {{m.tagBg}}; color: {{m.tagFg}}">{{m.tag}}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px; margin-top: 4px">Pedir para participar</span>
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+      <span style="font-size: 14px; color: #4F5E55">Escolha o que você quer fazer. O pedido vai para os gestores da casa.</span>
+      <span style="font-size: 13px; font-weight: 700">O que é</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-for list="{{kinds}}" as="c" hint-placeholder-count="4">
+          <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+        </sc-for>
+      </div>
+      <span style="font-size: 13px; font-weight: 700">Qual</span>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <sc-for list="{{options}}" as="o" hint-placeholder-count="3">
+          <button onClick="{{o.pick}}" aria-pressed="{{o.pressed}}" style="border: 2px solid {{o.border}}; cursor: pointer; text-align: left; min-height: 48px; padding: 8px 12px; border-radius: 14px; background: {{o.bg}}; color: #13241B; display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 700; font-size: 14px">{{o.label}}</span><span style="font-size: 12px; color: #4F5E55">{{o.sub}}</span></button>
+        </sc-for>
+      </div>
+      <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="msg" style="font-size: 13px; font-weight: 700">Recado para a família (opcional)</label>
+        <input id="msg" type="text" value="{{msg}}" onChange="{{setMsg}}" placeholder="Ex.: vou com a turma do Comitê" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+      <button onClick="{{send}}" style="border: none; cursor: pointer; height: 52px; border-radius: 26px; font-weight: 700; font-size: 15px; background: {{sendBg}}; color: {{sendFg}}">Enviar pedido</button>
+    </div>
+
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px; margin-top: 4px">Meus pedidos</span>
+    <sc-for list="{{requests}}" as="r" hint-placeholder-count="3">
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 14px; display: flex; align-items: center; gap: 12px">
+        <span style="width: 12px; height: 40px; border-radius: 4px; background: {{r.color}}; flex-shrink: 0"></span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: #4F5E55">{{r.kind}}</span><span style="font-weight: 700; font-size: 15px">{{r.what}}</span><span style="font-size: 12px; color: #4F5E55">{{r.when}}</span></span>
+        <span style="font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px; background: {{r.stBg}}; color: {{r.stFg}}; flex-shrink: 0">{{r.st}}</span>
+      </div>
+    </sc-for>
+
+  </div>
+  <nav aria-label="Navegação principal" style="flex-shrink: 0; height: 80px; background: #FFFFFF; border-top: 1px solid #E2E7E0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px; box-sizing: border-box">
+    <a href="JovemInicio.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"></path></svg>Início</a>
+    <a href="JovemEventos.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>Eventos</a>
+    <a href="JovemTrilhas.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2.5 14 9h2.5L13 15h10l-3.5-6H22z"></path><path d="M18 15v6.5"></path><path d="M2 21.5h20"></path></svg>Trilhas</a>
+    <a href="JovemFamilia.dc.html" aria-current="page" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #B4471C; font-size: 11px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="7" r="3"></circle><circle cx="17" cy="9" r="2.4"></circle><path d="M2.5 20a5.5 5.5 0 0 1 11 0"></path><path d="M13.5 20a4 4 0 0 1 8 0"></path></svg>Família</a>
+    <a href="Login.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #4F5E55; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>Perfil</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { kind: 'Evento', opt: null, msg: '', mine: [] };
+  }
+  renderVals() {
+    const s = this.state;
+    const members = [
+      { name: 'Marina Ribeiro', role: 'Mãe · gestora da casa', ini: 'M', bg: '#DCEDE2', fg: '#17432F', tag: 'Gestora', tagBg: '#DCEDE2', tagFg: '#17432F' },
+      { name: 'Paulo Ribeiro', role: 'Pai · adulto da casa', ini: 'P', bg: '#DFE9F5', fg: '#24578C', tag: 'Adulto', tagBg: '#DFE9F5', tagFg: '#24578C' },
+      { name: 'Lucca Ribeiro (você)', role: '16 anos · perfil jovem', ini: 'L', bg: '#FBE6DA', fg: '#8E3714', tag: 'Jovem', tagBg: '#FBE6DA', tagFg: '#8E3714' },
+      { name: 'Davi Ribeiro', role: '15 anos · irmão', ini: 'D', bg: '#FBE6DA', fg: '#8E3714', tag: 'Jovem', tagBg: '#FBE6DA', tagFg: '#8E3714' }
+    ];
+    const OPTS = {
+      'Evento': [['CineFases', 'Sábado, 7/11, 19h · Clube do Núcleo'], ['Noite de Pizza', 'Sexta, 13/11, 19h30 · Salão de festas'], ['Torneio de videogame', 'Sábado, 5/12, 14h · Biblioteca']],
+      'Trilha': [['Trilha Uxi', 'Sem guia · sempre em grupo'], ['Trilha Lagoa da Mata', 'Guia obrigatório · 2,5 km'], ['Trilha Peito de Aço', 'Guia obrigatório · cachoeira']],
+      'Carona': [['Carona para Parauapebas', 'Com um vizinho do Núcleo'], ['Carona de volta para o Núcleo', 'Com um vizinho do Núcleo']],
+      'Desapego': [['Vender ou doar algo', 'Liberar o Desapego no meu perfil'], ['Comprar um item', 'Combinar a compra com a família']]
+    };
+    const kinds = ['Evento', 'Trilha', 'Carona', 'Desapego'].map((k) => {
+      const on = k === s.kind;
+      return { label: k, pressed: on ? 'true' : 'false', bg: on ? '#B4471C' : '#FFFFFF', fg: on ? '#FFFFFF' : '#13241B', border: on ? '#B4471C' : '#C9D2CB', pick: () => this.setState({ kind: k, opt: null }) };
+    });
+    const options = OPTS[s.kind].map((o) => {
+      const on = s.opt === o[0];
+      return { label: o[0], sub: o[1], pressed: on ? 'true' : 'false', bg: on ? '#FBE6DA' : '#F4F6F1', border: on ? '#B4471C' : 'transparent', pick: () => this.setState({ opt: o[0] }) };
+    });
+    const base = [
+      { kind: 'Evento', what: 'Olimpíadas Entre Fases', when: 'Pedido em 18/10', st: 'Liberado', color: '#1E5B40', stBg: '#DCEDE2', stFg: '#17432F' },
+      { kind: 'Carona', what: 'Carona para Parauapebas', when: 'Pedido em 19/10', st: 'Esperando a mãe', color: '#D4A017', stBg: '#F8EDC9', stFg: '#6B4D05' },
+      { kind: 'Trilha', what: 'Trilha Lagoa da Mata', when: 'Pedido em 12/10', st: 'Não liberado', color: '#9B1C10', stBg: '#FBDCD6', stFg: '#9B1C10' }
+    ];
+    const ready = !!s.opt;
+    return {
+      members: members,
+      kinds: kinds,
+      options: options,
+      msg: s.msg,
+      setMsg: (e) => this.setState({ msg: e.target.value }),
+      sendBg: ready ? '#B4471C' : '#C9D2CB',
+      sendFg: ready ? '#FFFFFF' : '#4F5E55',
+      send: () => {
+        if (!this.state.opt) return;
+        const r = { kind: this.state.kind, what: this.state.opt, when: 'Agora' + (this.state.msg ? ' · “' + this.state.msg + '”' : ''), st: 'Enviado', color: '#D4A017', stBg: '#F8EDC9', stFg: '#6B4D05' };
+        this.setState({ mine: [r].concat(this.state.mine), opt: null, msg: '' });
+      },
+      requests: s.mine.concat(base)
+    };
+  }
+}
+</script>
+</body>
+</html>

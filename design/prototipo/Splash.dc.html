@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Conecta Cidade – Abertura</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#FFFFFF}a:hover{color:#CFE3D7}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; padding: 0 28px 48px 28px; background: {{brand}}; font-family: 'DM Sans', system-ui, sans-serif; color: #FFFFFF; display: flex; flex-direction: column">
+
+  <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px">
+    <div style="width: 132px; height: 132px; border-radius: 34px; background: #FFFFFF; display: flex; align-items: center; justify-content: center">
+      <svg width="70" height="84" viewBox="0 0 100 120" role="img" aria-label="Símbolo do Conecta Cidade"><path d="M50 114 C50 114 12 74 12 46 A38 38 0 1 1 88 46 C88 74 50 114 50 114 Z" fill="{{brand}}"></path><path d="M34 36 L66 36 L50 62 Z" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round"></path><circle cx="34" cy="36" r="8" fill="#FFFFFF"></circle><circle cx="66" cy="36" r="8" fill="#FFFFFF"></circle><circle cx="50" cy="62" r="10" fill="{{accent}}"></circle></svg>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -1px">Conecta Cidade</span>
+      <span style="font-size: 13px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase; color: #CFE3D7">Núcleo Urbano de Carajás</span>
+    </div>
+    <span style="font-size: 17px; text-align: center; color: #FFFFFF; max-width: 280px; line-height: 1.4">Tudo o que acontece no Núcleo, num só lugar.</span>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 12px">
+    <a href="Login.dc.html" style="text-decoration: none; height: 54px; box-sizing: border-box; border-radius: 27px; background: #FFFFFF; color: {{brand}}; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center">Entrar</a>
+    <a href="Chegada.dc.html" style="text-decoration: none; height: 54px; box-sizing: border-box; border: 2px solid rgba(255,255,255,0.6); border-radius: 27px; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center">Acabei de chegar no Núcleo</a>
+    <span style="font-size: 12px; text-align: center; color: #CFE3D7; margin-top: 8px">Feito pelo Comitê Jovem Entre Fases</span>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"color","default":"#1E5B40","options":["#1E5B40","#17432F","#24578C"]},"accent":{"editor":"color","default":"#E07A3F","options":["#E07A3F","#D4A017","#C2562B"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      brand: this.props.brand ?? '#1E5B40',
+      accent: this.props.accent ?? '#E07A3F'
+    };
+  }
+}
+</script>
+</body>
+</html>
