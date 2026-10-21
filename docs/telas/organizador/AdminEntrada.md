@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Entrada |
 | Versão | V1 |
@@ -11,14 +11,14 @@
 | Tamanho | 390×844 |
 
 ## Para que serve
-Porta de entrada do app Conecta Cidade Organizadores. Pede "E-mail e código de acesso do convite"; a regra principal dos requisitos é "Sem convite, não entra".
+Porta de entrada do app Meu Carajás Organizadores. Pede "E-mail e código de acesso do convite"; a regra principal dos requisitos é "Sem convite, não entra".
 
 ## Conteúdo da tela (de cima para baixo)
 Fundo verde-escuro (`#13241B`), sem barra de navegação inferior.
 
 1. **Bloco da marca (centralizado)**
    - Ícone do app (alfinete de mapa branco com três pontos ligados, um deles laranja) num quadrado arredondado verde.
-   - Título "Conecta Cidade".
+   - Título "Meu Carajás Super App".
    - Selo amarelo "Organizadores".
    - Texto: "Onde a administração, a equipe de energia e os grupos da cidade publicam as informações do Núcleo."
 2. **Formulário**
@@ -48,7 +48,7 @@ Fundo verde-escuro (`#13241B`), sem barra de navegação inferior.
 Nenhum dado de exemplo é mostrado.
 
 ## Regras dos documentos que se aplicam
-- **Requisitos da V1 · Telas da versão 1 (Conecta Cidade Organizadores) · Entrada:** "E-mail e código de acesso do convite"; "Sem convite, não entra".
+- **Requisitos da V1 · Telas da versão 1 (Meu Carajás Organizadores) · Entrada:** "E-mail e código de acesso do convite"; "Sem convite, não entra".
 - **Requisitos da V1 · Perfis e permissões:** Administração do Núcleo, Organizador de eventos e Comitê Jovem Entre Fases entram por "Convite com código de acesso".
 - **Requisitos da V1 · Requisitos gerais · Segurança:** "código de acesso de organizador vale uma vez".
 - **Requisitos da V1 · Requisitos gerais · Acessibilidade:** botões de pelo menos 44 px (o botão tem 54 px e o link secundário 44 px de altura).
@@ -64,4 +64,4 @@ Nenhum dado de exemplo é mostrado.
 - A frase "Onde a administração, a equipe de energia e os grupos da cidade publicam…" cita a equipe de energia, que é Fase 2. O texto da V1 precisa ser decidido (ver Divergências).
 - O campo de código usa `type="password"` (o texto fica oculto ao digitar).
 - O comportamento de erro (sem convite, código inválido ou já usado) não está desenhado. Os requisitos exigem a recusa, mas não dão o texto das mensagens.
-- O `<title>` do arquivo é "Conecta Cidade Organizadores – Entrada".
+- O `<title>` do arquivo é "Meu Carajás Organizadores – Entrada".

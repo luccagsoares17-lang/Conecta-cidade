@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 |
@@ -14,7 +14,7 @@
 Ver no mapa do Núcleo, por trecho de rua, as casas que precisam de reforma, as casas vazias e os pedidos de serviço (corte de grama, poda), e mandar a equipe para cada pedido. É a área "Casas e manutenção", que os requisitos colocam na Fase 2.
 
 ## Conteúdo da tela (de cima para baixo)
-1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Conecta Cidade Organizadores"; título "Casas e manutenção"; subtítulo "Reformas, casas vazias e serviços".
+1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Meu Carajás Organizadores"; título "Casas e manutenção"; subtítulo "Reformas, casas vazias e serviços".
 2. **Três cards-filtro** com contagem: "Reformas" (laranja), "Vazias" (cinza), "Serviços" (azul claro).
 3. Botão **"Mostrar todas"**, que só aparece quando um filtro está ativo.
 4. **Card "Mapa das casas"** — à direita "por trecho de rua".
@@ -88,7 +88,7 @@ A tela é aberta pelo atalho "Casas · Reformas e serviços" do Painel.
 - *Requisitos*, "Objetivo e escopo": "Casas e manutenção" fica na Fase 2. O critério da V1 é não depender de dados ou equipes de fora do grupo.
 - *Requisitos*, "Fase 2 e perguntas em aberto": "casas e manutenção" está na lista da Fase 2, "já desenhadas no protótipo". Pergunta em aberto sobre a divisão das 18 ruas em 3 quarteirões.
 - *Requisitos*, "Dados que o sistema guarda": Casa é vista por "Gestores da casa e administração". Ruas e quarteirões ficam em tabela própria, "de Acará a Tapajós".
-- *Conecta Cidade: o aplicativo* e *Desapego*: muitas famílias "chegam e vão embora por causa de transferência de trabalho". É o contexto de "Família transferida em outubro" e "Pronta para receber nova família".
+- *Meu Carajás Super App: o aplicativo* e *Desapego*: muitas famílias "chegam e vão embora por causa de transferência de trabalho". É o contexto de "Família transferida em outubro" e "Pronta para receber nova família".
 
 ## Divergências entre protótipo e documentos
 1. **Sem descrição nos documentos.** Nenhum documento-fonte descreve a área "Casas e manutenção" além do nome na tabela de escopo e na lista da Fase 2. Categorias, equipes, prazos e o botão "Mandar equipe" existem só no protótipo.

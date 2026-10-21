@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
+| App | Meu Carajás Super App (morador) |
 | Página do canvas | `morador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 ("Trilhas com agenda" está só na coluna Fase 2 da tabela de escopo dos requisitos) |
@@ -16,7 +16,7 @@ Versão para quem vem de fora do Núcleo da tela de trilhas da Floresta Nacional
 ## Conteúdo da tela (de cima para baixo)
 O markup é o mesmo de [`Trilhas.md`](Trilhas.md), com estas diferenças:
 
-1. **Título da página HTML**: "Conecta Cidade – Trilhas para visitantes".
+1. **Título da página HTML**: "Meu Carajás Super App – Trilhas para visitantes".
 2. **Cabeçalho**: botão de voltar (`aria-label="Voltar"`) leva a `Chegada.dc.html`; título "Trilhas", subtítulo "Floresta Nacional de Carajás" e uma etiqueta "Visitante". Não há barra de navegação inferior.
 3. **Card de autorização** (no lugar de "Precisa de autorização?"): título "Você vem de fora do Núcleo" e o texto "Para entrar na Floresta Nacional de Carajás, emita a autorização de visitação no site do ICMBio Carajás antes de vir. Na portaria (PA-275), leve documento com foto e CPF." ("autorização de visitação" em destaque). Link "Emitir autorização no site do ICMBio" (`https://flonacarajas.com.br`, nova aba).
 

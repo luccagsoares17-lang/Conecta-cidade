@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Alcance do aviso |
 | Versão | V1 com partes ocultas até a Fase 2 |
@@ -18,7 +18,7 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
 
 1. **Cabeçalho**
    - Botão de voltar (seta, `aria-label="Voltar para o painel"`).
-   - Rótulo "Conecta Cidade Organizadores".
+   - Rótulo "Meu Carajás Organizadores".
    - Título "Alcance do aviso".
    - Subtítulo com o nome do aviso: "Interrupção no fornecimento de água".
 2. **Etiqueta** "Dados de exemplo".
@@ -29,7 +29,7 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
    - Nota: "A linha preta marca a meta do Plano de Comunicação."
 4. **Seção "Por rua"**: uma linha por rua, com nome, "<porcentagem> · <situação>" e uma barra de progresso.
 5. **Seção "Por canal"**: grade 2×2 com:
-   - "App Conecta Cidade" 61%.
+   - "App Meu Carajás Super App" 61%.
    - "SMS" 12%.
    - "Representantes de rua" 5%.
    - "Ainda não viram" 22%, em vermelho.
@@ -71,7 +71,7 @@ Chega-se a esta tela pelo Painel: o card "Aviso de água abaixo da meta", a ferr
 | --- | --- |
 | Nome do aviso, ruas ("Ruas Japurá, Jari e Juruá"), "publicado há 9 h" | Aviso (o quê, ruas, data de envio) |
 | % das casas que viram, no total e por rua | Entrega do aviso (casa, visto), com a rua vinda do registro Casa |
-| Por canal: App Conecta Cidade, SMS | Entrega do aviso (canal, enviado, visto) |
+| Por canal: App Meu Carajás Super App, SMS | Entrega do aviso (canal, enviado, visto) |
 | Por canal: Representantes de rua | **Sem registro correspondente** (representantes de rua são Fase 2) |
 | "Ainda não viram" | Entrega do aviso (visto = não) |
 | Meta "95% em 24 h" | Não é campo de registro. É uma regra (requisitos e Plano de Comunicação) |
@@ -109,4 +109,4 @@ Chega-se a esta tela pelo Painel: o card "Aviso de água abaixo da meta", a ferr
 - A meta deve seguir o nível do aviso: 24 horas para importante e 2 horas para urgente, como dizem os requisitos. O protótipo só desenha a de 24 h.
 - O reenvio, pelos requisitos, é por SMS, só para quem não abriu o aviso no app, sem repetir SMS para o mesmo número (regras de envio 3 e 4). Como conciliar as regras 3 e 4 não está descrito nos documentos.
 - Os limites de cor e situação (90% → "quase lá"; abaixo → "atrasada") são do script do protótipo. Os documentos não definem esses limites.
-- O `<title>` do arquivo é "Conecta Cidade Organizador – Alcance".
+- O `<title>` do arquivo é "Meu Carajás Organizadores – Alcance".

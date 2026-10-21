@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") |
 | Nome na lista "Telas da versão 1" dos requisitos | Entrar |
 | Versão | V1 |
 | Perfil que vê | Gestor da casa, Adulto e Jovem (antes de entrar) |
@@ -16,7 +16,7 @@ Tela de entrada do app do morador. Nos requisitos: "Abas Gestor da casa e Morado
 ## Conteúdo da tela (de cima para baixo)
 Fundo `#F4F6F1`, texto `#13241B`, DM Sans. O conteúdo rola na vertical.
 
-1. **Marca:** símbolo do Conecta Cidade (30×36 px, pino `#1E5B40`, ponto `#E07A3F`) + "Conecta Cidade" (Bricolage Grotesque, 800, 20 px).
+1. **Marca:** símbolo do Meu Carajás Super App (30×36 px, pino `#1E5B40`, ponto `#E07A3F`) + "Meu Carajás Super App" (Bricolage Grotesque, 800, 20 px).
 2. **Título** "Entrar" (Bricolage Grotesque, 800, 30 px) e **subtítulo** "Escolha seu perfil e use o e-mail ou celular do cadastro."
 3. **Seletor de perfil** (duas abas em fundo `#E2E7E0`, botões de 46 px com `aria-pressed`):
    - "Gestor da casa" (ativa: fundo `#1E5B40`, texto branco)
@@ -38,7 +38,7 @@ Fundo `#F4F6F1`, texto `#13241B`, DM Sans. O conteúdo rola na vertical.
    - Botão-link com borda na cor da aba: "Criar conta de gestor ou adulto" (aba gestor) ou "Criar conta de jovem" (aba jovem).
    - Botão de texto "ou faça o cadastro pelo WhatsApp" (sem ação ligada).
    - "Comunicados e alertas do Núcleo chegam por SMS." (12 px).
-6. **Link de rodapé:** "Sou organizador · abrir o Conecta Cidade Organizadores" (13 px, `#4F5E55`).
+6. **Link de rodapé:** "Sou organizador · abrir o Meu Carajás Organizadores" (13 px, `#4F5E55`).
 
 Não há barra de navegação inferior.
 
@@ -97,7 +97,7 @@ Trocar de aba, editar o e-mail/celular ou editar a senha limpam `tried` e `forgo
 | "Entrar como {nome}" (aba jovem) | `JovemInicio.dc.html` |
 | "Criar conta de gestor ou adulto" (bloco de cadastro e caixa de aviso, aba gestor) | `CadastroGestor.dc.html` |
 | "Criar conta de jovem" (bloco de cadastro e caixa de aviso, aba jovem) | `CadastroJovem.dc.html` |
-| "Sou organizador · abrir o Conecta Cidade Organizadores" | `AdminEntrada.dc.html` |
+| "Sou organizador · abrir o Meu Carajás Organizadores" | `AdminEntrada.dc.html` |
 
 Telas do protótipo que levam para esta: `Splash.dc.html`, `CadastroGestor.dc.html` e `CadastroJovem.dc.html` (voltar), `JovemInicio.dc.html` e `JovemFamilia.dc.html`.
 
@@ -123,7 +123,7 @@ Telas do protótipo que levam para esta: `Splash.dc.html`, `CadastroGestor.dc.ht
 1. **Dicas das abas citam áreas da Fase 2:** a aba gestor diz "acesso completo, energia e permissões dos jovens" e a aba jovem diz "eventos, trilhas e oportunidades". Energia e Trilhas são Fase 2 nos requisitos. Para o jovem, os requisitos listam "Eventos, Guia e oportunidades e avisos informativos e importantes; Desapego só se o gestor liberar".
 2. **Onde entra o adulto:** os requisitos têm o perfil "Adulto da casa", mas a tela só tem as abas "Gestor da casa" e "Morador jovem". O botão da aba gestor diz "Criar conta de gestor ou adulto", mas a lógica só compara `gestor` e `jovem` e não há conta de exemplo de adulto; os documentos não dizem em qual aba o adulto entra.
 3. **"Esqueci minha senha":** a recuperação de senha por código ("Mandamos um código para…") não aparece nos documentos.
-4. **Link para o app de organizadores:** "Sou organizador · abrir o Conecta Cidade Organizadores" liga o app do morador ao app Organizadores; os requisitos descrevem dois apps separados e não falam desse atalho.
+4. **Link para o app de organizadores:** "Sou organizador · abrir o Meu Carajás Organizadores" liga o app do morador ao app Organizadores; os requisitos descrevem dois apps separados e não falam desse atalho.
 5. **Quando o cadastro é oferecido:** a mensagem "✕ Não encontramos cadastro…" aparece na hora, mas a caixa com o botão de criar conta só aparece depois de tocar em "Entrar"; o bloco "Ainda não tem conta?" fica sempre visível. Os documentos só dizem "leva ao cadastro quando não existe".
 6. **Cadastro pelo WhatsApp sem ação:** o botão "ou faça o cadastro pelo WhatsApp" não tem ação nem número nesta tela (o número "(94) 99999-0100" aparece só nas telas de cadastro).
 

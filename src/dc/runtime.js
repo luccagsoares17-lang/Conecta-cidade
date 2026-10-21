@@ -1,4 +1,4 @@
-// Motor das telas do protótipo (formato .dc.html do artefato "Conecta Cidade – Interface do App").
+// Motor das telas do protótipo (formato .dc.html do artefato "Meu Carajás – Interface do App").
 //
 // Lê cada arquivo de design/prototipo/ do jeito que ele foi publicado e o desenha com React,
 // seguindo as mesmas regras do editor do artefato:

@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` (o board não tem a chave `page` no `canvas.json`, então fica na primeira página, "Conecta Cidade") |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` (o board não tem a chave `page` no `canvas.json`, então fica na primeira página, "Meu Carajás Super App") |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 ("Carona (moradores e visitantes)" está só na coluna Fase 2 da tabela de escopo dos requisitos) |
 | Perfil que vê | Gestor da casa (título do board: "Carona · gestor") |
@@ -40,7 +40,7 @@ Carona entre moradores do Núcleo de Carajás e Parauapebas: procurar uma carona
   | Marcos Pereira | Amanhã, 12h | 3 vagas | ★ 4,6 · 6º no ranking |
   | Carla Mendes | Sábado, 8h · feira de Parauapebas | 2 vagas | ★ 4,5 · 7º no ranking |
   | Thiago Rocha | Sábado, 14h | 3 vagas | ★ 4,4 · 8º no ranking |
-  | Lívia Martins | Domingo, 9h | 1 vaga | Nova no Conecta Cidade |
+  | Lívia Martins | Domingo, 9h | 1 vaga | Nova no Meu Carajás Super App |
   | Gustavo Pires | Segunda, 6h45 · horário de trabalho | 2 vagas | ★ 3,9 · 10º no ranking |
 
 - **"Pedir vaga"**: alterna o pedido daquela carona (`asked[id]`). Tocar de novo em "Pedido enviado" desfaz o pedido. Não há confirmação nem envio real.
@@ -62,7 +62,7 @@ Telas que apontam para esta: `Main.dc.html` (atalho "Carona · Para Parauapebas"
 | Pedido de vaga | **Sem registro** | |
 | Nota, número de avaliações, posição no ranking, total de caronas do motorista | **Sem registro** | |
 | Descrições do motorista ("sai cedo", "carro com ar") | **Sem registro** | |
-| Marca "Nova no Conecta Cidade" | **Sem registro** | Os requisitos não definem quando um motorista é "novo" |
+| Marca "Nova no Meu Carajás Super App" | **Sem registro** | Os requisitos não definem quando um motorista é "novo" |
 
 ## Regras dos documentos que se aplicam
 - "Conecta Cidade: requisitos da versão 1", "Objetivo e escopo": "Carona (moradores e visitantes)" é Fase 2.

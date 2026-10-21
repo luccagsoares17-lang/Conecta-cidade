@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
+| App | Meu Carajás Super App (morador) |
 | Página do canvas | `morador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 (a linha "Acabei de chegar" diz que "A carona para visitantes fica desativada na versão 1") |
 | Versão | Fase 2 ("Carona (moradores e visitantes)" está só na coluna Fase 2 da tabela de escopo dos requisitos) |

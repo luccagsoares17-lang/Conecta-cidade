@@ -12,8 +12,8 @@ Ligar as famílias do Núcleo Urbano de Carajás a uma **fonte única de avisos 
 
 | App | Para quem |
 | --- | --- |
-| **Conecta Cidade** | Moradores (gestor da casa, adulto, jovem) |
-| **Conecta Cidade Organizadores** | Quem publica (Administração do Núcleo, organizadores de eventos, Comitê Jovem) |
+| **Meu Carajás Super App** | Moradores (gestor da casa, adulto, jovem) |
+| **Meu Carajás Organizadores** | Quem publica (Administração do Núcleo, organizadores de eventos, Comitê Jovem) |
 
 ## Tabela de escopo
 

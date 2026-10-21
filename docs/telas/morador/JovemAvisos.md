@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") — conforme `design/prototipo/canvas.json` |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") — conforme `design/prototipo/canvas.json` |
 | Nome na lista "Telas da versão 1" dos requisitos | Avisos |
 | Versão | V1 com partes ocultas até a Fase 2 (o botão "Ver no mapa" leva à Energia, que é Fase 2) |
 | Perfil que vê | Jovem |
@@ -96,7 +96,7 @@ Só se chega a esta tela pelo card "Avisos" de `JovemInicio.dc.html`.
 - **Requisitos › Dados › Entrega do aviso:** "Aviso, casa, canal, enviado, visto".
 - **Requisitos › SMS e WhatsApp:** SMS "Obrigatório nos níveis urgente, importante e informativo; vai para o celular do cadastro". Regra de envio 1: "Urgente: SMS... para todos os gestores das ruas escolhidas".
 - **Requisitos › Objetivo e escopo:** "Energia e mapa por quarteirão" é Fase 2.
-- **Conecta Cidade: o aplicativo › Avisos do Núcleo:** "Avisos com selo de 'oficial'"; "Categorias: obras, falta de água, coleta de lixo, segurança e mudanças de horário"; "Histórico de avisos para quem perdeu algum".
+- **Meu Carajás Super App: o aplicativo › Avisos do Núcleo:** "Avisos com selo de 'oficial'"; "Categorias: obras, falta de água, coleta de lixo, segurança e mudanças de horário"; "Histórico de avisos para quem perdeu algum".
 - **Plano de Comunicação › Modelo padrão de aviso:** o quê, quando, onde, o que fazer e "DÚVIDAS: (94) 0000-0000 – Administração do Núcleo".
 - **Falta de energia no Núcleo › Como funciona:** "nos desligamentos programados... o app lembra os moradores na véspera".
 

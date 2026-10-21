@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Publicar |
 | Versão | V1 com partes ocultas até a Fase 2 |
@@ -208,7 +208,7 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola. Os blocos mar
   - Verde: WhatsApp, murais, redes sociais, escolas.
   - "O nível vai escrito no início de cada aviso."
 - **Plano de Comunicação · Modelo padrão de aviso · Regras de escrita:** frases curtas, sem siglas, data com dia da semana, sempre um contato para dúvidas.
-- **Conecta Cidade: o aplicativo · Avisos do Núcleo:**
+- **Meu Carajás Super App: o aplicativo · Avisos do Núcleo:**
   - Categorias: "obras, falta de água, coleta de lixo, segurança e mudanças de horário".
   - "só os urgentes fazem o celular tocar".
 - **Requisitos da V1 · Dados · Evento:** nome, organizador, data e hora, local, interesse, ingresso solidário, vagas, situação (esperando aprovação, publicado), confirmações.
@@ -235,7 +235,7 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola. Os blocos mar
 - **Adultos não aparecem na dica de "Todos os moradores"** ("Gestores da casa e jovens recebem."), embora o perfil Adulto da casa exista na V1.
 - **Ruas do aviso:** a regra de envio 1 manda o SMS urgente "para todos os gestores das ruas escolhidas", e o registro Aviso tem o campo "ruas". O tipo Aviso, porém, não tem seleção de ruas (só o campo livre "Onde"). A seleção de ruas existe apenas no tipo Energia (Fase 2).
 - **Contato:** o registro Aviso tem "contato", mas não há campo para ele. O texto padrão usa um "DÚVIDAS: (94) 0000-0000 – Administração do Núcleo" fixo.
-- **Categoria "Falta de luz"** não está na lista de categorias do documento "Conecta Cidade: o aplicativo" (obras, falta de água, coleta de lixo, segurança e mudanças de horário). Os requisitos da V1 não listam categorias.
+- **Categoria "Falta de luz"** não está na lista de categorias do documento "Meu Carajás Super App: o aplicativo" (obras, falta de água, coleta de lixo, segurança e mudanças de horário). Os requisitos da V1 não listam categorias.
 - **Formato "Imagem" e "link para abrir a imagem no app" pelo SMS:** não aparecem em nenhum documento nem no registro Aviso.
 - **Publicação de evento sem aprovação:** a mensagem "Publicado! Já aparece no app dos moradores." aparece para qualquer tipo. Os requisitos dizem que eventos do Organizador de eventos "passam pela aprovação da administração". O protótipo não mostra o caminho "esperando aprovação".
 - **"Para quem", rascunho e agendamento em Evento:** os cards "Para quem" e "Quando publicar" aparecem para todos os tipos. O registro Evento não tem público, e sua situação não prevê rascunho nem agendado.
@@ -251,4 +251,4 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola. Os blocos mar
 - O botão "Copiar texto para SMS e murais" só mostra o texto no protótipo.
 - "(94) 0000-0000" é um número provisório. O telefone oficial é pergunta em aberto nos requisitos.
 - A lista de 18 ruas (Acará a Tapajós) vem da tabela própria de ruas e quarteirões citada nos requisitos.
-- O `<title>` do arquivo é "Conecta Cidade Organizador – Publicar".
+- O `<title>` do arquivo é "Meu Carajás Organizadores – Publicar".

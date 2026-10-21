@@ -1,4 +1,4 @@
-// API do Conecta Cidade. Uma função só na Vercel (api/index.js) atende todas as rotas abaixo.
+// API do Meu Carajás Super App. Uma função só na Vercel (api/index.js) atende todas as rotas abaixo.
 // Regras: docs/produto/perfis-e-permissoes.md e docs/produto/canais-de-comunicacao.md.
 
 import { horarioAgendado } from './agenda.js';

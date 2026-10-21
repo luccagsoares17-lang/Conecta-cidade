@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") — conforme `design/prototipo/canvas.json` |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") — conforme `design/prototipo/canvas.json` |
 | Nome na lista "Telas da versão 1" dos requisitos | Eventos |
 | Versão | V1 |
 | Perfil que vê | Jovem |
@@ -76,7 +76,7 @@ Chegam a esta tela: o card "Eventos" e o item "Eventos" da barra de `JovemInicio
 - **Requisitos › SMS e WhatsApp › Notificação do app:** "Todo aviso e evento publicado".
 - **Eventos no Conecta Cidade › Como funciona:** "O morador toca em 'Eu vou' e vê quantas pessoas já confirmaram"; "No dia, o app manda um lembrete com o horário e o local".
 - **Eventos no Conecta Cidade › Funcionalidades:** "Selo 'oficial': eventos da administração do Núcleo e da Vale aparecem marcados".
-- **Conecta Cidade: o aplicativo › Eventos que vão acontecer:** "data, hora, local e quantas pessoas confirmaram"; "Filtro por interesse... cinema (57,7%), culinária (49,3%), videogame (45%), vôlei (41%) e futebol (30%)".
+- **Meu Carajás Super App: o aplicativo › Eventos que vão acontecer:** "data, hora, local e quantas pessoas confirmaram"; "Filtro por interesse... cinema (57,7%), culinária (49,3%), videogame (45%), vôlei (41%) e futebol (30%)".
 
 ## Divergências entre protótipo e documentos
 1. **O filtro não começa pelos interesses do cadastro.** A regra é "Mostra primeiro os interesses do cadastro". O protótipo abre em "Todos", com a lista na ordem fixa do script.

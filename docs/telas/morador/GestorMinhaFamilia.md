@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | Nenhuma. O arquivo existe em `design/prototipo/` (e no `design/prototipo.sha256`), mas não tem entrada em `boards` nem em `order` do `canvas.json`. O nome vem do `<title>` do arquivo: "Conecta Cidade – Minha família". |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | Nenhuma. O arquivo existe em `design/prototipo/` (e no `design/prototipo.sha256`), mas não tem entrada em `boards` nem em `order` do `canvas.json`. O nome vem do `<title>` do arquivo: "Meu Carajás Super App – Minha família". |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 (o conteúdo se sobrepõe em parte a "Minha casa") |
 | Versão | Não definida nos documentos. Arquivo fora do canvas; mistura conteúdo de "Minha casa" (V1) com pedidos de Carona e Trilha e o item Energia na barra (Fase 2). |
 | Perfil que vê | Gestor da casa (pelo texto da tela, que se dirige a quem libera os pedidos do jovem; o arquivo não diz o perfil) |

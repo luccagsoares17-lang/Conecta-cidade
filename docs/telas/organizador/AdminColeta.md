@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1. A lista da V1 tem uma tela "Coleta seletiva", mas ela é do app do morador, não do organizador |
 | Versão | Fase 2 (a tela inteira é a rota do caminhão; a parte da V1, a tabela de dias, não está nesta tela — ver "V1 × Fase 2") |
@@ -26,7 +26,7 @@ Acompanhar a rota do caminhão da coleta seletiva no dia: quantos trechos de rua
 Conclusão: nada nesta tela é da V1. Se a tela for mantida na V1, sobra só o título.
 
 ## Conteúdo da tela (de cima para baixo)
-1. **Cabeçalho** (fundo escuro): botão voltar (rótulo "Voltar para o painel"); "Conecta Cidade Organizadores"; título "Coleta seletiva"; subtítulo "Rota do caminhão hoje · recicláveis".
+1. **Cabeçalho** (fundo escuro): botão voltar (rótulo "Voltar para o painel"); "Meu Carajás Organizadores"; título "Coleta seletiva"; subtítulo "Rota do caminhão hoje · recicláveis".
 2. **Card de progresso** (escuro):
    - à esquerda "Terça · Recicláveis", à direita "Saiu às 7h";
    - número grande "<feitos> de <total> trechos coletados";
@@ -91,7 +91,7 @@ A tela é aberta pelo atalho "Coleta seletiva · Rota do caminhão" do Painel.
 - *Requisitos*, "Dados que o sistema guarda": ruas e quarteirões em tabela própria, "de Acará a Tapajós".
 - *Requisitos*, "SMS e WhatsApp": o SMS serve para "Comunicados e alertas", com "texto no modelo padrão"; "Um mesmo aviso não manda dois SMS para o mesmo número"; "O sistema guarda quantos SMS saíram por mês, porque o serviço cobra por mensagem".
 - *Plano de Comunicação*, "Os canais": SMS em massa "Somente avisos urgentes". "Modelo padrão de aviso": todo aviso segue o mesmo formato (o quê, quando, onde, o que fazer, dúvidas).
-- *Conecta Cidade: o aplicativo*, "Avisos do Núcleo": "coleta de lixo" é uma das categorias de aviso.
+- *Meu Carajás Super App: o aplicativo*, "Avisos do Núcleo": "coleta de lixo" é uma das categorias de aviso.
 
 ## Divergências entre protótipo e documentos
 1. **A tabela de dias da V1 não está aqui.** Os requisitos dizem que a coleta entra na V1 "só a tabela de dias". Esta tela do organizador só tem a rota (Fase 2). No app do organizador, a tabela de dias e o "Editar cronograma" ficam no Painel.

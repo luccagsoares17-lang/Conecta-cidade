@@ -1,12 +1,12 @@
-# CLAUDE.md — contexto do projeto Conecta Cidade
+# CLAUDE.md — contexto do projeto Meu Carajás Super App
 
 Leia este arquivo antes de qualquer tarefa neste repositório. Ele diz onde está cada informação e quais regras não podem ser quebradas.
 
 ## O projeto em 5 linhas
 
-- **Conecta Cidade** é o app do Núcleo Urbano de Carajás (PA), núcleo habitacional ligado à Vale, com muitas famílias que chegam e saem por transferência.
+- **Meu Carajás Super App** (antes "Conecta Cidade"; o app dos organizadores é o **Meu Carajás Organizadores**) é o app do Núcleo Urbano de Carajás (PA), núcleo habitacional ligado à Vale, com muitas famílias que chegam e saem por transferência.
 - Nasceu do projeto **Entre Fases** (escuta de dez/2025, Comitê Jovem de 49 jovens) para o **Shark Tank Carajás** (19–23/10/2026), respondendo ao desafio 1 da Vale (engajamento e pertencimento) e dando o primeiro passo no desafio 2 (smart city).
-- São **dois apps sobre o mesmo banco**: *Conecta Cidade* (moradores: gestor, adulto, jovem) e *Conecta Cidade Organizadores* (Administração do Núcleo, organizadores de eventos, Comitê Jovem).
+- São **dois apps sobre o mesmo banco**: *Meu Carajás Super App* (moradores: gestor, adulto, jovem) e *Meu Carajás Organizadores* (Administração do Núcleo, organizadores de eventos, Comitê Jovem).
 - A **V1** tem 13 telas no app do morador e 6 no do organizador, e vai para um **piloto de 30 dias** com os 49 jovens do Comitê e suas famílias.
 - Energia, casas, trilhas, carona, representantes de rua, pós-evento, impacto e rota da coleta são **Fase 2** — já desenhadas no protótipo.
 

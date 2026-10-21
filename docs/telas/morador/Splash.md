@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") — o board não tem campo `page` no `canvas.json`, então fica na primeira página. É o arquivo de abertura do canvas (`"launch": {"file": "Splash.dc.html"}`). |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") — o board não tem campo `page` no `canvas.json`, então fica na primeira página. É o arquivo de abertura do canvas (`"launch": {"file": "Splash.dc.html"}`). |
 | Nome na lista "Telas da versão 1" dos requisitos | Abertura |
 | Versão | V1 |
 | Perfil que vê | Qualquer pessoa antes de entrar (gestor da casa, adulto, jovem ou quem ainda não tem conta) |
@@ -17,8 +17,8 @@ Primeira tela do app do morador. Segundo os requisitos, mostra os "Botões Entra
 Fundo inteiro na cor de marca (`brand`, padrão `#1E5B40`), texto branco, fonte DM Sans.
 
 1. **Bloco central** (centralizado na vertical):
-   - Quadrado branco de 132×132 px com cantos de 34 px, contendo o símbolo do Conecta Cidade (pino de mapa na cor `brand`, triângulo de contorno branco ligando dois círculos brancos no alto e um círculo na cor `accent`, padrão `#E07A3F`, no vértice de baixo). `aria-label`: "Símbolo do Conecta Cidade".
-   - "Conecta Cidade" — Bricolage Grotesque, peso 800, 40 px.
+   - Quadrado branco de 132×132 px com cantos de 34 px, contendo o símbolo do Meu Carajás Super App (pino de mapa na cor `brand`, triângulo de contorno branco ligando dois círculos brancos no alto e um círculo na cor `accent`, padrão `#E07A3F`, no vértice de baixo). `aria-label`: "Símbolo do Meu Carajás Super App".
+   - "Meu Carajás Super App" — Bricolage Grotesque, peso 800, 40 px.
    - "Núcleo Urbano de Carajás" — 13 px, peso 700, caixa alta, espaçamento 2,2 px, cor `#CFE3D7`.
    - "Tudo o que acontece no Núcleo, num só lugar." — 17 px, centralizado.
 2. **Rodapé** (empilhado):

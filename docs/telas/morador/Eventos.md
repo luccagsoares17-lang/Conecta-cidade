@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | Primeira página (`morador`, "Conecta Cidade"). O board não tem a chave `page` no `canvas.json`. |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | Primeira página (`morador`, "Meu Carajás Super App"). O board não tem a chave `page` no `canvas.json`. |
 | Nome na lista "Telas da versão 1" dos requisitos | Eventos |
 | Versão | V1 |
 | Perfil que vê | Gestor da casa (título do board). Adultos também chegam pelo Início; o jovem tem uma tela própria, `JovemEventos.dc.html` ("Eventos · jovem"). |

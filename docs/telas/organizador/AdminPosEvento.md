@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 |
@@ -14,7 +14,7 @@
 Fazer o check-in de quem chega ao evento e, depois, publicar o resultado para os moradores: pessoas presentes, alimentos arrecadados, cestas montadas, destino da doação e fotos. O documento de eventos descreve o passo assim: "Depois do evento, o organizador pode postar fotos e o resultado, como os alimentos arrecadados". Os requisitos põem o pós-evento na Fase 2.
 
 ## Conteúdo da tela (de cima para baixo)
-1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Conecta Cidade Organizadores"; título "Depois do evento"; subtítulo "CineFases · Comitê Jovem".
+1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Meu Carajás Organizadores"; título "Depois do evento"; subtítulo "CineFases · Comitê Jovem".
 2. **Abas** (controle segmentado): "Check-in" e "Resultado".
 3. **Aba "Check-in"**:
    - card escuro com o número de presentes, a linha "pessoas na entrada · <n> de 6 confirmados" e o botão "+" (rótulo "Entrou alguém sem confirmação", legenda "sem confirmar");

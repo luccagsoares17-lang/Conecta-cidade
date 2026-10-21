@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` (o board não tem a chave `page` no `canvas.json`, então fica na primeira página, "Conecta Cidade") |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` (o board não tem a chave `page` no `canvas.json`, então fica na primeira página, "Meu Carajás Super App") |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 ("Trilhas com agenda" está só na coluna Fase 2 da tabela de escopo dos requisitos) |
 | Perfil que vê | Gestor da casa (título do board: "Trilhas · gestor") |

@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 |
@@ -14,7 +14,7 @@
 Tela do representante de rua do Plano de Comunicação: mostra o aviso que precisa ser repassado pessoalmente, a lista das casas da rua que não recebem pelo celular para marcar quem já foi avisado ("Você garante os últimos 5%") e os moradores novos que precisam de boas-vindas.
 
 ## Conteúdo da tela (de cima para baixo)
-1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Conecta Cidade Organizadores"; título "Representantes de rua"; subtítulo "Rua Jari · você é o representante".
+1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Meu Carajás Organizadores"; título "Representantes de rua"; subtítulo "Rua Jari · você é o representante".
 2. **Card do aviso**: etiquetas "Importante" (amarelo) e "Repassar pessoalmente"; título "Interrupção no fornecimento de água"; linha "Quinta-feira, 5/11, das 8h às 14h · Armazene água na quarta à noite".
 3. **Card de progresso** (escuro): "<n> de 5 casas avisadas", barra de progresso e "Casas que não recebem pelo celular. Você garante os últimos 5%."
 4. **Título "Casas para visitar"** e uma linha por casa (botão inteiro), com caixa de marcação, endereço, motivo e situação "Pendente" ou "Avisado":
@@ -75,7 +75,7 @@ Telas que trazem para cá: o atalho "Representantes · Porta a porta" do Painel 
 ## Divergências entre protótipo e documentos
 1. **Perfil novo.** A tela é do app Organizadores, mas quem a usa é o representante de rua ("você é o representante"), que o Plano define como "morador voluntário". Esse perfil não está na tabela de perfis da V1 (Administração, Organizador de eventos, Comitê Jovem) nem em `AdminEquipe`.
 2. **Ponto de vista diferente da tela de origem.** `AdminAlcance` leva para cá com "Pedir porta a porta nas Ruas Jari e Juruá", que é uma ação da administração. Esta tela mostra só a Rua Jari, do ponto de vista do representante. Não há tela para a administração pedir ou acompanhar o porta a porta de várias ruas.
-3. **"Canal oficial" e QR Code.** No Plano de Comunicação, o canal oficial é o "Canal oficial no WhatsApp", e o QR Code é de inscrição nesse canal. O protótipo fala em "QR Code do app" e "canal oficial", e os requisitos dizem que nenhum aviso sai pelo WhatsApp. Os documentos não dizem qual é o "canal oficial" no Conecta Cidade.
+3. **"Canal oficial" e QR Code.** No Plano de Comunicação, o canal oficial é o "Canal oficial no WhatsApp", e o QR Code é de inscrição nesse canal. O protótipo fala em "QR Code do app" e "canal oficial", e os requisitos dizem que nenhum aviso sai pelo WhatsApp. Os documentos não dizem qual é o "canal oficial" no Meu Carajás Super App.
 4. **Suplente ausente.** O Plano prevê um suplente por rua, e a tela não mostra suplente.
 5. **Tarefa do Plano ausente.** "Leva à administração dúvidas e problemas da rua" não aparece na tela.
 6. **Motivos além do Plano.** A lista inclui "Sem internet em casa" e "Trabalha em turnos · não abriu o aviso". O Plano cita "quem não usa celular, idosos que moram sozinhos e pessoas com deficiência". Os novos motivos combinam com o Diagnóstico do Plano ("quem não tem internet", "quem trabalha em turnos"), mas não com a lista do representante.

@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 |
@@ -14,7 +14,7 @@
 Marcar cada trilha como aberta ou fechada, escolher o motivo do fechamento e avisar os moradores. Faz parte da área "Trilhas com agenda", que os requisitos colocam na Fase 2.
 
 ## Conteúdo da tela (de cima para baixo)
-1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Conecta Cidade Organizadores"; título "Situação das trilhas"; subtítulo "Abertas, fechadas e avisos para os moradores".
+1. **Cabeçalho** (fundo escuro): botão voltar ("Voltar para o painel"); "Meu Carajás Organizadores"; título "Situação das trilhas"; subtítulo "Abertas, fechadas e avisos para os moradores".
 2. **Card de explicação:** "Trilhas sem guia não têm agenda: moradores do Núcleo vão quando quiserem, e quem vem de fora emite a autorização no site do ICMBio. Aqui a equipe avisa quando uma trilha fecha."
 3. **Um card por trilha** (8 no total), com:
    - nome da trilha;

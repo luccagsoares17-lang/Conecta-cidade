@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") — conforme `design/prototipo/canvas.json` |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") — conforme `design/prototipo/canvas.json` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | V1 com partes ocultas até a Fase 2 (classificação proposta; ver justificativa abaixo) |
 | Perfil que vê | Jovem |

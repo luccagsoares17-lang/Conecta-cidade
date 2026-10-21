@@ -8,9 +8,9 @@ Cada casa tem **pelo menos um gestor**, e o gestor decide o que os jovens da cas
 
 | Perfil | App | Como entra | O que pode fazer na V1 |
 | --- | --- | --- | --- |
-| **Gestor da casa** | Conecta Cidade | Cria a conta com rua e número da casa | Tudo do app do morador; recebe todos os avisos, inclusive urgentes; cria o código da família; aprova jovens e adultos; liga e desliga o que cada jovem pode usar |
-| **Adulto da casa** | Conecta Cidade | Usa o código da família | Tudo do app do morador; pode ser marcado como segundo gestor |
-| **Jovem** | Conecta Cidade | Usa o código da família e espera a aprovação do gestor | Eventos, Guia e oportunidades e avisos informativos e importantes; Desapego só se o gestor liberar |
+| **Gestor da casa** | Meu Carajás Super App | Cria a conta com rua e número da casa | Tudo do app do morador; recebe todos os avisos, inclusive urgentes; cria o código da família; aprova jovens e adultos; liga e desliga o que cada jovem pode usar |
+| **Adulto da casa** | Meu Carajás Super App | Usa o código da família | Tudo do app do morador; pode ser marcado como segundo gestor |
+| **Jovem** | Meu Carajás Super App | Usa o código da família e espera a aprovação do gestor | Eventos, Guia e oportunidades e avisos informativos e importantes; Desapego só se o gestor liberar |
 | **Administração do Núcleo** | Organizadores | Convite com código de acesso | Publica avisos oficiais com selo, eventos e Guia; convida pessoas; vê alcance; aprova eventos de grupos |
 | **Organizador de eventos** | Organizadores | Convite com código de acesso | Publica eventos, que passam pela aprovação da administração |
 | **Comitê Jovem Entre Fases** | Organizadores | Convite com código de acesso | Publica eventos dos jovens |

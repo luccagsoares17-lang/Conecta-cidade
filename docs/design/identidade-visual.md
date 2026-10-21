@@ -6,7 +6,7 @@ Fonte: requisitos da V1 ("Visual: cores, fontes (Bricolage Grotesque e DM Sans),
 
 | Fonte | Configuração (Google Fonts) | Uso |
 | --- | --- | --- |
-| **Bricolage Grotesque** | `opsz 12..96`, pesos `500..800` | Marca "Conecta Cidade" e títulos (800 nos títulos de tela, 700 em títulos de card e de passo) |
+| **Bricolage Grotesque** | `opsz 12..96`, pesos `500..800` | Marca "Meu Carajás Super App" e títulos (800 nos títulos de tela, 700 em títulos de card e de passo) |
 | **DM Sans** | `opsz 9..40`, pesos `400..700` | Textos, campos e botões |
 
 Link usado em todas as telas:
@@ -39,7 +39,7 @@ O board mostra a amostra "Fundo" pintada de `#FFFFFF`, embora o rótulo diga `#F
 | `#E2E7E0` / `#EEF1EC` | Fundo de abas e barras vazias / divisórias |
 | `#C9D2CB` | Borda de campos e chips; botão desabilitado |
 | `#9AA69F` | Borda tracejada da foto; ícone inativo |
-| `#FFD27A` | Rótulos sobre fundo escuro ("Código da família", "Conecta Cidade Organizadores"); item ativo da barra do Organizadores |
+| `#FFD27A` | Rótulos sobre fundo escuro ("Código da família", "Meu Carajás Organizadores"); item ativo da barra do Organizadores |
 | `#1C3327` / `#4F6B5C` | Fundo e borda de campos sobre fundo escuro |
 
 ## Cores de situação
@@ -57,7 +57,7 @@ Cores de área que aparecem em telas específicas (ex.: roxo `#7A52B3` / `#3A256
 ## Logo e ícones
 
 - Símbolo: um pino de mapa com três pontos ligados por um triângulo; o ponto de baixo em Minério `#E07A3F`. O SVG está repetido inline em várias telas (`viewBox="0 0 100 120"`).
-- Ícone do app **Conecta Cidade**: fundo Verde floresta. Ícone do **Conecta Cidade Organizadores**: fundo Mata escura com selo `#FFD27A`.
+- Ícone do app **Meu Carajás Super App**: fundo Verde floresta. Ícone do **Meu Carajás Organizadores**: fundo Mata escura com selo `#FFD27A`.
 - Ícones de interface: SVG de traço (`stroke-width` 2 a 2,2, pontas arredondadas), cor herdada do texto.
 - Detalhes, variações e medidas: fichas [`Logo`](../telas/identidade/Logo.md) e [`Icones`](../telas/identidade/Icones.md).
 

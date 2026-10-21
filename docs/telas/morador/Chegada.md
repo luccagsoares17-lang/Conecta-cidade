@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") |
 | Nome na lista "Telas da versão 1" dos requisitos | Acabei de chegar |
 | Versão | V1 com partes ocultas até a Fase 2 (os requisitos dizem que "A carona para visitantes fica desativada na versão 1"; o card de trilha para visitantes não aparece na lista da V1 — ver Divergências) |
 | Perfil que vê | Quem ainda não tem conta: família recém-transferida e Visitante (quem "não mora em Carajás") |
@@ -16,7 +16,7 @@ Tela aberta pelo botão "Acabei de chegar no Núcleo" da Abertura. Nos requisito
 ## Conteúdo da tela (de cima para baixo)
 Fundo `#F4F6F1`, texto `#13241B`, fonte DM Sans. O conteúdo rola na vertical (`overflow-y: auto`).
 
-1. **Cabeçalho:** botão redondo branco de 44 px com seta para a esquerda (`aria-label` "Voltar para a abertura") e o nome "Conecta Cidade" (Bricolage Grotesque, 800, 20 px).
+1. **Cabeçalho:** botão redondo branco de 44 px com seta para a esquerda (`aria-label` "Voltar para a abertura") e o nome "Meu Carajás Super App" (Bricolage Grotesque, 800, 20 px).
 2. **Título:** "Bem-vindo ao Núcleo!" (Bricolage Grotesque, 800, 30 px).
 3. **Subtítulo:** "Conta pra gente como você chegou, que a gente mostra o caminho." (15 px, `#4F5E55`).
 4. **Rótulo de seção** "Vou morar em Carajás" (13 px, 700, caixa alta, `#4F5E55`).

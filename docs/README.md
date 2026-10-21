@@ -1,4 +1,6 @@
-# Documentação do Conecta Cidade
+# Documentação do Meu Carajás Super App
+
+O app se chamava **Conecta Cidade**; desde 21/10/2026 os nomes são **Meu Carajás Super App** (moradores) e **Meu Carajás Organizadores** (quem publica). Os documentos-fonte em `fontes/` e as análises em `analise/` usam o nome antigo, porque são do material original.
 
 ## Estrutura
 

@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | Primeira página (`morador`, "Conecta Cidade"). O board não tem a chave `page` no `canvas.json`. |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | Primeira página (`morador`, "Meu Carajás Super App"). O board não tem a chave `page` no `canvas.json`. |
 | Nome na lista "Telas da versão 1" dos requisitos | Guia do morador |
 | Versão | V1 |
 | Perfil que vê | Gestor da casa (título do board); adultos também chegam pelo Início. Quem acabou de chegar chega aqui pela tela "Acabei de chegar" (`Chegada.dc.html`). O jovem tem `JovemGuia.dc.html` ("Oportunidades · jovem"). |
@@ -11,7 +11,7 @@
 | Tamanho | 390×844 |
 
 ## Para que serve
-"Emergência SECOM 0800-2850-193, serviços do Núcleo e de Parauapebas, oportunidades" (requisitos, "Telas da versão 1"). É "tudo o que alguém precisa saber para viver no Núcleo, principalmente quem acabou de chegar" (Conecta Cidade, "Informações da cidade").
+"Emergência SECOM 0800-2850-193, serviços do Núcleo e de Parauapebas, oportunidades" (requisitos, "Telas da versão 1"). É "tudo o que alguém precisa saber para viver no Núcleo, principalmente quem acabou de chegar" (Meu Carajás Super App, "Informações da cidade").
 
 ## Conteúdo da tela (de cima para baixo)
 1. **Cabeçalho** (fixo): botão de voltar (`aria-label="Voltar para o início"`) e título "Guia do morador".
@@ -75,12 +75,12 @@ Chegam a esta tela: o atalho "Guia do morador" de `Main.dc.html` e a opção "Gu
 - Requisitos, "Objetivo e escopo": "Guia do morador e SECOM 0800-2850-193" é V1.
 - Requisitos, "Perfis e permissões": a administração do Núcleo publica o Guia; o jovem usa o "Guia e oportunidades".
 - Requisitos, "Telas da versão 1": Acabei de chegar — escolhe entre criar conta, ver o Guia ou ver a carona.
-- Conecta Cidade, "Informações da cidade": "Lista de serviços do Núcleo e de Parauapebas, com endereço, telefone e horário"; "Telefones de emergência sempre à mão"; "Guia 'Acabei de chegar', com o básico da vida em Carajás e contatos de boas-vindas"; "Mural de oportunidades de curso, estágio e preparação para o vestibular".
+- Meu Carajás Super App, "Informações da cidade": "Lista de serviços do Núcleo e de Parauapebas, com endereço, telefone e horário"; "Telefones de emergência sempre à mão"; "Guia 'Acabei de chegar', com o básico da vida em Carajás e contatos de boas-vindas"; "Mural de oportunidades de curso, estágio e preparação para o vestibular".
 
 ## Divergências entre protótipo e documentos
 1. **Representante de rua**: o passo "2. Conheça o representante da sua rua" depende dos representantes de rua, que são Fase 2 ("Objetivo e escopo").
 2. **"Canal oficial de avisos do Núcleo"**: o passo 1 manda entrar num canal oficial que a tela não diz qual é. No Plano de Comunicação o canal oficial é um canal de WhatsApp; nos requisitos, o WhatsApp é "Só cadastro" e "nenhum aviso sai por ele".
-3. **Serviços do Núcleo sem telefone**: o documento Conecta Cidade pede "endereço, telefone e horário"; os serviços da aba "Núcleo" têm endereço e horário, mas não telefone.
+3. **Serviços do Núcleo sem telefone**: o documento Meu Carajás Super App pede "endereço, telefone e horário"; os serviços da aba "Núcleo" têm endereço e horário, mas não telefone.
 4. **Guia sem registro de dados**: os requisitos dizem que a administração publica o Guia, mas não há registro para serviços nem para oportunidades entre os 8 de "Dados que o sistema guarda".
 5. **Oportunidades sem ação**: os cards não abrem nem levam a lugar nenhum; os documentos não dizem o que acontece ao tocar.
 

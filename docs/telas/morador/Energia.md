@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` (o board não tem a chave `page` no `canvas.json`, então fica na primeira página, "Conecta Cidade") |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` (o board não tem a chave `page` no `canvas.json`, então fica na primeira página, "Meu Carajás Super App") |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 ("Energia e mapa por quarteirão" está só na coluna Fase 2 da tabela de escopo dos requisitos) |
 | Perfil que vê | Gestor da casa (título do board: "Energia · gestor") |
@@ -11,7 +11,7 @@
 | Tamanho | 390×844 |
 
 ## Para que serve
-Coloca "na palma da mão de cada morador o quando, o onde e o até quando de cada falta de luz": situação da luz na rua do morador, mapa do Núcleo com as áreas sem luz, botão "Estou sem luz" e aviso antecipado de desligamentos programados (documento "Falta de energia no Núcleo: avisos na palma da mão", seção "A solução no Conecta Cidade").
+Coloca "na palma da mão de cada morador o quando, o onde e o até quando de cada falta de luz": situação da luz na rua do morador, mapa do Núcleo com as áreas sem luz, botão "Estou sem luz" e aviso antecipado de desligamentos programados (documento "Falta de energia no Núcleo: avisos na palma da mão", seção "A solução no Meu Carajás Super App").
 
 ## Conteúdo da tela (de cima para baixo)
 1. **Cabeçalho**: botão redondo de voltar (seta, `aria-label="Voltar para o início"`, leva a `Main.dc.html`) e título "Energia". Não há barra de navegação inferior.
@@ -70,7 +70,7 @@ Telas que apontam para esta: `Main.dc.html` (card do topo, card "Energia · Luz 
 - Requisitos, "Fase 2 e perguntas em aberto": a Fase 2 inclui "energia com o mapa por quarteirão e o botão de mandar equipes"; pergunta aberta "A divisão das 18 ruas em 3 quarteirões confere com a da administração do Núcleo?".
 - Requisitos, "Dados que o sistema guarda": Casa tem quarteirão; nomes das ruas e quarteirões ficam numa tabela própria; "As 18 ruas do protótipo já seguem a ordem real, de Acará a Tapajós".
 - Requisitos, "SMS e WhatsApp": notificação do app para todo aviso; SMS para comunicados e alertas, obrigatório nos níveis urgente, importante e informativo.
-- "Falta de energia no Núcleo", "A solução no Conecta Cidade": aviso antecipado (dia, hora e ruas), mapa com as áreas sem luz, previsão de volta atualizada pela equipe, selo "oficial", botão "Estou sem luz", notificação no celular quando cai e quando volta, histórico das quedas de cada rua.
+- "Falta de energia no Núcleo", "A solução no Meu Carajás Super App": aviso antecipado (dia, hora e ruas), mapa com as áreas sem luz, previsão de volta atualizada pela equipe, selo "oficial", botão "Estou sem luz", notificação no celular quando cai e quando volta, histórico das quedas de cada rua.
 - "Falta de energia no Núcleo", "Como funciona quando a luz cai": passos 1 a 5; nos programados, aviso com dias de antecedência e lembrete na véspera.
 - "Falta de energia no Núcleo", final: perguntas em aberto sobre quem é a equipe responsável, quem publica e de onde vêm os dados do mapa e da previsão.
 

@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Aprovações |
 | Versão | V1 (o script guarda dados de Desapego e Motoristas que não aparecem na tela) |
@@ -17,7 +17,7 @@ Lista os "Eventos de grupos esperando a administração". Pelos requisitos, "Apr
 O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
 
 1. **Cabeçalho**
-   - Rótulo "Conecta Cidade Organizadores".
+   - Rótulo "Meu Carajás Organizadores".
    - Título "Aprovações".
    - Subtítulo "Eventos de grupos da cidade, antes de irem para a agenda".
 2. **Lista de cards** (um por evento), cada um com:
@@ -97,4 +97,4 @@ Chega-se a esta tela também pelo card "Aguardando aprovação · 3 eventos de g
 - Falta definir como "recusar avisa quem enviou" e onde fica a recusa no registro Evento. Os documentos não trazem o texto do aviso nem o campo.
 - Os três eventos, os nomes e as datas são dados de exemplo. O total "3" bate com o card do Painel.
 - O quadrado colorido de cada card está vazio no protótipo. Os documentos não dizem o que vai nele.
-- O `<title>` do arquivo é "Conecta Cidade Organizadores – Aprovações".
+- O `<title>` do arquivo é "Meu Carajás Organizadores – Aprovações".

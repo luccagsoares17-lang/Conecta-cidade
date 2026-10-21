@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Painel |
 | Versão | V1 com partes ocultas até a Fase 2 |
@@ -158,4 +158,4 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
 - O cronograma da coleta e o texto "PRO 022144" são dados do protótipo. Os dias reais ainda são pergunta em aberto.
 - O conteúdo do Painel deve variar pelo grupo do organizador (regra 4). O protótipo só desenha a versão da Administração.
 - Os textos "Lucca", "3 eventos", "10 relatos", "Sai em 11/11, às 18h" e a lista "Publicados por você" são dados de exemplo.
-- O `<title>` do arquivo é "Conecta Cidade Organizador – Painel" (no singular, diferente de "Organizadores" na Entrada).
+- O `<title>` do arquivo é "Meu Carajás Organizadores – Painel" (no singular, diferente de "Organizadores" na Entrada).

@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | Primeira página (`morador`, "Conecta Cidade"). O board não tem a chave `page` no `canvas.json`. |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | Primeira página (`morador`, "Meu Carajás Super App"). O board não tem a chave `page` no `canvas.json`. |
 | Nome na lista "Telas da versão 1" dos requisitos | Avisos |
 | Versão | V1 (com o atalho "Ver no mapa", que leva a Energia, de Fase 2) |
 | Perfil que vê | Gestor da casa (título do board); adultos também chegam pelo Início. O jovem tem uma tela própria, `JovemAvisos.dc.html` ("Avisos · jovem"). |
@@ -11,7 +11,7 @@
 | Tamanho | 390×844 |
 
 ## Para que serve
-"Lista por urgência; tocar abre o que fazer e o contato" (requisitos, "Telas da versão 1"). Os avisos oficiais "saem direto da administração do Núcleo para o celular dos moradores" (Conecta Cidade, "Avisos do Núcleo").
+"Lista por urgência; tocar abre o que fazer e o contato" (requisitos, "Telas da versão 1"). Os avisos oficiais "saem direto da administração do Núcleo para o celular dos moradores" (Meu Carajás Super App, "Avisos do Núcleo").
 
 ## Conteúdo da tela (de cima para baixo)
 1. **Cabeçalho** (fixo): botão de voltar (`aria-label="Voltar para o início"`), título "Avisos" e subtítulo "Direto da administração do Núcleo".
@@ -76,7 +76,7 @@ Chegam a esta tela, a partir de `Main.dc.html`: o sino "Notificações", o atalh
 - Requisitos, "SMS e WhatsApp", regras de envio: urgente em até 2 minutos para todos os gestores das ruas escolhidas; "Reenviar para quem não viu" manda SMS só para quem ainda não abriu o aviso no app.
 - Requisitos, "Dados que o sistema guarda": Aviso (tipo, público, nível, categoria, o quê, quando, onde, o que fazer, contato, ruas, canais, situação, data de envio, quem publicou); Entrega do aviso (aviso, casa, canal, enviado, visto).
 - Requisitos, "Fase 2 e perguntas em aberto": "Qual é o telefone oficial para dúvidas que entra no modelo de SMS?" ainda está em aberto.
-- Conecta Cidade, "Avisos do Núcleo": selo de "oficial"; categorias "obras, falta de água, coleta de lixo, segurança e mudanças de horário"; "Histórico de avisos para quem perdeu algum".
+- Meu Carajás Super App, "Avisos do Núcleo": selo de "oficial"; categorias "obras, falta de água, coleta de lixo, segurança e mudanças de horário"; "Histórico de avisos para quem perdeu algum".
 - Plano de Comunicação, "Modelo padrão de aviso": o quê, quando, onde, o que fazer e "sempre um contato para dúvidas".
 
 ## Divergências entre protótipo e documentos
@@ -84,7 +84,7 @@ Chegam a esta tela, a partir de `Main.dc.html`: o sino "Notificações", o atalh
 2. **Lista não está em ordem de urgência**: os requisitos dizem "Lista por urgência". No protótipo a ordem é a do script (Urgente, Importante, Urgente, Importante, Importante, Informativo, Informativo); o nível só serve de filtro.
 3. **Formato Texto/Imagem e visualizador de imagem**: o filtro de formato, a miniatura, o visualizador com zoom e o comunicado em imagem não estão nos documentos, e o registro Aviso não tem campo para formato ou imagem.
 4. **"Ver no mapa" e "Lembrar na véspera"**: o primeiro leva a `Energia.dc.html` (Fase 2). O lembrete na véspera vem do documento de energia ("o app lembra os moradores na véspera") e não está nos requisitos da V1.
-5. **Categorias**: a tela usa "Falta de energia", "Falta de luz" e "Saúde". O documento Conecta Cidade lista "obras, falta de água, coleta de lixo, segurança e mudanças de horário"; o formulário `AdminPublicar.dc.html` oferece "Obras", "Falta de água", "Falta de luz", "Coleta de lixo", "Segurança" e "Horários". "Falta de energia" e "Saúde" não estão em nenhuma das duas listas.
+5. **Categorias**: a tela usa "Falta de energia", "Falta de luz" e "Saúde". O documento Meu Carajás Super App lista "obras, falta de água, coleta de lixo, segurança e mudanças de horário"; o formulário `AdminPublicar.dc.html` oferece "Obras", "Falta de água", "Falta de luz", "Coleta de lixo", "Segurança" e "Horários". "Falta de energia" e "Saúde" não estão em nenhuma das duas listas.
 6. **Avisos de energia dependem de dados de Fase 2**: o aviso urgente traz "previsão de volta: 16h" e "A equipe de rede elétrica já está a caminho", que são conteúdo da área de energia (Fase 2).
 7. **Contato igual para todos e em aberto**: todos os avisos mostram "(94) 0000-0000 – Administração do Núcleo", o número de exemplo do modelo de SMS, que os requisitos ainda listam como pergunta em aberto. O comunicado em imagem usa outro contato ("SECOM 0800-2850-193").
 8. **Ruas do comunicado em imagem**: o texto do card diz "Ruas Araguaia e Arapiuns"; a imagem diz "Onde: só no quarteirão 1" e desenha as seis ruas do quarteirão, com Araguaia e Arapiuns em destaque.

@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
+| App | Meu Carajás Super App (morador) |
 | Página do canvas | `morador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 ("Trilhas com agenda" está só na coluna Fase 2 da tabela de escopo dos requisitos) |
@@ -16,7 +16,7 @@ Versão para o jovem da tela de trilhas da Floresta Nacional de Carajás: mostra
 ## Conteúdo da tela (de cima para baixo)
 O markup é o mesmo de [`Trilhas.md`](Trilhas.md), com estas diferenças:
 
-1. **Título da página HTML**: "Conecta Cidade Jovem – Trilhas".
+1. **Título da página HTML**: "Meu Carajás Super App Jovem – Trilhas".
 2. **Cabeçalho**: botão de voltar (`aria-label="Voltar"`) leva a `JovemInicio.dc.html`; título "Trilhas", subtítulo "Floresta Nacional de Carajás" e uma etiqueta "Jovem". Não há barra de navegação inferior.
 3. **Alerta "Nunca faça trilha sozinho"** (no topo da lista e no detalhe): "Com ou sem guia, vá sempre com outras pessoas. Se você se machucar sozinho, ninguém consegue ajudar. Jovem: vá com um adulto ou com o grupo do Comitê Jovem."
 

@@ -1,4 +1,4 @@
-# Conecta Cidade
+# Meu Carajás Super App
 
 O aplicativo do **Núcleo Urbano de Carajás**: avisos oficiais, eventos, Desapego, guia do morador e coleta seletiva num só lugar — e, na Fase 2, energia, trilhas, carona e mais.
 
@@ -6,10 +6,10 @@ Projeto do **Entre Fases** para o Shark Tank Carajás (outubro de 2026), em resp
 
 | | |
 | --- | --- |
-| **Apps** | Conecta Cidade (moradores) · Conecta Cidade Organizadores (quem publica) |
+| **Apps** | Meu Carajás Super App (moradores) · Meu Carajás Organizadores (quem publica) |
 | **V1** | 13 telas do morador + 6 do organizador |
 | **Piloto** | 30 dias com os 49 jovens do Comitê Jovem e suas famílias |
-| **Protótipo** | [Conecta Cidade – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9) · cópia em [`design/prototipo/`](design/prototipo/) |
+| **Protótipo** | [Meu Carajás – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9) · cópia em [`design/prototipo/`](design/prototipo/) |
 | **Visual** | Bricolage Grotesque + DM Sans, cores e ícones do protótipo |
 
 ## Rodar o app

@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | Primeira página (`morador`, "Conecta Cidade"). O board não tem a chave `page` no `canvas.json`, então fica na primeira página da lista `pages`. |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | Primeira página (`morador`, "Meu Carajás Super App"). O board não tem a chave `page` no `canvas.json`, então fica na primeira página da lista `pages`. |
 | Nome na lista "Telas da versão 1" dos requisitos | Início · gestor (e também abriga o conteúdo da tela "Coleta seletiva", que não tem arquivo próprio no app do morador; ver abaixo) |
 | Versão | V1 com partes ocultas até a Fase 2 |
 | Perfil que vê | Gestor da casa. Pelo protótipo, também o adulto da casa: os dois finais de `CadastroGestor.dc.html` ("Entrar no app") levam a esta tela, e o `Login.dc.html` manda a aba gestor para cá (`enterHref: gest ? 'Main.dc.html' : 'JovemInicio.dc.html'`). |
@@ -16,7 +16,7 @@
 ## Conteúdo da tela (de cima para baixo)
 A área de conteúdo rola (`overflow-y: auto`, de cima até 80 px do fim); a barra de navegação fica fixa embaixo.
 
-1. **Cabeçalho**: logo (marcador de mapa nas cores `brand` e `accent`) + "Conecta Cidade". À direita, botão redondo de sino (`aria-label="Notificações"`) com ponto vermelho (#B4471C), que leva a Avisos.
+1. **Cabeçalho**: logo (marcador de mapa nas cores `brand` e `accent`) + "Meu Carajás Super App". À direita, botão redondo de sino (`aria-label="Notificações"`) com ponto vermelho (#B4471C), que leva a Avisos.
 2. **Saudação**: "Olá, Lucca!" e, abaixo, "O que está rolando no Núcleo hoje".
 3. **Card de energia** (fundo verde `brand`, link para Energia): ícone de raio, rótulo "Energia", título "Luz normal na sua rua", linha "Próximo desligamento programado: quinta, 12/11", seta à direita. **Fase 2 — fica oculto na V1.**
 4. **Título "O que você procura?"** e grade de 2 colunas com 6 atalhos:

@@ -2,15 +2,15 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") — conforme `design/prototipo/canvas.json` |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") — conforme `design/prototipo/canvas.json` |
 | Nome na lista "Telas da versão 1" dos requisitos | Guia do morador |
 | Versão | V1 |
 | Perfil que vê | Jovem |
 | Protótipo | [`design/prototipo/JovemGuia.dc.html`](../../../design/prototipo/JovemGuia.dc.html) |
 | Tamanho | 390×844 |
 
-Nomes da tela: no canvas o board é "Oportunidades · jovem"; o `<title>` do arquivo é "Conecta Cidade Jovem – Guia do morador"; o título visível é "Oportunidades".
+Nomes da tela: no canvas o board é "Oportunidades · jovem"; o `<title>` do arquivo é "Meu Carajás Super App Jovem – Guia do morador"; o título visível é "Oportunidades".
 
 ## Para que serve
 É a versão do perfil jovem do Guia do morador: "Emergência SECOM 0800-2850-193, serviços do Núcleo e de Parauapebas, oportunidades" (Requisitos › Telas da versão 1). Corresponde ao "Guia e oportunidades" da linha Jovem em Perfis e permissões.
@@ -79,7 +79,7 @@ Só se chega a esta tela pelo card "Oportunidades" de `JovemInicio.dc.html`.
 - **Requisitos › Perfis e permissões (linha Jovem):** "Eventos, Guia e oportunidades...".
 - **Requisitos › Dados › Permissão do jovem:** a área "Oportunidades" pode estar ligada ou desligada pelo gestor.
 - **Requisitos › Perfis e permissões (linha Administração do Núcleo):** "Publica avisos oficiais com selo, eventos e Guia".
-- **Conecta Cidade: o aplicativo › Informações da cidade:** "Lista de serviços do Núcleo e de Parauapebas, com endereço, telefone e horário"; "Telefones de emergência sempre à mão"; "Guia 'Acabei de chegar'"; "Mural de oportunidades de curso, estágio e preparação para o vestibular".
+- **Meu Carajás Super App: o aplicativo › Informações da cidade:** "Lista de serviços do Núcleo e de Parauapebas, com endereço, telefone e horário"; "Telefones de emergência sempre à mão"; "Guia 'Acabei de chegar'"; "Mural de oportunidades de curso, estágio e preparação para o vestibular".
 - **Requisitos › SMS e WhatsApp:** "o WhatsApp é usado só para o cadastro... nenhum aviso sai por ele".
 - **Plano de Comunicação › Os canais:** "Canal oficial no WhatsApp (só envio)"; **› Rede de representantes de rua**.
 

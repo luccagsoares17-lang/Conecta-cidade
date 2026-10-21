@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") — conforme `design/prototipo/canvas.json` |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") — conforme `design/prototipo/canvas.json` |
 | Nome na lista "Telas da versão 1" dos requisitos | Início · jovem |
 | Versão | V1 com partes ocultas até a Fase 2 (Trilhas e Carona aparecem no protótipo e são Fase 2) |
 | Perfil que vê | Jovem |
@@ -17,7 +17,7 @@ Tela inicial do perfil jovem. Segundo os requisitos ("Telas da versão 1"), most
 A área de conteúdo rola (`overflow-y: auto`); a barra de navegação fica fixa embaixo.
 
 1. **Cabeçalho**
-   - Logo (pino verde com triângulo e pontos) + texto "Conecta Cidade".
+   - Logo (pino verde com triângulo e pontos) + texto "Meu Carajás Super App".
    - Selo à direita: "Jovem".
 2. **Saudação**
    - Título: "E aí, Lucca!"
@@ -87,7 +87,7 @@ Chegam a esta tela: `Login.dc.html` (aba jovem), `CadastroJovem.dc.html` e o bot
 - **Requisitos › Piloto › Critérios de aceite:** "O gestor liga e desliga o Desapego do jovem, e o app do jovem muda na hora".
 - **Requisitos › Objetivo e escopo (tabela):** "Trilhas com agenda" e "Carona (moradores e visitantes)" são Fase 2.
 - **Requisitos › Requisitos gerais › Desempenho:** "a tela inicial abre em até 3 segundos numa conexão 4G fraca".
-- **Conecta Cidade: o aplicativo › Eventos que vão acontecer:** "Espaço para o Comitê Jovem divulgar os próprios eventos, junto com o Instagram @entrefasescks".
+- **Meu Carajás Super App: o aplicativo › Eventos que vão acontecer:** "Espaço para o Comitê Jovem divulgar os próprios eventos, junto com o Instagram @entrefasescks".
 - **contexto-entre-fases.txt:** ingresso de 1 kg de alimento que virou 33 cestas básicas para a Via Autismo; interesses cinema, culinária, videogame, vôlei e futebol (as mesmas 5 opções da votação).
 
 ## Divergências entre protótipo e documentos

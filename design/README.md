@@ -1,14 +1,14 @@
 # Protótipo navegável (cópia fiel)
 
 Esta pasta guarda **exatamente** as telas do artefato
-[Conecta Cidade – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9),
+[Meu Carajás – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9),
 que os requisitos da V1 definem como **referência visual** do projeto.
 
 | Item | Valor |
 | --- | --- |
 | Artefato | `PkQ9tajBdYdt6vXEFn7tX9` (tipo Design / canvas) |
-| Versão copiada | `1792615852-1bbe` |
-| Data da cópia | 21/10/2026 |
+| Versão copiada | `1792623732-21a5` (nome Meu Carajás) |
+| Data da cópia | 21/10/2026 (troca de nome no mesmo dia) |
 | Arquivos | `prototipo/canvas.json` + 38 arquivos `.dc.html` |
 | Conferência | [`prototipo.sha256`](prototipo.sha256) (`sha256sum -c prototipo.sha256` dentro de `prototipo/`) |
 
@@ -20,7 +20,7 @@ que os requisitos da V1 definem como **referência visual** do projeto.
 
 ## Formato dos arquivos
 
-- `canvas.json` é o índice do canvas: título, páginas (`morador` = "Conecta Cidade", `organizador` = "Conecta Cidade Organizadores"), posição, tamanho e título de cada board, e a tela de abertura (`launch`: `Splash.dc.html`).
+- `canvas.json` é o índice do canvas: título, páginas (`morador` = "Meu Carajás Super App", `organizador` = "Meu Carajás Organizadores"), posição, tamanho e título de cada board, e a tela de abertura (`launch`: `Splash.dc.html`).
 - Cada `*.dc.html` é uma tela de 390×844 (exceto `Logo` 1240×620 e `Icones` 600×620), com:
   - o markup da tela dentro de `<x-dc>`;
   - `{{valor}}`, `<sc-for>` e `<sc-if>` ligados ao objeto devolvido por `renderVals()`;

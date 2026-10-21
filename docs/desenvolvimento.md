@@ -1,6 +1,6 @@
 # Desenvolvimento do app
 
-O app desenha **as telas do artefato diretamente**: ele lê os arquivos de [`design/prototipo/`](../design/prototipo/) (cópia fiel do artefato [Conecta Cidade – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9)) e os mostra com as mesmas regras do editor do artefato. Nenhuma tela foi redesenhada ou reescrita à mão.
+O app desenha **as telas do artefato diretamente**: ele lê os arquivos de [`design/prototipo/`](../design/prototipo/) (cópia fiel do artefato [Meu Carajás – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9)) e os mostra com as mesmas regras do editor do artefato. Nenhuma tela foi redesenhada ou reescrita à mão.
 
 ## Como rodar
 
@@ -21,7 +21,7 @@ No `npm run dev`, as contas do piloto já existem no banco local (mesmos logins 
 | --- | --- |
 | `/` | Tela de abertura do canvas (`Splash`, definida em `canvas.json` → `launch`) |
 | `/<Arquivo>` | A tela `design/prototipo/<Arquivo>.dc.html` (ex.: `/Main`, `/AdminInicio`) |
-| `/AdminEntrada` | Entrada do app Conecta Cidade Organizadores |
+| `/AdminEntrada` | Entrada do app Meu Carajás Organizadores |
 | `/telas` | Índice de todas as telas (ferramenta da equipe; não é tela do app) |
 | `?modo=v1` / `?modo=prototipo` | Troca o modo (ver abaixo) e guarda a escolha na aba |
 

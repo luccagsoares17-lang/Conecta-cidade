@@ -2,7 +2,7 @@
 
 Contas criadas a pedido da equipe em 21/10/2026. Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
 
-## Conecta Cidade (moradores)
+## Meu Carajás Super App (moradores)
 
 | Pessoa | Perfil | Família | Login | Entra pela aba |
 | --- | --- | --- | --- | --- |
@@ -15,7 +15,7 @@ Contas criadas a pedido da equipe em 21/10/2026. Hoje o app roda **sem banco** (
 - O Gustavo é de outra família e não vê nada da família do Lucas.
 - Rua, número e quarteirão das duas casas ainda não foram informados. Por isso a Minha casa mostra só "você é o gestor".
 
-## Conecta Cidade Organizadores
+## Meu Carajás Organizadores
 
 | Pessoa | Grupo | Login | Pode |
 | --- | --- | --- | --- |

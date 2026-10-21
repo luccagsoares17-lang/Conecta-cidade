@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Equipes e permissões |
 | Versão | V1 com partes ocultas até a Fase 2 |
@@ -147,4 +147,4 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
   - quantidades ("4 pessoas", "12 grupos", "49 jovens", "23 pessoas");
   - os textos "6 reformas na fila" e "22 de 53 trechos".
 - O código de acesso enviado no convite vale uma vez (requisito de segurança). O protótipo não mostra o código nem como ele é enviado.
-- O `<title>` do arquivo é "Conecta Cidade Organizador – Equipe".
+- O `<title>` do arquivo é "Meu Carajás Organizadores – Equipe".

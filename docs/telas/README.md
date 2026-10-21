@@ -1,12 +1,14 @@
 # Inventário de telas do protótipo
 
-Todas as telas do artefato [Conecta Cidade – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9), copiadas sem alteração em [`design/prototipo/`](../../design/prototipo/). Cada linha tem uma ficha com conteúdo, comportamento, navegação, dados, regras e divergências.
+> Desde a versão `1792623732-21a5` do artefato, o nome nas telas é **Meu Carajás Super App** / **Meu Carajás Organizadores** (decisão A-13). Fora o nome, as fichas abaixo continuam valendo.
+
+Todas as telas do artefato [Meu Carajás – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9), copiadas sem alteração em [`design/prototipo/`](../../design/prototipo/). Cada linha tem uma ficha com conteúdo, comportamento, navegação, dados, regras e divergências.
 
 **Totais**: 38 arquivos `.dc.html` = 21 arquivos que cobrem as 19 telas da V1 (Eventos, Avisos e Guia têm versão gestor e versão jovem; a Coleta seletiva fica dentro do Início · gestor) + 2 telas extras sem versão definida + 13 telas de Fase 2 + 2 boards de identidade. O canvas abre em `Splash.dc.html`.
 
 Legenda de versão: **V1** · **V1\*** = V1 com partes de Fase 2 que ficam ocultas · **F2** = Fase 2 · **?** = não definida nos documentos.
 
-## Conecta Cidade (morador)
+## Meu Carajás Super App (morador)
 
 ### Telas da V1
 
@@ -47,7 +49,7 @@ Legenda de versão: **V1** · **V1\*** = V1 com partes de Fase 2 que ficam ocult
 | Carona · gestor | `Carona.dc.html` | Carona (moradores) | [Carona](morador/Carona.md) |
 | Carona · visitante | `CaronaVisitante.dc.html` | Carona (visitantes) — pede CPF, proibido na V1 | [CaronaVisitante](morador/CaronaVisitante.md) |
 
-## Conecta Cidade Organizadores
+## Meu Carajás Organizadores
 
 ### Telas da V1
 

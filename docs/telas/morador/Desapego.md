@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | Primeira página (`morador`, "Conecta Cidade"). O board não tem a chave `page` no `canvas.json`. |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | Primeira página (`morador`, "Meu Carajás Super App"). O board não tem a chave `page` no `canvas.json`. |
 | Nome na lista "Telas da versão 1" dos requisitos | Desapego |
 | Versão | V1 |
 | Perfil que vê | Gestor da casa (título do board); adultos também chegam pelo Início. O jovem só usa o Desapego se o gestor liberar (requisitos, "Perfis e permissões"). |
@@ -11,7 +11,7 @@
 | Tamanho | 390×844 |
 
 ## Para que serve
-"Lista com filtro, selo de mudança e formulário de anúncio" (requisitos, "Telas da versão 1"). É "a área do aplicativo Conecta Cidade onde os moradores do Núcleo Urbano de Carajás anunciam, vendem e doam o que não usam mais" (Desapego Carajás, "O que é o Desapego Carajás").
+"Lista com filtro, selo de mudança e formulário de anúncio" (requisitos, "Telas da versão 1"). É "a área do aplicativo Meu Carajás Super App onde os moradores do Núcleo Urbano de Carajás anunciam, vendem e doam o que não usam mais" (Desapego Carajás, "O que é o Desapego Carajás").
 
 ## Conteúdo da tela (de cima para baixo)
 1. **Cabeçalho** (fixo): botão de voltar (`aria-label="Voltar para o início"`), título "Desapego" e subtítulo "Vender, comprar e doar entre vizinhos".

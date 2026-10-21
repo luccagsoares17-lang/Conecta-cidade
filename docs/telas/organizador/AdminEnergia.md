@@ -2,7 +2,7 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade Organizadores |
+| App | Meu Carajás Organizadores |
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 |
@@ -14,7 +14,7 @@
 Tela de controle da equipe responsável pela energia: ver no mapa do Núcleo, por rua e quarteirão, onde falta luz; confirmar a falha relatada pelos moradores pelo botão "Estou sem luz"; publicar a previsão de volta; mandar equipes; registrar a volta da luz; e agendar desligamentos programados. Corresponde à área "Energia e mapa por quarteirão" e ao "botão de mandar equipes" que os requisitos colocam na Fase 2.
 
 ## Conteúdo da tela (de cima para baixo)
-1. **Cabeçalho** (fundo escuro): ícone do app + "Conecta Cidade Organizadores"; título "Controle de energia"; subtítulo "Equipe responsável pela energia do Núcleo". Não tem botão de voltar.
+1. **Cabeçalho** (fundo escuro): ícone do app + "Meu Carajás Organizadores"; título "Controle de energia"; subtítulo "Equipe responsável pela energia do Núcleo". Não tem botão de voltar.
 2. **Card "Mapa do Núcleo"** — à direita "18 ruas · 3 quarteirões cada".
    - Mapa em SVG (rótulo de acessibilidade "Mapa do Núcleo Urbano de Carajás: 18 ruas divididas em 3 quarteirões") com:
      - a rodovia "PA-275 · Rod. Raimundo Mascarenhas", as avenidas "AV. KARAJÁS" e "AV. CATETE";
@@ -92,7 +92,7 @@ A tela também é aberta pelo card de energia do Painel (`AdminInicio.dc.html`).
 - *Conecta Cidade: requisitos da versão 1*, "Objetivo e escopo": "Energia e mapa por quarteirão" fica na Fase 2. O critério da V1 é "não depender de dados ou equipes de fora do grupo para funcionar".
 - *Requisitos*, "Fase 2 e perguntas em aberto": "energia com o mapa por quarteirão e o botão de mandar equipes". Uma das perguntas em aberto: "A divisão das 18 ruas em 3 quarteirões confere com a da administração do Núcleo?"
 - *Requisitos*, "Dados que o sistema guarda": nomes das ruas e quarteirões em tabela própria; "As 18 ruas do protótipo já seguem a ordem real, de Acará a Tapajós."
-- *Falta de energia no Núcleo*, "A solução no Conecta Cidade": aviso antecipado de desligamentos programados "com dia, hora e ruas"; mapa com as áreas sem luz; "Previsão de volta, atualizada pela equipe responsável"; selo "oficial"; botão "Estou sem luz"; notificação quando cai e quando volta; histórico das quedas de cada rua.
+- *Falta de energia no Núcleo*, "A solução no Meu Carajás Super App": aviso antecipado de desligamentos programados "com dia, hora e ruas"; mapa com as áreas sem luz; "Previsão de volta, atualizada pela equipe responsável"; selo "oficial"; botão "Estou sem luz"; notificação quando cai e quando volta; histórico das quedas de cada rua.
 - *Falta de energia*, "Como funciona quando a luz cai", passos 1 a 5:
   1. a energia cai;
   2. os moradores tocam em "Estou sem luz" e o mapa mostra as ruas afetadas;

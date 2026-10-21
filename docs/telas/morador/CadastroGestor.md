@@ -2,8 +2,8 @@
 
 | Campo | Valor |
 | --- | --- |
-| App | Conecta Cidade (morador) |
-| Página do canvas | `morador` ("Conecta Cidade") |
+| App | Meu Carajás Super App (morador) |
+| Página do canvas | `morador` ("Meu Carajás Super App") |
 | Nome na lista "Telas da versão 1" dos requisitos | Criar conta · adulto e gestor |
 | Versão | V1 |
 | Perfil que vê | Gestor da casa e Adulto (antes de ter conta) |

@@ -12,7 +12,7 @@
 //   'gestor'       só gestor da casa
 //   'jovem'        só jovem
 //   'jovem:Area'   jovem com a área liberada pelo gestor
-//   'organizador'  conta do Conecta Cidade Organizadores
+//   'organizador'  conta do Meu Carajás Organizadores
 
 export const ajustes = {
   // ------------------------------------------------------------------ Entrar
