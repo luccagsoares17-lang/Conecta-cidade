@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { createScreen, dcLinkTarget } from './dc/runtime.js';
 import { carregarArquivo, existeTela, telaInicial, telas, telaPorNome, telasFase2, tituloDoCanvas } from './telas.js';
 import { carregarModo, modoAtual, ajustesDoModo } from './modo.js';
-import { CC, carregarSessao, configurar, sair, sessao } from './dados/cc.js';
+import { CC, carregarSessao, configurar, reiniciarDemonstracao, sair, sessao } from './dados/cc.js';
 import { ajustes } from './dados/ajustes.js';
 import './app.css';
 
@@ -16,11 +16,12 @@ carregarModo();
 
 const ROTA_INDICE = 'telas';
 const ROTA_SAIR = 'sair';
+const ROTA_REINICIAR = 'reiniciar';
 
 function rotaAtual() {
   const nome = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, ''));
   if (!nome) return telaInicial;
-  if (nome === ROTA_INDICE || nome === ROTA_SAIR) return nome;
+  if (nome === ROTA_INDICE || nome === ROTA_SAIR || nome === ROTA_REINICIAR) return nome;
   if (!existeTela(nome)) return telaInicial;
   if (bloqueada(nome)) return telaInicial;
   return nome;
@@ -267,14 +268,15 @@ function App() {
     };
   }, []);
   React.useEffect(() => {
-    if (rota !== ROTA_SAIR) return;
-    sair().then(() => {
+    if (rota !== ROTA_SAIR && rota !== ROTA_REINICIAR) return;
+    // /sair encerra a conta no aparelho; /reiniciar também volta os dados de demonstração ao começo.
+    (rota === ROTA_SAIR ? sair() : reiniciarDemonstracao()).then(() => {
       history.replaceState(null, '', '/');
       setRota(rotaAtual());
     });
   }, [rota]);
   if (rota === ROTA_INDICE) return h(Indice);
-  if (rota === ROTA_SAIR) return null;
+  if (rota === ROTA_SAIR || rota === ROTA_REINICIAR) return null;
   const destino = destinoPermitido(rota);
   if (destino === null) return null; // conferindo a conta
   if (destino !== rota) {

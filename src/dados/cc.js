@@ -2,6 +2,8 @@
 // os trechos trocados em src/dados/ajustes.js chamam as funções deste objeto (CC) no lugar dos
 // dados de exemplo. Quando um dado chega do servidor, as telas que o usam são redesenhadas.
 
+import { chamarLocal, reiniciarDados } from './local.js';
+
 const estado = {
   sessao: undefined, // undefined = ainda carregando; { tipo: null } = sem conta
   avisos: null,
@@ -31,9 +33,18 @@ function avisar() {
 }
 
 // ---------------------------------------------------------------------------
-// Servidor
+// Servidor: "local" (padrão) roda as regras no próprio aparelho, sem banco (src/dados/local.js);
+// "servidor" usa a API da Vercel com o Neon (api/). Escolha no build com VITE_DADOS.
+export const modoDados = import.meta.env.VITE_DADOS === 'servidor' ? 'servidor' : 'local';
+
+export async function reiniciarDemonstracao() {
+  if (modoDados === 'local') reiniciarDados();
+  else await api('sair', {}).catch(() => {});
+  await carregarSessao();
+}
 
 async function api(caminho, corpo) {
+  if (modoDados === 'local') return chamarLocal(caminho, corpo);
   const opcoes = { credentials: 'same-origin', headers: {} };
   if (corpo !== undefined) {
     opcoes.method = 'POST';

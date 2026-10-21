@@ -38,12 +38,24 @@ O modo do build vem da variável `VITE_MODO` (`prototipo` ou `v1`). Na Vercel, p
 
 ## Dados reais, contas e banco
 
-O app agora tem contas de verdade (ver [`acessos.md`](acessos.md)) e guarda as publicações num banco Postgres.
+O app tem as contas do piloto (ver [`acessos.md`](acessos.md)) e funciona de dois jeitos, escolhidos no build pela variável `VITE_DADOS`:
 
-**Na Vercel (uma vez só)**
+| `VITE_DADOS` | Como funciona | Precisa de banco? |
+| --- | --- | --- |
+| `local` (padrão) | O login e as regras rodam em JavaScript no próprio aparelho ([`src/dados/local.js`](../src/dados/local.js)). A senha é conferida contra o resumo PBKDF2 em [`src/dados/contas-locais.js`](../src/dados/contas-locais.js), e os dados ficam no navegador. **Cada celular tem a sua cópia**: o que se publica num aparelho aparece nele, para qualquer conta que entrar ali, mas não nos outros celulares | Não |
+| `servidor` | A API da Vercel guarda tudo no Neon, e todos os celulares veem as mesmas publicações | Sim (Neon) |
+
+As duas formas seguem as mesmas regras (perfis, avisos, eventos, Desapego, permissões) e começam com o mesmo conteúdo de demonstração.
+
+No modo `local`, quem não está nas contas do piloto não entra: o e-mail aparece como "Não encontramos cadastro", e senha ou código errados são recusados. Como a conferência roda no aparelho, é um controle de demonstração, não de segurança; para o piloto real, use `servidor`.
+
+Endereços úteis no modo `local`: `/sair` encerra a conta no aparelho; `/reiniciar` encerra a conta e volta os dados do aparelho ao conteúdo de demonstração inicial.
+
+**Para usar o modo `servidor` na Vercel (uma vez só)**
 1. No projeto da Vercel, abra **Storage → Create Database → Neon** (Marketplace) e conecte o banco ao projeto. A integração cria a variável `DATABASE_URL`.
-2. Faça um novo deploy (**Deployments → Redeploy**).
-3. Na primeira chamada à API, o servidor cria as tabelas e as contas do piloto sozinho.
+2. Em **Settings → Environment Variables**, crie `VITE_DADOS` com o valor `servidor`.
+3. Faça um novo deploy (**Deployments → Redeploy**).
+4. Na primeira chamada à API, o servidor cria as tabelas e as contas do piloto sozinho.
 
 Sem `DATABASE_URL`, a API responde que o banco não está configurado, e as telas que pedem conta não abrem.
 

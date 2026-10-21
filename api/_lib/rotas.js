@@ -1,6 +1,7 @@
 // API do Conecta Cidade. Uma função só na Vercel (api/index.js) atende todas as rotas abaixo.
 // Regras: docs/produto/perfis-e-permissoes.md e docs/produto/canais-de-comunicacao.md.
 
+import { horarioAgendado } from './agenda.js';
 import { db } from './db.js';
 import {
   confere,
@@ -122,31 +123,6 @@ const PUBLICOS = { 'Todos os moradores': 'todos', 'Só gestores da casa': 'gesto
 const NIVEIS = { Urgente: 'urgente', Importante: 'importante', Informativo: 'informativo' };
 const SITUACOES_AVISO = new Set(['rascunho', 'agendado', 'no ar', 'fora do ar']);
 const CONTATO_PADRAO = '(94) 0000-0000 – Administração do Núcleo';
-
-// "Data e hora da publicação" (ex.: "quarta, 5/11, 18h") → instante no horário de Carajás (UTC−3).
-function horarioAgendado(texto) {
-  const t = String(texto || '').toLowerCase();
-  const data = /(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/.exec(t);
-  const hora = /(\d{1,2})\s*(?:h|:)\s*(\d{2})?/.exec(t.replace(data ? data[0] : '', ''));
-  if (!data || !hora) {
-    throw new Recusa(400, 'Escreva a data e a hora da publicação, por exemplo: quarta, 5/11, 18h.');
-  }
-  const dia = Number(data[1]);
-  const mes = Number(data[2]);
-  const h = Number(hora[1]);
-  const min = Number(hora[2] || 0);
-  if (mes < 1 || mes > 12 || dia < 1 || dia > 31 || h > 23 || min > 59) {
-    throw new Recusa(400, 'Confira a data e a hora da publicação.');
-  }
-  const agora = new Date();
-  let ano = data[3] ? Number(data[3].length === 2 ? '20' + data[3] : data[3]) : agora.getUTCFullYear();
-  const montar = (a) =>
-    new Date(`${a}-${String(mes).padStart(2, '0')}-${String(dia).padStart(2, '0')}T${String(h).padStart(2, '0')}:${String(min).padStart(2, '0')}:00-03:00`);
-  let quando = montar(ano);
-  if (!data[3] && quando.getTime() < agora.getTime() - 86400000) quando = montar(++ano);
-  if (Number.isNaN(quando.getTime())) throw new Recusa(400, 'Confira a data e a hora da publicação.');
-  return quando.toISOString();
-}
 
 // Publicações agendadas entram no ar quando chega a hora (conferido a cada consulta).
 async function publicarAgendados(c) {

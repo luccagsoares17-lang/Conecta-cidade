@@ -43,7 +43,7 @@ Leia este arquivo antes de qualquer tarefa neste repositório. Ele diz onde est�
 CLAUDE.md                  ← este arquivo
 README.md                  ← apresentação do projeto
 index.html, src/           ← o app (Vite + React): motor das telas, rotas, modo V1, dados (src/dados/)
-api/                       ← API na Vercel (Neon): contas, sessões, avisos, eventos, permissões
+api/                       ← API na Vercel (Neon), usada com VITE_DADOS=servidor; sem banco, as mesmas regras rodam em src/dados/local.js
 public/                    ← PWA: manifesto, ícones, service worker
 scripts/verificar-telas.mjs← npm test
 vercel.json                ← publicação na Vercel

@@ -1,6 +1,6 @@
 # Acessos do piloto
 
-Contas criadas a pedido da equipe em 21/10/2026. **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
+Contas criadas a pedido da equipe em 21/10/2026. Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
 
 ## Conecta Cidade (moradores)
 
@@ -29,6 +29,7 @@ Os dois entram na tela **Entrada do organizador** com o e-mail e o código de ac
 - Os logins `@conectacidade.app` servem só para entrar no app. Ninguém recebe e-mail por eles.
 - As senhas são provisórias. O protótipo ainda não tem tela para trocar a senha (ver [perguntas em aberto](perguntas-em-aberto.md)).
 - Para sair de uma conta no aparelho, abra o endereço `/sair` do app. O protótipo não tem botão de sair.
+- Para recomeçar a demonstração num aparelho (apaga o que foi publicado nele e volta ao conteúdo inicial), abra `/reiniciar`.
 
 ## Conteúdo de demonstração
 
@@ -37,7 +38,7 @@ Na primeira vez que o servidor sobe com o banco vazio, ele publica os exemplos d
 - 5 eventos: CineFases, Noite de Pizza, Olimpíadas Entre Fases, Encontro de boas-vindas e Torneio de videogame;
 - 12 anúncios do Desapego, com os comentários do protótipo.
 
-Para apagar tudo isso antes do piloto real, rode no console SQL do Neon:
+No modo `local`, `/reiniciar` volta esse conteúdo ao começo no aparelho. No modo `servidor`, para apagar tudo isso antes do piloto real, rode no console SQL do Neon:
 
 ```sql
 delete from comentarios_anuncio where anuncio_id in (select id from anuncios where autor_id is null);

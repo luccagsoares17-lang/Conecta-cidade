@@ -5,7 +5,7 @@
 
 const AUTOR_AVISOS = 'mario@conectacidade.app';
 
-const AVISOS = [
+export const AVISOS = [
   ['todos', 'urgente', 'Segurança', 'Interdição de estrada', 'Hoje, até 18h', 'Estrada de acesso ao Núcleo, km 8', 'Evite o trecho e use o caminho indicado.'],
   ['todos', 'importante', 'Falta de água', 'Interrupção no fornecimento de água', 'Quinta-feira, 5/11, das 8h às 14h', 'Ruas Japurá, Jari e Juruá', 'Armazene água na quarta-feira à noite.'],
   ['todos', 'importante', 'Obras', 'Obra na rua', '26/10 a 30/10', 'Rua Mearim', 'Estacione em outra rua durante a obra.'],
@@ -14,7 +14,7 @@ const AVISOS = [
 ];
 
 // [nome, data e hora, local, interesse, ingresso solidário, quem organiza (null = Administração)]
-const EVENTOS = [
+export const EVENTOS = [
   ['CineFases', 'Sábado, 7/11, 19h', 'Clube do Núcleo', 'Cinema', true, 'Comitê Jovem Entre Fases'],
   ['Noite de Pizza', 'Sexta, 13/11, 19h30', 'Salão de festas', 'Culinária', false, 'Comitê Jovem Entre Fases'],
   ['Olimpíadas Entre Fases', 'Sábado, 21/11, 8h', 'Ginásio poliesportivo', 'Vôlei', true, 'Comitê Jovem Entre Fases'],
@@ -24,7 +24,7 @@ const EVENTOS = [
 
 // [título, categoria, preço, mudança, doação, ilustração do protótipo, vendedor, comentários]
 // Comentário: [quem ('*' = o vendedor), texto, há quanto tempo]
-const ANUNCIOS = [
+export const ANUNCIOS = [
   ['Sofá de 3 lugares', 'Móveis', 'R$ 600', true, false, 'sofa', 'Rafael Moura', [
     ['Ana Souza', 'Ainda está disponível? Tenho muito interesse!', '2 hours'],
     ['Pedro Lima', 'Faz por R$ 500? Busco hoje mesmo.', '1 hour'],
