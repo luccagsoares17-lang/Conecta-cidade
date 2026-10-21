@@ -85,7 +85,7 @@ Telas que apontam para esta: `Main.dc.html` (card do topo, card "Energia · Luz 
 8. **Dados sem registro na V1**: situação por trecho, relatos, previsão de volta, situação da equipe e preferência de aviso (ver tabela acima).
 
 ## Notas para implementação
-- Tela inteira de Fase 2: na V1 não deve ser publicada, e os pontos de entrada nas telas da V1 (card do Início, conforme os requisitos) ficam ocultos. Os outros pontos de entrada (barra inferior, "Ver no mapa") precisam de decisão, porque os documentos não tratam deles.
+- Tela inteira de Fase 2: fica fora da V1, e o card de energia do Início fica oculto (conforme os requisitos). Os outros pontos de entrada (barra inferior, "Ver no mapa") precisam de decisão, porque os documentos não tratam deles.
 - Todos os valores do script são dados de exemplo: rua da casa, relatos, previsão de 16h, desligamento de 12/11 e os nomes dos pontos do mapa.
 - O mapa e a lógica `mapVals` são compartilhados com `AdminEnergia.dc.html` (chamada com `admin = true` lá).
 - A ordem das ruas no `select` e no mapa é a mesma da tabela de ruas citada nos requisitos (de Acará a Tapajós).
