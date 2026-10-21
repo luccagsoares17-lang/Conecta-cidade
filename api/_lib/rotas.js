@@ -467,6 +467,25 @@ rotas['POST anuncios/comentar'] = async (c, req, q, corpo) => {
   return { ok: true };
 };
 
+// Painel: famílias cadastradas. Registros Casa e Pessoa: a administração vê (modelo de dados V1).
+const PAPEIS = { gestor: 'gestor da casa', adulto: 'adulto da casa', jovem: 'jovem' };
+
+rotas['GET familias'] = async (c, req) => {
+  const o = await organizador(c, req);
+  if (!ehAdministracao(o)) return { familias: [] };
+  const casas = await c.query('select id, codigo, rua, numero from casas order by id');
+  const pessoas = await c.query('select casa_id, nome, apelido, perfil, situacao from pessoas order by id');
+  return {
+    familias: casas.map((casa) => ({
+      codigo: casa.codigo,
+      endereco: casa.rua ? casa.rua + (casa.numero ? ', ' + casa.numero : '') : null,
+      pessoas: pessoas
+        .filter((p) => p.casa_id === casa.id)
+        .map((p) => ({ nome: p.nome, apelido: p.apelido, papel: PAPEIS[p.perfil] + (p.situacao === 'ativa' ? '' : ', esperando aprovação') })),
+    })),
+  };
+};
+
 export async function tratar(req, res) {
   const url = new URL(req.url, 'http://localhost');
   const caminho = (url.searchParams.get('rota') || url.pathname.replace(/^\/api\/?/, '')).replace(/^\/+|\/+$/g, '');

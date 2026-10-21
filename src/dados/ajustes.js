@@ -133,6 +133,10 @@ export const ajustes = {
     script: [
       ['return {\n      ...this.coletaVals(),', 'return {\n      ccPrimeiroNome: CC.primeiroNome(this),\n      ...this.coletaVals(),'],
       ['const all = [', '\n    ];', 'const all = CC.publicacoes(this);'],
+      // Famílias cadastradas: a família de exemplo do protótipo dá lugar às famílias com cadastro.
+      ['const familias = [', '\n    ];', 'const familias = CC.familias(this);'],
+      // Como na saudação: o apelido do cadastro, quando há ("Maria Tereza"), senão o primeiro nome.
+      ["title: f.people.map((p) => p[0].split(' ')[0]).join(', '),", "title: f.people.map((p) => p[2] || p[0].split(' ')[0]).join(', '),"],
       ['const o = !!off[p.id];', 'const o = CC.foraDoAr(p);'],
       [
         'toggle: () => {\n            const n = Object.assign({}, this.state.off);\n            n[p.id] = !n[p.id];\n            this.setState({ off: n });\n          }',

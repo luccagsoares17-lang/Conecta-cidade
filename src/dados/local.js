@@ -608,6 +608,27 @@ const rotas = {
   },
 };
 
+// Painel: famílias cadastradas (só a Administração do Núcleo vê).
+const PAPEIS = { gestor: 'gestor da casa', adulto: 'adulto da casa', jovem: 'jovem' };
+
+rotas['GET familias'] = () => {
+  const o = organizador();
+  if (o.grupo !== ADMINISTRACAO) return { familias: [] };
+  const d = dados();
+  return {
+    familias: d.casas
+      .slice()
+      .sort((a, b) => a.id - b.id)
+      .map((casa) => ({
+        codigo: casa.codigo,
+        endereco: casa.rua ? casa.rua + (casa.numero ? ', ' + casa.numero : '') : null,
+        pessoas: d.pessoas
+          .filter((p) => p.casaId === casa.id)
+          .map((p) => ({ nome: p.nome, apelido: p.apelido, papel: PAPEIS[p.perfil] + (p.situacao === 'ativa' ? '' : ', esperando aprovação') })),
+      })),
+  };
+};
+
 /** Atende uma chamada como a API faria. Devolve os dados ou lança um erro com `status`. */
 export async function chamarLocal(caminho, corpo) {
   const [rota, busca] = caminho.split('?');

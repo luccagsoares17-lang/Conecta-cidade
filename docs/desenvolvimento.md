@@ -83,7 +83,7 @@ Sem `DATABASE_URL`, a API responde que o banco não está configurado, e as tela
 | Avisos · gestor e Avisos · jovem | Avisos publicados, com as regras de público e nível (o jovem nunca vê urgentes) |
 | Eventos · gestor e Eventos · jovem | Eventos publicados; "Eu vou" |
 | Publicar | Aviso e Evento: rascunho, publicar agora e agendar |
-| Painel | Nome do organizador; lista de publicados com "No ar" e "Fora do ar" |
+| Painel | Nome do organizador; lista de publicados com "No ar" e "Fora do ar"; **Famílias cadastradas** (todas as famílias, com código e moradores; só a Administração do Núcleo vê) |
 | Desapego | Anúncios, comentários e publicação de anúncio (aparece na hora para todos, regra 3) |
 
 **Quem pode abrir cada tela**: sem conta, as telas do morador levam para Entrar e as do organizador para a Entrada do organizador. O jovem não abre telas do gestor. Eventos e Oportunidades do jovem e o Desapego seguem as chaves da Minha casa. Ficam abertas sem conta: Abertura, Acabei de chegar, Entrar, Criar conta, Guia do morador, Entrada do organizador e as telas de visitante.

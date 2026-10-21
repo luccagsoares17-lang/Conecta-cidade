@@ -141,6 +141,12 @@ await chamar('POST', 'anuncios/comentar', { id: novo.dados.id, texto: 'Tem sim.'
 const coment = (await chamar('GET', 'anuncios', undefined, adulto)).dados.anuncios[0].comentarios;
 confere(coment.length === 2 && !coment[0].doVendedor && coment[1].doVendedor, 'comentários do comprador e do vendedor');
 
+const fams = (await chamar('GET', 'familias', undefined, admin)).dados.familias;
+const tst1 = fams.find((f) => f.codigo === 'TST-0001');
+confere(tst1 && tst1.pessoas.map((p) => p.papel).join(',') === 'gestor da casa,adulto da casa,jovem', 'Painel: a administração vê as famílias e os moradores');
+confere((await chamar('GET', 'familias', undefined, clube)).dados.familias.length === 0, 'Painel: outro grupo não vê as famílias');
+confere((await chamar('GET', 'familias', undefined, gestora)).status === 401, 'morador não abre a lista de famílias');
+
 await chamar('POST', 'sair', {}, gestora);
 confere((await chamar('GET', 'eu', undefined, gestora)).dados.tipo === null, 'sair encerra a sessão');
 

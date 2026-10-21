@@ -142,6 +142,17 @@ button,input,textarea{font-family:inherit}
     </div>
     <span style="font-size: 12px; color: #4F5E55">Toque em “No ar” para tirar do app.</span>
 
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Famílias cadastradas</span>
+    <span style="font-size: 13px; color: #4F5E55">{{famResumo}}</span>
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 4px 16px; display: flex; flex-direction: column">
+      <sc-for list="{{families}}" as="f" hint-placeholder-count="3">
+        <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid #EEF1EC">
+          <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 22px; background: #DCEDE2; color: #17432F; display: flex; align-items: center; justify-content: center; font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 17px; flex-shrink: 0">{{f.initial}}</span>
+          <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #4F5E55">{{f.code}}</span><span style="font-weight: 700; font-size: 15px; color: #13241B">{{f.title}}</span><span style="font-size: 12px; color: #4F5E55">{{f.members}}</span></span>
+        </div>
+      </sc-for>
+    </div>
+
   </div>
   <nav aria-label="Navegação do organizador" style="flex-shrink: 0; height: 80px; background: #13241B; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px; box-sizing: border-box">
     <a href="AdminInicio.dc.html" aria-current="page" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFD27A; font-size: 11px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Painel</a>
@@ -221,8 +232,19 @@ class Component extends DCLogic {
       { id: 'vac', kind: 'Aviso · Informativo · todos', title: 'Campanha de vacinação', href: 'AdminAlcance.dc.html', link: 'Ver alcance' },
       { id: 'cine', kind: 'Evento · para jovens', title: 'CineFases', href: 'AdminPosEvento.dc.html', link: 'Check-in e resultado' }
     ];
+    const familias = [
+      { code: 'CKS-4821', address: 'Rua Japurá, 12', people: [['Lucca Ribeiro', 'gestor da casa'], ['Marina Ribeiro', 'gestor da casa'], ['Davi Ribeiro', 'jovem'], ['Duda Ribeiro', 'jovem, esperando aprovação']] }
+    ];
+    const pessoas = familias.reduce((n, f) => n + f.people.length, 0);
     return {
       ...this.coletaVals(),
+      families: familias.map((f) => ({
+        code: [f.code, f.address, f.people.length + (f.people.length === 1 ? ' morador' : ' moradores')].filter((x) => x).join(' · '),
+        initial: (f.people[0] ? f.people[0][0] : '?').charAt(0).toUpperCase(),
+        title: f.people.map((p) => p[0].split(' ')[0]).join(', '),
+        members: f.people.map((p) => p[0] + ' (' + p[1] + ')').join(' · ')
+      })),
+      famResumo: familias.length + (familias.length === 1 ? ' família' : ' famílias') + ' · ' + pessoas + (pessoas === 1 ? ' morador com conta' : ' moradores com conta'),
       posts: all.map((p) => {
         const o = !!off[p.id];
         return Object.assign({}, p, {

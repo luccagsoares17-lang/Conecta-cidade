@@ -9,6 +9,7 @@ const estado = {
   avisos: null,
   eventos: null,
   anuncios: null,
+  familias: null,
   contas: new Map(),
   buscando: new Set(),
 };
@@ -70,6 +71,7 @@ export async function carregarSessao() {
   estado.avisos = null;
   estado.eventos = null;
   estado.anuncios = null;
+  estado.familias = null;
   avisar();
   return estado.sessao;
 }
@@ -472,6 +474,17 @@ function publicacoes(logica) {
 
 const foraDoAr = (p) => Boolean(p.fora);
 
+// Painel: famílias cadastradas, no formato da lista de exemplo do protótipo.
+function familias(logica) {
+  ouvir(logica);
+  carregarLista('familias');
+  return (estado.familias || []).map((f) => ({
+    code: f.codigo,
+    address: f.endereco,
+    people: f.pessoas.map((p) => [p.nome, p.papel, p.apelido]),
+  }));
+}
+
 async function alternarNoAr(logica, p) {
   const [tipo, id] = p.id.split('-');
   const lista = tipo === 'aviso' ? estado.avisos : estado.eventos;
@@ -562,6 +575,7 @@ async function publicarAnuncio(logica, anuncio, st) {
 }
 
 export const CC = {
+  familias,
   anuncios,
   comentariosDoAnuncio,
   comentar,

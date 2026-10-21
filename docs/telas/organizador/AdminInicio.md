@@ -159,3 +159,12 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
 - O conteúdo do Painel deve variar pelo grupo do organizador (regra 4). O protótipo só desenha a versão da Administração.
 - Os textos "Lucca", "3 eventos", "10 relatos", "Sai em 11/11, às 18h" e a lista "Publicados por você" são dados de exemplo.
 - O `<title>` do arquivo é "Meu Carajás Organizadores – Painel" (no singular, diferente de "Organizadores" na Entrada).
+
+## Famílias cadastradas (acrescentada em 21/10/2026, decisão A-13/A-14)
+
+No fim do Painel, depois de "Publicados por você":
+
+- Título **"Famílias cadastradas"** (Bricolage Grotesque 700, 18 px) e um resumo `{{famResumo}}` ("6 famílias · 7 moradores com conta").
+- Um card branco com uma linha por família (`<sc-for list="{{families}}">`): círculo verde-claro com a inicial; linha pequena em maiúsculas com código · endereço (quando houver) · número de moradores; título com os nomes (apelido, quando houver, senão o primeiro nome); e a lista "Nome (papel)" — gestor da casa, adulto da casa, jovem, ou "jovem, esperando aprovação".
+- No protótipo, o exemplo é a família Ribeiro (CKS-4821, Rua Japurá, 12). No app, a lista vem do cadastro (`CC.familias`), e só a Administração do Núcleo a vê.
+
