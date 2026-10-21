@@ -1,0 +1,56 @@
+# Conflitos entre fontes
+
+Registro das divergências encontradas entre os documentos-fonte e entre os documentos e o protótipo. A coluna **Como tratar** aplica a [ordem de precedência](../README.md#ordem-de-precedência-das-fontes); onde ela não resolve, o item fica **Pendente** e vai para [perguntas em aberto](../perguntas-em-aberto.md).
+
+Como manter: só acrescente linhas. Quando um item for decidido, preencha "Decisão" com data e quem decidiu, sem apagar o texto original.
+
+## D-00 · A própria ordem de precedência
+
+| | |
+| --- | --- |
+| Situação | Todos os documentos têm a mesma data e autor. A ordem (requisitos > protótipo > área > visão geral > plano > contexto) foi proposta na organização deste repositório. |
+| Como tratar | Usar a ordem como regra de trabalho. |
+| Decisão | **Pendente**: confirmar com o time. |
+
+## Entre documentos
+
+| ID | Tema | O que cada fonte diz | Como tratar |
+| --- | --- | --- | --- |
+| C-01 | SMS | Plano: SMS "somente avisos urgentes". Requisitos: SMS obrigatório em urgente, importante e informativo. | Requisitos (SMS nos três níveis). |
+| C-02 | WhatsApp | Plano: canal oficial no WhatsApp é a base de todos os avisos. Requisitos: WhatsApp só para cadastro; nenhum aviso sai por ele. | Requisitos dentro do app. O Plano segue valendo para a comunicação do Núcleo fora do app. |
+| C-03 | Nomes dos níveis | Plano: Vermelho/Amarelo/Verde. Visão geral e requisitos: urgente/importante/informativo. | No app, urgente/importante/informativo; a cor vai na etiqueta do SMS (`[AMARELO]` etc.). |
+| C-04 | Prazo do informativo | Plano: verde até 3 dias. Requisitos: metas só para importante (24 h) e urgente (2 h). | Sem meta na V1 para informativo; registrar se o time quiser adotar 3 dias. **Pendente** |
+| C-05 | Modelo do aviso/SMS | Requisitos dizem "igual ao do Plano", mas o bloco deles não tem linhas em branco nem "Repasse para seus vizinhos." e usa "Ruas Japurá, Jari e Juruá" no lugar de "Ruas A, B e C". O protótipo (`AdminPublicar`) usa o bloco do Plano, com a linha final. | **Pendente**: decidir se o SMS leva a linha "Repasse para seus vizinhos." (afeta tamanho e custo do SMS). |
+| C-06 | Canais obrigatórios por nível | Plano: lista WhatsApp, grupos de rua, murais, redes, carro de som, escolas, representantes. Requisitos: no app só notificação, SMS e WhatsApp (cadastro). O protótipo (`AdminPublicar`) mostra SMS + canais do Plano sem WhatsApp e sem grupos de rua. | No app V1: notificação + SMS. Os outros canais aparecem no protótipo como checklist; **pendente** decidir se o checklist fica na V1 (Representantes é Fase 2). |
+| C-07 | Energia | Visão geral e documento de Energia tratam como parte do app. Requisitos: Fase 2. | Fase 2. |
+| C-08 | Aprovação de eventos | Documento de Eventos: pergunta aberta "quem aprova". Requisitos: Administração aprova eventos de grupos. Não dizem se eventos do Comitê Jovem passam por aprovação. | Administração aprova eventos de "Organizador de eventos". Comitê Jovem: **pendente**. |
+| C-09 | Moderação do Desapego | Documento do Desapego: pergunta "quem cuida dos anúncios". Requisitos: sem aprovação. | Sem aprovação. Moderação depois de publicado: **pendente**. |
+| C-10 | Funcionalidades de Eventos | Documento de Eventos: filtro por idade, perfil do organizador, seguir, convidar vizinho, calendário do mês, selo oficial em eventos. Requisitos não listam. | Fora da V1 (visão de produto). |
+| C-11 | Emergência no Guia | Visão geral: "telefones de emergência sempre à mão". Requisitos: SECOM 0800-2850-193 em destaque; 192, 193 e 190 só na aba Parauapebas. | Requisitos (o protótipo segue). |
+
+## Entre documentos e protótipo
+
+| ID | Tela | Divergência | Como tratar |
+| --- | --- | --- | --- |
+| P-01 | `Avisos`, `JovemAvisos` | A faixa diz que SMS vale para "importantes e urgentes"; requisitos dizem os três níveis. | Requisitos; ajustar o texto na implementação. **Pendente** confirmação do texto. |
+| P-02 | `GestorFamilia` | Nota diz que o jovem vê "só os avisos informativos e de eventos"; requisitos dizem informativos e importantes (e `JovemAvisos` mostra importantes). | Requisitos. |
+| P-03 | `GestorFamilia`, `JovemInicio` | Permissões de Trilhas e Carona; requisitos só têm Eventos, Oportunidades, Desapego. Permissões aparecem por casa, não por jovem. | V1: as 3 áreas, por jovem (registro "Permissão do jovem"). Trilhas e Carona ocultas. |
+| P-04 | `GestorFamilia` | Não há onde aprovar contas "esperando aprovação", requisito central (critério de aceite). | Requisito vale; **o protótipo não tem o elemento** — **pendente** definir onde fica, sem inventar layout. |
+| P-05 | `AdminAprovar` | Script tem listas de Desapego para aprovar; requisitos: Desapego sem aprovação. Só a aba Eventos aparece. | Requisitos: só Eventos. |
+| P-06 | `Desapego` | Comentários públicos no lugar de conversa privada; exemplos mostram rua e quarteirão; não há "marcar como vendido"; etiqueta "Em análise"; ranking com estrelas. | Requisitos: conversa no app sem mostrar telefone; "vendido" existe no registro. Ranking e "Em análise" fora da V1. **Pendente**: conversa privada não está desenhada. |
+| P-07 | `Eventos`, `JovemEventos` | Não mostra confirmações, não começa pelos interesses do cadastro, sem lembrete, fora de ordem de data. | Requisitos valem; o protótipo não desenha esses elementos — **pendente**. |
+| P-08 | `Main` | Não há bloco "último aviso" (o mais próximo é o card "Água · Aviso"); rodapé da coleta cita "Cronograma oficial (PRO 022144)", mas os dias reais são pergunta aberta. | Usar o card como "último aviso"; dias da coleta **pendentes**. |
+| P-09 | `CadastroGestor`, `CadastroJovem` | Falta o aceite do termo de uso e política de privacidade (LGPD). Jovem sem e-mail e com celular opcional pode não conseguir entrar (Login pede e-mail ou celular). Rua em texto livre, sem quarteirão. | Requisitos valem; **pendente** onde entra o aceite e como o jovem sem celular entra. |
+| P-10 | `CadastroGestor` | Texto diz que o gestor recebe "os avisos importantes"; requisitos: todos, inclusive urgentes. | Requisitos. |
+| P-11 | `Chegada` | Card de carona para visitante funciona; requisitos: desativada na V1. | Desativado na V1. |
+| P-12 | `CaronaVisitante` | Pede CPF, nome completo e celular de visitante; LGPD da V1 proíbe CPF de visitante. | Fase 2; não implementar na V1. |
+| P-13 | `JovemFamilia` | Jovem vê endereço e código da família e dados de outros moradores; modelo de dados restringe a gestores e administração. Tela fora da lista da V1. | **Pendente**: decidir se a tela entra e o que ela mostra. |
+| P-14 | `GestorMinhaFamilia` | Arquivo sem board no canvas e sem links de entrada; duplica parte de `GestorFamilia`. | **Pendente**: confirmar se é versão antiga ou alternativa de "Minha casa". |
+| P-15 | `AdminPublicar` | Tipo Aviso não tem seleção de ruas nem campo de contato, embora o registro Aviso tenha "ruas" e "contato" e a regra do urgente use "ruas escolhidas". Evento publica direto, sem aprovação. | Requisitos valem; **pendente** desenho dos campos. |
+| P-16 | `AdminAlcance` | "Reenviar" diz "Notificação reenviada"; regra 4 manda SMS. Mostra só %, critério pede quantas casas. Meta só de 24 h. | Requisitos: SMS, número de casas, meta 2 h para urgente. |
+| P-17 | `AdminEquipe` | Aba "Equipes de campo" abre primeiro; grupos de energia e campo; áreas de Fase 2; falta Guia; Comitê Jovem com Trilhas. | V1: os 3 grupos dos requisitos e áreas da V1 (inclui Guia). |
+| P-18 | `AdminEntrada` | Texto cita "a equipe de energia"; não há validação de convite de uso único. | Requisitos; texto da Fase 2 oculto. |
+| P-19 | `AdminInicio` | Painel não varia por grupo (regra 4). Eventos com situações "rascunho"/"No ar", que o registro Evento não tem. | Regra 4 vale. **Pendente**: situações do Evento. |
+| P-20 | Vários | Botões e chips de 36–40 px; requisito pede 44 px. | Requisito (44 px). |
+| P-21 | `Energia`, `AdminEnergia` | "3 quarteirões cada", mas a Rua Tapajós só passa por 2. | Fase 2; confirmar com a administração. |
+| P-22 | `TrilhaVisitante`, `Chegada`, `CaronaVisitante` | Informações diferentes sobre onde tirar a autorização (site do ICMBio, portaria, portaria das 8h às 16h). | Fase 2; **pendente**. |

@@ -22,7 +22,7 @@ Os nomes dos níveis no app são os dos requisitos. A cor vem do Plano de Comuni
 | Importante | Amarelo `[AMARELO]` | 95% das casas em 24 h | Não | Sim |
 | Informativo | Verde `[VERDE]` | O Plano diz "até 3 dias"; os requisitos não fixam meta | Não | Sim |
 
-As etiquetas `[VERMELHO]` e `[VERDE]` seguem o padrão do `[AMARELO]` do modelo; só o `[AMARELO]` aparece escrito nos documentos.
+Nos documentos só o `[AMARELO]` aparece escrito; o protótipo (`AdminPublicar`) usa `[VERMELHO]`, `[AMARELO]` e `[VERDE]` no texto padrão.
 
 ## Modelo padrão do SMS
 

@@ -47,7 +47,7 @@ Os requisitos dizem que "os nomes batem com os do protótipo". A ligação abaix
 | 10 | Desapego | Desapego · gestor | `Desapego.dc.html` |
 | 11 | Avisos | Avisos · gestor / Avisos · jovem | `Avisos.dc.html`, `JovemAvisos.dc.html` |
 | 12 | Guia do morador | Guia do morador · gestor / Oportunidades · jovem | `Guia.dc.html`, `JovemGuia.dc.html` |
-| 13 | Coleta seletiva | Sem board próprio no app do morador — ver [inventário](../telas/README.md) | — |
+| 13 | Coleta seletiva | Sem board próprio: card "Coleta seletiva" dentro do Início · gestor | `Main.dc.html` |
 
 **Conecta Cidade Organizadores — 6 telas**
 
@@ -65,7 +65,7 @@ As outras telas do protótipo são Fase 2 ou identidade visual. Lista completa e
 ## Pontos que exigem atenção
 
 - **"Igual ao do Plano de Comunicação"**: o modelo de SMS dos requisitos difere do modelo do Plano em três detalhes (ruas de exemplo, sem linhas em branco, sem "Repasse para seus vizinhos."). Ver [conflitos](../decisoes/conflitos-entre-fontes.md).
-- **Coleta seletiva** é uma das 13 telas do morador, mas o protótipo não tem um board com esse nome na página do morador.
+- **Coleta seletiva** é uma das 13 telas do morador, mas o protótipo não tem um board próprio para ela: é um card dentro do Início · gestor (`Main`). No organizador, a tabela de dias é editada no Painel; o board "Coleta seletiva" (`AdminColeta`) é só a rota do caminhão (Fase 2).
 - **"Minha casa"**: existe também um arquivo `GestorMinhaFamilia.dc.html` (título "Minha família") que não está no índice do canvas.
 - **Os embeds** "cadastro e aprovação do jovem · 4 passos, 1 decisão" não vieram no arquivo; o fluxo foi reconstruído a partir do texto em [`produto/fluxos.md`](../produto/fluxos.md).
 - **Categorias de aviso** não são listadas aqui; a lista está na visão geral do app.
