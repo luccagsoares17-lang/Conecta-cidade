@@ -9,6 +9,18 @@ export const semente = {
     },
     {
       "codigo": "CKS-5420"
+    },
+    {
+      "codigo": "CKS-5959"
+    },
+    {
+      "codigo": "CKS-9588"
+    },
+    {
+      "codigo": "CKS-5695"
+    },
+    {
+      "codigo": "CKS-8244"
     }
   ],
   "pessoas": [
@@ -32,6 +44,35 @@ export const semente = {
       "perfil": "gestor",
       "casa": "CKS-5420",
       "senha_hash": "scrypt$16384$8$1$53C+ebxS1DJ8h4Xt00Lh+g==$ybGWuNcKcpsRH4LeWuu8K9CjLlaQCHIU+GjaEX3v+aY="
+    },
+    {
+      "nome": "Lucca",
+      "email": "lucca@conectacidade.app",
+      "perfil": "gestor",
+      "casa": "CKS-5959",
+      "senha_hash": "scrypt$16384$8$1$VVmuK2aUQ1eCPZlGLbpHKg==$EmkawHc8wfT8ZLRhza7ePFgHaSI1BfnjCtdbGOPWhEA="
+    },
+    {
+      "nome": "Mariana",
+      "email": "mariana@conectacidade.app",
+      "perfil": "gestor",
+      "casa": "CKS-9588",
+      "senha_hash": "scrypt$16384$8$1$YtjRY5pHMhkDr87j2SF8QA==$2INJ/HRNsXKW+1uIyOgW75/mjSQZEC342FC2w4Cpnik="
+    },
+    {
+      "nome": "Maria Tereza",
+      "email": "mariatereza@conectacidade.app",
+      "perfil": "gestor",
+      "casa": "CKS-5695",
+      "senha_hash": "scrypt$16384$8$1$KSIYyekFTv8WrsAhPse8dA==$VDG38F2NYrwLObSexBOvPgXJNJwAlmBKCmFngY7ZXF0=",
+      "apelido": "Maria Tereza"
+    },
+    {
+      "nome": "Vitor",
+      "email": "vitor@conectacidade.app",
+      "perfil": "gestor",
+      "casa": "CKS-8244",
+      "senha_hash": "scrypt$16384$8$1$HSRaMASUMQyqtmvWKxts4g==$rxq8YNZj/72soWT6uvCCVKzP8DjBCxvA5JqCgakaTyc="
     }
   ],
   "organizadores": [

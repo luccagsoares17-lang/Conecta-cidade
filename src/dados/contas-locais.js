@@ -11,6 +11,22 @@ export const contasLocais = {
     {
       "id": 2,
       "codigo": "CKS-5420"
+    },
+    {
+      "id": 3,
+      "codigo": "CKS-5959"
+    },
+    {
+      "id": 4,
+      "codigo": "CKS-9588"
+    },
+    {
+      "id": 5,
+      "codigo": "CKS-5695"
+    },
+    {
+      "id": 6,
+      "codigo": "CKS-8244"
     }
   ],
   "pessoas": [
@@ -37,6 +53,39 @@ export const contasLocais = {
       "email": "gustavo@conectacidade.app",
       "perfil": "gestor",
       "senha": "pbkdf2-sha256$210000$ni+RM+7yCH8Rh5esj+uhLQ==$6DMgLkXdj6LOFXtjiCYmGlm1V/ruCcA6EfVvGs0ewXc="
+    },
+    {
+      "id": 4,
+      "casa": "CKS-5959",
+      "nome": "Lucca",
+      "email": "lucca@conectacidade.app",
+      "perfil": "gestor",
+      "senha": "pbkdf2-sha256$210000$yfj1pZt6Wgnmnt7SdCmECw==$I5VaxiyA3nURxjqcjCDAcpfwwu/wqqrCvbNt8CjraSQ="
+    },
+    {
+      "id": 5,
+      "casa": "CKS-9588",
+      "nome": "Mariana",
+      "email": "mariana@conectacidade.app",
+      "perfil": "gestor",
+      "senha": "pbkdf2-sha256$210000$vG1gGGHcr6PmidA1d/zoCQ==$8T1vVpzxk2St49dQSvprerIrS3fEIVF54yljj8f8/lQ="
+    },
+    {
+      "id": 6,
+      "casa": "CKS-5695",
+      "nome": "Maria Tereza",
+      "email": "mariatereza@conectacidade.app",
+      "perfil": "gestor",
+      "senha": "pbkdf2-sha256$210000$SpcPMW0aaewD3FBXfwKkyA==$qyOZJZTq2rUZX9X8ZV6PP2Vcmoibi7u7x7XRz5hYVYQ=",
+      "apelido": "Maria Tereza"
+    },
+    {
+      "id": 7,
+      "casa": "CKS-8244",
+      "nome": "Vitor",
+      "email": "vitor@conectacidade.app",
+      "perfil": "gestor",
+      "senha": "pbkdf2-sha256$210000$k6EQOlEJhCbmZSsBPDkb4g==$o3KJf1wwJYA5sw9eyCIdzIQJGDjDW3QpqlCUTXE78KA="
     }
   ],
   "organizadores": [

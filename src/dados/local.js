@@ -44,8 +44,39 @@ function gravar(chave, valor) {
 let memoria = null;
 
 function dados() {
-  if (!memoria) memoria = ler(CHAVE_DADOS) || semear();
+  if (!memoria) {
+    memoria = ler(CHAVE_DADOS) || semear();
+    sincronizarContas(memoria);
+  }
   return memoria;
+}
+
+// Contas acrescentadas depois que o aparelho já guardou os dados: entram sem apagar nada.
+function sincronizarContas(d) {
+  let mudou = false;
+  for (const c of contasLocais.casas) {
+    if (!d.casas.some((x) => x.codigo === c.codigo)) {
+      d.casas.push({ id: c.id, codigo: c.codigo, rua: null, numero: null, quarteirao: null });
+      mudou = true;
+    }
+  }
+  for (const p of contasLocais.pessoas) {
+    if (d.pessoas.some((x) => x.email === p.email)) continue;
+    d.pessoas.push({
+      id: p.id,
+      casaId: d.casas.find((c) => c.codigo === p.casa).id,
+      nome: p.nome,
+      apelido: p.apelido || null,
+      idade: null,
+      email: p.email,
+      celular: null,
+      perfil: p.perfil,
+      situacao: 'ativa',
+    });
+    if (p.perfil === 'jovem') d.permissoes[p.id] = { Eventos: true, Oportunidades: true, Desapego: false };
+    mudou = true;
+  }
+  if (mudou) salvar();
 }
 
 function salvar() {
@@ -61,7 +92,7 @@ function semear() {
     id: p.id,
     casaId: casas.find((c) => c.codigo === p.casa).id,
     nome: p.nome,
-    apelido: null,
+    apelido: p.apelido || null,
     idade: null,
     email: p.email,
     celular: null,

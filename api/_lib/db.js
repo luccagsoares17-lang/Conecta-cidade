@@ -157,10 +157,10 @@ async function preparar(c) {
   }
   for (const p of semente.pessoas) {
     await c.query(
-      `insert into pessoas (casa_id, nome, email, perfil, situacao, senha_hash)
-       select id, $2, $3, $4, 'ativa', $5 from casas where codigo = $1
+      `insert into pessoas (casa_id, nome, apelido, email, perfil, situacao, senha_hash)
+       select id, $2, $6, $3, $4, 'ativa', $5 from casas where codigo = $1
        on conflict (email) do nothing`,
-      [p.casa, p.nome, p.email, p.perfil, p.senha_hash],
+      [p.casa, p.nome, p.email, p.perfil, p.senha_hash, p.apelido || null],
     );
     if (p.perfil === 'jovem') {
       // Requisitos V1: o jovem usa Eventos e Oportunidades; Desapego só se o gestor liberar.

@@ -204,7 +204,11 @@ function pessoa(logica) {
   return (estado.sessao && (estado.sessao.pessoa || estado.sessao.organizador)) || null;
 }
 
-const primeiroNome = (logica) => ((pessoa(logica) || {}).nome || '').split(' ')[0];
+// Saudação: o apelido do cadastro, se houver; senão o primeiro nome (como "Lucca" de "Lucca Ribeiro" no protótipo).
+const primeiroNome = (logica) => {
+  const p = pessoa(logica) || {};
+  return p.apelido || (p.nome || '').split(' ')[0];
+};
 const nomeCompleto = (logica) => (pessoa(logica) || {}).nome || '';
 
 function codigoDaFamilia(logica) {
