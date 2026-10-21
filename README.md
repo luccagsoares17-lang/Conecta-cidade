@@ -12,6 +12,15 @@ Projeto do **Entre Fases** para o Shark Tank Carajás (outubro de 2026), em resp
 | **Protótipo** | [Conecta Cidade – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9) · cópia em [`design/prototipo/`](design/prototipo/) |
 | **Visual** | Bricolage Grotesque + DM Sans, cores e ícones do protótipo |
 
+## Rodar o app
+
+```bash
+npm install
+npm run dev     # abre em http://localhost:5173
+```
+
+O app mostra as telas do protótipo exatamente como estão no artefato. `/telas` lista todas; `?modo=v1` mostra só a versão 1. Detalhes em [`docs/desenvolvimento.md`](docs/desenvolvimento.md).
+
 ## Comece por aqui
 
 - [`CLAUDE.md`](CLAUDE.md) — regras do projeto, ordem de precedência das fontes e mapa do repositório.

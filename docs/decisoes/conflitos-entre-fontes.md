@@ -54,3 +54,4 @@ Como manter: só acrescente linhas. Quando um item for decidido, preencha "Decis
 | P-20 | Vários | Botões e chips de 36–40 px; requisito pede 44 px. | Requisito (44 px). |
 | P-21 | `Energia`, `AdminEnergia` | "3 quarteirões cada", mas a Rua Tapajós só passa por 2. | Fase 2; confirmar com a administração. |
 | P-22 | `TrilhaVisitante`, `Chegada`, `CaronaVisitante` | Informações diferentes sobre onde tirar a autorização (site do ICMBio, portaria, portaria das 8h às 16h). | Fase 2; **pendente**. |
+| P-23 | `Main` | Há um `</div>` a mais no arquivo: a barra de navegação de baixo fica fora da raiz da tela e seus rótulos aparecem na fonte padrão do navegador, não em DM Sans (requisito visual: fontes iguais às do protótipo). O app reproduz o arquivo como está. | **Pendente**: corrigir no artefato e copiar de novo. |

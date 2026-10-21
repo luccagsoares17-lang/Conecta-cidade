@@ -25,6 +25,7 @@ Leia este arquivo antes de qualquer tarefa neste repositório. Ele diz onde est�
    - telefone do autor do anúncio nunca aparece.
 7. **SMS obrigatório em todos os níveis de aviso; WhatsApp só no cadastro** (requisitos da V1, que prevalecem sobre o Plano de Comunicação dentro do app).
 8. Escreva documentação e textos de interface em **português do Brasil**, frases curtas, sem siglas, como pedem os documentos.
+9. **O app desenha as telas direto de `design/prototipo/`.** Nunca reescreva uma tela em JSX ou HTML à parte, nem edite a tela no código: mudança de tela é feita no artefato e copiada de novo. Antes de mexer no app, leia [`docs/desenvolvimento.md`](docs/desenvolvimento.md).
 
 ## Ordem de precedência das fontes
 
@@ -40,6 +41,10 @@ Leia este arquivo antes de qualquer tarefa neste repositório. Ele diz onde est�
 ```
 CLAUDE.md                  ← este arquivo
 README.md                  ← apresentação do projeto
+index.html, src/           ← o app (Vite + React): motor das telas, rotas, modo V1
+public/                    ← PWA: manifesto, ícones, service worker
+scripts/verificar-telas.mjs← npm test
+vercel.json                ← publicação na Vercel
 design/
   README.md                ← origem, versão e regras do protótipo
   prototipo/               ← canvas.json + 38 telas .dc.html (cópia fiel, não editar)
@@ -53,6 +58,7 @@ docs/
   telas/                   ← inventário + uma ficha por tela do protótipo
   decisoes/                ← conflitos entre fontes e decisões tomadas
   perguntas-em-aberto.md   ← tudo o que ainda precisa de resposta
+  desenvolvimento.md       ← como o app funciona, roda, é publicado e atualizado
 ```
 
 ## Onde procurar
@@ -66,10 +72,11 @@ docs/
 | Regras de SMS, níveis e modelo de aviso | `docs/produto/canais-de-comunicacao.md` |
 | Quando a V1 está pronta | `docs/produto/requisitos-gerais-e-piloto.md` |
 | Por que duas fontes dizem coisas diferentes | `docs/decisoes/conflitos-entre-fontes.md` |
+| Como rodar, publicar ou mudar o app | `docs/desenvolvimento.md` |
 
 ## Como manter este contexto
 
 - **Novo documento-fonte**: copie para `docs/fontes/` sem alterar, crie `docs/analise/NN-<nome>.md` seguindo o formato dos existentes, atualize `docs/produto/` e `docs/decisoes/` se ele mudar alguma regra, e adicione-o na ordem de precedência acima.
 - **Protótipo atualizado**: copie de novo todos os arquivos do artefato para `design/prototipo/`, atualize versão e `prototipo.sha256` em `design/README.md`, e revise as fichas das telas que mudaram.
 - **Decisão tomada** (ex.: resposta a uma pergunta em aberto): registre em `docs/decisoes/` com data, quem decidiu e fonte; marque a pergunta como respondida em `docs/perguntas-em-aberto.md`.
-- **Código**: quando o desenvolvimento começar, cada tela implementada deve citar o arquivo do protótipo e a ficha que segue.
+- **Código**: o app lê as telas de `design/prototipo/`; depois de copiar uma versão nova do artefato, rode `npm test` e `npm run build`. Dados reais entram pelo motor, sem mudar o desenho das telas.
