@@ -6,7 +6,7 @@
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1. A lista da V1 tem uma tela "Coleta seletiva", mas ela é do app do morador, não do organizador |
 | Versão | Fase 2 (a tela inteira é a rota do caminhão; a parte da V1, a tabela de dias, não está nesta tela — ver "V1 × Fase 2") |
-| Perfil que vê | Não definido nos documentos. No protótipo, abre pelo Painel do organizador (Ferramentas → "Coleta seletiva · Rota do caminhão") |
+| Perfil que vê | Não definido nos documentos. No protótipo, abre pelo Painel do organizador (Ferramentas → "Coleta seletiva · Rota do caminhão"). Nas permissões iniciais de `AdminEquipe.dc.html`, a área "Coleta" fica liberada para "Administração do Núcleo" e "Equipes de campo", grupo que não existe nos requisitos |
 | Protótipo | [`design/prototipo/AdminColeta.dc.html`](../../../design/prototipo/AdminColeta.dc.html) |
 | Tamanho | 390×844 |
 

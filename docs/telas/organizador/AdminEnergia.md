@@ -6,7 +6,7 @@
 | Página do canvas | `organizador` |
 | Nome na lista "Telas da versão 1" dos requisitos | Não está na lista da V1 |
 | Versão | Fase 2 |
-| Perfil que vê | Não é um dos perfis da V1. O cabeçalho da tela diz "Equipe responsável pela energia do Núcleo" (ver Divergências) |
+| Perfil que vê | Nenhum perfil da V1. O cabeçalho diz "Equipe responsável pela energia do Núcleo". Nas permissões iniciais de `AdminEquipe.dc.html`, a área "Energia" fica liberada para "Administração do Núcleo" e "Equipe de energia", grupo que não existe nos requisitos (ver Divergências) |
 | Protótipo | [`design/prototipo/AdminEnergia.dc.html`](../../../design/prototipo/AdminEnergia.dc.html) |
 | Tamanho | 390×844 |
 
@@ -112,7 +112,8 @@ A tela também é aberta pelo card de energia do Painel (`AdminInicio.dc.html`).
 5. **Rua × quarteirão.** O documento de energia fala em "ruas afetadas" e "histórico das quedas de cada rua". O protótipo marca e mostra por trecho (rua + quarteirão), como os requisitos ("mapa por quarteirão").
 6. **Texto do card.** "18 ruas · 3 quarteirões cada" não bate com o próprio mapa: a Rua Tapajós só passa pelos quarteirões 2 e 3, e o Quarteirão 1 aparece como "Não passa aqui". A divisão em quarteirões é uma pergunta em aberto nos requisitos.
 7. **Mapa com dados fixos.** O mapa usa dados fixos e não acompanha as ocorrências. Quando a ocorrência da Rua Juruá vira "Resolvido", o trecho continua vermelho. O trecho da Rua Paru diz "equipe a caminho" antes de qualquer equipe ser enviada.
-8. **Dados fora do modelo.** Relatos, ocorrência, causa provável, previsão de volta, equipes, histórico e lembrete na véspera não têm registro entre os 8 da V1.
+8. **Diferença entre telas do protótipo.** Esta tela diz que a "Equipe de rede elétrica" tem "3 eletricistas". Em `AdminEquipe.dc.html`, a equipe "Rede elétrica" tem "6 pessoas".
+9. **Dados fora do modelo.** Relatos, ocorrência, causa provável, previsão de volta, equipes, histórico e lembrete na véspera não têm registro entre os 8 da V1.
 
 ## Notas para implementação
 - Tela inteira da Fase 2. Na V1, o item "Energia" da barra inferior e o acesso pelo Painel ficam ocultos ou desativados. A mesma regra já vale para o card de energia do Início do gestor, que os requisitos dizem ficar "oculto até a fase 2".
