@@ -62,7 +62,7 @@ Campos do registro Evento que a tela não mostra: vagas e situação (esperando 
 
 ## Regras dos documentos que se aplicam
 - Requisitos da versão 1, "Telas da versão 1": Eventos — "Mostra primeiro os interesses do cadastro; lembrete no dia".
-- Requisitos, "Perfis e permissões": eventos de organizadores de grupos passam pela aprovação da administração; só aparecem eventos publicados (registro Evento, situação "esperando aprovação, publicado").
+- Requisitos, "Perfis e permissões": os eventos do organizador de eventos "passam pela aprovação da administração". Na tela Aprovações do organizador, "Aprovar publica na agenda" (registro Evento, situação "esperando aprovação, publicado").
 - Requisitos, "SMS e WhatsApp": notificação do app para todo evento publicado.
 - Requisitos, "Dados que o sistema guarda": Evento é visto por "Todos os moradores".
 - Eventos no Conecta Cidade, "Como funciona": o morador "toca em 'Eu vou' e vê quantas pessoas já confirmaram"; "No dia, o app manda um lembrete com o horário e o local".
