@@ -6,6 +6,7 @@ const estado = {
   sessao: undefined, // undefined = ainda carregando; { tipo: null } = sem conta
   avisos: null,
   eventos: null,
+  anuncios: null,
   contas: new Map(),
   buscando: new Set(),
 };
@@ -57,6 +58,7 @@ export async function carregarSessao() {
   }
   estado.avisos = null;
   estado.eventos = null;
+  estado.anuncios = null;
   avisar();
   return estado.sessao;
 }
@@ -473,7 +475,82 @@ async function alternarNoAr(logica, p) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Desapego
+
+// Cores de fundo por categoria, as mesmas do protótipo.
+const TINTAS = { Móveis: '#FBE6DA', Eletrônicos: '#DFE9F5', Roupas: '#ECE4F5', Livros: '#F8EDC9', Esportes: '#E3EEDC' };
+
+function haQuanto(data) {
+  const min = Math.max(0, Math.round((Date.now() - new Date(data).getTime()) / 60000));
+  if (min < 1) return 'agora';
+  if (min < 60) return 'há ' + min + ' min';
+  const h = Math.round(min / 60);
+  if (h < 24) return 'há ' + h + ' h';
+  if (h < 48) return 'ontem';
+  const d = new Date(data);
+  return d.getDate() + '/' + (d.getMonth() + 1);
+}
+
+function anuncios(logica) {
+  ouvir(logica);
+  carregarLista('anuncios');
+  return (estado.anuncios || []).map((a) => ({
+    id: a.id,
+    t: a.titulo,
+    cat: a.categoria,
+    price: a.preco,
+    move: a.mudanca,
+    donate: a.doacao,
+    tint: TINTAS[a.categoria] || '#F4F6F1',
+    k: a.ilustracao || undefined,
+  }));
+}
+
+function comentariosDoAnuncio(logica, item) {
+  const a = (estado.anuncios || []).find((x) => x.id === item.id);
+  if (!a) return { seller: 'Você', list: [] };
+  return {
+    seller: a.meu ? nomeCompleto(logica) + ' (você)' : a.vendedor,
+    list: a.comentarios.map((c) => ({
+      who: c.doVendedor ? '*' : c.meu ? c.quem + ' (você)' : c.quem,
+      text: c.texto,
+      time: haQuanto(c.criadoEm),
+      me: c.meu,
+    })),
+  };
+}
+
+async function comentar(logica, item, texto) {
+  logica.setState({ draft: '' });
+  try {
+    await api('anuncios/comentar', { id: item.id, texto });
+  } finally {
+    recarregar('anuncios');
+  }
+}
+
+async function publicarAnuncio(logica, anuncio, st) {
+  try {
+    await api('anuncios', {
+      titulo: anuncio.t,
+      categoria: anuncio.cat,
+      doacao: anuncio.donate,
+      preco: st.fPrice,
+      mudanca: anuncio.move,
+      descricao: valorDoCampo('adDesc'),
+    });
+    logica.setState({ form: false, toast: true, cat: 'Todos', onlyMove: false, fTitle: '', fPrice: '', fMove: false, fPhoto: false, fKind: 'Vender' });
+  } finally {
+    recarregar('anuncios');
+  }
+}
+
 export const CC = {
+  anuncios,
+  comentariosDoAnuncio,
+  comentar,
+  publicarAnuncio,
   contasParaLogin,
   buscandoConta,
   entrarMorador,

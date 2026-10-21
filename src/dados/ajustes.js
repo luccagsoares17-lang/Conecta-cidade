@@ -146,7 +146,25 @@ export const ajustes = {
   JovemFamilia: { exige: 'jovem' },
   JovemGuia: { exige: 'jovem:Oportunidades' },
   JovemTrilhas: { exige: 'jovem' },
-  Desapego: { exige: 'morador:Desapego' },
+  // ------------------------------------------------------------------ Desapego
+  // Anúncios e comentários vêm do banco; o anúncio publicado aparece na hora para todos (regra 3).
+  // O ranking continua com os dados de exemplo do protótipo.
+  Desapego: {
+    exige: 'morador:Desapego',
+    script: [
+      ['const all = [', '\n    ];', 'const all = CC.anuncios(this);'],
+      ['const COMMENTS = {', '\n    const s = this.state;', 'const COMMENTS = {};\n    const s = this.state;'],
+      ["const base = COMMENTS[i.t] || { seller: 'Você', list: [] };", 'const base = CC.comentariosDoAnuncio(this, i);'],
+      [
+        "const a = Object.assign({}, this.state.added || {});\n            a[i.t] = (a[i.t] || []).concat([{ who: 'Lucca Ribeiro (você)', text: txt, time: 'agora', me: true }]);\n            this.setState({ added: a, draft: '' });",
+        'CC.comentar(this, i, txt);',
+      ],
+      [
+        "this.setState({ mine: [ad].concat(st.mine), form: false, toast: true, cat: 'Todos', onlyMove: false, fTitle: '', fPrice: '', fMove: false, fPhoto: false, fKind: 'Vender' });",
+        'CC.publicarAnuncio(this, ad, st);',
+      ],
+    ],
+  },
   Energia: { exige: 'adulto' },
   Trilhas: { exige: 'adulto' },
   Carona: { exige: 'adulto' },

@@ -29,3 +29,20 @@ Os dois entram na tela **Entrada do organizador** com o e-mail e o código de ac
 - Os logins `@conectacidade.app` servem só para entrar no app. Ninguém recebe e-mail por eles.
 - As senhas são provisórias. O protótipo ainda não tem tela para trocar a senha (ver [perguntas em aberto](perguntas-em-aberto.md)).
 - Para sair de uma conta no aparelho, abra o endereço `/sair` do app. O protótipo não tem botão de sair.
+
+## Conteúdo de demonstração
+
+Na primeira vez que o servidor sobe com o banco vazio, ele publica os exemplos do protótipo:
+- 5 avisos, publicados pelo Mário: interdição de estrada (urgente), falta de água, obra, vacinação e coleta seletiva;
+- 5 eventos: CineFases, Noite de Pizza, Olimpíadas Entre Fases, Encontro de boas-vindas e Torneio de videogame;
+- 12 anúncios do Desapego, com os comentários do protótipo.
+
+Para apagar tudo isso antes do piloto real, rode no console SQL do Neon:
+
+```sql
+delete from comentarios_anuncio where anuncio_id in (select id from anuncios where autor_id is null);
+delete from anuncios where autor_id is null;
+delete from eventos where organizador_id is null or nome in ('Encontro de boas-vindas');
+delete from avisos where oque in ('Interdição de estrada', 'Interrupção no fornecimento de água', 'Obra na rua',
+  'Campanha de vacinação', 'Coleta seletiva: lixo até as 10h');
+```

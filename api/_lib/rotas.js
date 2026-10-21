@@ -332,7 +332,8 @@ const rotas = {
   'GET eventos': async (c, req) => {
     await publicarAgendados(c);
     const s = await sessaoDoPedido(c, req);
-    const base = `select e.*, o.nome as organizador_nome, o.grupo as organizador_grupo,
+    const base = `select e.*, coalesce(o.nome, e.organizador_nome) as organizador_nome,
+                    coalesce(o.grupo, e.organizador_nome) as organizador_grupo,
                     (select count(*) from confirmacoes x where x.evento_id = e.id) as confirmacoes,
                     exists(select 1 from confirmacoes x where x.evento_id = e.id and x.pessoa_id = $1) as eu_vou
                   from eventos e left join organizadores o on o.id = e.organizador_id`;
@@ -411,6 +412,83 @@ const rotas = {
     }
     return { ok: true };
   },
+};
+
+// ---------------------------------------------------------------------------
+// Desapego: publica na hora, sem aprovação (regra 3); o telefone do autor nunca aparece.
+
+const CATEGORIAS_DESAPEGO = new Set(['Móveis', 'Eletrônicos', 'Roupas', 'Livros', 'Esportes']);
+
+async function podeUsarDesapego(c, p) {
+  return p.perfil !== 'jovem' || (await permissoesDoJovem(c, p.id)).Desapego;
+}
+
+rotas['GET anuncios'] = async (c, req) => {
+  const p = await morador(c, req);
+  if (!(await podeUsarDesapego(c, p))) throw new Recusa(403, 'O gestor da casa ainda não liberou o Desapego.');
+  const anuncios = await c.query(
+    `select a.id, a.titulo, a.categoria, a.preco, a.doacao, a.mudanca, a.descricao, a.ilustracao, a.situacao,
+            a.criado_em, coalesce(p.nome, a.autor_nome) as vendedor, (a.autor_id = $1) as meu
+     from anuncios a left join pessoas p on p.id = a.autor_id
+     where a.situacao = 'ativo' order by a.criado_em desc`,
+    [p.id],
+  );
+  const comentarios = await c.query(
+    `select id, anuncio_id, autor_nome, do_vendedor, texto, criado_em, (autor_id = $1) as meu
+     from comentarios_anuncio order by criado_em, id`,
+    [p.id],
+  );
+  return {
+    anuncios: anuncios.map((a) => ({
+      id: a.id,
+      titulo: a.titulo,
+      categoria: a.categoria,
+      preco: a.preco,
+      doacao: a.doacao,
+      mudanca: a.mudanca,
+      descricao: a.descricao,
+      ilustracao: a.ilustracao,
+      vendedor: a.vendedor,
+      meu: Boolean(a.meu),
+      criadoEm: a.criado_em,
+      comentarios: comentarios
+        .filter((x) => x.anuncio_id === a.id)
+        .map((x) => ({ quem: x.autor_nome, doVendedor: x.do_vendedor, texto: x.texto, criadoEm: x.criado_em, meu: Boolean(x.meu) })),
+    })),
+  };
+};
+
+rotas['POST anuncios'] = async (c, req, q, corpo) => {
+  const p = await morador(c, req);
+  if (!(await podeUsarDesapego(c, p))) throw new Recusa(403, 'O gestor da casa ainda não liberou o Desapego.');
+  const titulo = String(corpo.titulo || '').trim();
+  const categoria = String(corpo.categoria || '');
+  const doacao = Boolean(corpo.doacao);
+  const valor = String(corpo.preco || '').replace(/[^0-9]/g, '');
+  if (!titulo || !CATEGORIAS_DESAPEGO.has(categoria) || (!doacao && !valor)) {
+    throw new Recusa(400, 'Foto, título e preço (ou doação) são obrigatórios.');
+  }
+  const preco = doacao ? 'Grátis' : 'R$ ' + valor;
+  const [a] = await c.query(
+    `insert into anuncios (autor_id, titulo, categoria, preco, doacao, mudanca, descricao)
+     values ($1, $2, $3, $4, $5, $6, $7) returning id`,
+    [p.id, titulo, categoria, preco, doacao, Boolean(corpo.mudanca), String(corpo.descricao || '').trim() || null],
+  );
+  return { id: a.id };
+};
+
+rotas['POST anuncios/comentar'] = async (c, req, q, corpo) => {
+  const p = await morador(c, req);
+  if (!(await podeUsarDesapego(c, p))) throw new Recusa(403, 'O gestor da casa ainda não liberou o Desapego.');
+  const texto = String(corpo.texto || '').trim();
+  if (!texto) throw new Recusa(400, 'Escreva o comentário.');
+  const [a] = await c.query("select id, autor_id from anuncios where id = $1 and situacao = 'ativo'", [Number(corpo.id)]);
+  if (!a) throw new Recusa(404, 'Anúncio não encontrado.');
+  await c.query(
+    `insert into comentarios_anuncio (anuncio_id, autor_id, autor_nome, do_vendedor, texto) values ($1, $2, $3, $4, $5)`,
+    [a.id, p.id, p.nome, a.autor_id === p.id, texto],
+  );
+  return { ok: true };
 };
 
 export async function tratar(req, res) {

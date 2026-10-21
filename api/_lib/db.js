@@ -2,6 +2,7 @@
 // Em desenvolvimento e nos testes, o vite.config.js entrega um banco PGlite em memória ou em pasta.
 // As tabelas seguem os registros de docs/produto/modelo-de-dados.md.
 
+import { conteudoInicial } from './conteudo-inicial.js';
 import { semente } from './semente.js';
 
 let cliente = null;
@@ -117,6 +118,30 @@ const ESQUEMA = [
     agendado_em timestamptz,
     criado_em timestamptz not null default now()
   )`,
+  `create table if not exists anuncios (
+    id serial primary key,
+    autor_id integer references pessoas(id),
+    autor_nome text,
+    titulo text not null,
+    categoria text not null,
+    preco text not null,
+    doacao boolean not null default false,
+    mudanca boolean not null default false,
+    descricao text,
+    ilustracao text,
+    situacao text not null default 'ativo' check (situacao in ('ativo', 'vendido')),
+    criado_em timestamptz not null default now()
+  )`,
+  `create table if not exists comentarios_anuncio (
+    id serial primary key,
+    anuncio_id integer not null references anuncios(id) on delete cascade,
+    autor_id integer references pessoas(id),
+    autor_nome text not null,
+    do_vendedor boolean not null default false,
+    texto text not null,
+    criado_em timestamptz not null default now()
+  )`,
+  `alter table eventos add column if not exists organizador_nome text`,
   `create table if not exists confirmacoes (
     evento_id integer not null references eventos(id) on delete cascade,
     pessoa_id integer not null references pessoas(id) on delete cascade,
@@ -160,4 +185,5 @@ async function preparar(c) {
       [o.nome, o.email, o.grupo, o.areas, o.codigo_hash],
     );
   }
+  if (!process.env.CC_SEM_EXEMPLOS) await conteudoInicial(c);
 }

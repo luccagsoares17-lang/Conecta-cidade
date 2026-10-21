@@ -2,6 +2,8 @@
 // Cria contas de teste próprias (as contas reais do piloto não são usadas).
 
 import { PGlite } from '@electric-sql/pglite';
+
+process.env.CC_SEM_EXEMPLOS = '1'; // o teste cria os próprios dados
 import { usarCliente } from '../api/_lib/db.js';
 import { tratar } from '../api/_lib/rotas.js';
 import { cifrar } from '../api/_lib/seguranca.js';
@@ -125,6 +127,19 @@ const ag = await chamar('POST', 'avisos', { ...aviso('Todos os moradores', 'Info
 confere(ag.status === 200 && ag.dados.aviso.situacao === 'agendado', 'aviso agendado com "quarta, 5/11, 18h"');
 const agRuim = await chamar('POST', 'avisos', { ...aviso('Todos os moradores', 'Informativo', 'x'), situacao: 'agendado', agendadoPara: 'amanhã' }, admin);
 confere(agRuim.status === 400, 'agendamento sem data e hora é recusado');
+
+await chamar('POST', 'permissoes', { area: 'Desapego', ligada: false }, gestora);
+confere((await chamar('GET', 'anuncios', undefined, jovem)).status === 403, 'Desapego desligado: o jovem não abre os anúncios');
+const semPreco = await chamar('POST', 'anuncios', { titulo: 'Mesa', categoria: 'Móveis' }, gestora);
+confere(semPreco.status === 400, 'anúncio de venda sem preço é recusado');
+const novo = await chamar('POST', 'anuncios', { titulo: 'Mesa', categoria: 'Móveis', preco: '450', mudanca: true }, gestora);
+const doVizinho = (await chamar('GET', 'anuncios', undefined, vizinho)).dados.anuncios;
+confere(doVizinho.length === 1 && doVizinho[0].preco === 'R$ 450' && doVizinho[0].mudanca, 'anúncio aparece na hora para os vizinhos (regra 3)');
+confere(!JSON.stringify(doVizinho).match(/celular|telefone|email/), 'o telefone do autor nunca aparece');
+await chamar('POST', 'anuncios/comentar', { id: novo.dados.id, texto: 'Ainda tem?' }, vizinho);
+await chamar('POST', 'anuncios/comentar', { id: novo.dados.id, texto: 'Tem sim.' }, gestora);
+const coment = (await chamar('GET', 'anuncios', undefined, adulto)).dados.anuncios[0].comentarios;
+confere(coment.length === 2 && !coment[0].doVendedor && coment[1].doVendedor, 'comentários do comprador e do vendedor');
 
 await chamar('POST', 'sair', {}, gestora);
 confere((await chamar('GET', 'eu', undefined, gestora)).dados.tipo === null, 'sair encerra a sessão');

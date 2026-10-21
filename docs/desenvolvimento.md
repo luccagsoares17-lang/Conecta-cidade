@@ -72,15 +72,19 @@ Sem `DATABASE_URL`, a API responde que o banco não está configurado, e as tela
 | Eventos · gestor e Eventos · jovem | Eventos publicados; "Eu vou" |
 | Publicar | Aviso e Evento: rascunho, publicar agora e agendar |
 | Painel | Nome do organizador; lista de publicados com "No ar" e "Fora do ar" |
+| Desapego | Anúncios, comentários e publicação de anúncio (aparece na hora para todos, regra 3) |
 
 **Quem pode abrir cada tela**: sem conta, as telas do morador levam para Entrar e as do organizador para a Entrada do organizador. O jovem não abre telas do gestor. Eventos e Oportunidades do jovem e o Desapego seguem as chaves da Minha casa. Ficam abertas sem conta: Abertura, Acabei de chegar, Entrar, Criar conta, Guia do morador, Entrada do organizador e as telas de visitante.
 
-**O que ainda são dados de exemplo do protótipo**: o restante das telas, entre elas Desapego (anúncios), Guia, coleta seletiva, card do Comitê Jovem, os blocos "Precisa da sua atenção" do Painel, Alcance, Aprovações, Equipe, Criar conta e todas as telas da Fase 2.
+**Conteúdo de demonstração**: com o banco vazio, o servidor publica os avisos, os eventos e os anúncios do Desapego que estão como exemplo no protótipo ([`api/_lib/conteudo-inicial.js`](../api/_lib/conteudo-inicial.js)). Para subir sem eles, defina `CC_SEM_EXEMPLOS=1`.
+
+**O que ainda são dados de exemplo do protótipo**: o restante das telas, entre elas o ranking do Desapego, Guia, coleta seletiva, card do Comitê Jovem, os blocos "Precisa da sua atenção" do Painel, Alcance, Aprovações, Equipe, Criar conta e todas as telas da Fase 2.
 
 **Limites conhecidos** (decisões em [`decisoes/conflitos-entre-fontes.md`](decisoes/conflitos-entre-fontes.md), itens A-01 a A-08)
 - **SMS ainda não é enviado.** O aviso guarda o SMS entre os canais, como pedem os requisitos, mas ainda não há serviço de SMS contratado (pergunta em aberto: quem paga).
 - O código de acesso do organizador pode ser usado mais de uma vez no piloto.
 - A publicação agendada entra no ar na primeira consulta depois da hora marcada.
+- No Desapego, o botão "Adicionar fotos" marca a foto como adicionada, como no protótipo, mas nenhuma imagem é enviada ainda (A-10).
 
 ## Como o app funciona
 
