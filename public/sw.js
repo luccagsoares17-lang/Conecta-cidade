@@ -1,6 +1,6 @@
 // Cache simples para o piloto: a tela abre rápido e funciona com internet fraca.
 // Páginas: rede primeiro, cache se falhar. Arquivos estáticos: cache primeiro.
-const CACHE = 'conecta-cidade-v1';
+const CACHE = 'conecta-cidade-v2';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(['/', '/manifest.webmanifest', '/icons/icon-192.png'])));
@@ -21,6 +21,7 @@ self.addEventListener('fetch', (e) => {
   const mesmaOrigem = url.origin === self.location.origin;
   const fonte = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
   if (!mesmaOrigem && !fonte) return;
+  if (mesmaOrigem && url.pathname.startsWith('/api/')) return; // dados sempre do servidor
 
   if (req.mode === 'navigate') {
     e.respondWith(

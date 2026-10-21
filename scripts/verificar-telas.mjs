@@ -53,8 +53,31 @@ for (const arquivo of arquivos) {
   }
 }
 
+// 5. as trocas de src/dados/ajustes.js ainda encontram os trechos no artefato e geram código válido.
+const { ajustes } = await import('../src/dados/ajustes.js');
+const { applyReplacements } = await import('../src/dc/runtime.js');
+let trocas = 0;
+for (const [nome, a] of Object.entries(ajustes)) {
+  if (!nomes.has(nome)) {
+    erros.push(`ajustes.js: a tela ${nome} não existe`);
+    continue;
+  }
+  const texto = readFileSync(join(pasta, nome + '.dc.html'), 'utf8');
+  const tpl = texto.match(/<x-dc[^>]*>([\s\S]*)<\/x-dc>/i)[1];
+  const js = texto.match(/<script\b[^>]*data-dc-script[^>]*>([\s\S]*?)<\/script>/i)[1];
+  try {
+    applyReplacements(nome, 'template', tpl, a.template);
+    const novo = applyReplacements(nome, 'script', js, a.script);
+    new Function('DCLogic', 'StreamableLogic', 'React', 'CC', novo); // eslint-disable-line no-new-func
+    trocas += (a.template || []).length + (a.script || []).length;
+  } catch (e) {
+    erros.push(e.message);
+  }
+}
 if (erros.length) {
   console.error(erros.map((e) => '✗ ' + e).join('\n'));
   process.exit(1);
 }
-console.log(`✓ ${arquivos.length} telas, ${somas.length} arquivos conferidos com o artefato, ${links} links válidos`);
+console.log(
+  `✓ ${arquivos.length} telas, ${somas.length} arquivos conferidos com o artefato, ${links} links válidos, ${trocas} trocas de dados aplicadas`,
+);

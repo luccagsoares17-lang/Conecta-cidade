@@ -354,16 +354,41 @@ export class DCLogic {
   }
 }
 
-function loadLogic(source) {
+function loadLogic(source, globals) {
   if (!source) return DCLogic;
+  const names = Object.keys(globals);
   // eslint-disable-next-line no-new-func
   const make = new Function(
     'DCLogic',
     'StreamableLogic',
     'React',
+    ...names,
     source + '\n;return (typeof Component!=="undefined"&&Component)||undefined;',
   );
-  return make(DCLogic, DCLogic, React) || DCLogic;
+  return make(DCLogic, DCLogic, React, ...names.map((n) => globals[n])) || DCLogic;
+}
+
+// Trocas explícitas no texto de uma tela (ligação com os dados reais). Cada trecho procurado
+// precisa existir exatamente uma vez; se o artefato mudar e o trecho sumir, a tela acusa o erro.
+export function applyReplacements(name, part, text, pairs = []) {
+  let out = text;
+  for (const item of pairs) {
+    const [find, endOrReplace, rangeReplace] = item;
+    const first = out.indexOf(find);
+    if (first < 0 || out.indexOf(find, first + find.length) >= 0) {
+      throw new Error(
+        name + '.dc.html: o trecho do ' + part + ' a trocar ' + (first < 0 ? 'não existe' : 'aparece mais de uma vez') + ': ' + find.slice(0, 80),
+      );
+    }
+    if (item.length === 3) {
+      const end = out.indexOf(endOrReplace, first + find.length);
+      if (end < 0) throw new Error(name + '.dc.html: fim do trecho não encontrado depois de: ' + find.slice(0, 80));
+      out = out.slice(0, first) + rangeReplace + out.slice(end + endOrReplace.length);
+    } else {
+      out = out.slice(0, first) + endOrReplace + out.slice(first + find.length);
+    }
+  }
+  return out;
 }
 
 // ---------------------------------------------------------------------------
@@ -396,16 +421,22 @@ export function parseDcFile(text) {
  * Cria o componente React de uma tela.
  * @param {string} name   nome do arquivo sem ".dc.html"
  * @param {string} source texto completo do arquivo
- * @param {{ linkProps: (props: object) => void, patchTemplate?: (root: DocumentFragment) => void }} options
+ * @param {{
+ *   linkProps: (props: object) => void,
+ *   patchTemplate?: (root: DocumentFragment) => void,
+ *   replacements?: { script?: [string, string][], template?: [string, string][] },
+ *   globals?: Record<string, unknown>,
+ * }} options
  */
 export function createScreen(name, source, options) {
   const file = parseDcFile(source);
+  const trocas = options.replacements || {};
   const ctx = { helmet: [], linkProps: options.linkProps };
   const template = document.createElement('template');
-  template.innerHTML = preprocess(file.template);
+  template.innerHTML = preprocess(applyReplacements(name, 'template', file.template, trocas.template));
   if (options.patchTemplate) options.patchTemplate(template.content);
   const parts = compileChildren(template.content, ctx);
-  const Logic = loadLogic(file.js);
+  const Logic = loadLogic(applyReplacements(name, 'script', file.js, trocas.script), options.globals || {});
   const defaults = {};
   for (const [k, meta] of Object.entries(file.props)) {
     if (meta && meta.default !== undefined) defaults[k] = meta.default;
@@ -446,6 +477,7 @@ export function createScreen(name, source, options) {
     }
     componentWillUnmount() {
       this.logic.componentWillUnmount();
+      this.logic.__host = undefined;
       for (const el of this.helmetNodes) el.remove();
     }
     render() {

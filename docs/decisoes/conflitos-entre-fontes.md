@@ -55,3 +55,16 @@ Como manter: só acrescente linhas. Quando um item for decidido, preencha "Decis
 | P-21 | `Energia`, `AdminEnergia` | "3 quarteirões cada", mas a Rua Tapajós só passa por 2. | Fase 2; confirmar com a administração. |
 | P-22 | `TrilhaVisitante`, `Chegada`, `CaronaVisitante` | Informações diferentes sobre onde tirar a autorização (site do ICMBio, portaria, portaria das 8h às 16h). | Fase 2; **pendente**. |
 | P-23 | `Main` | Há um `</div>` a mais no arquivo: a barra de navegação de baixo fica fora da raiz da tela e seus rótulos aparecem na fonte padrão do navegador, não em DM Sans (requisito visual: fontes iguais às do protótipo). O app reproduz o arquivo como está. | **Pendente**: corrigir no artefato e copiar de novo. |
+
+## Decisões tomadas ao ligar os dados reais (21/10/2026)
+
+| ID | Tema | Decisão | Situação |
+| --- | --- | --- | --- |
+| A-01 | Contas do piloto | Lucas (gestor) e Micheline (jovem) na família CKS-2925; Gustavo (gestor) sozinho na família CKS-5420; Mário e Ivison na Administração do Núcleo. Pedido da equipe; detalhes em [`acessos.md`](../acessos.md). | Feito |
+| A-02 | Banco | Neon (Postgres) pela Vercel, escolhido pela equipe. | Feito; falta conectar na Vercel |
+| A-03 | SMS | O aviso registra o SMS como canal obrigatório, mas nenhum SMS é enviado enquanto não houver serviço contratado. | **Pendente**: quem paga o SMS |
+| A-04 | Código de acesso do organizador | Requisitos: "vale uma vez". No piloto, o código funciona como a senha do organizador e pode ser usado de novo, porque o protótipo não tem tela para pedir código novo. | **Pendente**: confirmar ou desenhar a troca de código |
+| A-05 | Entrar | No protótipo, a senha certa troca o botão por "Entrar como Lucca". Com a senha conferida no servidor, o toque em "Entrar" já confere e abre o início; o passo "Entrar como" não aparece. | Feito |
+| A-06 | Mensagem de erro na Entrada do organizador | O protótipo não desenha erro. Foi acrescentada uma linha de texto em #FFD27A (cor que a tela já usa) para "Sem convite, não entra". | Feito; revisar no artefato |
+| A-07 | Publicar: tipos Energia, Guia e Trilha; formato Imagem | Ainda não gravam; a tela mostra uma mensagem curta. Energia e Trilha são Fase 2; Guia e Imagem ficam para a próxima etapa. | **Pendente** |
+| A-08 | Situações do Evento | O registro Evento tem "esperando aprovação" e "publicado". Para o Painel e o Publicar funcionarem como no protótipo, o banco também aceita "rascunho", "agendado" e "fora do ar" (ver P-19). | Feito; confirmar |

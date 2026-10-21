@@ -26,6 +26,7 @@ Leia este arquivo antes de qualquer tarefa neste repositório. Ele diz onde est�
 7. **SMS obrigatório em todos os níveis de aviso; WhatsApp só no cadastro** (requisitos da V1, que prevalecem sobre o Plano de Comunicação dentro do app).
 8. Escreva documentação e textos de interface em **português do Brasil**, frases curtas, sem siglas, como pedem os documentos.
 9. **O app desenha as telas direto de `design/prototipo/`.** Nunca reescreva uma tela em JSX ou HTML à parte, nem edite a tela no código: mudança de tela é feita no artefato e copiada de novo. Antes de mexer no app, leia [`docs/desenvolvimento.md`](docs/desenvolvimento.md).
+10. **Senhas e códigos de acesso nunca vão para o repositório**; só o resumo cifrado em `api/_lib/semente.js`.
 
 ## Ordem de precedência das fontes
 
@@ -41,7 +42,8 @@ Leia este arquivo antes de qualquer tarefa neste repositório. Ele diz onde est�
 ```
 CLAUDE.md                  ← este arquivo
 README.md                  ← apresentação do projeto
-index.html, src/           ← o app (Vite + React): motor das telas, rotas, modo V1
+index.html, src/           ← o app (Vite + React): motor das telas, rotas, modo V1, dados (src/dados/)
+api/                       ← API na Vercel (Neon): contas, sessões, avisos, eventos, permissões
 public/                    ← PWA: manifesto, ícones, service worker
 scripts/verificar-telas.mjs← npm test
 vercel.json                ← publicação na Vercel
@@ -73,6 +75,7 @@ docs/
 | Quando a V1 está pronta | `docs/produto/requisitos-gerais-e-piloto.md` |
 | Por que duas fontes dizem coisas diferentes | `docs/decisoes/conflitos-entre-fontes.md` |
 | Como rodar, publicar ou mudar o app | `docs/desenvolvimento.md` |
+| Quem tem conta e com qual perfil | `docs/acessos.md` (senhas nunca entram no repositório) |
 
 ## Como manter este contexto
 

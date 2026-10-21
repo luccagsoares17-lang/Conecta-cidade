@@ -46,3 +46,11 @@ Cada item tem o código do registro em [`decisoes/conflitos-entre-fontes.md`](de
 - [ ] **P-15** Como o organizador escolhe as ruas e o contato de um aviso no Publicar?
 - [ ] **P-19** Quais situações o registro Evento tem além de "esperando aprovação" e "publicado" (o Painel mostra rascunho e "No ar")?
 - [ ] Os requisitos listam as categorias de aviso? (Hoje a lista vem da visão geral: obras, falta de água, coleta de lixo, segurança, mudanças de horário; o protótipo também usa "Falta de energia/luz" e "Saúde".)
+
+## Surgidas ao criar os acessos (21/10/2026)
+
+- [ ] Rua, número e quarteirão das casas do Lucas e do Gustavo.
+- [ ] Idade da Micheline (o cadastro de jovem pede idade).
+- [ ] Como trocar a senha provisória e como sair da conta (o protótipo não tem essas telas; hoje existe o endereço `/sair`).
+- [ ] O código de acesso do organizador vale uma vez de verdade (A-04)?
+- [ ] Qual serviço de SMS usar (A-03)?

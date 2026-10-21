@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { createScreen, dcLinkTarget } from './dc/runtime.js';
 import { carregarArquivo, existeTela, telaInicial, telas, telaPorNome, telasFase2, tituloDoCanvas } from './telas.js';
 import { carregarModo, modoAtual, ajustesDoModo } from './modo.js';
+import { CC, carregarSessao, configurar, sair, sessao } from './dados/cc.js';
+import { ajustes } from './dados/ajustes.js';
 import './app.css';
 
 const h = React.createElement;
@@ -13,11 +15,12 @@ carregarModo();
 // Rotas: /<NomeDoArquivo> abre design/prototipo/<NomeDoArquivo>.dc.html
 
 const ROTA_INDICE = 'telas';
+const ROTA_SAIR = 'sair';
 
 function rotaAtual() {
   const nome = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, ''));
   if (!nome) return telaInicial;
-  if (nome === ROTA_INDICE) return ROTA_INDICE;
+  if (nome === ROTA_INDICE || nome === ROTA_SAIR) return nome;
   if (!existeTela(nome)) return telaInicial;
   if (bloqueada(nome)) return telaInicial;
   return nome;
@@ -25,6 +28,26 @@ function rotaAtual() {
 
 function bloqueada(nome) {
   return modoAtual() === 'v1' && telasFase2.has(nome);
+}
+
+// Quem pode abrir cada tela (src/dados/ajustes.js → exige). Sem conta, vai para Entrar
+// (moradores) ou para a Entrada do organizador; perfil errado volta para o início do perfil.
+function destinoPermitido(nome) {
+  const regra = ajustes[nome] && ajustes[nome].exige;
+  if (!regra) return nome;
+  const s = sessao();
+  if (s === undefined) return null;
+  if (regra === 'organizador') return s.tipo === 'organizador' ? nome : 'AdminEntrada';
+  if (s.tipo !== 'morador') return 'Login';
+  const jovem = s.pessoa.perfil === 'jovem';
+  const inicio = jovem ? 'JovemInicio' : 'Main';
+  const [tipo, area] = regra.split(':');
+  const liberada = !area || Boolean(s.permissoes && s.permissoes[area]);
+  if (tipo === 'gestor') return s.pessoa.perfil === 'gestor' ? nome : inicio;
+  if (tipo === 'adulto') return jovem ? inicio : nome;
+  if (tipo === 'jovem') return jovem && liberada ? nome : inicio;
+  if (tipo === 'morador') return !jovem || liberada ? nome : inicio;
+  return nome;
 }
 
 function irPara(nome, hash = '') {
@@ -73,7 +96,12 @@ function carregarTela(nome) {
     pendentes.set(
       nome,
       carregarArquivo(nome).then((texto) => {
-        const tela = createScreen(nome, texto, { linkProps: ajustarLink, patchTemplate: ajustesDoModo(nome) });
+        const tela = createScreen(nome, texto, {
+          linkProps: ajustarLink,
+          patchTemplate: ajustesDoModo(nome),
+          replacements: ajustes[nome],
+          globals: { CC },
+        });
         tela.destinos = [...texto.matchAll(/href="([A-Za-z0-9_-]+)\.dc\.html"/g)].map((m) => m[1]);
         compiladas.set(nome, tela);
         return tela;
@@ -227,18 +255,36 @@ function Indice() {
 
 function App() {
   const [rota, setRota] = React.useState(rotaAtual);
+  const [, setVersao] = React.useState(0);
   React.useEffect(() => {
     const f = () => setRota(rotaAtual());
     window.addEventListener('popstate', f);
     window.addEventListener('cc:rota', f);
+    carregarSessao().then(() => setVersao((v) => v + 1));
     return () => {
       window.removeEventListener('popstate', f);
       window.removeEventListener('cc:rota', f);
     };
   }, []);
+  React.useEffect(() => {
+    if (rota !== ROTA_SAIR) return;
+    sair().then(() => {
+      history.replaceState(null, '', '/');
+      setRota(rotaAtual());
+    });
+  }, [rota]);
   if (rota === ROTA_INDICE) return h(Indice);
+  if (rota === ROTA_SAIR) return null;
+  const destino = destinoPermitido(rota);
+  if (destino === null) return null; // conferindo a conta
+  if (destino !== rota) {
+    history.replaceState(null, '', '/' + destino + location.search);
+    return h(Palco, { key: destino, nome: destino });
+  }
   return h(Palco, { key: rota, nome: rota });
 }
+
+configurar({ irPara });
 
 createRoot(document.getElementById('app')).render(h(App));
 

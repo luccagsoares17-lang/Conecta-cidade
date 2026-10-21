@@ -6,11 +6,14 @@ O app desenha **as telas do artefato diretamente**: ele lê os arquivos de [`des
 
 ```bash
 npm install
-npm run dev       # http://localhost:5173
-npm test          # confere a cópia do artefato, o código das telas e os links
+npm run dev       # http://localhost:5173, com a API e um banco local em .dados-dev/
+npm test          # confere a cópia do artefato, o código das telas, os links e as trocas de dados
+npm run test:api  # confere as regras da API (perfis, avisos, eventos, permissões) num banco em memória
 npm run build     # gera dist/ (o que a Vercel publica)
-npm run preview   # serve dist/ em http://localhost:4173
+npm run preview   # serve dist/ em http://localhost:4173, também com a API local
 ```
+
+No `npm run dev`, as contas do piloto já existem no banco local (mesmos logins e senhas de [`acessos.md`](acessos.md)). Para começar do zero, apague a pasta `.dados-dev/`.
 
 ## Endereços
 
@@ -32,6 +35,52 @@ Os links entre telas funcionam como o "Play" do artefato: tocar num link leva à
 | `v1` | Aplica só as regras escritas nos requisitos da V1: telas de Fase 2 não abrem (links ficam inativos) e o card de energia do Início · gestor fica oculto. A carona para visitantes fica desativada porque `CaronaVisitante` é tela de Fase 2 |
 
 O modo do build vem da variável `VITE_MODO` (`prototipo` ou `v1`). Na Vercel, para publicar a V1 do piloto, defina `VITE_MODO=v1` nas variáveis de ambiente do projeto. As regras do modo V1 ficam em [`src/modo.js`](../src/modo.js), cada uma citando o requisito.
+
+## Dados reais, contas e banco
+
+O app agora tem contas de verdade (ver [`acessos.md`](acessos.md)) e guarda as publicações num banco Postgres.
+
+**Na Vercel (uma vez só)**
+1. No projeto da Vercel, abra **Storage → Create Database → Neon** (Marketplace) e conecte o banco ao projeto. A integração cria a variável `DATABASE_URL`.
+2. Faça um novo deploy (**Deployments → Redeploy**).
+3. Na primeira chamada à API, o servidor cria as tabelas e as contas do piloto sozinho.
+
+Sem `DATABASE_URL`, a API responde que o banco não está configurado, e as telas que pedem conta não abrem.
+
+**Como funciona**
+
+| Parte | Arquivo |
+| --- | --- |
+| API (uma função na Vercel, rotas em `/api/*`) | [`api/index.js`](../api/index.js), [`api/_lib/rotas.js`](../api/_lib/rotas.js) |
+| Tabelas (os registros de `docs/produto/modelo-de-dados.md`) e contas iniciais | [`api/_lib/db.js`](../api/_lib/db.js), [`api/_lib/semente.js`](../api/_lib/semente.js) |
+| Senhas cifradas (scrypt) e sessão por cookie (90 dias) | [`api/_lib/seguranca.js`](../api/_lib/seguranca.js) |
+| Dados nas telas (`CC`) | [`src/dados/cc.js`](../src/dados/cc.js) |
+| Trocas nas telas e quem pode abrir cada uma | [`src/dados/ajustes.js`](../src/dados/ajustes.js) |
+
+**Como os dados entram sem mudar o desenho.** Cada tela continua sendo o arquivo do artefato. [`src/dados/ajustes.js`](../src/dados/ajustes.js) lista trocas de texto pequenas e explícitas: por exemplo, a lista de avisos de exemplo vira `CC.avisos(this)`, e "Olá, Lucca!" vira "Olá, {{ccPrimeiroNome}}!". Cada trecho procurado tem de existir exatamente uma vez no arquivo. Se o artefato mudar e o trecho sumir, `npm test` falha e a tela mostra o erro, em vez de mostrar dado errado.
+
+**O que já usa dados reais**
+
+| Tela | O que é real |
+| --- | --- |
+| Entrar | Conta encontrada ou não, perfil trocado, esperando aprovação; senha conferida no servidor |
+| Entrada do organizador | E-mail e código de acesso conferidos no servidor |
+| Início · gestor | Nome na saudação; próximos eventos; "Eu vou" |
+| Início · jovem | Nome na saudação |
+| Minha casa | Nome do gestor, código da família, jovens e adultos da casa; chaves Eventos, Oportunidades e Desapego dos jovens |
+| Avisos · gestor e Avisos · jovem | Avisos publicados, com as regras de público e nível (o jovem nunca vê urgentes) |
+| Eventos · gestor e Eventos · jovem | Eventos publicados; "Eu vou" |
+| Publicar | Aviso e Evento: rascunho, publicar agora e agendar |
+| Painel | Nome do organizador; lista de publicados com "No ar" e "Fora do ar" |
+
+**Quem pode abrir cada tela**: sem conta, as telas do morador levam para Entrar e as do organizador para a Entrada do organizador. O jovem não abre telas do gestor. Eventos e Oportunidades do jovem e o Desapego seguem as chaves da Minha casa. Ficam abertas sem conta: Abertura, Acabei de chegar, Entrar, Criar conta, Guia do morador, Entrada do organizador e as telas de visitante.
+
+**O que ainda são dados de exemplo do protótipo**: o restante das telas, entre elas Desapego (anúncios), Guia, coleta seletiva, card do Comitê Jovem, os blocos "Precisa da sua atenção" do Painel, Alcance, Aprovações, Equipe, Criar conta e todas as telas da Fase 2.
+
+**Limites conhecidos** (decisões em [`decisoes/conflitos-entre-fontes.md`](decisoes/conflitos-entre-fontes.md), itens A-01 a A-08)
+- **SMS ainda não é enviado.** O aviso guarda o SMS entre os canais, como pedem os requisitos, mas ainda não há serviço de SMS contratado (pergunta em aberto: quem paga).
+- O código de acesso do organizador pode ser usado mais de uma vez no piloto.
+- A publicação agendada entra no ar na primeira consulta depois da hora marcada.
 
 ## Como o app funciona
 
@@ -80,7 +129,8 @@ Nada mais precisa mudar: o app lê as telas novas sozinho. Se surgir uma tela no
 - **Não edite as telas no código.** Mudança de tela é feita no artefato e copiada para `design/prototipo/`.
 - **Não reescreva telas em JSX/HTML à parte.** O motor existe para o app ser sempre o artefato.
 - O que é do app e não do protótipo (moldura, rotas, modo V1, índice) fica em `src/` e não altera o desenho das telas.
-- Os dados das telas são os **dados de exemplo do protótipo** (`renderVals()`). Ligar dados reais (cadastro, avisos, SMS) depende das perguntas em aberto — ver [`perguntas-em-aberto.md`](perguntas-em-aberto.md) — e será feito sem mudar o desenho.
+- Dados reais entram só por trocas em [`src/dados/ajustes.js`](../src/dados/ajustes.js) e funções em [`src/dados/cc.js`](../src/dados/cc.js). Cada troca deve citar a regra que a justifica e nunca mudar o desenho.
+- Senhas e códigos de acesso nunca vão para o repositório; em `semente.js` fica só o resumo cifrado.
 
 ## O que o app reproduz do jeito que o artefato tem
 
