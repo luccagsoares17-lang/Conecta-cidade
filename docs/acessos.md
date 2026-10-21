@@ -1,6 +1,6 @@
 # Acessos do piloto
 
-Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Mário e Ivison) e no mesmo dia, depois da troca de nome (Lucca, Mariana, Maria Tereza e Vitor). Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
+Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Mário e Ivison) e no mesmo dia, depois da troca de nome (Lucca, Mariana, Maria Tereza e Vitor; depois Letícia, Jorge e Felipe). Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
 
 ## Meu Carajás Super App (moradores)
 
@@ -13,10 +13,13 @@ Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Már
 | Mariana | Gestora da casa | Família 4 · código **CKS-9588** (só ela) | `mariana@conectacidade.app` | Gestor da casa |
 | Maria Tereza | Gestora da casa | Família 5 · código **CKS-5695** (só ela) | `mariatereza@conectacidade.app` | Gestor da casa |
 | Vitor | Gestor da casa | Família 6 · código **CKS-8244** (só ele) | `vitor@conectacidade.app` | Gestor da casa |
+| Letícia | Gestora da casa | Família 7 · código **CKS-5962** (só ela) | `leticia@conectacidade.app` | Gestor da casa |
+| Jorge | Gestor da casa | Família 8 · código **CKS-2669** (só ele) | `jorge@conectacidade.app` | Gestor da casa |
+| Felipe | Gestor da casa | Família 9 · código **CKS-3733** (só ele) | `felipe@conectacidade.app` | Gestor da casa |
 
 - O Lucas é o gestor da Micheline: na tela **Minha casa** ele vê a Micheline e liga ou desliga o que ela pode usar.
 - Permissões iniciais da Micheline, seguindo os requisitos: Eventos **ligado**, Oportunidades **ligado** e Desapego **desligado** ("Desapego só se o gestor liberar").
-- O Gustavo, o Lucca, a Mariana, a Maria Tereza e o Vitor são gestores de famílias só deles, cada uma com seu código; nenhum vê a família dos outros.
+- O Gustavo, o Lucca, a Mariana, a Maria Tereza, o Vitor, a Letícia, o Jorge e o Felipe são gestores de famílias só deles, cada uma com seu código; nenhum vê a família dos outros.
 - A Maria Tereza tem "Maria Tereza" como apelido no cadastro, para a saudação sair "Olá, Maria Tereza!".
 - Rua, número e quarteirão das casas ainda não foram informados. Por isso a Minha casa mostra só "você é o gestor".
 
