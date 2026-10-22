@@ -191,15 +191,15 @@ export const semente = {
       "codigo_hash": "scrypt$16384$8$1$haBRVSkPBIDohGTu33VCjQ==$GhqwZYvpzgQ4QtTltqDCYwGBysIKcJsY3c0KHbuXSN0="
     },
     {
-      "nome": "Samatha",
-      "email": "samatha@conectacidade.app",
+      "nome": "Samantha",
+      "email": "samantha@conectacidade.app",
       "grupo": "Administração do Núcleo",
       "areas": [
         "Avisos",
         "Eventos",
         "Guia"
       ],
-      "codigo_hash": "scrypt$16384$8$1$oJNCbwpsbrnnMJpt9lpeMQ==$uReXK0QbTVh3YFCqmDKs9MFCmg6/5Phsrt9FuMgSTA4="
+      "codigo_hash": "scrypt$16384$8$1$Q4x3G7CBnGHzMUXW6aeDZQ==$Nnwq5tHn1HHvati6H2XF83+8MIx3Xf55IheCqOQXzks="
     }
   ]
 };
