@@ -134,3 +134,7 @@ Chegam a esta tela: `Login.dc.html` (aba gestor), `CadastroGestor.dc.html` ("Ent
 - O destaque "HOJE" segue o dia da semana do aparelho; no fim de semana, a tela abre na segunda sem destaque.
 - `brand`, `accent` e `accentDark` são propriedades do editor do protótipo; `colEditLabel`/`colEdit` não aparecem no markup desta tela.
 - A confirmação "Eu vou" desta tela e a de `Eventos.dc.html` são estados separados no protótipo; os requisitos guardam as confirmações no registro Evento.
+
+## Atalho Ônibus, 22/10/2026 (decisão A-25)
+
+Depois de Trilhas e Carona, um atalho na largura toda: "Ônibus" · "Horários da van Carajás e Parauapebas", que abre `Onibus.dc.html`.

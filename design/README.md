@@ -7,9 +7,9 @@ que os requisitos da V1 definem como **referência visual** do projeto.
 | Item | Valor |
 | --- | --- |
 | Artefato | `PkQ9tajBdYdt6vXEFn7tX9` (tipo Design / canvas) |
-| Versão copiada | `1792639094-c310` (nome Meu Carajás; Painel com "Famílias cadastradas"; Equipes com Entre Fases, escola e clube, cada uma abrindo com as pessoas; trilhas com avaliações no lugar do ranking; carona sem avaliação de motorista; carona com o CO₂ que deixou de emitir; flor de Carajás rosa como logo dos dois apps; fotos das trilhas) |
+| Versão copiada | `1792707132-2a53` (nome Meu Carajás; Painel com "Famílias cadastradas"; Equipes com Entre Fases, escola e clube, cada uma abrindo com as pessoas; trilhas com avaliações no lugar do ranking; carona sem avaliação de motorista; tela nova Ônibus; carona com o CO₂ que deixou de emitir; flor de Carajás rosa como logo dos dois apps; fotos das trilhas) |
 | Data da cópia | 21/10/2026 (troca de nome no mesmo dia) |
-| Arquivos | `prototipo/canvas.json` + 38 arquivos `.dc.html` + 8 fotos das trilhas em `prototipo/fotos/` (no artefato, `project/fotos/`) |
+| Arquivos | `prototipo/canvas.json` + 39 arquivos `.dc.html` + 8 fotos das trilhas em `prototipo/fotos/` (no artefato, `project/fotos/`) |
 | Conferência | [`prototipo.sha256`](prototipo.sha256) (`sha256sum -c prototipo.sha256` dentro de `prototipo/`) |
 
 ## Regras

@@ -111,3 +111,7 @@ Chegam a esta tela: `Login.dc.html` (aba jovem), `CadastroJovem.dc.html` e o bot
 - As áreas liberadas e trancadas vêm do registro "Permissão do jovem" e mudam "na hora" quando o gestor liga ou desliga (critério de aceite).
 - O nome "Lucca", o card "CineFases · sábado, 7/11" e "33 cestas básicas" são dados de exemplo do protótipo.
 - As 5 opções da votação são fixas no script (`['Cinema', 'Culinária', 'Videogame', 'Vôlei', 'Futebol']`).
+
+## Atalho Ônibus, 22/10/2026 (decisão A-25)
+
+Em "Bora?", depois de Avisos, um atalho na largura toda: "Ônibus" · "Horários da van para Parauapebas", que abre `Onibus.dc.html`.

@@ -200,6 +200,8 @@ export const ajustes = {
   },
   Energia: { exige: 'adulto' },
   Trilhas: { exige: 'adulto' },
+  // Ônibus: horários da van Carajás e Parauapebas, para todo morador com conta (gestor, adulto e jovem).
+  Onibus: { exige: 'morador' },
   Carona: { exige: 'adulto' },
 };
 

@@ -62,3 +62,7 @@ Cada item tem o código do registro em [`decisoes/conflitos-entre-fontes.md`](de
 ## Surgidas com as fotos das trilhas (22/10/2026)
 
 - [ ] **A-23** As fotos da Flor de Carajás (marca "Freedomlearned") e do Mirante Vale do Rio Azul (marca "Photoshop Express") podem ser usadas no app? Se não, quais fotos usar?
+
+## Surgidas com a tela Ônibus (22/10/2026)
+
+- [ ] **A-25** Os horários da van mudam? Quem avisa quando mudarem (a Administração do Núcleo pelo app, ou a equipe manda a foto nova)?

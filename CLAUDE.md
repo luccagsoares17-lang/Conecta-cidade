@@ -49,7 +49,7 @@ scripts/verificar-telas.mjs← npm test
 vercel.json                ← publicação na Vercel
 design/
   README.md                ← origem, versão e regras do protótipo
-  prototipo/               ← canvas.json + 38 telas .dc.html + fotos/ das trilhas (cópia fiel, não editar)
+  prototipo/               ← canvas.json + 39 telas .dc.html + fotos/ das trilhas (cópia fiel, não editar)
   prototipo.sha256         ← conferência da cópia
 docs/
   README.md                ← índice da documentação

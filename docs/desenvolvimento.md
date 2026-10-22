@@ -41,7 +41,7 @@ Os links entre telas funcionam como o "Play" do artefato: tocar num link leva à
 
 | Modo | O que mostra |
 | --- | --- |
-| `prototipo` (padrão) | Todas as 38 telas do artefato, exatamente como foram desenhadas, incluindo as da Fase 2 |
+| `prototipo` (padrão) | Todas as 39 telas do artefato, exatamente como foram desenhadas, incluindo as da Fase 2 |
 | `v1` | Aplica só as regras escritas nos requisitos da V1: telas de Fase 2 não abrem (links ficam inativos) e o card de energia do Início · gestor fica oculto. A carona para visitantes fica desativada porque `CaronaVisitante` é tela de Fase 2 |
 
 O modo do build vem da variável `VITE_MODO` (`prototipo` ou `v1`). Na Vercel, para publicar a V1 do piloto, defina `VITE_MODO=v1` nas variáveis de ambiente do projeto. As regras do modo V1 ficam em [`src/modo.js`](../src/modo.js), cada uma citando o requisito.

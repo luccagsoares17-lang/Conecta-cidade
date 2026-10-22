@@ -4,7 +4,7 @@
 
 Todas as telas do artefato [Meu Carajás – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9), copiadas sem alteração em [`design/prototipo/`](../../design/prototipo/). Cada linha tem uma ficha com conteúdo, comportamento, navegação, dados, regras e divergências.
 
-**Totais**: 38 arquivos `.dc.html` = 21 arquivos que cobrem as 19 telas da V1 (Eventos, Avisos e Guia têm versão gestor e versão jovem; a Coleta seletiva fica dentro do Início · gestor) + 2 telas extras sem versão definida + 13 telas de Fase 2 + 2 boards de identidade. O canvas abre em `Splash.dc.html`.
+**Totais**: 39 arquivos `.dc.html` = 21 arquivos que cobrem as 19 telas da V1 (Eventos, Avisos e Guia têm versão gestor e versão jovem; a Coleta seletiva fica dentro do Início · gestor) + 2 telas extras sem versão definida + 1 tela nova pedida pela equipe (Ônibus) + 13 telas de Fase 2 + 2 boards de identidade. O canvas abre em `Splash.dc.html`.
 
 Legenda de versão: **V1** · **V1\*** = V1 com partes de Fase 2 que ficam ocultas · **F2** = Fase 2 · **?** = não definida nos documentos.
 
@@ -37,6 +37,7 @@ Legenda de versão: **V1** · **V1\*** = V1 com partes de Fase 2 que ficam ocult
 | --- | --- | --- | --- | --- |
 | Família · jovem | `JovemFamilia.dc.html` | ? (proposta: V1\*) | Lado do jovem do pedido de liberação; mostra endereço e código da família, que o modelo de dados restringe a gestores | [JovemFamilia](morador/JovemFamilia.md) |
 | *(sem board — "Minha família")* | `GestorMinhaFamilia.dc.html` | ? | Fora do `canvas.json`; nenhuma tela aponta para ela; faz par com `JovemFamilia` | [GestorMinhaFamilia](morador/GestorMinhaFamilia.md) |
+| Ônibus · morador | `Onibus.dc.html` | V1 (decisão A-25) | Horários da van Carajás/Parauapebas, pedida pela equipe em 22/10/2026; abre pelo Início do gestor e do jovem | [Onibus](morador/Onibus.md) |
 
 ### Fase 2
 
