@@ -54,3 +54,7 @@ Cada item tem o código do registro em [`decisoes/conflitos-entre-fontes.md`](de
 - [ ] Como trocar a senha provisória e como sair da conta (o protótipo não tem essas telas; hoje existe o endereço `/sair`).
 - [ ] O código de acesso do organizador vale uma vez de verdade (A-04)?
 - [ ] Qual serviço de SMS usar (A-03)?
+
+## Surgidas na tela de Carona (22/10/2026)
+
+- [ ] **A-18** Como calcular o CO₂ que a pessoa deixou de emitir na carona? Falta definir quais caronas contam (as que pegou, as que ofereceu ou as duas), a distância de cada trajeto (por exemplo, Núcleo de Carajás até Parauapebas) e quanto CO₂ um carro emite por quilômetro. Hoje a tela mostra 32 kg de exemplo.
