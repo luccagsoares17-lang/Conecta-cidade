@@ -22,6 +22,14 @@ export const EVENTOS = [
   ['Torneio de videogame', 'Sábado, 5/12, 14h', 'Biblioteca do Núcleo', 'Videogame', false, 'Grêmio estudantil'],
 ];
 
+// Pedidos de exemplo da tela Aprovações do protótipo: eventos de grupos esperando a Administração.
+// [nome, data e hora, local, grupo]
+export const EVENTOS_PARA_APROVAR = [
+  ['Festa junina', '29/11', 'Pátio da escola', 'Escola Municipal do Núcleo'],
+  ['Campeonato de vôlei', '5/12', 'Ginásio poliesportivo', 'Clube do Núcleo'],
+  ['Grupo de leitura', 'Toda quarta, 19h', 'Biblioteca', 'Beatriz Nunes'],
+];
+
 // [título, categoria, preço, mudança, doação, ilustração do protótipo, vendedor, comentários]
 // Comentário: [quem ('*' = o vendedor), texto, há quanto tempo]
 export const ANUNCIOS = [
@@ -88,6 +96,12 @@ export async function conteudoInicial(c) {
         `insert into eventos (nome, organizador_id, organizador_nome, data_hora, local, interesse, ingresso_solidario, situacao)
          values ($1, $2, $3, $4, $5, $6, $7, 'publicado')`,
         [nome, quem ? null : autorId, quem, dataHora, local, interesse, solidario],
+      );
+    }
+    for (const [nome, dataHora, local, grupo] of EVENTOS_PARA_APROVAR) {
+      await c.query(
+        `insert into eventos (nome, organizador_nome, data_hora, local, situacao) values ($1, $2, $3, $4, 'esperando aprovação')`,
+        [nome, grupo, dataHora, local],
       );
     }
   }

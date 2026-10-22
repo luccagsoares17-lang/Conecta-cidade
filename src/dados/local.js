@@ -3,7 +3,7 @@
 // e os dados ficam no localStorage do aparelho. Cada celular tem a sua cópia: o que se publica num
 // aparelho aparece nele, para qualquer conta que entrar ali, mas não nos outros celulares.
 
-import { ANUNCIOS, AVISOS, EVENTOS } from '../../api/_lib/conteudo-inicial.js';
+import { ANUNCIOS, AVISOS, EVENTOS, EVENTOS_PARA_APROVAR } from '../../api/_lib/conteudo-inicial.js';
 import { horarioAgendado } from '../../api/_lib/agenda.js';
 import { contasLocais } from './contas-locais.js';
 
@@ -47,8 +47,32 @@ function dados() {
   if (!memoria) {
     memoria = ler(CHAVE_DADOS) || semear();
     sincronizarContas(memoria);
+    semearAprovacoes(memoria);
   }
   return memoria;
+}
+
+// Pedidos de exemplo da tela Aprovações (protótipo): entram uma vez, também nos aparelhos que já tinham dados.
+function semearAprovacoes(d) {
+  if (d.aprovacoesDeExemplo) return;
+  EVENTOS_PARA_APROVAR.forEach(([nome, dataHora, local, grupo], i) => {
+    d.eventos.push({
+      id: proximoId(d.eventos),
+      nome,
+      organizadorId: null,
+      organizadorNome: grupo,
+      dataHora,
+      local,
+      interesse: null,
+      ingressoSolidario: false,
+      vagas: null,
+      situacao: 'esperando aprovação',
+      agendadoEm: null,
+      criadoEm: antes(30 - i),
+    });
+  });
+  d.aprovacoesDeExemplo = true;
+  salvar();
 }
 
 // Contas acrescentadas depois que o aparelho já guardou os dados: entram sem apagar nada.
@@ -313,6 +337,8 @@ const ORDEM_NIVEL = { urgente: 0, importante: 1, informativo: 2 };
 const PUBLICOS = { 'Todos os moradores': 'todos', 'Só gestores da casa': 'gestores', 'Só jovens': 'jovens' };
 const NIVEIS = { Urgente: 'urgente', Importante: 'importante', Informativo: 'informativo' };
 const SITUACOES_AVISO = new Set(['rascunho', 'agendado', 'no ar', 'fora do ar']);
+// Aprovações: aprovar publica, recusar tira do ar, desfazer volta a esperar.
+const SITUACOES_DECIDIDAS = new Set(['publicado', 'fora do ar', 'esperando aprovação']);
 const CATEGORIAS_DESAPEGO = new Set(['Móveis', 'Eletrônicos', 'Roupas', 'Livros', 'Esportes']);
 
 const podeUsarDesapego = (p) => p.perfil !== 'jovem' || permissoesDoJovem(p.id).Desapego;
@@ -523,7 +549,7 @@ const rotas = {
     if (o.grupo !== ADMINISTRACAO) throw new Recusa(403, 'Só a administração muda a situação dos eventos.');
     const e = dados().eventos.find((x) => x.id === Number(corpo.id));
     if (e) {
-      e.situacao = corpo.situacao === 'fora do ar' ? 'fora do ar' : 'publicado';
+      e.situacao = SITUACOES_DECIDIDAS.has(corpo.situacao) ? corpo.situacao : 'publicado';
       salvar();
     }
     return { ok: true };

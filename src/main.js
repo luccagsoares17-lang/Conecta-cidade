@@ -44,6 +44,10 @@ function destinoPermitido(nome) {
   const s = sessao();
   if (s === undefined) return null;
   if (regra === 'organizador') return s.tipo === 'organizador' ? nome : 'AdminEntrada';
+  if (regra === 'administracao') {
+    if (s.tipo !== 'organizador') return 'AdminEntrada';
+    return s.organizador.grupo === 'Administração do Núcleo' ? nome : 'AdminInicio';
+  }
   if (s.tipo !== 'morador') return 'Login';
   const jovem = s.pessoa.perfil === 'jovem';
   const inicio = jovem ? 'JovemInicio' : 'Main';
@@ -107,6 +111,7 @@ function carregarTela(nome) {
           patchTemplate: ajustesDoModo(nome),
           replacements: ajustes[nome],
           globals: { CC },
+          valores: CC.valoresDaSessao,
         });
         tela.destinos = [...texto.matchAll(/href="([A-Za-z0-9_-]+)\.dc\.html"/g)].map((m) => m[1]);
         compiladas.set(nome, tela);

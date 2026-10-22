@@ -371,7 +371,8 @@ const rotas = {
   'POST eventos/situacao': async (c, req, q, corpo) => {
     const o = await organizador(c, req);
     if (!ehAdministracao(o)) throw new Recusa(403, 'Só a administração muda a situação dos eventos.');
-    const situacao = corpo.situacao === 'fora do ar' ? 'fora do ar' : 'publicado';
+    // Aprovações: aprovar publica, recusar tira do ar, desfazer volta a esperar.
+    const situacao = ['fora do ar', 'esperando aprovação'].includes(corpo.situacao) ? corpo.situacao : 'publicado';
     await c.query('update eventos set situacao = $2 where id = $1', [Number(corpo.id), situacao]);
     return { ok: true };
   },

@@ -168,3 +168,9 @@ No fim do Painel, depois de "Publicados por você":
 - Um card branco com uma linha por família (`<sc-for list="{{families}}">`): círculo verde-claro com a inicial; linha pequena em maiúsculas com código · endereço (quando houver) · número de moradores; título com os nomes (apelido, quando houver, senão o primeiro nome); e a lista "Nome (papel)" — gestor da casa, adulto da casa, jovem, ou "jovem, esperando aprovação".
 - No protótipo, o exemplo é a família Ribeiro (CKS-4821, Rua Japurá, 12). No app, a lista vem do cadastro (`CC.familias`), e só a Administração do Núcleo a vê.
 
+## Para os grupos fora da Administração, desde 22/10/2026 (decisões A-21 e A-22)
+
+- A linha de baixo do título mostra o grupo e o que ele publica, por exemplo "Equipe Entre Fases · pode publicar eventos".
+- Ficam ocultos: "Precisa da sua atenção", "Ferramentas", "Coleta seletiva", "Agendados e rascunhos" e "Famílias cadastradas".
+- Na barra de baixo, Energia e Aprovar ficam ocultos (a barra tem três itens). Vale também em Publicar, Equipe e Depois do evento.
+- Para a Administração, o card "Aguardando aprovação" mostra o número de pedidos de verdade.

@@ -13,6 +13,7 @@
 //   'jovem'        só jovem
 //   'jovem:Area'   jovem com a área liberada pelo gestor
 //   'organizador'  conta do Meu Carajás Organizadores
+//   'administracao' conta de organizador da Administração do Núcleo
 
 // Título de seção do Painel, como está no protótipo.
 const TITULO = "<span style=\"font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px\">";
@@ -143,6 +144,7 @@ export const ajustes = {
       // Regra 4: o organizador só vê no Painel as áreas do grupo dele. Para os outros grupos, o que é
       // da Administração do Núcleo (atenção, ferramentas, coleta, agendados e famílias) fica oculto.
       ['Administração do Núcleo · pode publicar avisos oficiais</span>', '{{ccGrupo}}</span>'],
+      ['>3 eventos de grupos da cidade</span>', '>{{ccAguardando}}</span>'],
       [
         `${TITULO}Precisa da sua atenção</span>`,
         `<sc-if value="{{ccAdm}}" hint-placeholder-val="{{ true }}">\n    ${TITULO}Precisa da sua atenção</span>`,
@@ -157,7 +159,7 @@ export const ajustes = {
     script: [
       [
         'return {\n      ...this.coletaVals(),',
-        "return {\n      ccPrimeiroNome: CC.primeiroNome(this),\n      ccAdm: CC.daAdministracao(this),\n      ccGrupo: CC.grupoDoPainel(this, 'Administração do Núcleo · pode publicar avisos oficiais'),\n      ...this.coletaVals(),",
+        "return {\n      ccPrimeiroNome: CC.primeiroNome(this),\n      ccAdm: CC.daAdministracao(this),\n      ccAguardando: CC.aguardandoAprovacao(this),\n      ccGrupo: CC.grupoDoPainel(this, 'Administração do Núcleo · pode publicar avisos oficiais'),\n      ...this.coletaVals(),",
       ],
       ['const all = [', '\n    ];', 'const all = CC.publicacoes(this);'],
       // Famílias cadastradas: a família de exemplo do protótipo dá lugar às famílias com cadastro.
@@ -229,17 +231,44 @@ function eventosDaAgenda() {
   ];
 }
 
+// ------------------------------------------------------------------ Aprovações (Administração do Núcleo)
+// Os pedidos são os eventos de grupos esperando aprovação. Aprovar publica; recusar tira do ar.
+ajustes.AdminAprovar = {
+  exige: 'administracao',
+  template: [
+    [
+      '    </sc-for>\n\n  </div>\n  <nav',
+      '    </sc-for>\n    <sc-if value="{{ccSemPedidos}}" hint-placeholder-val="{{ false }}"><div style="background: #FFFFFF; border-radius: 20px; padding: 18px 16px; font-size: 14px; color: #4F5E55; text-align: center">Nenhum evento esperando aprovação.</div></sc-if>\n\n  </div>\n  <nav',
+    ],
+  ],
+  script: [
+    ["'Eventos': [", '\n      ],', "'Eventos': CC.eventosParaAprovar(this, s.dec),"],
+    [
+      'const decide = (id, v) => {\n      const n = Object.assign({}, this.state.dec);\n      n[id] = v;\n      this.setState({ dec: n });\n    };',
+      'const decide = (id, v) => CC.decidirEvento(this, id, v);',
+    ],
+    ['return { tabs: tabs, items: items };', 'return { tabs: tabs, items: items, ccSemPedidos: items.length === 0 };'],
+  ],
+};
+
 // Telas do app dos organizadores que pedem a conta de organizador (a Entrada fica aberta).
-for (const nome of [
-  'AdminAlcance',
-  'AdminAprovar',
-  'AdminCasas',
-  'AdminColeta',
-  'AdminEnergia',
-  'AdminImpacto',
-  'AdminPosEvento',
-  'AdminRepresentantes',
-  'AdminTrilhas',
-]) {
-  ajustes[nome] = { exige: 'organizador' };
+// As de áreas da Administração do Núcleo (energia, avisos, coleta, casas, trilhas) só abrem para ela.
+ajustes.AdminPosEvento = { exige: 'organizador' };
+for (const nome of ['AdminAlcance', 'AdminCasas', 'AdminColeta', 'AdminEnergia', 'AdminImpacto', 'AdminRepresentantes', 'AdminTrilhas']) {
+  ajustes[nome] = { exige: 'administracao' };
+}
+
+// Barra de baixo: Energia e Aprovar só aparecem para a Administração do Núcleo (regra 4); para os
+// outros grupos ficam ocultos e a barra passa a ter três itens. Vale nas telas que esses grupos abrem.
+const NAV_ENERGIA =
+  '<a href="AdminEnergia.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600">';
+for (const nome of ['AdminInicio', 'AdminPublicar', 'AdminEquipe', 'AdminPosEvento']) {
+  ajustes[nome].template = (ajustes[nome].template || []).concat([
+    [NAV_ENERGIA, '<sc-if value="{{ccAdm}}" hint-placeholder-val="{{ true }}">' + NAV_ENERGIA],
+    ['Aprovar</a>', 'Aprovar</a></sc-if>'],
+    [
+      'grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px',
+      'grid-template-columns: {{ccNavColunas}}; padding: 6px 4px 18px 4px',
+    ],
+  ]);
 }

@@ -98,3 +98,11 @@ Chega-se a esta tela também pelo card "Aguardando aprovação · 3 eventos de g
 - Os três eventos, os nomes e as datas são dados de exemplo. O total "3" bate com o card do Painel.
 - O quadrado colorido de cada card está vazio no protótipo. Os documentos não dizem o que vai nele.
 - O `<title>` do arquivo é "Meu Carajás Organizadores – Aprovações".
+
+## No app, desde 22/10/2026 (decisão A-22)
+
+- Só a Administração do Núcleo abre esta tela.
+- Os pedidos são os eventos de grupos esperando aprovação (`CC.eventosParaAprovar`): nome, "grupo · quem publicou", "data e hora · local".
+- Aprovar publica o evento; Recusar deixa o evento fora do ar; Desfazer volta a esperar (`CC.decidirEvento`, rota `eventos/situacao`).
+- Sem pedidos, aparece "Nenhum evento esperando aprovação.".
+- Os três pedidos do protótipo entram como exemplo.

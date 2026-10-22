@@ -426,7 +426,9 @@ export function parseDcFile(text) {
  *   patchTemplate?: (root: DocumentFragment) => void,
  *   replacements?: { script?: [string, string][], template?: [string, string][] },
  *   globals?: Record<string, unknown>,
+ *   valores?: (logic: object) => object,
  * }} options
+ * `valores` dá valores extras a todos os buracos da tela (os de renderVals() têm a preferência).
  */
 export function createScreen(name, source, options) {
   const file = parseDcFile(source);
@@ -484,7 +486,7 @@ export function createScreen(name, source, options) {
       if (this.state.error) {
         return h('div', { className: 'sc-host sc-has-error', role: 'alert' }, name + ': ' + this.state.error);
       }
-      const vals = this.logic.renderVals() || {};
+      const vals = { ...(options.valores ? options.valores(this.logic) : {}), ...(this.logic.renderVals() || {}) };
       return h(
         'div',
         { className: 'sc-host', 'data-sc-name': name },

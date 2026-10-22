@@ -231,6 +231,12 @@ function tiposDoGrupo(logica, tipos) {
   return tipos.filter((t) => areas.includes(AREA_DO_TIPO[t]));
 }
 
+// Valores que todas as telas recebem: na barra de baixo, Energia e Aprovar são só da Administração.
+function valoresDaSessao(logica) {
+  const adm = daAdministracao(logica);
+  return { ccAdm: adm, ccNavColunas: adm ? 'repeat(5, minmax(0, 1fr))' : 'repeat(3, minmax(0, 1fr))' };
+}
+
 function grupoDoPainel(logica, textoDaAdministracao) {
   if (daAdministracao(logica)) return textoDaAdministracao;
   const o = organizadorDaSessao(logica);
@@ -474,6 +480,45 @@ async function publicar(logica, s, situacao, canais) {
 }
 
 // ---------------------------------------------------------------------------
+// Aprovações (Administração do Núcleo): eventos de grupos esperando aprovação.
+// Os decididos nesta visita continuam na lista, com "Desfazer", como no protótipo.
+const esperando = (e) => e.situacao === 'esperando aprovação';
+
+function eventosParaAprovar(logica, decididos) {
+  ouvir(logica);
+  carregarLista('eventos');
+  return (estado.eventos || [])
+    .filter((e) => esperando(e) || (decididos && decididos[e.id]))
+    .map((e) => ({
+      id: e.id,
+      title: e.nome,
+      by: e.organizador && e.organizador !== e.grupo ? e.grupo + ' · ' + e.organizador : e.grupo || '',
+      meta: [e.dataHora, e.local].filter(Boolean).join(' · '),
+      tint: '#DCEDE2',
+    }));
+}
+
+async function decidirEvento(logica, id, decisao) {
+  const n = Object.assign({}, logica.state.dec);
+  n[id] = decisao;
+  logica.setState({ dec: n });
+  const situacao = decisao === 'ok' ? 'publicado' : decisao === 'no' ? 'fora do ar' : 'esperando aprovação';
+  try {
+    await api('eventos/situacao', { id, situacao });
+  } finally {
+    recarregar('eventos');
+  }
+}
+
+// Painel: o card "Aguardando aprovação" conta os pedidos de verdade.
+function aguardandoAprovacao(logica) {
+  ouvir(logica);
+  carregarLista('eventos');
+  const n = (estado.eventos || []).filter(esperando).length;
+  if (!n) return 'Nenhum evento esperando agora';
+  return n === 1 ? '1 evento de grupo da cidade' : n + ' eventos de grupos da cidade';
+}
+
 // Painel (organizador): publicados, com "No ar" e "Fora do ar"
 
 const PUBLICO = { todos: 'todos', gestores: 'só gestores', jovens: 'só jovens' };
@@ -638,6 +683,10 @@ async function adicionarMembro(logica, equipe, nome) {
 
 export const CC = {
   daAdministracao,
+  valoresDaSessao,
+  eventosParaAprovar,
+  decidirEvento,
+  aguardandoAprovacao,
   tiposDoGrupo,
   grupoDoPainel,
   pessoasDoGrupo,
