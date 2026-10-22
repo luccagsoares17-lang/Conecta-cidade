@@ -36,6 +36,9 @@ export const semente = {
     },
     {
       "codigo": "CKS-9927"
+    },
+    {
+      "codigo": "CKS-6651"
     }
   ],
   "pessoas": [
@@ -123,6 +126,13 @@ export const semente = {
       "perfil": "gestor",
       "casa": "CKS-9927",
       "senha_hash": "scrypt$16384$8$1$CzgO/3FfIHjLQm0fQIbtAg==$iFXO6LW9sMMO+AaKB/C6Q0ycK8ulmv7RBDFwoEL45o0="
+    },
+    {
+      "nome": "Luiza",
+      "email": "luiza@conectacidade.app",
+      "perfil": "gestor",
+      "casa": "CKS-6651",
+      "senha_hash": "scrypt$16384$8$1$uM48n19UtuJbG+EE/oG5Kw==$axgo4KnFkbcPPenGn3ZpqjpXdHJFFmNuP2dkMZXCvgg="
     }
   ],
   "organizadores": [
