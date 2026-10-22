@@ -30,6 +30,12 @@ export const semente = {
     },
     {
       "codigo": "CKS-3733"
+    },
+    {
+      "codigo": "CKS-2961"
+    },
+    {
+      "codigo": "CKS-9927"
     }
   ],
   "pessoas": [
@@ -103,6 +109,20 @@ export const semente = {
       "perfil": "gestor",
       "casa": "CKS-3733",
       "senha_hash": "scrypt$16384$8$1$b/CWM+kCxAaVWYYR/P9ixA==$ibmW84tuuOxfEayllsgZ/lnXOLccAjlSw442JRk/x6I="
+    },
+    {
+      "nome": "Tony",
+      "email": "tony@conectacidade.app",
+      "perfil": "gestor",
+      "casa": "CKS-2961",
+      "senha_hash": "scrypt$16384$8$1$bEV7rZajZzHY2jj8icypQw==$/JBtwm3qdlckcWQUNbPQvTZCZprMy0Z0Ke0YChbHAuo="
+    },
+    {
+      "nome": "Luigi",
+      "email": "luigi@conectacidade.app",
+      "perfil": "gestor",
+      "casa": "CKS-9927",
+      "senha_hash": "scrypt$16384$8$1$CzgO/3FfIHjLQm0fQIbtAg==$iFXO6LW9sMMO+AaKB/C6Q0ycK8ulmv7RBDFwoEL45o0="
     }
   ],
   "organizadores": [
