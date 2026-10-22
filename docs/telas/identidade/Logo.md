@@ -111,3 +111,7 @@ A pedido da equipe, o símbolo do **Meu Carajás Super App** passou a ser a **fl
 - **Ícone do app** (160×160 px) e **versão clara** (76×91 px): pétalas na cor `accent`, raios e miolo `#B4471C`, centro `#FFD27A`, haste e folha `#DCEDE2`.
 - **Versões pequenas** (60 px e 40 px): só a flor, sem haste, com o centro `#FFD27A` (raio 9 e 11).
 - O símbolo do Meu Carajás Organizadores continua o pino (ver [`Icones`](Icones.md)).
+
+## Flor rosa da referência, 22/10/2026 (decisão A-20)
+
+A flor desenhada em A-19 foi trocada pela flor da imagem de referência da equipe: pentágono de cantos arredondados com borda Pétala `#E9558F` e pétala clara `#EC679B`, cinco nervuras `#C2346F`, miolo `#FFE1EC` e pólen `#FFF1A8`. É a mesma nas cinco versões do board, sem haste. "Super App" passou a `#C2346F`. O quadrado do ícone do app e os dois ícones pequenos ficaram brancos, como o ícone do app do morador na referência.

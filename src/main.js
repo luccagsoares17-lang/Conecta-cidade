@@ -150,7 +150,7 @@ function useTela(nome) {
 // Moldura: no celular a tela ocupa a tela inteira; em telas maiores aparece no
 // tamanho do protótipo (390×844, cantos de 40 px), reduzida se não couber.
 
-// Cada app tem o seu ícone: a flor de Carajás no Super App, o pino com o selo no Meu Carajás Organizadores.
+// Cada app tem o seu ícone: a flor de Carajás em fundo branco no Super App e em fundo verde no Meu Carajás Organizadores.
 function marcarApp(organizador) {
   const trocar = (seletor, arquivo) => {
     const el = document.querySelector(seletor);

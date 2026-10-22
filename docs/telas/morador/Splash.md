@@ -63,3 +63,7 @@ Nenhuma encontrada.
 ## Logo trocada em 22/10/2026 (decisão A-19)
 
 No quadrado branco, o pino deu lugar à flor de Carajás, na versão para fundo claro (pétalas `#B4471C`, raios e miolo na cor `accent`, haste e folha na cor `brand`). O `aria-label` passou a ser "Flor de Carajás, símbolo do Meu Carajás Super App".
+
+## Flor rosa da referência, 22/10/2026 (decisão A-20)
+
+No quadrado branco entrou a flor rosa da referência da equipe, nas cores pentágono de cantos arredondados com borda Pétala `#E9558F` e pétala clara `#EC679B`, cinco nervuras `#C2346F`, miolo `#FFE1EC` e pólen `#FFF1A8`.

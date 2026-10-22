@@ -78,3 +78,7 @@ Nenhuma encontrada. Os nomes dos apps e as legendas batem com os requisitos. Os 
 O ícone do **Meu Carajás Super App** passou a ter a flor de Carajás (pétalas `#E07A3F`, raios e miolo `#B4471C`, centro `#FFD27A`, haste e folha `#DCEDE2`) sobre o mesmo fundo `#1E5B40`. O ícone do **Meu Carajás Organizadores** não mudou: continua o pino com o selo `#FFD27A`.
 
 No app instalado no celular, o Super App usa `public/icons/icon.svg` e os PNGs com a flor. As telas dos organizadores usam o ícone e o manifesto próprios (`public/icons/organizador*.png`, `organizador.svg`, `manifest-organizador.webmanifest`).
+
+## Flor rosa da referência, 22/10/2026 (decisão A-20)
+
+Os dois ícones usam a flor rosa (pentágono de cantos arredondados com borda Pétala `#E9558F` e pétala clara `#EC679B`, cinco nervuras `#C2346F`, miolo `#FFE1EC` e pólen `#FFF1A8`), como na referência. **Meu Carajás Super App**: card Verde floresta `#1E5B40` com o ícone branco. **Meu Carajás Organizadores**: card Mata escura `#13241B` com o ícone Verde floresta, sem o selo `#FFD27A`. Os textos dos cards ficaram brancos, com a linha de baixo em `#CFE3D7`. Vale também para os ícones de instalação (`public/icons/`). Isto substitui a nota de A-19 acima.

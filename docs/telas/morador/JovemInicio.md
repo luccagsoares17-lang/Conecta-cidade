@@ -17,7 +17,7 @@ Tela inicial do perfil jovem. Segundo os requisitos ("Telas da versão 1"), most
 A área de conteúdo rola (`overflow-y: auto`); a barra de navegação fica fixa embaixo.
 
 1. **Cabeçalho**
-   - Logo (a flor de Carajás; até 22/10/2026 era o pino verde, ver A-19) + texto "Meu Carajás Super App".
+   - Logo (a flor de Carajás rosa; até 22/10/2026 era o pino verde, ver A-19 e A-20) + texto "Meu Carajás Super App".
    - Selo à direita: "Jovem".
 2. **Saudação**
    - Título: "E aí, Lucca!"

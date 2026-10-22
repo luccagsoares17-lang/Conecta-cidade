@@ -17,7 +17,7 @@ Porta de entrada do app Meu Carajás Organizadores. Pede "E-mail e código de ac
 Fundo verde-escuro (`#13241B`), sem barra de navegação inferior.
 
 1. **Bloco da marca (centralizado)**
-   - Ícone do app (alfinete de mapa branco com três pontos ligados, um deles laranja) num quadrado arredondado verde.
+   - Ícone do app num quadrado arredondado verde: a flor de Carajás rosa desde 22/10/2026 (A-20); antes, um alfinete de mapa branco com três pontos ligados, um deles laranja.
    - Título "Meu Carajás Super App".
    - Selo amarelo "Organizadores".
    - Texto: "Onde a administração, a equipe de energia e os grupos da cidade publicam as informações do Núcleo."

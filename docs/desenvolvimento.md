@@ -128,7 +128,7 @@ Sem `DATABASE_URL`, a API responde que o banco não está configurado, e as tela
 
 **Carregamento**: cada tela é um arquivo separado no build e só é baixada quando abre; as telas para onde ela leva são baixadas em segundo plano. O código comum (React + motor) tem cerca de 53 kB compactado.
 
-**PWA**: manifesto com nome, cores e ícone do board Ícones. Cada app tem o seu: `manifest.webmanifest` com a flor (Super App) e `manifest-organizador.webmanifest` com o pino (Organizadores, nas telas da página `organizador` do canvas; `marcarApp` em `src/main.js` troca o manifesto e o ícone pela tela aberta); o service worker guarda as telas já abertas para funcionarem com internet fraca.
+**PWA**: manifesto com nome, cores e ícone do board Ícones. Cada app tem o seu: `manifest.webmanifest` com a flor em fundo branco (Super App) e `manifest-organizador.webmanifest` com a flor em fundo verde (Organizadores, nas telas da página `organizador` do canvas; `marcarApp` em `src/main.js` troca o manifesto e o ícone pela tela aberta); o service worker guarda as telas já abertas para funcionarem com internet fraca.
 
 ## Como foi verificada a fidelidade
 

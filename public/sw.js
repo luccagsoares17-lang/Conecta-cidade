@@ -1,6 +1,6 @@
 // Cache simples para o piloto: a tela abre rápido e funciona com internet fraca.
 // Páginas: rede primeiro, cache se falhar. Arquivos estáticos: cache primeiro.
-const CACHE = 'conecta-cidade-v4';
+const CACHE = 'conecta-cidade-v5';
 // Funciona na raiz (Vercel) e numa subpasta (GitHub Pages): tudo relativo ao escopo do service worker.
 const INICIO = new URL('./', self.registration.scope).pathname;
 
