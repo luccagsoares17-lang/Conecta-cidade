@@ -30,12 +30,11 @@ button{font-family:inherit}
     <a href="https://drive.google.com/file/d/1tNRop_3W4fDJzq-ckRKBHGW1cOMyKvZk/view" target="_blank" rel="noopener noreferrer" style="text-decoration: none; box-sizing: border-box; min-height: 56px; border-radius: 28px; border: 2px solid #3F6B1F; background: #E3EEDC; color: #13241B; display: flex; align-items: center; gap: 10px; padding: 6px 16px 6px 8px"><span style="width: 40px; height: 40px; border-radius: 20px; background: #3F6B1F; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"></circle><path d="M10 22l1.5-7L9 12l1-4.5h3l1.5 3.5H18"></path><path d="M13.5 15 16 22"></path><path d="M6 11l3-3"></path></svg></span><span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px">Procure seu guia aqui</span><span style="font-size: 12px; color: #4F5E55">Lista de condutores credenciados</span></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
     <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; flex-shrink: 0">
     <span style="display: flex; align-items: center; gap: 10px">
-      <span style="width: 40px; height: 40px; border-radius: 20px; background: #FFD27A; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"></path><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"></path></svg></span>
-      <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 800; font-size: 16px">{{rkTitle}}</span><span style="font-size: 12px; color: #4F5E55">Condutores credenciados mais bem avaliados</span></span>
+      <span style="width: 40px; height: 40px; border-radius: 20px; background: #FFD27A; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9L12 3z"></path></svg></span>
+      <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 800; font-size: 16px">{{rkTitle}}</span><span style="font-size: 12px; color: #4F5E55">Notas que os condutores credenciados receberam</span></span>
     </span>
     <sc-for list="{{rkList}}" as="p" hint-placeholder-count="3">
       <div style="display: flex; align-items: center; gap: 10px; padding: 8px 0; border-top: 1px solid #EEF1EC">
-        <span style="width: 28px; height: 28px; border-radius: 14px; background: {{p.posBg}}; color: {{p.posFg}}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0">{{p.pos}}</span>
         <span style="width: 38px; height: 38px; border-radius: 19px; background: {{p.avBg}}; color: {{p.avFg}}; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; flex-shrink: 0">{{p.ini}}</span>
         <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 14px">{{p.name}}</span><span style="font-size: 12px; color: #4F5E55">{{p.meta}}</span></span>
         <span style="display: flex; flex-direction: column; align-items: flex-end; flex-shrink: 0">
@@ -163,8 +162,8 @@ class Component extends DCLogic {
         { k: 'Para', v: cur.use }
       ]
     }) : { name: '', sky: '#E3EEDC', guided: false, free: false, facts: [], desc: '', how: '', auth: '' };
-    const RK = {"Guias": [["Raimundo Souza", "Lagoa da Mata · aves", 5.0, 212, "avaliações"], ["Joana Nascimento", "Mirante Vale do Rio Azul", 4.9, 187, "avaliações"], ["Antônio Carvalho", "Flor de Carajás e caverna", 4.9, 150, "avaliações"], ["Luana Moraes", "Peito de Aço e cachoeira", 4.8, 133, "avaliações"], ["Edson Pereira", "Lagoa da Mata", 4.8, 120, "avaliações"], ["Patrícia Lima", "Grupos de escola", 4.7, 98, "avaliações"], ["Francisco Alves", "Cavernas ferríferas", 4.7, 90, "avaliações"], ["Rosa Silva", "Mirante Vale do Rio Azul", 4.6, 76, "avaliações"], ["Mateus Rocha", "Peito de Aço", 4.5, 64, "avaliações"], ["Sônia Barros", "Observação de aves", 4.4, 51, "avaliações"]]};
-    const RK_T = {"Guias": "Ranking · Top 10 guias"};
+    const RK = {"Guias": [["Antônio Carvalho", "Flor de Carajás e caverna", 2.3, 150, "avaliações"], ["Edson Pereira", "Lagoa da Mata", 4.1, 120, "avaliações"], ["Francisco Alves", "Cavernas ferríferas", 3.4, 90, "avaliações"], ["Joana Nascimento", "Mirante Vale do Rio Azul", 5.0, 187, "avaliações"], ["Luana Moraes", "Peito de Aço e cachoeira", 3.7, 133, "avaliações"], ["Mateus Rocha", "Peito de Aço", 4.6, 64, "avaliações"], ["Patrícia Lima", "Grupos de escola", 2.8, 98, "avaliações"], ["Raimundo Souza", "Lagoa da Mata · aves", 4.9, 212, "avaliações"], ["Rosa Silva", "Mirante Vale do Rio Azul", 3.2, 76, "avaliações"], ["Sônia Barros", "Observação de aves", 4.4, 51, "avaliações"]]};
+    const RK_T = {"Guias": "Avaliações dos guias"};
     const RK_TAB = () => this.state.rkTab || "Guias";
     return {
       chips: chips,
@@ -172,13 +171,12 @@ class Component extends DCLogic {
       rkTabs: Object.keys(RK).length > 1 ? Object.keys(RK).map((k) => ({ label: k, pressed: k === RK_TAB() ? 'true' : 'false', bg: k === RK_TAB() ? '#FFFFFF' : 'transparent', pick: () => this.setState({ rkTab: k }) })) : [],
       rkList: RK[RK_TAB()].slice(0, this.state.rkOpen ? 10 : 3).map((p, i) => {
         const stars = p[2] === null ? 0 : Math.round(p[2]);
-        const medal = [['#FFD27A', '#13241B'], ['#DCE3E8', '#13241B'], ['#E9C3A0', '#13241B']][i] || ['#F4F6F1', '#4F5E55'];
-        return { pos: String(i + 1), posBg: medal[0], posFg: medal[1], name: p[0], meta: p[1], ini: p[0].charAt(0), avBg: ['#DCEDE2', '#DFE9F5', '#FBE6DA', '#ECE4F5', '#F8EDC9'][i % 5], avFg: ['#17432F', '#24578C', '#8E3714', '#5B3A8C', '#6B4D05'][i % 5],
+        return { name: p[0], meta: p[1], ini: p[0].charAt(0), avBg: ['#DCEDE2', '#DFE9F5', '#FBE6DA', '#ECE4F5', '#F8EDC9'][i % 5], avFg: ['#17432F', '#24578C', '#8E3714', '#5B3A8C', '#6B4D05'][i % 5],
           hasStars: p[2] !== null, full: '★'.repeat(stars), empty: '★'.repeat(5 - stars), aria: p[2] === null ? '' : p[2].toFixed(1).replace('.', ',') + ' de 5 estrelas',
           score: p[2] === null ? p[3] + ' ' + p[4] : p[2].toFixed(1).replace('.', ',') + ' · ' + p[3] + ' ' + p[4] };
       }),
       rkAttr: this.state.rkOpen ? 'true' : 'false',
-      rkLabel: this.state.rkOpen ? 'Mostrar só o top 3' : 'Ver o top 10 completo',
+      rkLabel: this.state.rkOpen ? 'Mostrar menos' : 'Ver todas as avaliações',
       rkToggle: () => this.setState({ rkOpen: !this.state.rkOpen }),
 
       trails: trails,

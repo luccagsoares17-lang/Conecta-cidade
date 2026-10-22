@@ -23,7 +23,7 @@ O markup é o mesmo de [`Trilhas.md`](Trilhas.md), com estas diferenças:
 O restante é igual ao da tela do gestor:
 - Alerta "Nunca faça trilha sozinho" — "Com ou sem guia, vá sempre com outras pessoas. Se você se machucar sozinho, ninguém consegue ajudar." (sem a frase extra da tela do jovem).
 - Link "Procure seu guia aqui" — "Lista de condutores credenciados".
-- Card "Ranking · Top 10 guias" — "Condutores credenciados mais bem avaliados", com "Ver o top 10 completo" / "Mostrar só o top 3".
+- Card "Avaliações dos guias" — "Notas que os condutores credenciados receberam", em ordem alfabética e sem posição, com "Ver todas as avaliações" / "Mostrar menos" (A-17).
 - Chips "Todas", "Sem guia", "Com condutor", "Acessível".
 - Lista das 8 trilhas com etiquetas "Guia obrigatório"/"Sem guia" e "Acessível".
 - Rodapé "Imagens ilustrativas. Informações do ICMBio Carajás e de condutores da região: confirme no site antes de ir."
@@ -36,7 +36,7 @@ O script é o de `Trilhas.dc.html` com `VIS = true`. Isso muda só dois textos d
 
 Nas trilhas com condutor, os textos continuam: "O condutor leva o grupo a partir da portaria da Floresta Nacional de Carajás (PA-275)." e "O condutor credenciado emite a autorização do grupo.".
 
-Estado inicial `{ f: 'Todas', open: null }`; mesmas 8 trilhas, mesmo filtro, mesmo detalhe e mesmo ranking de 10 condutores. A tela não tem formulário: nenhum dado do visitante é pedido ou guardado.
+Estado inicial `{ f: 'Todas', open: null }`; mesmas 8 trilhas, mesmo filtro, mesmo detalhe e mesmas avaliações de 10 condutores. A tela não tem formulário: nenhum dado do visitante é pedido ou guardado.
 
 ## Navegação
 | Elemento | Leva para |
@@ -52,7 +52,7 @@ Telas que apontam para esta: `Chegada.dc.html` (card "Trilha com um grupo do Nú
 | Dado na tela | Registro da V1 | Observação |
 | --- | --- | --- |
 | Trilhas (nome, distância, nível, tipo, acessível, uso, descrição, como chegar, autorização) | **Sem registro** | |
-| Condutores do ranking, nota e número de avaliações | **Sem registro** | |
+| Condutores das avaliações, nota e número de avaliações | **Sem registro** | |
 | Lista de condutores (arquivo externo) e site do ICMBio | **Sem registro** | Dados de fora do grupo |
 | Visitante | **Sem registro** | Pessoa só tem os perfis gestor, adulto e jovem |
 | CPF | Não é coletado nesta tela | Aparece só como orientação: "leve documento com foto e CPF" na portaria |
@@ -71,7 +71,7 @@ Telas que apontam para esta: `Chegada.dc.html` (card "Trilha com um grupo do Nú
 3. **Promessa da tela de origem x conteúdo desta tela**: `Chegada.dc.html` diz "Visitantes entram nas trilhas junto com um grupo e um morador responsável", mas esta tela não mostra grupos, morador responsável nem agenda; ela orienta o visitante a emitir a autorização no site do ICMBio e a entrar pela portaria da Flona (trilhas sem guia) ou a ir com um condutor credenciado.
 4. **Onde se faz a autorização**: esta tela diz "emita a autorização de visitação no site do ICMBio Carajás antes de vir"; `Chegada.dc.html` diz "Visitantes precisam de autorização na portaria de acesso da Floresta Nacional de Carajás, na PA-275"; `CaronaVisitante.dc.html` diz "A autorização de visitante é feita na portaria de acesso, das 8h às 16h, todos os dias". Os documentos-fonte não tratam do assunto.
 5. **Sem agenda**: a área da Fase 2 é "Trilhas com agenda", mas a tela não tem agenda.
-6. **Ranking de condutores com avaliações e regras de acesso às trilhas**: não estão nos documentos-fonte (mesma divergência de [`Trilhas.md`](Trilhas.md)).
+6. **Avaliações de condutores e regras de acesso às trilhas**: não estão nos documentos-fonte (mesma divergência de [`Trilhas.md`](Trilhas.md)).
 7. **Dados sem registro na V1**: trilhas, condutores, avaliações e o próprio visitante. O CPF só aparece como orientação, sem campo.
 
 ## Notas para implementação
