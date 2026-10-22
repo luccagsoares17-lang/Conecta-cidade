@@ -58,3 +58,7 @@ Cada item tem o código do registro em [`decisoes/conflitos-entre-fontes.md`](de
 ## Surgidas na tela de Carona (22/10/2026)
 
 - [ ] **A-18** Como calcular o CO₂ que a pessoa deixou de emitir na carona? Falta definir quais caronas contam (as que pegou, as que ofereceu ou as duas), a distância de cada trajeto (por exemplo, Núcleo de Carajás até Parauapebas) e quanto CO₂ um carro emite por quilômetro. Hoje a tela mostra 32 kg de exemplo.
+
+## Surgidas com as fotos das trilhas (22/10/2026)
+
+- [ ] **A-23** As fotos da Flor de Carajás (marca "Freedomlearned") e do Mirante Vale do Rio Azul (marca "Photoshop Express") podem ser usadas no app? Se não, quais fotos usar?

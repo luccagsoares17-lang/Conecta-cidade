@@ -96,3 +96,7 @@ Telas que apontam para esta: `Main.dc.html` (atalho "Trilhas · Na floresta").
 - "Imagens ilustrativas" e "Imagem ilustrativa": as ilustrações são só do protótipo.
 - O conteúdo das trilhas, as avaliações e os links externos estão fixos no script; são dados de exemplo.
 - Esta tela, `JovemTrilhas.dc.html` e `TrilhaVisitante.dc.html` têm o mesmo markup e o mesmo script; mudam o destino do voltar, uma etiqueta no cabeçalho, alguns textos e a constante `VIS`.
+
+## Fotos das trilhas, 22/10/2026 (decisão A-23)
+
+Cada trilha tem `foto` (`fotos/<trilha>.jpg`). A foto aparece no card da lista (76×76 px, recortada) e no alto do detalhe (170 px de altura, recortada), no lugar do desenho. Saíram o selo "Imagem ilustrativa" do detalhe e o "Imagens ilustrativas." do rodapé. Vale também para `JovemTrilhas` e `TrilhaVisitante`.

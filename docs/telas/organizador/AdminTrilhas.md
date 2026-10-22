@@ -72,3 +72,7 @@ Telas que trazem para cá: o atalho "Trilhas · Abertas e fechadas" do Painel e 
 - A lista de 8 trilhas, os tipos e o fechamento inicial da "Trilha Lagoa da Mata" por "Chuva forte" são dados de exemplo do protótipo.
 - A "Trilha Uxi" também aparece como ponto no mapa do Núcleo (`AdminEnergia`, `AdminColeta`, `AdminCasas`).
 - O motivo é de escolha única, e o padrão exibido é "Chuva forte".
+
+## Fotos das trilhas, 22/10/2026 (decisão A-23)
+
+Cada trilha mostra a foto (56×56 px, cantos de 12 px) à esquerda do nome. As fotos são as mesmas das telas de trilhas dos moradores (`fotos/<trilha>.jpg`).

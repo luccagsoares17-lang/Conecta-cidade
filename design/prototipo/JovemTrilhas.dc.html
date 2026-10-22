@@ -53,7 +53,7 @@ button{font-family:inherit}
     </div>
     <sc-for list="{{trails}}" as="t" hint-placeholder-count="4">
       <button onClick="{{t.open}}" aria-label="Ver detalhes da {{t.name}}" style="border: none; cursor: pointer; text-align: left; background: #FFFFFF; border-radius: 18px; padding: 10px; display: flex; align-items: center; gap: 12px; color: #13241B">
-        <span style="width: 76px; height: 76px; border-radius: 14px; overflow: hidden; flex-shrink: 0"><svg viewBox="0 0 350 96" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="display: block; width: 76px; height: 76px"><rect width="350" height="96" fill="{{t.sky}}"></rect><path d="M0 70 Q60 40 120 62 T240 56 T350 60 V96 H0Z" fill="#3F6B1F"></path><path d="M0 82 Q90 64 180 80 T350 76 V96 H0Z" fill="#1E5B40"></path><path d="M40 70 l12 -26 l12 26z M70 66 l9 -20 l9 20z M270 64 l12 -28 l12 28z M300 68 l8 -18 l8 18z" fill="#17432F"></path><circle cx="300" cy="22" r="10" fill="#FFD27A"></circle><path d="M110 96 C140 84 170 90 200 80" stroke="#E7D3B5" stroke-width="4" fill="none" stroke-dasharray="6 6" stroke-linecap="round"></path></svg></span>
+        <span style="width: 76px; height: 76px; border-radius: 14px; overflow: hidden; flex-shrink: 0"><img src="{{t.foto}}" alt="" style="display: block; width: 76px; height: 76px; object-fit: cover"></span>
         <span style="display: flex; flex-direction: column; gap: 5px; flex-grow: 1; min-width: 0">
           <span style="font-weight: 700; font-size: 15px">{{t.name}}</span>
           <span style="display: flex; flex-wrap: wrap; gap: 5px">
@@ -65,16 +65,15 @@ button{font-family:inherit}
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5E55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="m9 18 6-6-6-6"></path></svg>
       </button>
     </sc-for>
-    <span style="font-size: 12px; color: #4F5E55">Imagens ilustrativas. Informações do ICMBio Carajás e de condutores da região: confirme no site antes de ir.</span>
+    <span style="font-size: 12px; color: #4F5E55">Informações do ICMBio Carajás e de condutores da região: confirme no site antes de ir.</span>
   </div>
 
   <sc-if value="{{hasDetail}}" hint-placeholder-val="{{ false }}">
     <div style="position: absolute; inset: 0; background: #F4F6F1; display: flex; flex-direction: column">
       <div class="trl" style="flex-grow: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; padding-bottom: 28px">
         <div style="position: relative">
-          <svg viewBox="0 0 350 96" preserveAspectRatio="xMidYMax slice" aria-hidden="true" style="display: block; width: 100%; height: 170px"><rect width="350" height="96" fill="{{d.sky}}"></rect><path d="M0 70 Q60 40 120 62 T240 56 T350 60 V96 H0Z" fill="#3F6B1F"></path><path d="M0 82 Q90 64 180 80 T350 76 V96 H0Z" fill="#1E5B40"></path><path d="M40 70 l12 -26 l12 26z M70 66 l9 -20 l9 20z M270 64 l12 -28 l12 28z M300 68 l8 -18 l8 18z" fill="#17432F"></path><circle cx="300" cy="22" r="10" fill="#FFD27A"></circle><path d="M110 96 C140 84 170 90 200 80" stroke="#E7D3B5" stroke-width="4" fill="none" stroke-dasharray="6 6" stroke-linecap="round"></path></svg>
+          <img src="{{d.foto}}" alt="Foto da {{d.name}}" style="display: block; width: 100%; height: 170px; object-fit: cover">
           <button onClick="{{closeDetail}}" aria-label="Voltar para as trilhas" style="position: absolute; left: 16px; top: 52px; width: 44px; height: 44px; border-radius: 22px; border: none; cursor: pointer; background: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
-          <span style="position: absolute; right: 12px; bottom: 10px; font-size: 11px; font-weight: 700; color: #FFFFFF; background: rgba(19,36,27,0.6); padding: 3px 8px; border-radius: 6px">Imagem ilustrativa</span>
         </div>
         <div style="padding: 0 20px; display: flex; flex-direction: column; gap: 12px">
           <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.4px">{{d.name}}</span>
@@ -131,14 +130,14 @@ class Component extends DCLogic {
     const guideHow = 'O condutor leva o grupo a partir da portaria da Floresta Nacional de Carajás (PA-275).';
     const guideAuth = 'O condutor credenciado emite a autorização do grupo.';
     const all = [
-      { id: 'uxi', name: 'Trilha Uxi', km: '1,55 km ou 4,9 km', lvl: 'Fácil', guided: false, acc: false, sky: '#DFF0F7', how: 'Fica no Núcleo, ao lado da rodoviária.', desc: 'Trilha de uso múltiplo, para caminhada e bicicleta, com dois percursos: um curto, de 1,55 km, e um completo, de 4,9 km. O destaque é a ponte suspensa no meio da mata.', use: 'Caminhada e bicicleta' },
-      { id: 'cast', name: 'Trilha Castanheira', km: 'Circuito de Trilhas Carajás', lvl: 'Fácil', guided: false, acc: false, sky: '#E3EEDC', how: freeHow, desc: 'Faz parte do Circuito de Trilhas Carajás, junto com a Quarubarana e a Pequiá. Pode ser feita sem guia, de preferência em grupo.', use: 'Caminhada' },
-      { id: 'quaru', name: 'Trilha Quarubarana', km: 'Circuito de Trilhas Carajás', lvl: 'Fácil', guided: false, acc: true, sky: '#E3EEDC', how: freeHow, desc: 'Trilha inclusiva do Circuito de Trilhas Carajás, adaptada para pessoas com deficiência.', use: 'Caminhada · acessível' },
-      { id: 'pequia', name: 'Trilha Pequiá', km: 'Circuito de Trilhas Carajás', lvl: 'Fácil', guided: false, acc: true, sky: '#E3EEDC', how: freeHow, desc: 'Trilha inclusiva do Circuito de Trilhas Carajás, adaptada para pessoas com deficiência.', use: 'Caminhada · acessível' },
-      { id: 'lagoa', name: 'Trilha Lagoa da Mata', km: '2,5 km', lvl: 'Fácil', guided: true, acc: false, sky: '#DFE9F5', how: guideHow, desc: 'A caminhada termina na Lagoa da Mata, onde a floresta se abre num ambiente cheio de luz e vegetação aquática. Lá vivem jacarés e patos selvagens.', use: 'Caminhada' },
-      { id: 'flor', name: 'Trilha Flor de Carajás e caverna', km: '1 km', lvl: 'Fácil', guided: true, acc: false, sky: '#FBF1D3', how: guideHow, desc: 'Trilha na vegetação de canga até o Mirante Flor de Carajás, que tem o nome da planta símbolo de Parauapebas, com visita a uma caverna ferrífera.', use: 'Caminhada e caverna' },
-      { id: 'azul', name: 'Trilha Mirante Vale do Rio Azul', km: '1,2 km', lvl: 'Fácil', guided: true, acc: false, sky: '#DFF0F7', how: guideHow, desc: 'Uma das rotas mais visitadas da Floresta Nacional de Carajás, com uma das vistas mais bonitas da floresta.', use: 'Caminhada e mirante' },
-      { id: 'peito', name: 'Trilha Peito de Aço', km: '2 km', lvl: 'Fácil', guided: true, acc: false, sky: '#F7E2D6', how: guideHow, desc: 'Trilha onde é comum ouvir o pássaro peito-de-aço. Termina na Cachoeira de Águas Claras, para um banho no fim da caminhada.', use: 'Caminhada e cachoeira' }
+      { id: 'uxi', foto: 'fotos/uxi.jpg', name: 'Trilha Uxi', km: '1,55 km ou 4,9 km', lvl: 'Fácil', guided: false, acc: false, sky: '#DFF0F7', how: 'Fica no Núcleo, ao lado da rodoviária.', desc: 'Trilha de uso múltiplo, para caminhada e bicicleta, com dois percursos: um curto, de 1,55 km, e um completo, de 4,9 km. O destaque é a ponte suspensa no meio da mata.', use: 'Caminhada e bicicleta' },
+      { id: 'cast', foto: 'fotos/castanheira.jpg', name: 'Trilha Castanheira', km: 'Circuito de Trilhas Carajás', lvl: 'Fácil', guided: false, acc: false, sky: '#E3EEDC', how: freeHow, desc: 'Faz parte do Circuito de Trilhas Carajás, junto com a Quarubarana e a Pequiá. Pode ser feita sem guia, de preferência em grupo.', use: 'Caminhada' },
+      { id: 'quaru', foto: 'fotos/quarubarana.jpg', name: 'Trilha Quarubarana', km: 'Circuito de Trilhas Carajás', lvl: 'Fácil', guided: false, acc: true, sky: '#E3EEDC', how: freeHow, desc: 'Trilha inclusiva do Circuito de Trilhas Carajás, adaptada para pessoas com deficiência.', use: 'Caminhada · acessível' },
+      { id: 'pequia', foto: 'fotos/pequia.jpg', name: 'Trilha Pequiá', km: 'Circuito de Trilhas Carajás', lvl: 'Fácil', guided: false, acc: true, sky: '#E3EEDC', how: freeHow, desc: 'Trilha inclusiva do Circuito de Trilhas Carajás, adaptada para pessoas com deficiência.', use: 'Caminhada · acessível' },
+      { id: 'lagoa', foto: 'fotos/lagoa-da-mata.jpg', name: 'Trilha Lagoa da Mata', km: '2,5 km', lvl: 'Fácil', guided: true, acc: false, sky: '#DFE9F5', how: guideHow, desc: 'A caminhada termina na Lagoa da Mata, onde a floresta se abre num ambiente cheio de luz e vegetação aquática. Lá vivem jacarés e patos selvagens.', use: 'Caminhada' },
+      { id: 'flor', foto: 'fotos/flor-de-carajas.jpg', name: 'Trilha Flor de Carajás e caverna', km: '1 km', lvl: 'Fácil', guided: true, acc: false, sky: '#FBF1D3', how: guideHow, desc: 'Trilha na vegetação de canga até o Mirante Flor de Carajás, que tem o nome da planta símbolo de Parauapebas, com visita a uma caverna ferrífera.', use: 'Caminhada e caverna' },
+      { id: 'azul', foto: 'fotos/mirante-vale-do-rio-azul.jpg', name: 'Trilha Mirante Vale do Rio Azul', km: '1,2 km', lvl: 'Fácil', guided: true, acc: false, sky: '#DFF0F7', how: guideHow, desc: 'Uma das rotas mais visitadas da Floresta Nacional de Carajás, com uma das vistas mais bonitas da floresta.', use: 'Caminhada e mirante' },
+      { id: 'peito', foto: 'fotos/peito-de-aco.jpg', name: 'Trilha Peito de Aço', km: '2 km', lvl: 'Fácil', guided: true, acc: false, sky: '#F7E2D6', how: guideHow, desc: 'Trilha onde é comum ouvir o pássaro peito-de-aço. Termina na Cachoeira de Águas Claras, para um banho no fim da caminhada.', use: 'Caminhada e cachoeira' }
     ];
     const pass = (t) => s.f === 'Todas' || (s.f === 'Sem guia' && !t.guided) || (s.f === 'Com condutor' && t.guided) || (s.f === 'Acessível' && t.acc);
     const trails = all.filter(pass).map((t) => Object.assign({}, t, {
@@ -161,7 +160,7 @@ class Component extends DCLogic {
         { k: 'Tipo', v: cur.guided ? 'Com condutor' : 'Sem guia' },
         { k: 'Para', v: cur.use }
       ]
-    }) : { name: '', sky: '#E3EEDC', guided: false, free: false, facts: [], desc: '', how: '', auth: '' };
+    }) : { name: '', foto: '', sky: '#E3EEDC', guided: false, free: false, facts: [], desc: '', how: '', auth: '' };
     const RK = {"Guias": [["Antônio Carvalho", "Flor de Carajás e caverna", 2.3, 150, "avaliações"], ["Edson Pereira", "Lagoa da Mata", 4.1, 120, "avaliações"], ["Francisco Alves", "Cavernas ferríferas", 3.4, 90, "avaliações"], ["Joana Nascimento", "Mirante Vale do Rio Azul", 5.0, 187, "avaliações"], ["Luana Moraes", "Peito de Aço e cachoeira", 3.7, 133, "avaliações"], ["Mateus Rocha", "Peito de Aço", 4.6, 64, "avaliações"], ["Patrícia Lima", "Grupos de escola", 2.8, 98, "avaliações"], ["Raimundo Souza", "Lagoa da Mata · aves", 4.9, 212, "avaliações"], ["Rosa Silva", "Mirante Vale do Rio Azul", 3.2, 76, "avaliações"], ["Sônia Barros", "Observação de aves", 4.4, 51, "avaliações"]]};
     const RK_T = {"Guias": "Avaliações dos guias"};
     const RK_TAB = () => this.state.rkTab || "Guias";

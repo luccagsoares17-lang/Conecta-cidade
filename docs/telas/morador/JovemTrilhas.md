@@ -76,3 +76,7 @@ Telas que apontam para esta: `JovemInicio.dc.html` (atalho "Trilhas · Só em gr
 - Se a tela entrar na Fase 2 como área que o gestor libera, o registro Permissão do jovem precisará de uma área a mais; os requisitos atuais não preveem isso.
 - Mesmo script de `Trilhas.dc.html` e `TrilhaVisitante.dc.html`; os dados (trilhas, avaliações, links) são de exemplo e estão fixos no script.
 - "Imagens ilustrativas" e "Imagem ilustrativa" são só do protótipo.
+
+## Fotos das trilhas, 22/10/2026 (decisão A-23)
+
+As mesmas fotos de [`Trilhas.md`](Trilhas.md#fotos-das-trilhas-22102026-decisão-a-23), no card e no detalhe; sem o selo "Imagem ilustrativa".

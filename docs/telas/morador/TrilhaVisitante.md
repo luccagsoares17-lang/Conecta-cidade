@@ -79,3 +79,7 @@ Telas que apontam para esta: `Chegada.dc.html` (card "Trilha com um grupo do Nú
 - Esta tela não pede nenhum dado pessoal; a menção a CPF é só uma orientação sobre o que levar à portaria.
 - Mesmo script de `Trilhas.dc.html` e `JovemTrilhas.dc.html`, com `VIS = true`; dados de exemplo fixos no script.
 - "Imagens ilustrativas" e "Imagem ilustrativa" são só do protótipo.
+
+## Fotos das trilhas, 22/10/2026 (decisão A-23)
+
+As mesmas fotos de [`Trilhas.md`](Trilhas.md#fotos-das-trilhas-22102026-decisão-a-23), no card e no detalhe; sem o selo "Imagem ilustrativa".

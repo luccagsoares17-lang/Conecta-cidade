@@ -118,7 +118,7 @@ Sem `DATABASE_URL`, a API responde que o banco não está configurado, e as tela
 | [`src/main.js`](../src/main.js) | Rotas, links entre telas, moldura e índice `/telas` |
 | [`src/modo.js`](../src/modo.js) | Modos `prototipo` e `v1` |
 | [`src/app.css`](../src/app.css) | Só a moldura; o visual de cada tela vem do arquivo dela |
-| `public/` | Manifesto do PWA, ícones (do board Ícones), service worker |
+| `public/` | Manifesto do PWA, ícones (do board Ícones), service worker; `public/fotos` é um atalho (link simbólico) para `design/prototipo/fotos`, para as fotos das trilhas saírem no app com o mesmo caminho do artefato |
 | [`vercel.json`](../vercel.json) | Build e rotas na Vercel |
 
 **Tamanho da tela**

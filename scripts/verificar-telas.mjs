@@ -5,7 +5,7 @@
 // 4. todo link entre telas (href="X.dc.html") aponta para uma tela que existe.
 
 import { createHash } from 'node:crypto';
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const pasta = new URL('../design/prototipo/', import.meta.url).pathname;
@@ -50,6 +50,10 @@ for (const arquivo of arquivos) {
   for (const [, destino] of texto.matchAll(/'([A-Za-z0-9_-]+)\.dc\.html'/g)) {
     links++;
     if (!nomes.has(destino)) erros.push(`${arquivo}: link (no script) para ${destino}.dc.html, que não existe`);
+  }
+  // fotos usadas pelas telas (ex.: 'fotos/uxi.jpg') existem na cópia do artefato
+  for (const [, foto] of texto.matchAll(/['"](fotos\/[A-Za-z0-9_.-]+)['"]/g)) {
+    if (!existsSync(join(pasta, foto))) erros.push(`${arquivo}: foto ${foto} não existe em design/prototipo/`);
   }
 }
 
