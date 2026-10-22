@@ -219,6 +219,18 @@ export const contasLocais = {
         "Eventos"
       ],
       "codigo": "pbkdf2-sha256$210000$ScwlW6ipGrR/Bu32wBoAQg==$uDzHOJgSvxfvHAxggR/2hdYTED2TEk+6VmBAW2gr4ek="
+    },
+    {
+      "id": 6,
+      "nome": "Samatha",
+      "email": "samatha@conectacidade.app",
+      "grupo": "Administração do Núcleo",
+      "areas": [
+        "Avisos",
+        "Eventos",
+        "Guia"
+      ],
+      "codigo": "pbkdf2-sha256$210000$JUUVQ7hVZGMky+9zBvSgcw==$nmGJ5gJIuBUAGhqCB94vGVLNHiZ5q7eJ7367GcHYijs="
     }
   ]
 };

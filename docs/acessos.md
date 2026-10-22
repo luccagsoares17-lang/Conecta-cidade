@@ -1,6 +1,6 @@
 # Acessos do piloto
 
-Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Mário e Ivison) e no mesmo dia, depois da troca de nome (Lucca, Mariana, Maria Tereza e Vitor; depois Letícia, Jorge e Felipe; em 22/10, Tony e Luigi; e os organizadores Ivisson e Polly; depois a Luiza). Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
+Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Mário e Ivison) e no mesmo dia, depois da troca de nome (Lucca, Mariana, Maria Tereza e Vitor; depois Letícia, Jorge e Felipe; em 22/10, Tony e Luigi; e os organizadores Ivisson e Polly; depois a Luiza e a organizadora Samatha). Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
 
 **Troca de senhas (22/10/2026):** a pedido da equipe, todas as senhas e todos os códigos de acesso foram trocados, sem mudar nenhum cadastro (famílias, perfis, e-mails e o que já foi publicado continuam iguais). As novas também foram entregues em separado. O código do organizador pode ser digitado em minúsculas ou maiúsculas. No modo servidor, a semente passa a atualizar a senha das contas que já existem no banco.
 
@@ -36,9 +36,10 @@ Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Már
 | Ivison | Administração do Núcleo | `ivison@conectacidade.app` | O mesmo do Mário |
 | Ana Alice Gonçalves | Administração do Núcleo | `anaalice@conectacidade.app` | O mesmo do Mário (o Painel diz "Olá, Ana Alice") |
 | Ivisson | Administração do Núcleo | `ivisson@conectacidade.app` | O mesmo do Mário |
+| Samatha | Administração do Núcleo | `samatha@conectacidade.app` | O mesmo do Mário |
 | Polly | Equipe Entre Fases | `polly@conectacidade.app` | Publicar eventos, que passam pela aprovação da Administração; no Painel, só as áreas do grupo dela |
 
-Os cinco entram na tela **Entrada do organizador** com o e-mail e o código de acesso. O Ivisson (`ivisson@`) e o Ivison (`ivison@`) são pessoas diferentes. Em 22/10 o Ivisson chegou a ser criado como gestor da casa (família CKS-6594), por engano; essa conta foi apagada e os aparelhos apagam a cópia dela ao abrir o app.
+Os seis entram na tela **Entrada do organizador** com o e-mail e o código de acesso. O Ivisson (`ivisson@`) e o Ivison (`ivison@`) são pessoas diferentes. Em 22/10 o Ivisson chegou a ser criado como gestor da casa (família CKS-6594), por engano; essa conta foi apagada e os aparelhos apagam a cópia dela ao abrir o app.
 
 ## Observações
 
