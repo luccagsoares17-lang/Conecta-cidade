@@ -47,6 +47,10 @@ export const contasLocais = {
     {
       "id": 11,
       "codigo": "CKS-9927"
+    },
+    {
+      "id": 12,
+      "codigo": "CKS-6594"
     }
   ],
   "pessoas": [
@@ -146,6 +150,14 @@ export const contasLocais = {
       "email": "luigi@conectacidade.app",
       "perfil": "gestor",
       "senha": "pbkdf2-sha256$210000$zrJpVBzKfzL8q8fk/y6Z4g==$vDLbT3R4IKh3+NmHONFdooR89W/K1ftGKua8R6KQNVA="
+    },
+    {
+      "id": 13,
+      "casa": "CKS-6594",
+      "nome": "Ivisson",
+      "email": "ivisson@conectacidade.app",
+      "perfil": "gestor",
+      "senha": "pbkdf2-sha256$210000$gOnkMHJdPcXJga4yLUjhWg==$sC2bty+Vm7Gl81OK2XLeniHo0S7TdhQSlQyz1ugtVZU="
     }
   ],
   "organizadores": [
