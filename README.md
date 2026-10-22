@@ -12,6 +12,10 @@ Projeto do **Entre Fases** para o Shark Tank Carajás (outubro de 2026), em resp
 | **Protótipo** | [Meu Carajás – Interface do App](https://claude.ai/artifact/PkQ9tajBdYdt6vXEFn7tX9) · cópia em [`design/prototipo/`](design/prototipo/) |
 | **Visual** | Bricolage Grotesque + DM Sans, cores e ícones do protótipo |
 
+## Abrir o app
+
+Link público, sem conta: **https://luccagsoares17-lang.github.io/Conecta-cidade/** (organizadores: acrescente `AdminEntrada` no fim).
+
 ## Rodar o app
 
 ```bash

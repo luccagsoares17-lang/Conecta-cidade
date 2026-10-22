@@ -15,6 +15,16 @@ npm run preview   # serve dist/ em http://localhost:4173, também com a API loca
 
 No `npm run dev`, as contas do piloto já existem no banco local (mesmos logins e senhas de [`acessos.md`](acessos.md)). Para começar do zero, apague a pasta `.dados-dev/`.
 
+## Link público (GitHub Pages)
+
+Qualquer pessoa abre o app pelo link, sem conta no Claude, no GitHub ou na Vercel:
+**https://luccagsoares17-lang.github.io/Conecta-cidade/**
+
+- A automação [`.github/workflows/github-pages.yml`](../.github/workflows/github-pages.yml) roda a cada mudança na `main`: confere as telas (`npm test`), gera o app para a subpasta `/Conecta-cidade/` no modo sem banco e publica na branch `gh-pages`.
+- Uma vez só, no GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `gh-pages` / `(root)` → Save**.
+- Endereços diretos (ex.: `/Conecta-cidade/AdminEntrada`) abrem o app por meio do `404.html`, que é uma cópia do `index.html`.
+- O link do artefato no Claude é outra coisa: é o protótipo de desenho e sempre pede conta no Claude.
+
 ## Endereços
 
 | Endereço | O que abre |
