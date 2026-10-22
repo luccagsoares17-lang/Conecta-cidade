@@ -166,11 +166,11 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
 
   | Equipe | Pessoas |
   | --- | --- |
-  | Administração do Núcleo | Mário, Ivison, Ana Alice Gonçalves, Patrícia Lima |
-  | Equipe Entre Fases | ninguém ainda |
+  | Administração do Núcleo | Mário, Ivison, Ana Alice Gonçalves, Ivisson |
+  | Equipe Entre Fases | Polly |
   | Equipe da escola | Micheline, Ricardo, Fernanda Costa, Paulo Henrique |
   | Equipe do clube | Rafael Souza, Bruna Martins, Diego Alves, Camila Rocha, Thiago Nunes |
 
 - A contagem dessas quatro equipes vem da lista; as outras continuam contando as contas de organizador.
 - No app, quem é acrescentado fica guardado pela rota `membros` (`CC.membrosAdicionados` e `CC.adicionarMembro`). Só a Administração do Núcleo acrescenta.
-
+- Até 22/10/2026 a Administração tinha a Patrícia Lima (fictícia) no lugar do Ivisson, e a Equipe Entre Fases estava vazia.

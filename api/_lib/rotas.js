@@ -229,7 +229,8 @@ const rotas = {
     await publicarAgendados(c);
     const s = await sessaoDoPedido(c, req);
     if (s && s.tipo === 'organizador') {
-      await organizador(c, req);
+      // Regra 4: cada grupo vê só as áreas dele; avisos oficiais são da Administração do Núcleo.
+      if (!ehAdministracao(await organizador(c, req))) return { avisos: [] };
       const todos = await c.query(
         `select a.*, o.nome as publicado_por_nome from avisos a left join organizadores o on o.id = a.publicado_por
          order by a.criado_em desc`,
@@ -314,8 +315,11 @@ const rotas = {
                     exists(select 1 from confirmacoes x where x.evento_id = e.id and x.pessoa_id = $1) as eu_vou
                   from eventos e left join organizadores o on o.id = e.organizador_id`;
     if (s && s.tipo === 'organizador') {
-      await organizador(c, req);
-      const todos = await c.query(base + ' order by e.criado_em desc', [0]);
+      // Regra 4: a Administração vê todos os eventos; os outros grupos, só os do próprio grupo.
+      const o = await organizador(c, req);
+      const todos = ehAdministracao(o)
+        ? await c.query(base + ' order by e.criado_em desc', [0])
+        : await c.query(base + ' where o.grupo = $2 order by e.criado_em desc', [0, o.grupo]);
       return { eventos: todos.map(eventoPublico) };
     }
     const p = await morador(c, req);

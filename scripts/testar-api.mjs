@@ -111,6 +111,10 @@ const evAdmin = (await chamar('POST', 'eventos', { ...ev, nome: 'Oficial' }, adm
 confere(evClube.situacao === 'esperando aprovação' && evAdmin.situacao === 'publicado', 'evento de grupo espera aprovação; da administração sai publicado');
 const evJ = (await chamar('GET', 'eventos', undefined, jovem)).dados.eventos.map((e) => e.nome);
 confere(JSON.stringify(evJ) === JSON.stringify(['Oficial']), 'moradores só veem eventos publicados');
+const evDoClube = (await chamar('GET', 'eventos', undefined, clube)).dados.eventos.map((e) => e.nome);
+confere(JSON.stringify(evDoClube) === JSON.stringify(['Festa']), 'regra 4: outro grupo vê só os próprios eventos');
+confere((await chamar('GET', 'eventos', undefined, admin)).dados.eventos.length === 2, 'a administração vê os eventos de todos os grupos');
+confere((await chamar('GET', 'avisos', undefined, clube)).dados.avisos.length === 0, 'regra 4: outro grupo não vê os avisos oficiais no painel');
 await chamar('POST', 'eventos/presenca', { id: evAdmin.id, vou: true }, jovem);
 const conf = (await chamar('GET', 'eventos', undefined, gestora)).dados.eventos[0].confirmacoes;
 confere(conf === 1, '"Eu vou" conta a confirmação');

@@ -402,7 +402,8 @@ const rotas = {
     const s = sessaoAtual();
     const lista = dados().avisos;
     if (s && s.tipo === 'organizador') {
-      organizador();
+      // Regra 4: cada grupo vê só as áreas dele; avisos oficiais são da Administração do Núcleo.
+      if (organizador().grupo !== ADMINISTRACAO) return { avisos: [] };
       return { avisos: lista.slice().sort((a, b) => b.criadoEm.localeCompare(a.criadoEm)).map(avisoPublico) };
     }
     const p = morador();
@@ -472,8 +473,10 @@ const rotas = {
     const s = sessaoAtual();
     const lista = dados().eventos;
     if (s && s.tipo === 'organizador') {
-      organizador();
-      return { eventos: lista.slice().sort((a, b) => b.criadoEm.localeCompare(a.criadoEm)).map((e) => eventoPublico(e, 0)) };
+      // Regra 4: a Administração vê todos os eventos; os outros grupos, só os do próprio grupo.
+      const o = organizador();
+      const doGrupo = o.grupo === ADMINISTRACAO ? lista : lista.filter((e) => e.organizadorId && grupoDoOrganizador(e.organizadorId) === o.grupo);
+      return { eventos: doGrupo.slice().sort((a, b) => b.criadoEm.localeCompare(a.criadoEm)).map((e) => eventoPublico(e, 0)) };
     }
     const p = morador();
     if (p.perfil === 'jovem' && !permissoesDoJovem(p.id).Eventos) return { eventos: [] };

@@ -197,6 +197,16 @@ export const contasLocais = {
         "Guia"
       ],
       "codigo": "pbkdf2-sha256$210000$XH8ROs9p06pAorCKoqtUEQ==$Dq1avRPMFQACrZl4Nyo4B3ZGb0O1vRmG9b7djUgjDm8="
+    },
+    {
+      "id": 5,
+      "nome": "Polly",
+      "email": "polly@conectacidade.app",
+      "grupo": "Equipe Entre Fases",
+      "areas": [
+        "Eventos"
+      ],
+      "codigo": "pbkdf2-sha256$210000$7cb3+94CrCxEeRfzgT+wHg==$w0L5eMPS6GjtMoVht+kXj6yiW6eJd6Ave7NbTp9bGMQ="
     }
   ]
 };

@@ -14,6 +14,9 @@
 //   'jovem:Area'   jovem com a área liberada pelo gestor
 //   'organizador'  conta do Meu Carajás Organizadores
 
+// Título de seção do Painel, como está no protótipo.
+const TITULO = "<span style=\"font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px\">";
+
 export const ajustes = {
   // ------------------------------------------------------------------ Entrar
   Login: {
@@ -118,6 +121,12 @@ export const ajustes = {
   AdminPublicar: {
     exige: 'organizador',
     script: [
+      // "Os organizadores só publicam nas áreas liberadas para o grupo deles."
+      ["type: 'Aviso', aud:", "type: CC.tiposDoGrupo(this, ['Aviso', 'Evento', 'Energia', 'Guia', 'Trilha'])[0] || 'Aviso', aud:"],
+      [
+        "types: this.chips(['Aviso', 'Evento', 'Energia', 'Guia', 'Trilha'], s.type, set('type')),",
+        "types: this.chips(CC.tiposDoGrupo(this, ['Aviso', 'Evento', 'Energia', 'Guia', 'Trilha']), s.type, set('type')),",
+      ],
       ["saveDraft: () => this.setState({ msg: 'Rascunho salvo. Ele aparece no painel.' }),", "saveDraft: () => CC.publicar(this, s, 'rascunho', chosen),"],
       [
         "publish: () => this.setState({ msg: sched ? 'Agendado! Sai no dia e hora marcados.' : 'Publicado! Já aparece no app dos moradores.' })",
@@ -129,9 +138,27 @@ export const ajustes = {
   // ------------------------------------------------------------------ Painel (organizador)
   AdminInicio: {
     exige: 'organizador',
-    template: [['letter-spacing: -0.4px">Olá, Lucca</span>', 'letter-spacing: -0.4px">Olá, {{ccPrimeiroNome}}</span>']],
+    template: [
+      ['letter-spacing: -0.4px">Olá, Lucca</span>', 'letter-spacing: -0.4px">Olá, {{ccPrimeiroNome}}</span>'],
+      // Regra 4: o organizador só vê no Painel as áreas do grupo dele. Para os outros grupos, o que é
+      // da Administração do Núcleo (atenção, ferramentas, coleta, agendados e famílias) fica oculto.
+      ['Administração do Núcleo · pode publicar avisos oficiais</span>', '{{ccGrupo}}</span>'],
+      [
+        `${TITULO}Precisa da sua atenção</span>`,
+        `<sc-if value="{{ccAdm}}" hint-placeholder-val="{{ true }}">\n    ${TITULO}Precisa da sua atenção</span>`,
+      ],
+      [`${TITULO}Publicados por você</span>`, `</sc-if>\n    ${TITULO}Publicados por você</span>`],
+      [
+        `${TITULO}Famílias cadastradas</span>`,
+        `<sc-if value="{{ccAdm}}" hint-placeholder-val="{{ true }}">\n    ${TITULO}Famílias cadastradas</span>`,
+      ],
+      ['    </div>\n\n  </div>\n  <nav', '    </div>\n    </sc-if>\n\n  </div>\n  <nav'],
+    ],
     script: [
-      ['return {\n      ...this.coletaVals(),', 'return {\n      ccPrimeiroNome: CC.primeiroNome(this),\n      ...this.coletaVals(),'],
+      [
+        'return {\n      ...this.coletaVals(),',
+        "return {\n      ccPrimeiroNome: CC.primeiroNome(this),\n      ccAdm: CC.daAdministracao(this),\n      ccGrupo: CC.grupoDoPainel(this, 'Administração do Núcleo · pode publicar avisos oficiais'),\n      ...this.coletaVals(),",
+      ],
       ['const all = [', '\n    ];', 'const all = CC.publicacoes(this);'],
       // Famílias cadastradas: a família de exemplo do protótipo dá lugar às famílias com cadastro.
       ['const familias = [', '\n    ];', 'const familias = CC.familias(this);'],

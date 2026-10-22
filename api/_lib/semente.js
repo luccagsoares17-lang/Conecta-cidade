@@ -170,6 +170,15 @@ export const semente = {
         "Guia"
       ],
       "codigo_hash": "scrypt$16384$8$1$Qb/c2wOuDC0m1mpkrXhzEQ==$alDVNg3deW1LFO6C3NJGUP2GKPTyNxaZgx197c8gWVY="
+    },
+    {
+      "nome": "Polly",
+      "email": "polly@conectacidade.app",
+      "grupo": "Equipe Entre Fases",
+      "areas": [
+        "Eventos"
+      ],
+      "codigo_hash": "scrypt$16384$8$1$CRXd9siXFvf+aEpJLK16dQ==$fVt61SCmfxRV8lVZAuasOzjWaLw35axY7gDYxnNQR8k="
     }
   ]
 };

@@ -210,6 +210,35 @@ function pessoa(logica) {
   return (estado.sessao && (estado.sessao.pessoa || estado.sessao.organizador)) || null;
 }
 
+// Regra 4: o organizador só vê no Painel as áreas do grupo dele e só publica nelas.
+// A Administração do Núcleo vê o Painel e o Publicar como estão no protótipo.
+const ADMINISTRACAO = 'Administração do Núcleo';
+const AREA_DO_TIPO = { Aviso: 'Avisos', Evento: 'Eventos', Energia: 'Energia', Guia: 'Guia', Trilha: 'Trilhas' };
+
+function organizadorDaSessao(logica) {
+  ouvir(logica);
+  return (estado.sessao && estado.sessao.organizador) || null;
+}
+
+function daAdministracao(logica) {
+  const o = organizadorDaSessao(logica);
+  return !o || o.grupo === ADMINISTRACAO;
+}
+
+function tiposDoGrupo(logica, tipos) {
+  if (daAdministracao(logica)) return tipos;
+  const areas = organizadorDaSessao(logica).areas || [];
+  return tipos.filter((t) => areas.includes(AREA_DO_TIPO[t]));
+}
+
+function grupoDoPainel(logica, textoDaAdministracao) {
+  if (daAdministracao(logica)) return textoDaAdministracao;
+  const o = organizadorDaSessao(logica);
+  const areas = (o.areas || []).map((a) => a.toLowerCase());
+  const lista = areas.length > 1 ? areas.slice(0, -1).join(', ') + ' e ' + areas[areas.length - 1] : areas[0] || 'nada ainda';
+  return o.grupo + ' · pode publicar ' + lista;
+}
+
 // Saudação: o apelido do cadastro, se houver; senão o primeiro nome (como "Lucca" de "Lucca Ribeiro" no protótipo).
 const primeiroNome = (logica) => {
   const p = pessoa(logica) || {};
@@ -421,7 +450,7 @@ async function publicar(logica, s, situacao, canais) {
       });
       recarregar('avisos');
     } else {
-      await api('eventos', {
+      const r = await api('eventos', {
         nome: valorDoCampo('evnome'),
         dataHora: valorDoCampo('evdata'),
         local: valorDoCampo('evlocal'),
@@ -432,6 +461,11 @@ async function publicar(logica, s, situacao, canais) {
         agendadoPara,
       });
       recarregar('eventos');
+      // Evento de grupo passa pela aprovação da Administração do Núcleo antes de ir para a agenda.
+      if (r && r.evento && r.evento.situacao === 'esperando aprovação') {
+        avisar_('Enviado! O evento aparece no app depois que a Administração do Núcleo aprovar.');
+        return;
+      }
     }
     avisar_(MENSAGENS[situacao]);
   } catch (erro) {
@@ -603,6 +637,9 @@ async function adicionarMembro(logica, equipe, nome) {
 }
 
 export const CC = {
+  daAdministracao,
+  tiposDoGrupo,
+  grupoDoPainel,
   pessoasDoGrupo,
   membrosAdicionados,
   adicionarMembro,
