@@ -84,3 +84,7 @@ Telas que apontam para esta: `Main.dc.html` (atalho "Carona · Para Parauapebas"
 - Nomes, horários, notas e o CO₂ são dados de exemplo fixos no script.
 - Os campos do formulário de oferta não têm `name`, estado nem validação no protótipo; o comportamento real (validação, onde a carona aparece) não está definido nos documentos.
 - A tela não mostra telefone dos motoristas nem forma de contato; os documentos não dizem como o pedido de vaga chega ao motorista.
+
+## Sem avaliação de motorista, 22/10/2026 (decisão A-24)
+
+O card "Avaliações dos motoristas" e a nota de cada carona saíram da tela. A ordem agora é: seletor de modo, trajeto, card do CO₂ e, no modo "Procurar carona", as caronas oferecidas (inicial, nome, "{quando} · {vagas}" e "Pedir vaga"). O que está acima sobre avaliações vale só até essa data.
