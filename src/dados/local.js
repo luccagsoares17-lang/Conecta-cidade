@@ -631,6 +631,14 @@ rotas['GET familias'] = () => {
   };
 };
 
+// Equipes e permissões: quantas pessoas cada grupo tem no Meu Carajás Organizadores.
+rotas['GET equipes'] = () => {
+  organizador();
+  const n = {};
+  for (const o of contasLocais.organizadores) n[o.grupo] = (n[o.grupo] || 0) + 1;
+  return { equipes: n };
+};
+
 /** Atende uma chamada como a API faria. Devolve os dados ou lança um erro com `status`. */
 export async function chamarLocal(caminho, corpo) {
   const [rota, busca] = caminho.split('?');

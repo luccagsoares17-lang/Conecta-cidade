@@ -10,6 +10,7 @@ const estado = {
   eventos: null,
   anuncios: null,
   familias: null,
+  equipes: null,
   contas: new Map(),
   buscando: new Set(),
 };
@@ -72,6 +73,7 @@ export async function carregarSessao() {
   estado.eventos = null;
   estado.anuncios = null;
   estado.familias = null;
+  estado.equipes = null;
   avisar();
   return estado.sessao;
 }
@@ -574,7 +576,16 @@ async function publicarAnuncio(logica, anuncio, st) {
   }
 }
 
+// Equipes e permissões: pessoas com conta em cada grupo.
+function pessoasDoGrupo(logica, grupo) {
+  ouvir(logica);
+  carregarLista('equipes');
+  const n = (estado.equipes || {})[grupo] || 0;
+  return n ? n + (n === 1 ? ' pessoa' : ' pessoas') : 'Nenhuma pessoa ainda';
+}
+
 export const CC = {
+  pessoasDoGrupo,
   familias,
   anuncios,
   comentariosDoAnuncio,

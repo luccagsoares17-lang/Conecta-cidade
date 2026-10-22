@@ -486,6 +486,13 @@ rotas['GET familias'] = async (c, req) => {
   };
 };
 
+// Equipes e permissões: quantas pessoas cada grupo tem no Meu Carajás Organizadores.
+rotas['GET equipes'] = async (c, req) => {
+  await organizador(c, req);
+  const linhas = await c.query('select grupo, count(*) as n from organizadores group by grupo');
+  return { equipes: Object.fromEntries(linhas.map((l) => [l.grupo, Number(l.n)])) };
+};
+
 export async function tratar(req, res) {
   const url = new URL(req.url, 'http://localhost');
   const caminho = (url.searchParams.get('rota') || url.pathname.replace(/^\/api\/?/, '')).replace(/^\/+|\/+$/g, '');

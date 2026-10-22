@@ -148,3 +148,11 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
   - os textos "6 reformas na fila" e "22 de 53 trechos".
 - O código de acesso enviado no convite vale uma vez (requisito de segurança). O protótipo não mostra o código nem como ele é enviado.
 - O `<title>` do arquivo é "Meu Carajás Organizadores – Equipe".
+
+## Equipes acrescentadas em 22/10/2026 (decisão A-15)
+
+- A primeira aba se chama **"Equipes"** e começa com **"Equipes que publicam"**: Administração do Núcleo, Equipe Entre Fases, Equipe da escola e Equipe do clube, cada uma com o número de pessoas e o que publica ("publica: Eventos"). Depois vem o título **"Equipes de campo"**, com os números e as equipes de campo de antes.
+- Em **Permissões**, depois da Administração do Núcleo: Equipe Entre Fases (ponto `#E07A3F`), Equipe da escola (`#5B3A8C`) e Equipe do clube (`#2E7D66`), começando com Eventos ligado.
+- Em **Convidar pessoa → Entra em**: Administração, Entre Fases, Escola, Clube, Energia, Eventos, Comitê Jovem, Equipe de campo.
+- No app, o número de pessoas vem das contas de organizador (`CC.pessoasDoGrupo`): hoje a Administração do Núcleo tem 3 (Mário, Ivison e Ana Alice) e as outras mostram "Nenhuma pessoa ainda".
+

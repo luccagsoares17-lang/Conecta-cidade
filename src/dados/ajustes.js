@@ -174,6 +174,13 @@ export const ajustes = {
   Carona: { exige: 'adulto' },
 };
 
+// Equipes e permissões: o número de pessoas de cada equipe vem das contas de organizador.
+// As permissões e os convites continuam como no protótipo (só na tela).
+ajustes.AdminEquipe = {
+  exige: 'organizador',
+  script: [['const peopleOf = (g) => g.people;', 'const peopleOf = (g) => CC.pessoasDoGrupo(this, g.name);']],
+};
+
 function eventosDaAgenda() {
   return [
     ['const all = [', '\n    ];', 'const all = CC.eventos(this);'],
@@ -192,7 +199,6 @@ for (const nome of [
   'AdminCasas',
   'AdminColeta',
   'AdminEnergia',
-  'AdminEquipe',
   'AdminImpacto',
   'AdminPosEvento',
   'AdminRepresentantes',

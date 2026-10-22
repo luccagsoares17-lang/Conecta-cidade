@@ -31,6 +31,14 @@ button,input,textarea{font-family:inherit}
     </div>
 
     <sc-if value="{{isField}}" hint-placeholder-val="{{ true }}">
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Equipes que publicam</span>
+      <sc-for list="{{pubTeams}}" as="e" hint-placeholder-count="4">
+        <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; align-items: center; gap: 12px">
+          <span style="width: 44px; height: 44px; border-radius: 12px; background: #F4F6F1; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><span style="width: 14px; height: 14px; border-radius: 7px; background: {{e.dot}}"></span></span>
+          <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px">{{e.name}}</span><span style="font-size: 12px; color: #4F5E55">{{e.people}} · publica: {{e.areas}}</span></span>
+        </div>
+      </sc-for>
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Equipes de campo</span>
       <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
         <div style="background: #FFFFFF; border-radius: 16px; padding: 10px 12px; display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px">4</span><span style="font-size: 12px; color: #4F5E55">equipes</span></div>
         <div style="background: #FFFFFF; border-radius: 16px; padding: 10px 12px; display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px">23</span><span style="font-size: 12px; color: #4F5E55">pessoas</span></div>
@@ -104,7 +112,7 @@ button,input,textarea{font-family:inherit}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { tab: 'field', inviting: false, role: 'Equipe de campo', sent: false, perm: { adm: { Avisos: true, Energia: true, Eventos: true, Trilhas: true, Casas: true, Coleta: true }, ene: { Energia: true }, evt: { Eventos: true }, cj: { Eventos: true, Trilhas: true }, campo: { Casas: true, Coleta: true } } };
+    this.state = { tab: 'field', inviting: false, role: 'Equipe de campo', sent: false, perm: { adm: { Avisos: true, Energia: true, Eventos: true, Trilhas: true, Casas: true, Coleta: true }, ef: { Eventos: true }, esc: { Eventos: true }, clube: { Eventos: true }, ene: { Energia: true }, evt: { Eventos: true }, cj: { Eventos: true, Trilhas: true }, campo: { Casas: true, Coleta: true } } };
   }
   chips(labels, cur, pick) {
     return labels.map((label) => {
@@ -133,13 +141,21 @@ class Component extends DCLogic {
     const areas = ['Avisos', 'Energia', 'Eventos', 'Trilhas', 'Casas', 'Coleta'];
     const groupsDef = [
       { id: 'adm', name: 'Administração do Núcleo', people: '4 pessoas', dot: '#13241B' },
+      { id: 'ef', name: 'Equipe Entre Fases', people: 'Nenhuma pessoa ainda', dot: '#E07A3F' },
+      { id: 'esc', name: 'Equipe da escola', people: 'Nenhuma pessoa ainda', dot: '#5B3A8C' },
+      { id: 'clube', name: 'Equipe do clube', people: 'Nenhuma pessoa ainda', dot: '#2E7D66' },
       { id: 'ene', name: 'Equipe de energia', people: '3 pessoas', dot: '#D4A017' },
       { id: 'evt', name: 'Organizadores de eventos', people: '12 grupos', dot: '#1E5B40' },
       { id: 'cj', name: 'Comitê Jovem Entre Fases', people: '49 jovens', dot: '#B4471C' },
       { id: 'campo', name: 'Equipes de campo', people: '23 pessoas', dot: '#24578C' }
     ];
+    const peopleOf = (g) => g.people;
+    const pubTeams = groupsDef.filter((g) => ['adm', 'ef', 'esc', 'clube'].indexOf(g.id) >= 0).map((g) => {
+      const on = areas.filter((a) => !!(s.perm[g.id] || {})[a]);
+      return { name: g.name, people: peopleOf(g), dot: g.dot, areas: on.length ? on.join(', ') : 'nada ainda' };
+    });
     const groups = groupsDef.map((g) => ({
-      name: g.name, people: g.people, dot: g.dot,
+      name: g.name, people: peopleOf(g), dot: g.dot,
       perms: areas.map((a) => {
         const on = !!(s.perm[g.id] || {})[a];
         return {
@@ -157,7 +173,7 @@ class Component extends DCLogic {
         };
       })
     }));
-    const tabs = [['field', 'Equipes de campo'], ['perm', 'Permissões']].map((t) => ({
+    const tabs = [['field', 'Equipes'], ['perm', 'Permissões']].map((t) => ({
       label: t[1], pressed: s.tab === t[0] ? 'true' : 'false', bg: s.tab === t[0] ? '#FFFFFF' : 'transparent',
       pick: () => this.setState({ tab: t[0] })
     }));
@@ -165,6 +181,7 @@ class Component extends DCLogic {
       tabs: tabs,
       isField: s.tab === 'field',
       isPerm: s.tab === 'perm',
+      pubTeams: pubTeams,
       teams: teams,
       busy: String(teams.filter((t) => t.busy).length),
       groups: groups,
@@ -172,7 +189,7 @@ class Component extends DCLogic {
       inviteAttr: s.inviting ? 'true' : 'false',
       inviteLabel: s.inviting ? 'Fechar' : 'Convidar pessoa',
       toggleInvite: () => this.setState({ inviting: !this.state.inviting, sent: false }),
-      roleChips: this.chips(['Administração', 'Energia', 'Eventos', 'Comitê Jovem', 'Equipe de campo'], s.role, (v) => this.setState({ role: v, sent: false })),
+      roleChips: this.chips(['Administração', 'Entre Fases', 'Escola', 'Clube', 'Energia', 'Eventos', 'Comitê Jovem', 'Equipe de campo'], s.role, (v) => this.setState({ role: v, sent: false })),
       sent: s.sent,
       send: () => this.setState({ sent: true })
     };
