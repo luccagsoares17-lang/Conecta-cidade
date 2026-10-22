@@ -11,6 +11,7 @@ const estado = {
   anuncios: null,
   familias: null,
   equipes: null,
+  membros: null,
   contas: new Map(),
   buscando: new Set(),
 };
@@ -74,6 +75,7 @@ export async function carregarSessao() {
   estado.anuncios = null;
   estado.familias = null;
   estado.equipes = null;
+  estado.membros = null;
   avisar();
   return estado.sessao;
 }
@@ -584,8 +586,26 @@ function pessoasDoGrupo(logica, grupo) {
   return n ? n + (n === 1 ? ' pessoa' : ' pessoas') : 'Nenhuma pessoa ainda';
 }
 
+// Equipes que publicam: pessoas acrescentadas com "Adicionar pessoa".
+function membrosAdicionados(logica) {
+  ouvir(logica);
+  carregarLista('membros');
+  return estado.membros || {};
+}
+
+async function adicionarMembro(logica, equipe, nome) {
+  try {
+    await api('membros', { equipe, nome });
+    logica.setState({ addingTeam: null, newName: '' });
+  } finally {
+    recarregar('membros');
+  }
+}
+
 export const CC = {
   pessoasDoGrupo,
+  membrosAdicionados,
+  adicionarMembro,
   familias,
   anuncios,
   comentariosDoAnuncio,

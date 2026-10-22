@@ -143,6 +143,13 @@ const ESQUEMA = [
   )`,
   `alter table eventos add column if not exists organizador_nome text`,
   `alter table organizadores add column if not exists apelido text`,
+  `create table if not exists membros_equipe (
+    id serial primary key,
+    equipe text not null,
+    nome text not null,
+    adicionado_por integer references organizadores(id),
+    criado_em timestamptz not null default now()
+  )`,
   `create table if not exists confirmacoes (
     evento_id integer not null references eventos(id) on delete cascade,
     pessoa_id integer not null references pessoas(id) on delete cascade,

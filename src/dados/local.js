@@ -639,6 +639,28 @@ rotas['GET equipes'] = () => {
   return { equipes: n };
 };
 
+// Equipes que publicam: pessoas acrescentadas pela tela (as de exemplo vêm do protótipo).
+const EQUIPES_COM_PESSOAS = new Set(['adm', 'ef', 'esc', 'clube']);
+
+rotas['GET membros'] = () => {
+  organizador();
+  return { membros: dados().membros || {} };
+};
+
+rotas['POST membros'] = (q, corpo) => {
+  const o = organizador();
+  if (o.grupo !== ADMINISTRACAO) throw new Recusa(403, 'Só a Administração do Núcleo põe pessoas nas equipes.');
+  const equipe = String(corpo.equipe || '');
+  const nome = String(corpo.nome || '').trim().slice(0, 80);
+  if (!EQUIPES_COM_PESSOAS.has(equipe)) throw new Recusa(400, 'Equipe não encontrada.');
+  if (!nome) throw new Recusa(400, 'Escreva o nome da pessoa.');
+  const d = dados();
+  d.membros = d.membros || {};
+  d.membros[equipe] = (d.membros[equipe] || []).concat([nome]);
+  salvar();
+  return { ok: true };
+};
+
 /** Atende uma chamada como a API faria. Devolve os dados ou lança um erro com `status`. */
 export async function chamarLocal(caminho, corpo) {
   const [rota, busca] = caminho.split('?');

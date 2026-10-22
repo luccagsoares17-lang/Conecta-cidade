@@ -147,6 +147,12 @@ confere(tst1 && tst1.pessoas.map((p) => p.papel).join(',') === 'gestor da casa,a
 confere((await chamar('GET', 'familias', undefined, clube)).dados.familias.length === 0, 'Painel: outro grupo não vê as famílias');
 confere((await chamar('GET', 'familias', undefined, gestora)).status === 401, 'morador não abre a lista de famílias');
 
+confere((await chamar('POST', 'membros', { equipe: 'esc', nome: 'Joana Prado' }, admin)).status === 200, 'Equipes: a administração põe uma pessoa na equipe');
+confere((await chamar('GET', 'membros', undefined, admin)).dados.membros.esc.join() === 'Joana Prado', 'Equipes: a pessoa fica guardada');
+confere((await chamar('POST', 'membros', { equipe: 'esc', nome: 'X' }, clube)).status === 403, 'Equipes: outro grupo não põe pessoas');
+confere((await chamar('POST', 'membros', { equipe: 'esc', nome: ' ' }, admin)).status === 400, 'Equipes: nome vazio é recusado');
+confere((await chamar('GET', 'membros', undefined, gestora)).status === 401, 'morador não abre as equipes');
+
 await chamar('POST', 'sair', {}, gestora);
 confere((await chamar('GET', 'eu', undefined, gestora)).dados.tipo === null, 'sair encerra a sessão');
 

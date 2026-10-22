@@ -21,7 +21,8 @@ function apiLocal() {
     return pronto;
   };
   const middleware = async (req, res, next) => {
-    if (!req.url.startsWith('/api/')) return next();
+    // /api/_lib/ são os módulos que o modo local importa no navegador, não chamadas da API.
+    if (!req.url.startsWith('/api/') || req.url.startsWith('/api/_lib/')) return next();
     const tratar = await preparar();
     return tratar(req, res);
   };

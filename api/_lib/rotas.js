@@ -493,6 +493,28 @@ rotas['GET equipes'] = async (c, req) => {
   return { equipes: Object.fromEntries(linhas.map((l) => [l.grupo, Number(l.n)])) };
 };
 
+// Equipes que publicam: pessoas acrescentadas pela tela (as de exemplo vêm do protótipo).
+const EQUIPES_COM_PESSOAS = new Set(['adm', 'ef', 'esc', 'clube']);
+
+rotas['GET membros'] = async (c, req) => {
+  await organizador(c, req);
+  const linhas = await c.query('select equipe, nome from membros_equipe order by id');
+  const membros = {};
+  for (const l of linhas) (membros[l.equipe] = membros[l.equipe] || []).push(l.nome);
+  return { membros };
+};
+
+rotas['POST membros'] = async (c, req, q, corpo) => {
+  const o = await organizador(c, req);
+  if (!ehAdministracao(o)) throw new Recusa(403, 'Só a Administração do Núcleo põe pessoas nas equipes.');
+  const equipe = String(corpo.equipe || '');
+  const nome = String(corpo.nome || '').trim().slice(0, 80);
+  if (!EQUIPES_COM_PESSOAS.has(equipe)) throw new Recusa(400, 'Equipe não encontrada.');
+  if (!nome) throw new Recusa(400, 'Escreva o nome da pessoa.');
+  await c.query('insert into membros_equipe (equipe, nome, adicionado_por) values ($1, $2, $3)', [equipe, nome, o.id]);
+  return { ok: true };
+};
+
 export async function tratar(req, res) {
   const url = new URL(req.url, 'http://localhost');
   const caminho = (url.searchParams.get('rota') || url.pathname.replace(/^\/api\/?/, '')).replace(/^\/+|\/+$/g, '');

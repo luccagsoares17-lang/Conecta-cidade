@@ -156,3 +156,21 @@ O cabeçalho e a barra inferior ficam fixos e o meio da tela rola.
 - Em **Convidar pessoa → Entra em**: Administração, Entre Fases, Escola, Clube, Energia, Eventos, Comitê Jovem, Equipe de campo.
 - No app, o número de pessoas vem das contas de organizador (`CC.pessoasDoGrupo`): hoje a Administração do Núcleo tem 3 (Mário, Ivison e Ana Alice) e as outras mostram "Nenhuma pessoa ainda".
 
+## Pessoas de cada equipe, em 22/10/2026 (decisão A-16)
+
+- Cada card de "Equipes que publicam" é um botão (com seta). Tocar abre a equipe; tocar de novo fecha. Só uma fica aberta por vez.
+- Aberta, mostra as pessoas (inicial num círculo e o nome) ou "Nenhuma pessoa nesta equipe ainda.", e dois botões:
+  - **Adicionar pessoa**: abre o campo "Nome da pessoa" (exemplo "Ex.: Ana Souza") e o botão "Salvar". A pessoa entra na lista e a contagem sobe.
+  - **Mandar convite**: abre o card "Convidar pessoa" com a equipe já marcada em "Entra em".
+- Pessoas de exemplo na tela:
+
+  | Equipe | Pessoas |
+  | --- | --- |
+  | Administração do Núcleo | Mário, Ivison, Ana Alice Gonçalves, Patrícia Lima |
+  | Equipe Entre Fases | ninguém ainda |
+  | Equipe da escola | Micheline, Ricardo, Fernanda Costa, Paulo Henrique |
+  | Equipe do clube | Rafael Souza, Bruna Martins, Diego Alves, Camila Rocha, Thiago Nunes |
+
+- A contagem dessas quatro equipes vem da lista; as outras continuam contando as contas de organizador.
+- No app, quem é acrescentado fica guardado pela rota `membros` (`CC.membrosAdicionados` e `CC.adicionarMembro`). Só a Administração do Núcleo acrescenta.
+

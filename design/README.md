@@ -7,7 +7,7 @@ que os requisitos da V1 definem como **referência visual** do projeto.
 | Item | Valor |
 | --- | --- |
 | Artefato | `PkQ9tajBdYdt6vXEFn7tX9` (tipo Design / canvas) |
-| Versão copiada | `1792630974-727b` (nome Meu Carajás; Painel com "Famílias cadastradas"; Equipes com Entre Fases, escola e clube) |
+| Versão copiada | `1792631403-a8b4` (nome Meu Carajás; Painel com "Famílias cadastradas"; Equipes com Entre Fases, escola e clube, cada uma abrindo com as pessoas) |
 | Data da cópia | 21/10/2026 (troca de nome no mesmo dia) |
 | Arquivos | `prototipo/canvas.json` + 38 arquivos `.dc.html` |
 | Conferência | [`prototipo.sha256`](prototipo.sha256) (`sha256sum -c prototipo.sha256` dentro de `prototipo/`) |

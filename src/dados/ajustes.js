@@ -178,7 +178,17 @@ export const ajustes = {
 // As permissões e os convites continuam como no protótipo (só na tela).
 ajustes.AdminEquipe = {
   exige: 'organizador',
-  script: [['const peopleOf = (g) => g.people;', 'const peopleOf = (g) => CC.pessoasDoGrupo(this, g.name);']],
+  script: [
+    // Quem foi acrescentado com "Adicionar pessoa" fica guardado (os nomes de exemplo vêm da tela).
+    ['const added = s.added || {};', 'const added = CC.membrosAdicionados(this);'],
+    // As outras equipes contam as contas de organizador do grupo.
+    ['? countLabel(membersOf(g.id).length) : g.people;', '? countLabel(membersOf(g.id).length) : CC.pessoasDoGrupo(this, g.name);'],
+    [
+      'const a = Object.assign({}, this.state.added || {});',
+      "this.setState({ added: a, addingTeam: null, newName: '' });",
+      'CC.adicionarMembro(this, g.id, nome);',
+    ],
+  ],
 };
 
 function eventosDaAgenda() {
