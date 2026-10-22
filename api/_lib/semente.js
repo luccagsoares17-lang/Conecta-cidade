@@ -47,42 +47,42 @@ export const semente = {
       "email": "lucas@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-2925",
-      "senha_hash": "scrypt$16384$8$1$XBvDeiSUnop8G6gKJjWSjA==$v9GaxUTxPnG/4mLBod7JgDGPvHdlg90ExyX+0ngKPpo="
+      "senha_hash": "scrypt$16384$8$1$/Pyliy7qswrNS1aonmegrw==$JTtsBGdUiJ7VR9YDV/W4Lvjg7XrF1+Sc7g7qX1jeJmI="
     },
     {
       "nome": "Micheline",
       "email": "micheline@conectacidade.app",
       "perfil": "jovem",
       "casa": "CKS-2925",
-      "senha_hash": "scrypt$16384$8$1$Z8j1Iws8qz+jXOsFukYsoQ==$Ykd+xpzVB3hwWPl/CUHnyYH/o40TxcRCuxP8ryUr4Qw="
+      "senha_hash": "scrypt$16384$8$1$XVlhUssNwV6totJUAsEccg==$wx3NaHs77EfcIaWRmfWP4aFC8PvmTh7cxTb7BVjHNqk="
     },
     {
       "nome": "Gustavo",
       "email": "gustavo@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-5420",
-      "senha_hash": "scrypt$16384$8$1$53C+ebxS1DJ8h4Xt00Lh+g==$ybGWuNcKcpsRH4LeWuu8K9CjLlaQCHIU+GjaEX3v+aY="
+      "senha_hash": "scrypt$16384$8$1$iOw4ysq+L06UjD0rBkQfJg==$omnnj4tcFMGynZOtByG/AD+sX+4hIbguJuQ7yW4t314="
     },
     {
       "nome": "Lucca",
       "email": "lucca@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-5959",
-      "senha_hash": "scrypt$16384$8$1$VVmuK2aUQ1eCPZlGLbpHKg==$EmkawHc8wfT8ZLRhza7ePFgHaSI1BfnjCtdbGOPWhEA="
+      "senha_hash": "scrypt$16384$8$1$neeWo+HzWc8SSHDg+ggUrw==$4N0R6oxd98oHqvE1pxX5MQ6NkTMqRdMhK7cxT4tbka4="
     },
     {
       "nome": "Mariana",
       "email": "mariana@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-9588",
-      "senha_hash": "scrypt$16384$8$1$YtjRY5pHMhkDr87j2SF8QA==$2INJ/HRNsXKW+1uIyOgW75/mjSQZEC342FC2w4Cpnik="
+      "senha_hash": "scrypt$16384$8$1$fczKfIFTPavKWaNy9uyBuw==$KUIQNwGiwqJKFoSDddVxPSp+HrHeEL9VApa/odDfDmc="
     },
     {
       "nome": "Maria Tereza",
       "email": "mariatereza@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-5695",
-      "senha_hash": "scrypt$16384$8$1$KSIYyekFTv8WrsAhPse8dA==$VDG38F2NYrwLObSexBOvPgXJNJwAlmBKCmFngY7ZXF0=",
+      "senha_hash": "scrypt$16384$8$1$SlWyGSIdknGTZ0whca53jQ==$vKPDIP0welHF70IAXythzl3pVRqzT4xIxDF1tnlU4fw=",
       "apelido": "Maria Tereza"
     },
     {
@@ -90,49 +90,49 @@ export const semente = {
       "email": "vitor@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-8244",
-      "senha_hash": "scrypt$16384$8$1$HSRaMASUMQyqtmvWKxts4g==$rxq8YNZj/72soWT6uvCCVKzP8DjBCxvA5JqCgakaTyc="
+      "senha_hash": "scrypt$16384$8$1$0utvh7T0a3Ue/Q7340L9GA==$ONvDvczj3Q83MDiFp7Rdi2O6QbrCKGMeyvoT2FHq+Gg="
     },
     {
       "nome": "Letícia",
       "email": "leticia@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-5962",
-      "senha_hash": "scrypt$16384$8$1$Mz6uLA60mcrGW+OL6NbQYA==$iwuGlef6JE5D+BPZz/jHPoV3KH4W1UyOn+qlI4/jv5U="
+      "senha_hash": "scrypt$16384$8$1$Mh4EFHokVxAq/JG+FN7RIw==$4AdHKSvOljnUtWJbVlf3YIBJjCTnlovemDLVXjNUmq4="
     },
     {
       "nome": "Jorge",
       "email": "jorge@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-2669",
-      "senha_hash": "scrypt$16384$8$1$rJFbPeVoPSdZ+9XFk+53CA==$L5VVbWJrrgl+HV8tIGR/G8AunWCxEMkVzqCY7qolBqY="
+      "senha_hash": "scrypt$16384$8$1$1vCmqmokRXt1pG9WvwzF0A==$1qpS6kuB0KvOi1bfQ7Or1k6Y7rV+tI/nwfzJeUw5PRI="
     },
     {
       "nome": "Felipe",
       "email": "felipe@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-3733",
-      "senha_hash": "scrypt$16384$8$1$b/CWM+kCxAaVWYYR/P9ixA==$ibmW84tuuOxfEayllsgZ/lnXOLccAjlSw442JRk/x6I="
+      "senha_hash": "scrypt$16384$8$1$Ic+S4l3gBtbIdQ5zyz/e9A==$d0q+NCzh6CaHaZJXAVSf+LyQ8BMJyWwtJErt8ihPx3k="
     },
     {
       "nome": "Tony",
       "email": "tony@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-2961",
-      "senha_hash": "scrypt$16384$8$1$bEV7rZajZzHY2jj8icypQw==$/JBtwm3qdlckcWQUNbPQvTZCZprMy0Z0Ke0YChbHAuo="
+      "senha_hash": "scrypt$16384$8$1$51vrzVi0OvuD0dQ4cR0v6Q==$+OGsMmgGGoHIOfTZmELdAt3ijKef0Qtm4JPrn6VAbEQ="
     },
     {
       "nome": "Luigi",
       "email": "luigi@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-9927",
-      "senha_hash": "scrypt$16384$8$1$CzgO/3FfIHjLQm0fQIbtAg==$iFXO6LW9sMMO+AaKB/C6Q0ycK8ulmv7RBDFwoEL45o0="
+      "senha_hash": "scrypt$16384$8$1$n/ipwe04X7dzwDaEByAmBg==$k4l+jFATzCcIvBcOBs8vraAFLD8QLknEt0xYUKX+API="
     },
     {
       "nome": "Luiza",
       "email": "luiza@conectacidade.app",
       "perfil": "gestor",
       "casa": "CKS-6651",
-      "senha_hash": "scrypt$16384$8$1$uM48n19UtuJbG+EE/oG5Kw==$axgo4KnFkbcPPenGn3ZpqjpXdHJFFmNuP2dkMZXCvgg="
+      "senha_hash": "scrypt$16384$8$1$KdzIUxbwupINHiSGdOEWcA==$3cYNslhFWxzx1mQ8xl/KLn7hMJG14qNXMdzqp8ZbDQE="
     }
   ],
   "organizadores": [
@@ -145,7 +145,7 @@ export const semente = {
         "Eventos",
         "Guia"
       ],
-      "codigo_hash": "scrypt$16384$8$1$K1Qd/lcWzJXGeLSk1ZFgJA==$0Fpyv0M7Ik21ZTGXTtIUu/QyYVbAX7NNPT27QH79ReM="
+      "codigo_hash": "scrypt$16384$8$1$hfSTzLb9ybs0C/3ot9jC3w==$W88CJ+DcCV0zF1ugozAzCrr97WH14GlKTajUOSdD02M="
     },
     {
       "nome": "Ivison",
@@ -156,7 +156,7 @@ export const semente = {
         "Eventos",
         "Guia"
       ],
-      "codigo_hash": "scrypt$16384$8$1$8EScuFQsM9JPVwrkwpWuHw==$hhpEp6xV/JgzjQiut/pusENwqMlTJcVrhp5y0vC4nQ8="
+      "codigo_hash": "scrypt$16384$8$1$gwZBGnizswfLyqQkcZD77Q==$kz0gYJzBF1tiQNg7JJhRVH9clOqJr9ewJRts6Y2zGF0="
     },
     {
       "nome": "Ana Alice Gonçalves",
@@ -168,7 +168,7 @@ export const semente = {
         "Eventos",
         "Guia"
       ],
-      "codigo_hash": "scrypt$16384$8$1$yI+/zfSBHyKKy9YC5leWBQ==$h316tSL1vUACzsUNU3vggBFAaModuOzP0iqQTMS75yU="
+      "codigo_hash": "scrypt$16384$8$1$CjYNgXvbZDttDKXM6wr3qw==$jhfoFMCsXNUQg+ZSDRDIT/vK4hRoov/Y94MGSzY0d7w="
     },
     {
       "nome": "Ivisson",
@@ -179,7 +179,7 @@ export const semente = {
         "Eventos",
         "Guia"
       ],
-      "codigo_hash": "scrypt$16384$8$1$Qb/c2wOuDC0m1mpkrXhzEQ==$alDVNg3deW1LFO6C3NJGUP2GKPTyNxaZgx197c8gWVY="
+      "codigo_hash": "scrypt$16384$8$1$JD9zlO7QdfLTZHFxAB+e1A==$xqWbc4QnxazBpqRjq/xR2WKZgk461cU6zm4j3uFUZDk="
     },
     {
       "nome": "Polly",
@@ -188,7 +188,7 @@ export const semente = {
       "areas": [
         "Eventos"
       ],
-      "codigo_hash": "scrypt$16384$8$1$CRXd9siXFvf+aEpJLK16dQ==$fVt61SCmfxRV8lVZAuasOzjWaLw35axY7gDYxnNQR8k="
+      "codigo_hash": "scrypt$16384$8$1$haBRVSkPBIDohGTu33VCjQ==$GhqwZYvpzgQ4QtTltqDCYwGBysIKcJsY3c0KHbuXSN0="
     }
   ]
 };

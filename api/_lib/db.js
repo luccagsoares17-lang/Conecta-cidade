@@ -158,6 +158,8 @@ const ESQUEMA = [
   )`,
 ];
 
+// A semente manda nas senhas e nos códigos: se mudarem em semente.js, o banco passa a usar os novos
+// (o app ainda não tem tela para a pessoa trocar a própria senha).
 async function preparar(c) {
   for (const comando of ESQUEMA) await c.query(comando);
   for (const casa of semente.casas) {
@@ -167,7 +169,7 @@ async function preparar(c) {
     await c.query(
       `insert into pessoas (casa_id, nome, apelido, email, perfil, situacao, senha_hash)
        select id, $2, $6, $3, $4, 'ativa', $5 from casas where codigo = $1
-       on conflict (email) do nothing`,
+       on conflict (email) do update set senha_hash = excluded.senha_hash`,
       [p.casa, p.nome, p.email, p.perfil, p.senha_hash, p.apelido || null],
     );
     if (p.perfil === 'jovem') {
@@ -189,7 +191,7 @@ async function preparar(c) {
   for (const o of semente.organizadores) {
     await c.query(
       `insert into organizadores (nome, apelido, email, grupo, areas, codigo_hash) values ($1, $6, $2, $3, $4, $5)
-       on conflict (email) do nothing`,
+       on conflict (email) do update set codigo_hash = excluded.codigo_hash`,
       [o.nome, o.email, o.grupo, o.areas, o.codigo_hash, o.apelido || null],
     );
   }

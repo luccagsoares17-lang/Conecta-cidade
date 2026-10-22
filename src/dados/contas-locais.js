@@ -60,7 +60,7 @@ export const contasLocais = {
       "nome": "Lucas",
       "email": "lucas@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$IYP97XEPkKA1XkT9HhhCnA==$kbMNjpRKVxxwXdFhp8x0l2aXSfa7ZiRkFN5anm+dpys="
+      "senha": "pbkdf2-sha256$210000$aI/YzVJJtFt1+6p7+f8X9g==$To3PxD921G981+YvVclabfZWAcywpCJh/o4xsUCvdQI="
     },
     {
       "id": 2,
@@ -68,7 +68,7 @@ export const contasLocais = {
       "nome": "Micheline",
       "email": "micheline@conectacidade.app",
       "perfil": "jovem",
-      "senha": "pbkdf2-sha256$210000$m7BDQuAP60IR9oeCK6pf9g==$odHtJhHkM5ETvLIWRg0Lnv6+O53tHr4RV1WHu5ROzcQ="
+      "senha": "pbkdf2-sha256$210000$dX33g/thnrm+qKS17+uqxQ==$TzutHV2SSNXzM6P1mPv64Nfy4ipBgOCFDOnb4iJSCwU="
     },
     {
       "id": 3,
@@ -76,7 +76,7 @@ export const contasLocais = {
       "nome": "Gustavo",
       "email": "gustavo@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$ni+RM+7yCH8Rh5esj+uhLQ==$6DMgLkXdj6LOFXtjiCYmGlm1V/ruCcA6EfVvGs0ewXc="
+      "senha": "pbkdf2-sha256$210000$NyGjelSc+V9DYAQaMZgriA==$6d6pUbRtU3L6Ie+slFeRQcSkIBwtyjA0Ph8XX+bMcBE="
     },
     {
       "id": 4,
@@ -84,7 +84,7 @@ export const contasLocais = {
       "nome": "Lucca",
       "email": "lucca@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$yfj1pZt6Wgnmnt7SdCmECw==$I5VaxiyA3nURxjqcjCDAcpfwwu/wqqrCvbNt8CjraSQ="
+      "senha": "pbkdf2-sha256$210000$sWxT+vTjUAI6BfaOtCNDdw==$Obj6+0y0y4LLF5hbuvCAdlNP47ulT96X3cdVS9prP5w="
     },
     {
       "id": 5,
@@ -92,7 +92,7 @@ export const contasLocais = {
       "nome": "Mariana",
       "email": "mariana@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$vG1gGGHcr6PmidA1d/zoCQ==$8T1vVpzxk2St49dQSvprerIrS3fEIVF54yljj8f8/lQ="
+      "senha": "pbkdf2-sha256$210000$yFTLFXaNuYAtlTlFCrNP8w==$caagW87vL6HRk7QQiKznyWnwjuX1HRNFwOAZJ5VHeCY="
     },
     {
       "id": 6,
@@ -100,7 +100,7 @@ export const contasLocais = {
       "nome": "Maria Tereza",
       "email": "mariatereza@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$SpcPMW0aaewD3FBXfwKkyA==$qyOZJZTq2rUZX9X8ZV6PP2Vcmoibi7u7x7XRz5hYVYQ=",
+      "senha": "pbkdf2-sha256$210000$Ym6xd52fSRH1JrVX14vk1g==$eUeU913m6ndQqDGFWi2X5IRN7yExc2zrvl7CDLG8V/0=",
       "apelido": "Maria Tereza"
     },
     {
@@ -109,7 +109,7 @@ export const contasLocais = {
       "nome": "Vitor",
       "email": "vitor@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$k6EQOlEJhCbmZSsBPDkb4g==$o3KJf1wwJYA5sw9eyCIdzIQJGDjDW3QpqlCUTXE78KA="
+      "senha": "pbkdf2-sha256$210000$gU4gfERb9eb2neSdyDhWxA==$YeOO5gOGsEmqviaZVIsf5Q4kUnhz3mCNuQM6Rr7LvkY="
     },
     {
       "id": 8,
@@ -117,7 +117,7 @@ export const contasLocais = {
       "nome": "Letícia",
       "email": "leticia@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$blWXSpLXEXTSe0JKc3y+WQ==$tFurqer32Fvjx6tShdCv9FIqTF8XAf7l1jS6IOlJVfo="
+      "senha": "pbkdf2-sha256$210000$lL6kEeJx4mklT06+v9AeOg==$Ax2Tm2tErzYJrryHReYiqa5oEQzcaLfb1ElhkRLq64c="
     },
     {
       "id": 9,
@@ -125,7 +125,7 @@ export const contasLocais = {
       "nome": "Jorge",
       "email": "jorge@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$Pz2aM+Hi3F8YVR35M8vk/Q==$oqEAW2l7A/bT6DSZNM4CScY29hGkhn8JSJFU3g5rWR0="
+      "senha": "pbkdf2-sha256$210000$GuwvmQMK4s1u8nlEXiTMCw==$hqUltam4XHpLdVjNdte3668SRUUBNp6CUwdZ2PsgI68="
     },
     {
       "id": 10,
@@ -133,7 +133,7 @@ export const contasLocais = {
       "nome": "Felipe",
       "email": "felipe@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$hpl/MC1bll1lF/iR6K1MOg==$WeoYOdA+2iFkGIFJxGipcRSEjryjgV+VQkBGia319UE="
+      "senha": "pbkdf2-sha256$210000$nIS2YtMvK/TdVDS94gHNfA==$TbZzlQCTcynzEf5jZXHAci1HsON3kmJCBSiPs6o6wYQ="
     },
     {
       "id": 11,
@@ -141,7 +141,7 @@ export const contasLocais = {
       "nome": "Tony",
       "email": "tony@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$+W/lwBEsxDixhfoXo65vdQ==$ePaS5hjKqa9wdILo0y4TDBgg5vmBUEonItvtGIOWLLY="
+      "senha": "pbkdf2-sha256$210000$zlrZQDCYKNLZSOm0XROWBQ==$WYyMFOT7DOm/clx5Z0iocEG0cKndHI6IdMshWb42TlY="
     },
     {
       "id": 12,
@@ -149,7 +149,7 @@ export const contasLocais = {
       "nome": "Luigi",
       "email": "luigi@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$zrJpVBzKfzL8q8fk/y6Z4g==$vDLbT3R4IKh3+NmHONFdooR89W/K1ftGKua8R6KQNVA="
+      "senha": "pbkdf2-sha256$210000$AiXR5vbknJA2L+6/aUNIUg==$+tQAet60Nsb0NsTHZ6W5AWo4CKAmIPserxTwj3NIXLA="
     },
     {
       "id": 13,
@@ -157,7 +157,7 @@ export const contasLocais = {
       "nome": "Luiza",
       "email": "luiza@conectacidade.app",
       "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$tkzWVfKq0qlM/JfYKLeZyg==$M6N6GF+IFJ7QRKAeR8lO1/F6IUoLyrE+2lNW+wWqrgo="
+      "senha": "pbkdf2-sha256$210000$Tw6M+BXSVpLwcSgaViduTg==$ey0HIzTodfS3emuvV6intDD/GmOkGmqZnwlHzB2Z6S8="
     }
   ],
   "organizadores": [
@@ -171,7 +171,7 @@ export const contasLocais = {
         "Eventos",
         "Guia"
       ],
-      "codigo": "pbkdf2-sha256$210000$F6IPg8DUCS+a6kPGdRMxqg==$ADffz4Jx3A4bGEQd8+/xnaKhghUmL6ArvhqqOnCaguY="
+      "codigo": "pbkdf2-sha256$210000$qF0eEdt/h44Akq45bkyjHQ==$43WT9v5QhXj4cKuEXPdsj2y2Ddn0skohktjxvbL6TOA="
     },
     {
       "id": 2,
@@ -183,7 +183,7 @@ export const contasLocais = {
         "Eventos",
         "Guia"
       ],
-      "codigo": "pbkdf2-sha256$210000$MuBI7Nh3+OSktUABcvRpng==$/4rs+VDdPQ2Kxts9v2acKOUs8J+CamA2TFpmjP5orjo="
+      "codigo": "pbkdf2-sha256$210000$03l3Dpr7d7+jPuIA9ltHeA==$9EuQsxhadHzQ0wquqUEznWwUhG4ctjpTgECtYDn4+is="
     },
     {
       "id": 3,
@@ -196,7 +196,7 @@ export const contasLocais = {
         "Eventos",
         "Guia"
       ],
-      "codigo": "pbkdf2-sha256$210000$HebjB0yyntJaRsYLM+ocbw==$X7bjteJwsKEnyHovjUiEyKQt7UhMwK0Bvr/t+3t52Ts="
+      "codigo": "pbkdf2-sha256$210000$2JDt8xCqAhbHudJShW8MYw==$jPerTVSq0xxDwwgt21qWCtYs++CLmriw7v5VHIS0GVo="
     },
     {
       "id": 4,
@@ -208,7 +208,7 @@ export const contasLocais = {
         "Eventos",
         "Guia"
       ],
-      "codigo": "pbkdf2-sha256$210000$XH8ROs9p06pAorCKoqtUEQ==$Dq1avRPMFQACrZl4Nyo4B3ZGb0O1vRmG9b7djUgjDm8="
+      "codigo": "pbkdf2-sha256$210000$XMcY7T2YIJ7hhJyvDsITEA==$4Qh74ra6WzW/J0WZffIZC67SoCCoMA4GnKNyk4LsVsM="
     },
     {
       "id": 5,
@@ -218,7 +218,7 @@ export const contasLocais = {
       "areas": [
         "Eventos"
       ],
-      "codigo": "pbkdf2-sha256$210000$7cb3+94CrCxEeRfzgT+wHg==$w0L5eMPS6GjtMoVht+kXj6yiW6eJd6Ave7NbTp9bGMQ="
+      "codigo": "pbkdf2-sha256$210000$ScwlW6ipGrR/Bu32wBoAQg==$uDzHOJgSvxfvHAxggR/2hdYTED2TEk+6VmBAW2gr4ek="
     }
   ]
 };
