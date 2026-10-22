@@ -127,6 +127,18 @@ export const semente = {
         "Guia"
       ],
       "codigo_hash": "scrypt$16384$8$1$8EScuFQsM9JPVwrkwpWuHw==$hhpEp6xV/JgzjQiut/pusENwqMlTJcVrhp5y0vC4nQ8="
+    },
+    {
+      "nome": "Ana Alice Gonçalves",
+      "apelido": "Ana Alice",
+      "email": "anaalice@conectacidade.app",
+      "grupo": "Administração do Núcleo",
+      "areas": [
+        "Avisos",
+        "Eventos",
+        "Guia"
+      ],
+      "codigo_hash": "scrypt$16384$8$1$yI+/zfSBHyKKy9YC5leWBQ==$h316tSL1vUACzsUNU3vggBFAaModuOzP0iqQTMS75yU="
     }
   ]
 };

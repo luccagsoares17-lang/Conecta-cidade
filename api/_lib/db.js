@@ -142,6 +142,7 @@ const ESQUEMA = [
     criado_em timestamptz not null default now()
   )`,
   `alter table eventos add column if not exists organizador_nome text`,
+  `alter table organizadores add column if not exists apelido text`,
   `create table if not exists confirmacoes (
     evento_id integer not null references eventos(id) on delete cascade,
     pessoa_id integer not null references pessoas(id) on delete cascade,
@@ -180,9 +181,9 @@ async function preparar(c) {
   }
   for (const o of semente.organizadores) {
     await c.query(
-      `insert into organizadores (nome, email, grupo, areas, codigo_hash) values ($1, $2, $3, $4, $5)
+      `insert into organizadores (nome, apelido, email, grupo, areas, codigo_hash) values ($1, $6, $2, $3, $4, $5)
        on conflict (email) do nothing`,
-      [o.nome, o.email, o.grupo, o.areas, o.codigo_hash],
+      [o.nome, o.email, o.grupo, o.areas, o.codigo_hash, o.apelido || null],
     );
   }
   if (!process.env.CC_SEM_EXEMPLOS) await conteudoInicial(c);

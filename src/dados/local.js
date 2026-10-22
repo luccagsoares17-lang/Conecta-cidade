@@ -355,7 +355,9 @@ const rotas = {
     if (!s) return { tipo: null };
     if (s.tipo === 'organizador') {
       const o = contasLocais.organizadores.find((x) => x.id === s.id);
-      return o ? { tipo: 'organizador', organizador: { id: o.id, nome: o.nome, email: o.email, grupo: o.grupo, areas: o.areas } } : { tipo: null };
+      return o
+        ? { tipo: 'organizador', organizador: { id: o.id, nome: o.nome, apelido: o.apelido || null, email: o.email, grupo: o.grupo, areas: o.areas } }
+        : { tipo: null };
     }
     const d = dados();
     const p = d.pessoas.find((x) => x.id === s.id);

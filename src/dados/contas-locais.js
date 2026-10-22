@@ -148,6 +148,19 @@ export const contasLocais = {
         "Guia"
       ],
       "codigo": "pbkdf2-sha256$210000$MuBI7Nh3+OSktUABcvRpng==$/4rs+VDdPQ2Kxts9v2acKOUs8J+CamA2TFpmjP5orjo="
+    },
+    {
+      "id": 3,
+      "nome": "Ana Alice Gonçalves",
+      "apelido": "Ana Alice",
+      "email": "anaalice@conectacidade.app",
+      "grupo": "Administração do Núcleo",
+      "areas": [
+        "Avisos",
+        "Eventos",
+        "Guia"
+      ],
+      "codigo": "pbkdf2-sha256$210000$HebjB0yyntJaRsYLM+ocbw==$X7bjteJwsKEnyHovjUiEyKQt7UhMwK0Bvr/t+3t52Ts="
     }
   ]
 };

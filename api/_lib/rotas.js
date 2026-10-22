@@ -184,7 +184,7 @@ const rotas = {
     const s = await sessaoDoPedido(c, req);
     if (!s) return { tipo: null };
     if (s.tipo === 'organizador') {
-      const [o] = await c.query('select id, nome, email, grupo, areas from organizadores where id = $1', [s.dono_id]);
+      const [o] = await c.query('select id, nome, apelido, email, grupo, areas from organizadores where id = $1', [s.dono_id]);
       return o ? { tipo: 'organizador', organizador: o } : { tipo: null };
     }
     const [p] = await c.query('select * from pessoas where id = $1', [s.dono_id]);

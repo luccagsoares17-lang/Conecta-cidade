@@ -29,8 +29,9 @@ Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Már
 | --- | --- | --- | --- |
 | Mário | Administração do Núcleo | `mario@conectacidade.app` | Publicar avisos oficiais, eventos e Guia; ver alcance; aprovar eventos de grupos |
 | Ivison | Administração do Núcleo | `ivison@conectacidade.app` | O mesmo do Mário |
+| Ana Alice Gonçalves | Administração do Núcleo | `anaalice@conectacidade.app` | O mesmo do Mário (o Painel diz "Olá, Ana Alice") |
 
-Os dois entram na tela **Entrada do organizador** com o e-mail e o código de acesso.
+Os três entram na tela **Entrada do organizador** com o e-mail e o código de acesso.
 
 ## Observações
 
