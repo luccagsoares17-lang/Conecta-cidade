@@ -16,7 +16,7 @@ Tela de entrada do app do morador. Nos requisitos: "Abas Gestor da casa e Morado
 ## Conteúdo da tela (de cima para baixo)
 Fundo `#F4F6F1`, texto `#13241B`, DM Sans. O conteúdo rola na vertical.
 
-1. **Marca:** símbolo do Meu Carajás Super App (30×36 px, pino `#1E5B40`, ponto `#E07A3F`) + "Meu Carajás Super App" (Bricolage Grotesque, 800, 20 px).
+1. **Marca:** símbolo do Meu Carajás Super App (30×36 px, a flor de Carajás; até 22/10/2026 era o pino `#1E5B40` com ponto `#E07A3F`, ver A-19) + "Meu Carajás Super App" (Bricolage Grotesque, 800, 20 px).
 2. **Título** "Entrar" (Bricolage Grotesque, 800, 30 px) e **subtítulo** "Escolha seu perfil e use o e-mail ou celular do cadastro."
 3. **Seletor de perfil** (duas abas em fundo `#E2E7E0`, botões de 46 px com `aria-pressed`):
    - "Gestor da casa" (ativa: fundo `#1E5B40`, texto branco)

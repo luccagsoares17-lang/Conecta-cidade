@@ -59,3 +59,7 @@ Nenhuma encontrada.
 - As opções de cor das props (`#17432F`, `#24578C`, `#D4A017`, `#C2562B`) são alternativas do editor do protótipo; os valores padrão são `#1E5B40` (fundo) e `#E07A3F` (ponto do símbolo).
 - O símbolo é o mesmo SVG (viewBox `0 0 100 120`) usado no board `Logo.dc.html`; aqui aparece na versão "pino verde sobre quadrado branco".
 - O botão "Acabei de chegar no Núcleo" leva à tela "Acabei de chegar" (`Chegada.dc.html`), e não ao cadastro direto.
+
+## Logo trocada em 22/10/2026 (decisão A-19)
+
+No quadrado branco, o pino deu lugar à flor de Carajás, na versão para fundo claro (pétalas `#B4471C`, raios e miolo na cor `accent`, haste e folha na cor `brand`). O `aria-label` passou a ser "Flor de Carajás, símbolo do Meu Carajás Super App".

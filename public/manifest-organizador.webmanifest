@@ -1,0 +1,32 @@
+{
+  "name": "Meu Carajás Organizadores",
+  "short_name": "Organizadores",
+  "description": "Para quem publica as informações do Núcleo Urbano de Carajás.",
+  "lang": "pt-BR",
+  "start_url": "./AdminEntrada",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#13241B",
+  "theme_color": "#13241B",
+  "icons": [
+    {
+      "src": "icons/organizador-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/organizador-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/organizador.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

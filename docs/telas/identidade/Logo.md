@@ -102,3 +102,12 @@ Os documentos-fonte não definem cores, nomes de cores nem o desenho do logo; po
 - As opções extras de cor das props (`#17432F`, `#24578C`, `#D4A017`, `#C2562B`) são alternativas do editor do protótipo; os padrões são `#1E5B40` e `#E07A3F`.
 - O símbolo simplificado (sem triângulo) é o que o board mostra para os tamanhos de 60 px e 40 px.
 - As fontes vêm do Google Fonts com os eixos e pesos listados acima.
+
+## Logo trocada em 22/10/2026 (decisão A-19)
+
+A pedido da equipe, o símbolo do **Meu Carajás Super App** passou a ser a **flor de Carajás**, nas cinco versões deste board. O que está descrito acima sobre o pino vale até essa data.
+
+- **Versão principal** (110×132 px, `aria-label` "Símbolo do Meu Carajás Super App: a flor de Carajás"): cinco pétalas `#B4471C`, cinco raios e miolo na cor `accent`, centro `#FFD27A`, haste e folha na cor `brand`.
+- **Ícone do app** (160×160 px) e **versão clara** (76×91 px): pétalas na cor `accent`, raios e miolo `#B4471C`, centro `#FFD27A`, haste e folha `#DCEDE2`.
+- **Versões pequenas** (60 px e 40 px): só a flor, sem haste, com o centro `#FFD27A` (raio 9 e 11).
+- O símbolo do Meu Carajás Organizadores continua o pino (ver [`Icones`](Icones.md)).

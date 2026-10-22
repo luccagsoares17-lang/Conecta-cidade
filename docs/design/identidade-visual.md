@@ -22,7 +22,7 @@ https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,50
 | Verde floresta | `#1E5B40` | Cor de marca; fundo da Abertura; destaque do **gestor** (aba, botões, chips); fundo do ícone do app dos moradores |
 | Mata escura | `#13241B` | Texto principal; cabeçalho e barra do app Organizadores; caixas do código da família; fundo do ícone Organizadores |
 | Terra de Carajás | `#B4471C` | Destaque do **jovem**; botão principal do Organizadores; borda de erro |
-| Minério | `#E07A3F` | Ponto do símbolo do logo |
+| Minério | `#E07A3F` | Raios e miolo da flor (Super App); ponto do pino (Organizadores) |
 | Fundo | `#F4F6F1` | Fundo das telas claras |
 
 O board mostra a amostra "Fundo" pintada de `#FFFFFF`, embora o rótulo diga `#F4F6F1`; as telas usam `#F4F6F1` como fundo.
@@ -56,7 +56,9 @@ Cores de área que aparecem em telas específicas (ex.: roxo `#7A52B3` / `#3A256
 
 ## Logo e ícones
 
-- Símbolo: um pino de mapa com três pontos ligados por um triângulo; o ponto de baixo em Minério `#E07A3F`. O SVG está repetido inline em várias telas (`viewBox="0 0 100 120"`).
+- Símbolo do **Meu Carajás Super App** (desde 22/10/2026, decisão A-19): a **flor de Carajás**: cinco pétalas `#B4471C` (Terra de Carajás) com raios e miolo em Minério `#E07A3F`, centro `#FFD27A`, haste e folha na cor `brand` (`#1E5B40`). Sobre fundo verde ou escuro, as pétalas ficam em Minério, os raios e o miolo em `#B4471C`, e a haste e a folha em `#DCEDE2`. Nos ícones pequenos fica só a flor, sem haste.
+- Símbolo do **Meu Carajás Organizadores** (não mudou): um pino de mapa com três pontos ligados por um triângulo; o ponto de baixo em Minério `#E07A3F`.
+- Os dois SVGs estão repetidos inline nas telas (`viewBox="0 0 100 120"`).
 - Ícone do app **Meu Carajás Super App**: fundo Verde floresta. Ícone do **Meu Carajás Organizadores**: fundo Mata escura com selo `#FFD27A`.
 - Ícones de interface: SVG de traço (`stroke-width` 2 a 2,2, pontas arredondadas), cor herdada do texto.
 - Detalhes, variações e medidas: fichas [`Logo`](../telas/identidade/Logo.md) e [`Icones`](../telas/identidade/Icones.md).

@@ -72,3 +72,9 @@ Nenhuma encontrada. Os nomes dos apps e as legendas batem com os requisitos. Os 
 ## Notas para implementação
 - O board `Logo.dc.html` mostra versões pequenas (60 px e 40 px) com o símbolo simplificado só para o ícone dos moradores; o protótipo não tem versão pequena do ícone Organizadores.
 - Os tamanhos de ícone exigidos por Android, iPhone e PWA não estão no protótipo nem nos documentos.
+
+## Ícone do Super App trocado em 22/10/2026 (decisão A-19)
+
+O ícone do **Meu Carajás Super App** passou a ter a flor de Carajás (pétalas `#E07A3F`, raios e miolo `#B4471C`, centro `#FFD27A`, haste e folha `#DCEDE2`) sobre o mesmo fundo `#1E5B40`. O ícone do **Meu Carajás Organizadores** não mudou: continua o pino com o selo `#FFD27A`.
+
+No app instalado no celular, o Super App usa `public/icons/icon.svg` e os PNGs com a flor. As telas dos organizadores usam o ícone e o manifesto próprios (`public/icons/organizador*.png`, `organizador.svg`, `manifest-organizador.webmanifest`).

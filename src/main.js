@@ -150,6 +150,19 @@ function useTela(nome) {
 // Moldura: no celular a tela ocupa a tela inteira; em telas maiores aparece no
 // tamanho do protótipo (390×844, cantos de 40 px), reduzida se não couber.
 
+// Cada app tem o seu ícone: a flor de Carajás no Super App, o pino com o selo no Meu Carajás Organizadores.
+function marcarApp(organizador) {
+  const trocar = (seletor, arquivo) => {
+    const el = document.querySelector(seletor);
+    if (el) el.setAttribute('href', BASE + arquivo);
+  };
+  trocar('link[rel="manifest"]', organizador ? 'manifest-organizador.webmanifest' : 'manifest.webmanifest');
+  trocar('link[rel="icon"]', organizador ? 'icons/organizador.svg' : 'icons/icon.svg');
+  trocar('link[rel="apple-touch-icon"]', organizador ? 'icons/organizador-apple-touch-icon.png' : 'icons/apple-touch-icon.png');
+  const nomeApp = document.querySelector('meta[name="apple-mobile-web-app-title"]');
+  if (nomeApp) nomeApp.setAttribute('content', organizador ? 'Organizadores' : 'Meu Carajás');
+}
+
 function useJanela() {
   const [tam, setTam] = React.useState({ w: window.innerWidth, h: window.innerHeight });
   React.useEffect(() => {
@@ -167,6 +180,7 @@ function Palco({ nome }) {
   React.useEffect(() => {
     if (tela) document.title = tela.title || info.titulo;
   }, [tela]);
+  React.useEffect(() => marcarApp(info.pagina === 'organizador'), [nome]);
   const Screen = tela ? tela.Screen : null;
   const conteudo = Screen ? h(Screen, { key: nome }) : null;
 
