@@ -1,0 +1,260 @@
+const e=`<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Meu Carajás Organizadores – Equipe</title>
+<script src="./support.js"><\/script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input,textarea{font-family:inherit}
+.sc > *{flex-shrink:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+  <div style="background: #13241B; color: #FFFFFF; padding: 52px 20px 18px 20px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0">
+    <span style="display: flex; align-items: center; gap: 8px"><svg width="18" height="22" viewBox="0 0 100 120" aria-hidden="true"><path d="M38.6 26.3 Q50.0 18.0 61.4 26.3 Q71.0 35.1 82.4 41.5 Q93.7 49.8 89.4 63.2 Q84.0 75.0 81.4 87.8 Q77.0 101.2 63.0 101.2 Q50.0 99.7 37.0 101.2 Q23.0 101.2 18.6 87.8 Q16.0 75.0 10.6 63.2 Q6.3 49.8 17.6 41.5 Q29.0 35.1 38.6 26.3 Z" fill="#E9558F"></path><path d="M40.4 32.3 Q50.0 25.4 59.6 32.3 Q67.6 39.7 77.2 45.1 Q86.7 52.1 83.1 63.3 Q78.5 73.3 76.4 84.0 Q72.7 95.3 60.9 95.3 Q50.0 94.0 39.1 95.3 Q27.3 95.3 23.6 84.0 Q21.5 73.3 16.9 63.3 Q13.3 52.1 22.8 45.1 Q32.4 39.7 40.4 32.3 Z" fill="#EC679B"></path><path d="M50.0 58.5 Q56.0 43.6 50.0 25.4 Q44.0 43.6 50.0 58.5 Z M55.2 62.3 Q71.3 63.4 86.7 52.1 Q67.6 52.0 55.2 62.3 Z M53.2 68.5 Q57.2 84.0 72.7 95.3 Q66.8 77.0 53.2 68.5 Z M46.8 68.5 Q33.2 77.0 27.3 95.3 Q42.8 84.0 46.8 68.5 Z M44.8 62.3 Q32.4 52.0 13.3 52.1 Q28.7 63.4 44.8 62.3 Z" fill="#C2346F"></path><circle cx="50" cy="64" r="11.0" fill="#FFE1EC"></circle><circle cx="50" cy="64" r="4.1" fill="#FFF1A8"></circle></svg><span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #FFD27A">Organizador</span></span>
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.4px">Equipes e permissões</span>
+    <span style="font-size: 14px; color: #CFE3D7">Quem trabalha em campo e quem publica no app</span>
+  </div>
+  <div class="sc" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 16px 20px 24px 20px; display: flex; flex-direction: column; gap: 14px">
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #E2E7E0; border-radius: 22px; padding: 4px; gap: 4px">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="2">
+        <button onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="border: none; cursor: pointer; height: 42px; border-radius: 18px; font-weight: 700; font-size: 14px; background: {{t.bg}}; color: #13241B">{{t.label}}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{isField}}" hint-placeholder-val="{{ true }}">
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Equipes que publicam</span>
+      <sc-for list="{{pubTeams}}" as="e" hint-placeholder-count="4">
+        <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px">
+          <button onClick="{{e.toggle}}" aria-expanded="{{e.openAttr}}" style="border: none; background: transparent; padding: 0; cursor: pointer; display: flex; align-items: center; gap: 12px; text-align: left; color: #13241B; font-family: inherit; min-height: 44px">
+            <span style="width: 44px; height: 44px; border-radius: 12px; background: #F4F6F1; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><span style="width: 14px; height: 14px; border-radius: 7px; background: {{e.dot}}"></span></span>
+            <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px">{{e.name}}</span><span style="font-size: 12px; color: #4F5E55">{{e.people}} · publica: {{e.areas}}</span></span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4F5E55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; transform: {{e.chev}}"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+          <sc-if value="{{e.open}}" hint-placeholder-val="{{ false }}">
+            <sc-if value="{{e.empty}}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 14px; color: #4F5E55; background: #F4F6F1; border-radius: 12px; padding: 10px 12px">Nenhuma pessoa nesta equipe ainda.</span>
+            </sc-if>
+            <sc-for list="{{e.members}}" as="m" hint-placeholder-count="3">
+              <span style="display: flex; align-items: center; gap: 10px; padding: 2px 0">
+                <span aria-hidden="true" style="width: 32px; height: 32px; border-radius: 16px; background: #DCEDE2; color: #17432F; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0">{{m.initial}}</span>
+                <span style="font-size: 14px; font-weight: 600">{{m.name}}</span>
+              </span>
+            </sc-for>
+            <sc-if value="{{e.adding}}" hint-placeholder-val="{{ false }}">
+              <span style="display: flex; flex-direction: column; gap: 6px">
+                <label for="novaPessoa" style="font-size: 13px; font-weight: 700">Nome da pessoa</label>
+                <span style="display: flex; gap: 8px">
+                  <input id="novaPessoa" type="text" value="{{newName}}" onInput="{{setNewName}}" placeholder="Ex.: Ana Souza" style="flex-grow: 1; min-width: 0; height: 44px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 12px; font-size: 15px; color: #13241B; background: #FFFFFF">
+                  <button onClick="{{e.saveAdd}}" style="border: none; cursor: pointer; height: 44px; padding: 0 16px; border-radius: 22px; font-weight: 700; font-size: 14px; background: #1E5B40; color: #FFFFFF; flex-shrink: 0">Salvar</button>
+                </span>
+              </span>
+            </sc-if>
+            <span style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+              <button onClick="{{e.startAdd}}" style="border: 2px solid #13241B; cursor: pointer; height: 44px; border-radius: 22px; font-weight: 700; font-size: 14px; background: #FFFFFF; color: #13241B">Adicionar pessoa</button>
+              <button onClick="{{e.invite}}" style="border: none; cursor: pointer; height: 44px; border-radius: 22px; font-weight: 700; font-size: 14px; background: #1E5B40; color: #FFFFFF">Mandar convite</button>
+            </span>
+          </sc-if>
+        </div>
+      </sc-for>
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Equipes de campo</span>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+        <div style="background: #FFFFFF; border-radius: 16px; padding: 10px 12px; display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px">4</span><span style="font-size: 12px; color: #4F5E55">equipes</span></div>
+        <div style="background: #FFFFFF; border-radius: 16px; padding: 10px 12px; display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px">23</span><span style="font-size: 12px; color: #4F5E55">pessoas</span></div>
+        <div style="background: #FFFFFF; border-radius: 16px; padding: 10px 12px; display: flex; flex-direction: column"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px; color: #D32F2F">{{busy}}</span><span style="font-size: 12px; color: #4F5E55">em campo agora</span></div>
+      </div>
+      <sc-for list="{{teams}}" as="t" hint-placeholder-count="4">
+        <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+          <span style="display: flex; align-items: center; gap: 12px">
+            <span style="width: 44px; height: 44px; border-radius: 12px; background: {{t.tint}}; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><span style="width: 14px; height: 14px; border-radius: 7px; background: {{t.color}}"></span></span>
+            <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px">{{t.name}}</span><span style="font-size: 12px; color: #4F5E55">{{t.people}} · líder: {{t.lead}}</span></span>
+          </span>
+          <span style="display: flex; align-items: center; gap: 8px">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; background: {{t.stBg}}; color: {{t.stFg}}; padding: 4px 8px; border-radius: 6px">{{t.st}}</span>
+            <span style="font-size: 12px; color: #4F5E55; flex-grow: 1; min-width: 0">{{t.where}}</span>
+            <a href="{{t.tel}}" aria-label="Ligar para o líder da equipe" style="width: 44px; height: 44px; border-radius: 22px; background: #F4F6F1; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E5B40" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg></a>
+          </span>
+        </div>
+      </sc-for>
+    </sc-if>
+
+    <sc-if value="{{isPerm}}" hint-placeholder-val="{{ false }}">
+      <span style="font-size: 13px; color: #4F5E55">Toque numa área para liberar ou tirar a permissão do grupo.</span>
+      <sc-for list="{{groups}}" as="g" hint-placeholder-count="5">
+        <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+          <span style="display: flex; align-items: center; gap: 10px">
+            <span style="width: 12px; height: 12px; border-radius: 6px; background: {{g.dot}}; flex-shrink: 0"></span>
+            <span style="font-weight: 700; font-size: 15px; flex-grow: 1">{{g.name}}</span>
+            <span style="font-size: 12px; color: #4F5E55">{{g.people}}</span>
+          </span>
+          <span style="display: flex; flex-wrap: wrap; gap: 6px">
+            <sc-for list="{{g.perms}}" as="p" hint-placeholder-count="6">
+              <button onClick="{{p.toggle}}" aria-pressed="{{p.pressed}}" style="border: 1px solid {{p.border}}; cursor: pointer; height: 36px; padding: 0 12px; border-radius: 18px; font-size: 12px; font-weight: 700; background: {{p.bg}}; color: {{p.fg}}">{{p.label}}</button>
+            </sc-for>
+          </span>
+        </div>
+      </sc-for>
+    </sc-if>
+
+    <sc-if value="{{inviting}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px; border: 2px solid #13241B">
+        <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 17px">Convidar pessoa</span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="convite" style="font-size: 13px; font-weight: 700">E-mail ou celular</label>
+        <input id="convite" type="text" placeholder="nome@exemplo.com" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="font-size: 13px; font-weight: 700">Entra em</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{roleChips}}" as="c" hint-placeholder-count="6">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+          <span style="font-size: 14px; font-weight: 700; color: #17432F; background: #DCEDE2; border-radius: 12px; padding: 10px 12px">Convite enviado com o código de acesso.</span>
+        </sc-if>
+        <button onClick="{{send}}" style="border: none; cursor: pointer; height: 52px; border-radius: 26px; font-weight: 700; font-size: 15px; background: #1E5B40; color: #FFFFFF">Enviar convite</button>
+      </div>
+    </sc-if>
+    <button onClick="{{toggleInvite}}" aria-expanded="{{inviteAttr}}" style="border: 2px solid #13241B; cursor: pointer; height: 52px; border-radius: 26px; font-weight: 700; font-size: 15px; background: #FFFFFF; color: #13241B">{{inviteLabel}}</button>
+
+  </div>
+  <nav aria-label="Navegação do organizador" style="flex-shrink: 0; height: 80px; background: #13241B; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px; box-sizing: border-box">
+    <a href="AdminInicio.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Painel</a>
+    <a href="AdminPublicar.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v8M8 12h8"></path></svg>Publicar</a>
+    <a href="AdminEnergia.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"></path></svg>Energia</a>
+    <a href="AdminAprovar.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8 12 3 3 5-6"></path></svg>Aprovar</a>
+    <a href="AdminEquipe.dc.html" aria-current="page" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFD27A; font-size: 11px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"></path></svg>Equipe</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'field', inviting: false, role: 'Equipe de campo', sent: false, perm: { adm: { Avisos: true, Energia: true, Eventos: true, Trilhas: true, Casas: true, Coleta: true }, ef: { Eventos: true }, esc: { Eventos: true }, clube: { Eventos: true }, ene: { Energia: true }, evt: { Eventos: true }, cj: { Eventos: true, Trilhas: true }, campo: { Casas: true, Coleta: true } } };
+  }
+  chips(labels, cur, pick) {
+    return labels.map((label) => {
+      const on = Array.isArray(cur) ? cur.indexOf(label) >= 0 : cur === label;
+      return {
+        label: label,
+        pressed: on ? 'true' : 'false',
+        bg: on ? '#13241B' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#13241B',
+        border: on ? '#13241B' : '#C9D2CB',
+        pick: () => pick(label)
+      };
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    const teams = [
+      { name: 'Rede elétrica', people: '6 pessoas', lead: 'Carlos Nogueira', color: '#D4A017', tint: '#F8EDC9', busy: true, st: 'Em campo', where: 'Rua Juruá · quarteirão 2', tel: 'tel:+559430000101' },
+      { name: 'Poda e jardinagem', people: '5 pessoas', lead: 'Sandra Melo', color: '#3F6B1F', tint: '#E3EEDC', busy: true, st: 'Em campo', where: 'Rua Paru · quarteirão 3', tel: 'tel:+559430000102' },
+      { name: 'Manutenção das casas', people: '8 pessoas', lead: 'José Ferreira', color: '#B4471C', tint: '#FBE6DA', busy: false, st: 'Disponível', where: '6 reformas na fila', tel: 'tel:+559430000103' },
+      { name: 'Coleta seletiva', people: '4 pessoas', lead: 'Paulo Santos', color: '#2E7D66', tint: '#D6ECE6', busy: false, st: 'Na rota', where: 'Recicláveis · 22 de 53 trechos', tel: 'tel:+559430000104' }
+    ].map((t) => Object.assign({}, t, {
+      stBg: t.st === 'Em campo' ? '#FBDCD6' : (t.st === 'Na rota' ? '#D6ECE6' : '#DCEDE2'),
+      stFg: t.st === 'Em campo' ? '#9B1C10' : '#17432F'
+    }));
+    const areas = ['Avisos', 'Energia', 'Eventos', 'Trilhas', 'Casas', 'Coleta'];
+    const groupsDef = [
+      { id: 'adm', name: 'Administração do Núcleo', people: '4 pessoas', dot: '#13241B' },
+      { id: 'ef', name: 'Equipe Entre Fases', people: 'Nenhuma pessoa ainda', dot: '#E07A3F' },
+      { id: 'esc', name: 'Equipe da escola', people: 'Nenhuma pessoa ainda', dot: '#5B3A8C' },
+      { id: 'clube', name: 'Equipe do clube', people: 'Nenhuma pessoa ainda', dot: '#2E7D66' },
+      { id: 'ene', name: 'Equipe de energia', people: '3 pessoas', dot: '#D4A017' },
+      { id: 'evt', name: 'Organizadores de eventos', people: '12 grupos', dot: '#1E5B40' },
+      { id: 'cj', name: 'Comitê Jovem Entre Fases', people: '49 jovens', dot: '#B4471C' },
+      { id: 'campo', name: 'Equipes de campo', people: '23 pessoas', dot: '#24578C' }
+    ];
+    const rosters = {
+      adm: ['Mário', 'Ivison', 'Ana Alice Gonçalves', 'Ivisson'],
+      ef: ['Polly'],
+      esc: ['Micheline', 'Ricardo', 'Fernanda Costa', 'Paulo Henrique'],
+      clube: ['Rafael Souza', 'Bruna Martins', 'Diego Alves', 'Camila Rocha', 'Thiago Nunes']
+    };
+    const added = s.added || {};
+    const membersOf = (id) => (rosters[id] || []).concat(added[id] || []);
+    const countLabel = (n) => n ? n + (n === 1 ? ' pessoa' : ' pessoas') : 'Nenhuma pessoa ainda';
+    const peopleOf = (g) => rosters[g.id] ? countLabel(membersOf(g.id).length) : g.people;
+    const roleOf = { adm: 'Administração', ef: 'Entre Fases', esc: 'Escola', clube: 'Clube' };
+    const pubTeams = groupsDef.filter((g) => ['adm', 'ef', 'esc', 'clube'].indexOf(g.id) >= 0).map((g) => {
+      const on = areas.filter((a) => !!(s.perm[g.id] || {})[a]);
+      const open = s.openTeam === g.id;
+      const members = membersOf(g.id);
+      return {
+        name: g.name, people: peopleOf(g), dot: g.dot, areas: on.length ? on.join(', ') : 'nada ainda',
+        open: open,
+        openAttr: open ? 'true' : 'false',
+        chev: open ? 'rotate(180deg)' : 'none',
+        empty: members.length === 0,
+        members: members.map((n) => ({ name: n, initial: n.charAt(0).toUpperCase() })),
+        adding: open && s.addingTeam === g.id,
+        toggle: () => this.setState({ openTeam: open ? null : g.id, addingTeam: null, newName: '' }),
+        startAdd: () => this.setState({ addingTeam: s.addingTeam === g.id ? null : g.id, newName: '' }),
+        saveAdd: () => {
+          const nome = (this.state.newName || '').trim();
+          if (!nome) return;
+          const a = Object.assign({}, this.state.added || {});
+          a[g.id] = (a[g.id] || []).concat([nome]);
+          this.setState({ added: a, addingTeam: null, newName: '' });
+        },
+        invite: () => this.setState({ inviting: true, role: roleOf[g.id], sent: false })
+      };
+    });
+    const groups = groupsDef.map((g) => ({
+      name: g.name, people: peopleOf(g), dot: g.dot,
+      perms: areas.map((a) => {
+        const on = !!(s.perm[g.id] || {})[a];
+        return {
+          label: (on ? '✓ ' : '') + a,
+          pressed: on ? 'true' : 'false',
+          bg: on ? '#13241B' : '#FFFFFF',
+          fg: on ? '#FFFFFF' : '#4F5E55',
+          border: on ? '#13241B' : '#C9D2CB',
+          toggle: () => {
+            const p = JSON.parse(JSON.stringify(this.state.perm));
+            p[g.id] = p[g.id] || {};
+            p[g.id][a] = !p[g.id][a];
+            this.setState({ perm: p });
+          }
+        };
+      })
+    }));
+    const tabs = [['field', 'Equipes'], ['perm', 'Permissões']].map((t) => ({
+      label: t[1], pressed: s.tab === t[0] ? 'true' : 'false', bg: s.tab === t[0] ? '#FFFFFF' : 'transparent',
+      pick: () => this.setState({ tab: t[0] })
+    }));
+    return {
+      tabs: tabs,
+      isField: s.tab === 'field',
+      isPerm: s.tab === 'perm',
+      pubTeams: pubTeams,
+      newName: s.newName || '',
+      setNewName: (e) => this.setState({ newName: e.target.value }),
+      teams: teams,
+      busy: String(teams.filter((t) => t.busy).length),
+      groups: groups,
+      inviting: s.inviting,
+      inviteAttr: s.inviting ? 'true' : 'false',
+      inviteLabel: s.inviting ? 'Fechar' : 'Convidar pessoa',
+      toggleInvite: () => this.setState({ inviting: !this.state.inviting, sent: false }),
+      roleChips: this.chips(['Administração', 'Entre Fases', 'Escola', 'Clube', 'Energia', 'Eventos', 'Comitê Jovem', 'Equipe de campo'], s.role, (v) => this.setState({ role: v, sent: false })),
+      sent: s.sent,
+      send: () => this.setState({ sent: true })
+    };
+  }
+}
+<\/script>
+</body>
+</html>
+`;export{e as default};

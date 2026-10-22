@@ -1,0 +1,54 @@
+// Cache simples para o piloto: a tela abre rápido e funciona com internet fraca.
+// Páginas: rede primeiro, cache se falhar. Arquivos estáticos: cache primeiro.
+const CACHE = 'conecta-cidade-v5';
+// Funciona na raiz (Vercel) e numa subpasta (GitHub Pages): tudo relativo ao escopo do service worker.
+const INICIO = new URL('./', self.registration.scope).pathname;
+
+self.addEventListener('install', (e) => {
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll([INICIO, INICIO + 'manifest.webmanifest', INICIO + 'icons/icon-192.png'])));
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))),
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (e) => {
+  const req = e.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  const mesmaOrigem = url.origin === self.location.origin;
+  const fonte = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
+  if (!mesmaOrigem && !fonte) return;
+  if (mesmaOrigem && url.pathname.startsWith(INICIO + 'api/')) return; // dados sempre do servidor
+
+  if (req.mode === 'navigate') {
+    e.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copia = res.clone();
+          caches.open(CACHE).then((c) => c.put(INICIO, copia));
+          return res;
+        })
+        .catch(() => caches.match(INICIO)),
+    );
+    return;
+  }
+
+  e.respondWith(
+    caches.match(req).then(
+      (salvo) =>
+        salvo ||
+        fetch(req).then((res) => {
+          if (res.ok || res.type === 'opaque') {
+            const copia = res.clone();
+            caches.open(CACHE).then((c) => c.put(req, copia));
+          }
+          return res;
+        }),
+    ),
+  );
+});

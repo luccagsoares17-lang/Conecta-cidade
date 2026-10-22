@@ -1,0 +1,125 @@
+const e=`<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Meu Carajás Organizadores – Aprovações</title>
+<script src="./support.js"><\/script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input,textarea{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+  <div style="background: #13241B; color: #FFFFFF; padding: 52px 20px 18px 20px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0">
+    <span style="display: flex; align-items: center; gap: 8px"><svg width="18" height="22" viewBox="0 0 100 120" aria-hidden="true"><path d="M38.6 26.3 Q50.0 18.0 61.4 26.3 Q71.0 35.1 82.4 41.5 Q93.7 49.8 89.4 63.2 Q84.0 75.0 81.4 87.8 Q77.0 101.2 63.0 101.2 Q50.0 99.7 37.0 101.2 Q23.0 101.2 18.6 87.8 Q16.0 75.0 10.6 63.2 Q6.3 49.8 17.6 41.5 Q29.0 35.1 38.6 26.3 Z" fill="#E9558F"></path><path d="M40.4 32.3 Q50.0 25.4 59.6 32.3 Q67.6 39.7 77.2 45.1 Q86.7 52.1 83.1 63.3 Q78.5 73.3 76.4 84.0 Q72.7 95.3 60.9 95.3 Q50.0 94.0 39.1 95.3 Q27.3 95.3 23.6 84.0 Q21.5 73.3 16.9 63.3 Q13.3 52.1 22.8 45.1 Q32.4 39.7 40.4 32.3 Z" fill="#EC679B"></path><path d="M50.0 58.5 Q56.0 43.6 50.0 25.4 Q44.0 43.6 50.0 58.5 Z M55.2 62.3 Q71.3 63.4 86.7 52.1 Q67.6 52.0 55.2 62.3 Z M53.2 68.5 Q57.2 84.0 72.7 95.3 Q66.8 77.0 53.2 68.5 Z M46.8 68.5 Q33.2 77.0 27.3 95.3 Q42.8 84.0 46.8 68.5 Z M44.8 62.3 Q32.4 52.0 13.3 52.1 Q28.7 63.4 44.8 62.3 Z" fill="#C2346F"></path><circle cx="50" cy="64" r="11.0" fill="#FFE1EC"></circle><circle cx="50" cy="64" r="4.1" fill="#FFF1A8"></circle></svg><span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #FFD27A">Meu Carajás Organizadores</span></span>
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.4px">Aprovações</span>
+    <span style="font-size: 14px; color: #CFE3D7">Eventos de grupos da cidade, antes de irem para a agenda</span>
+  </div>
+  <div style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 16px 20px 24px 20px; display: flex; flex-direction: column; gap: 14px">
+
+
+    <sc-for list="{{items}}" as="it" hint-placeholder-count="3">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+        <span style="display: flex; gap: 12px; align-items: center">
+          <span style="width: 52px; height: 52px; border-radius: 14px; background: {{it.tint}}; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #4F5E55; flex-shrink: 0"></span>
+          <span style="display: flex; flex-direction: column; min-width: 0"><span style="font-weight: 700; font-size: 15px">{{it.title}}</span><span style="font-size: 13px; color: #4F5E55">{{it.by}}</span><span style="font-size: 13px; color: #4F5E55">{{it.meta}}</span></span>
+        </span>
+        <sc-if value="{{it.pending}}" hint-placeholder-val="{{ true }}">
+          <span style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+            <button onClick="{{it.reject}}" style="border: 2px solid #C9D2CB; cursor: pointer; height: 44px; border-radius: 22px; font-weight: 700; font-size: 14px; background: #FFFFFF; color: #13241B">Recusar</button>
+            <button onClick="{{it.approve}}" style="border: none; cursor: pointer; height: 44px; border-radius: 22px; font-weight: 700; font-size: 14px; background: #1E5B40; color: #FFFFFF">Aprovar</button>
+          </span>
+        </sc-if>
+        <sc-if value="{{it.done}}" hint-placeholder-val="{{ false }}">
+          <span style="display: flex; align-items: center; justify-content: space-between">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; background: {{it.stBg}}; color: {{it.stFg}}; padding: 4px 10px; border-radius: 6px">{{it.stLabel}}</span>
+            <button onClick="{{it.undo}}" style="border: none; cursor: pointer; height: 44px; padding: 0 12px; background: transparent; color: #1E5B40; font-weight: 700; font-size: 14px">Desfazer</button>
+          </span>
+        </sc-if>
+      </div>
+    </sc-for>
+
+  </div>
+  <nav aria-label="Navegação do organizador" style="flex-shrink: 0; height: 80px; background: #13241B; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px; box-sizing: border-box">
+    <a href="AdminInicio.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Painel</a>
+    <a href="AdminPublicar.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v8M8 12h8"></path></svg>Publicar</a>
+    <a href="AdminEnergia.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"></path></svg>Energia</a>
+    <a href="AdminAprovar.dc.html" aria-current="page" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFD27A; font-size: 11px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8 12 3 3 5-6"></path></svg>Aprovar</a>
+    <a href="AdminEquipe.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"></path></svg>Equipe</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'Eventos', dec: {} };
+  }
+  chips(labels, cur, pick) {
+    return labels.map((label) => {
+      const on = Array.isArray(cur) ? cur.indexOf(label) >= 0 : cur === label;
+      return {
+        label: label,
+        pressed: on ? 'true' : 'false',
+        bg: on ? '#13241B' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#13241B',
+        border: on ? '#13241B' : '#C9D2CB',
+        pick: () => pick(label)
+      };
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    const data = {
+      'Eventos': [
+        { id: 'e1', title: 'Festa junina', by: 'Escola · Escola Municipal do Núcleo', meta: '29/11 · Pátio da escola', tint: '#DCEDE2' },
+        { id: 'e2', title: 'Campeonato de vôlei', by: 'Clube · Clube do Núcleo', meta: '5/12 · Ginásio poliesportivo', tint: '#DCEDE2' },
+        { id: 'e3', title: 'Grupo de leitura', by: 'Moradores · Beatriz Nunes', meta: 'Toda quarta, 19h · Biblioteca', tint: '#DCEDE2' }
+      ],
+      'Desapego': [
+        { id: 'd1', title: 'Sofá de 3 lugares', by: 'Rafael Moura · selo Mudança', meta: 'Móveis · R$ 600', tint: '#FBE6DA' },
+        { id: 'd2', title: 'Bicicleta aro 26', by: 'Gustavo Pires', meta: 'Esportes · R$ 300', tint: '#FBE6DA' },
+        { id: 'd3', title: 'Livros para o vestibular', by: 'Helena Castro · Doação', meta: 'Livros · Grátis', tint: '#FBE6DA' }
+      ],
+      'Motoristas': [
+        { id: 'm1', title: 'Roberto Alves', by: 'Carona · Fiat Uno prata · 4 vagas', meta: 'Confira CNH e veículo em Trilhas e caronas', tint: '#ECE4F5' },
+        { id: 'm2', title: 'Fernanda Dias', by: 'Carona · Chevrolet Onix branco · 2 vagas', meta: 'Confira CNH e veículo em Trilhas e caronas', tint: '#ECE4F5' }
+      ]
+    };
+    const decide = (id, v) => {
+      const n = Object.assign({}, this.state.dec);
+      n[id] = v;
+      this.setState({ dec: n });
+    };
+    const tabs = ['Eventos'].map((label) => ({
+      label: label,
+      pressed: label === s.tab ? 'true' : 'false',
+      tabBg: label === s.tab ? '#FFFFFF' : 'transparent',
+      pick: () => this.setState({ tab: label })
+    }));
+    const items = data[s.tab].map((it) => {
+      const d = s.dec[it.id];
+      return Object.assign({}, it, {
+        pending: !d,
+        done: !!d,
+        stLabel: d === 'ok' ? 'Aprovado · já está no app' : 'Recusado',
+        stBg: d === 'ok' ? '#DCEDE2' : '#FBDCD6',
+        stFg: d === 'ok' ? '#17432F' : '#9B1C10',
+        approve: () => decide(it.id, 'ok'),
+        reject: () => decide(it.id, 'no'),
+        undo: () => decide(it.id, null)
+      });
+    });
+    return { tabs: tabs, items: items };
+  }
+}
+<\/script>
+</body>
+</html>
+`;export{e as default};

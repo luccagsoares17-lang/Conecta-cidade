@@ -1,0 +1,59 @@
+const e=`<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Meu Carajás Super App – Acabei de chegar</title>
+<script src="./support.js"><\/script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input{font-family:inherit}
+.sc > *{flex-shrink:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+  <div class="sc" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 52px 24px 32px 24px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; align-items: center; gap: 12px"><a href="Splash.dc.html" aria-label="Voltar para a abertura" style="width: 44px; height: 44px; border-radius: 22px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></a><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 20px">Meu Carajás Super App</span></div>
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.6px; line-height: 1.1">Bem-vindo ao Núcleo!</span>
+    <span style="font-size: 15px; color: #4F5E55">Conta pra gente como você chegou, que a gente mostra o caminho.</span>
+
+    <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #4F5E55; margin-top: 4px">Vou morar em Carajás</span>
+    <a href="CadastroGestor.dc.html" style="text-decoration: none; background: #1E5B40; color: #FFFFFF; border: none; border-radius: 22px; padding: 18px; display: flex; align-items: center; gap: 14px">
+      <span style="width: 56px; height: 56px; border-radius: 16px; background: rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21H3z"></path><path d="M12 11v6M9 14h6"></path></svg></span>
+      <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Criar conta da família</span><span style="font-size: 13px; color: #CFE3D7">Para quem foi transferido. Você recebe o código da família.</span></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+    </a>
+    <a href="Guia.dc.html" style="text-decoration: none; background: #FFFFFF; color: #13241B; border: none; border-radius: 22px; padding: 18px; display: flex; align-items: center; gap: 14px">
+      <span style="width: 56px; height: 56px; border-radius: 16px; background: #DFE9F5; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#24578C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"></path><path d="M9 3v15M15 6v15"></path></svg></span>
+      <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Guia de quem chegou</span><span style="font-size: 13px; color: #4F5E55">Serviços, emergência e o básico da vida no Núcleo.</span></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+    </a>
+
+    <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #4F5E55; margin-top: 8px">Não moro em Carajás</span>
+    <a href="CaronaVisitante.dc.html" style="text-decoration: none; background: #FFFFFF; color: #13241B; border: 2px solid #7A52B3; border-radius: 22px; padding: 18px; display: flex; align-items: center; gap: 14px">
+      <span style="width: 56px; height: 56px; border-radius: 16px; background: #ECE4F5; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 15.5v-2.2c0-.9.6-1.6 1.4-1.8l2.6-.6 2.2-3.1c.4-.5 1-.8 1.6-.8h5.1c.6 0 1.2.3 1.6.8l2.4 3 1.6.4c.8.2 1.4.9 1.4 1.8v2.5c0 .6-.4 1-1 1h-17.9c-.6 0-1-.4-1-1z" fill="#7A52B3"></path><path d="M10 8.2h2.3v3H7.8z" fill="#FFFFFF"></path><path d="M13.4 8.2h1.9c.3 0 .6.1.8.4l1.9 2.6h-4.6z" fill="#FFFFFF"></path><circle cx="7" cy="16.6" r="2.5" fill="#3A2560"></circle><circle cx="7" cy="16.6" r="1" fill="#ECE4F5"></circle><circle cx="17" cy="16.6" r="2.5" fill="#3A2560"></circle><circle cx="17" cy="16.6" r="1" fill="#ECE4F5"></circle></svg></span>
+      <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Carona para o Núcleo</span><span style="font-size: 13px; color: #4F5E55">Tem o app, mas mora fora? Encontre carona com moradores do Núcleo.</span></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+    </a>
+    <a href="TrilhaVisitante.dc.html" style="text-decoration: none; background: #FFFFFF; color: #13241B; border: 2px solid #3F6B1F; border-radius: 22px; padding: 18px; display: flex; align-items: center; gap: 14px">
+      <span style="width: 56px; height: 56px; border-radius: 16px; background: #E3EEDC; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3F6B1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2.5 14 9h2.5L13 15h10l-3.5-6H22z"></path><path d="M18 15v6.5"></path><circle cx="7" cy="3.8" r="1.6"></circle><path d="M7.3 6.8 6 13"></path><path d="M6 13l-2.5 8.5"></path><path d="M6 13l3 3.2v5.3"></path><path d="M3.5 10.5 7.2 8l2.6 2.6"></path><path d="M2 21.5h20"></path></svg></span>
+      <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1"><span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Trilha com um grupo do Núcleo</span><span style="font-size: 13px; color: #4F5E55">Visitantes entram nas trilhas junto com um grupo e um morador responsável.</span></span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+    </a>
+    <span style="font-size: 12px; color: #4F5E55">Visitantes precisam de autorização na portaria de acesso da Floresta Nacional de Carajás, na PA-275.</span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+<\/script>
+</body>
+</html>
+`;export{e as default};

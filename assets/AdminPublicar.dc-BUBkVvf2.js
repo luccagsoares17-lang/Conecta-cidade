@@ -1,0 +1,365 @@
+const e=`<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Meu Carajás Organizadores – Publicar</title>
+<script src="./support.js"><\/script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input,textarea{font-family:inherit}
+.sc > *{flex-shrink:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+  <div style="background: #13241B; color: #FFFFFF; padding: 52px 20px 18px 20px; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0">
+    <span style="display: flex; align-items: center; gap: 8px"><svg width="18" height="22" viewBox="0 0 100 120" aria-hidden="true"><path d="M38.6 26.3 Q50.0 18.0 61.4 26.3 Q71.0 35.1 82.4 41.5 Q93.7 49.8 89.4 63.2 Q84.0 75.0 81.4 87.8 Q77.0 101.2 63.0 101.2 Q50.0 99.7 37.0 101.2 Q23.0 101.2 18.6 87.8 Q16.0 75.0 10.6 63.2 Q6.3 49.8 17.6 41.5 Q29.0 35.1 38.6 26.3 Z" fill="#E9558F"></path><path d="M40.4 32.3 Q50.0 25.4 59.6 32.3 Q67.6 39.7 77.2 45.1 Q86.7 52.1 83.1 63.3 Q78.5 73.3 76.4 84.0 Q72.7 95.3 60.9 95.3 Q50.0 94.0 39.1 95.3 Q27.3 95.3 23.6 84.0 Q21.5 73.3 16.9 63.3 Q13.3 52.1 22.8 45.1 Q32.4 39.7 40.4 32.3 Z" fill="#EC679B"></path><path d="M50.0 58.5 Q56.0 43.6 50.0 25.4 Q44.0 43.6 50.0 58.5 Z M55.2 62.3 Q71.3 63.4 86.7 52.1 Q67.6 52.0 55.2 62.3 Z M53.2 68.5 Q57.2 84.0 72.7 95.3 Q66.8 77.0 53.2 68.5 Z M46.8 68.5 Q33.2 77.0 27.3 95.3 Q42.8 84.0 46.8 68.5 Z M44.8 62.3 Q32.4 52.0 13.3 52.1 Q28.7 63.4 44.8 62.3 Z" fill="#C2346F"></path><circle cx="50" cy="64" r="11.0" fill="#FFE1EC"></circle><circle cx="50" cy="64" r="4.1" fill="#FFF1A8"></circle></svg><span style="font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #FFD27A">Organizador</span></span>
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.4px">Publicar</span>
+    <span style="font-size: 14px; color: #CFE3D7">Escolha o que vai lançar no app dos moradores</span>
+  </div>
+  <div class="sc" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 16px 20px 24px 20px; display: flex; flex-direction: column; gap: 14px">
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{types}}" as="c" hint-placeholder-count="5">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+      <span style="font-size: 13px; font-weight: 700">Para quem</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{audiences}}" as="c" hint-placeholder-count="3">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+      <span style="font-size: 13px; color: #4F5E55">{{audHint}}</span>
+    </div>
+
+    <sc-if value="{{isAviso}}" hint-placeholder-val="{{ true }}">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 13px; font-weight: 700">Nível de urgência</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{levels}}" as="c" hint-placeholder-count="3">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <span style="font-size: 13px; font-weight: 700">Categoria</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{cats}}" as="c" hint-placeholder-count="5">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <span style="font-size: 13px; font-weight: 700">Formato do aviso</span>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+          <sc-for list="{{fmts}}" as="f" hint-placeholder-count="2">
+            <button onClick="{{f.pick}}" aria-pressed="{{f.pressed}}" style="border: 2px solid {{f.border}}; cursor: pointer; text-align: left; border-radius: 14px; padding: 10px 12px; background: {{f.bg}}; color: #13241B; display: flex; flex-direction: column; gap: 2px; min-height: 60px"><span style="font-weight: 700; font-size: 14px">{{f.label}}</span><span style="font-size: 12px; color: #4F5E55">{{f.sub}}</span></button>
+          </sc-for>
+        </div>
+        <sc-if value="{{isImgFmt}}" hint-placeholder-val="{{ false }}">
+          <span style="display: flex; flex-direction: column; gap: 10px">
+            <button onClick="{{toggleImg}}" style="border: {{imgBorder}}; cursor: pointer; height: 110px; border-radius: 14px; background: {{imgBg}}; color: #13241B; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; font-weight: 700; font-size: 14px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="m21 16-5-5-9 9"></path></svg>{{imgLabel}}</button>
+            <span style="font-size: 12px; color: #4F5E55">O SMS sai com o texto abaixo e um link para abrir a imagem no app.</span>
+          </span>
+        </sc-if>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="oque" style="font-size: 13px; font-weight: 700">O quê</label>
+        <input id="oque" type="text" placeholder="Ex.: Interrupção no fornecimento de água" onInput="{{setWhat}}" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="quando" style="font-size: 13px; font-weight: 700">Quando</label>
+        <input id="quando" type="text" placeholder="Ex.: Quinta-feira, 5/11, das 8h às 14h" onInput="{{setWhen}}" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="onde" style="font-size: 13px; font-weight: 700">Onde</label>
+        <input id="onde" type="text" placeholder="Ex.: Ruas Japurá, Jari e Juruá" onInput="{{setWhere}}" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="fazer" style="font-size: 13px; font-weight: 700">O que fazer</label>
+        <textarea id="fazer" placeholder="Ex.: Armazene água na quarta-feira à noite" onInput="{{setTodo}}" style="min-height: 72px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 12px 14px; font-size: 15px; color: #13241B; background: #FFFFFF; resize: none"></textarea>
+      </span>
+      </div>
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Como o morador vai ver</span>
+      <div style="background: #FFFFFF; border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; border: 2px dashed #C9D2CB">
+        <span style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; background: {{lvBg}}; color: {{lvFg}}; padding: 3px 8px; border-radius: 6px">{{level}}</span>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #4F5E55">{{cat}}</span>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #1E5B40">✓ Oficial</span>
+        </span>
+        <span style="font-weight: 700; font-size: 15px">{{pvWhat}}</span>
+        <span style="font-size: 13px; color: #4F5E55">{{pvMeta}}</span>
+        <span style="font-size: 14px"><span style="font-weight: 700">O que fazer:</span> {{pvTodo}}</span>
+        <span style="font-size: 12px; color: #4F5E55">{{pvRing}}</span>
+      </div>
+
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 13px; font-weight: 700">Publicar também em</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{channels}}" as="c" hint-placeholder-count="9">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <span style="font-size: 13px; color: #4F5E55">{{chanHint}}</span>
+        <span style="font-size: 13px; font-weight: 700; color: #13241B; background: #DFE9F5; border-radius: 12px; padding: 10px 12px">Comunicados e alertas saem por SMS para o celular de cada casa. O WhatsApp é usado só para o cadastro dos moradores.</span>
+        <button onClick="{{toggleText}}" aria-expanded="{{textAttr}}" style="border: 2px solid #13241B; cursor: pointer; height: 48px; border-radius: 24px; font-weight: 700; font-size: 14px; background: #FFFFFF; color: #13241B">{{textLabel}}</button>
+        <sc-if value="{{showText}}" hint-placeholder-val="{{ false }}">
+          <span style="white-space: pre-line; font-family: ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.5; background: #F4F6F1; border-radius: 12px; padding: 12px; color: #13241B">{{stdText}}</span>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isEvento}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="evnome" style="font-size: 13px; font-weight: 700">Nome do evento</label>
+        <input id="evnome" type="text" placeholder="Ex.: CineFases" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="evdata" style="font-size: 13px; font-weight: 700">Data e hora</label>
+        <input id="evdata" type="text" placeholder="Ex.: sábado, 19h" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="evlocal" style="font-size: 13px; font-weight: 700">Local</label>
+        <input id="evlocal" type="text" placeholder="Ex.: Clube do Núcleo" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="evvagas" style="font-size: 13px; font-weight: 700">Limite de vagas</label>
+        <input id="evvagas" type="text" placeholder="Deixe vazio se não tiver limite" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="font-size: 13px; font-weight: 700">Interesse</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{evCats}}" as="c" hint-placeholder-count="6">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <button onClick="{{toggleSolid}}" aria-pressed="{{solidAttr}}" style="border: none; cursor: pointer; text-align: left; background: #F4F6F1; border-radius: 14px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; min-height: 56px">
+          <span style="display: flex; flex-direction: column; flex-grow: 1"><span style="font-weight: 700; font-size: 14px; color: #13241B">Ingresso solidário</span><span style="font-size: 12px; color: #4F5E55">1 kg de alimento por pessoa</span></span>
+          <span style="width: 46px; height: 28px; border-radius: 14px; background: {{solidTrack}}; display: flex; align-items: center; justify-content: {{solidKnob}}; padding: 3px; box-sizing: border-box; flex-shrink: 0"><span style="width: 22px; height: 22px; border-radius: 11px; background: #FFFFFF"></span></span>
+        </button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isEnergia}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 13px; font-weight: 700">Tipo</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{enTypes}}" as="c" hint-placeholder-count="2">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <span style="font-size: 13px; font-weight: 700">Ruas afetadas</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{streets}}" as="c" hint-placeholder-count="6">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="enquando" style="font-size: 13px; font-weight: 700">Previsão de volta ou data do desligamento</label>
+        <input id="enquando" type="text" placeholder="Ex.: hoje, até 16h" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="font-size: 13px; color: #4F5E55">Só os gestores das casas nas ruas marcadas recebem a notificação.</span>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isGuia}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 13px; font-weight: 700">Onde fica</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{places}}" as="c" hint-placeholder-count="2">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="gnome" style="font-size: 13px; font-weight: 700">Nome do serviço ou oportunidade</label>
+        <input id="gnome" type="text" placeholder="Ex.: Posto de saúde" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="gend" style="font-size: 13px; font-weight: 700">Endereço</label>
+        <input id="gend" type="text" placeholder="Rua, número" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="gtel" style="font-size: 13px; font-weight: 700">Telefone</label>
+        <input id="gtel" type="text" placeholder="(94) 0000-0000" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="ghora" style="font-size: 13px; font-weight: 700">Horário de funcionamento</label>
+        <input id="ghora" type="text" placeholder="Ex.: seg a sex, 7h às 17h" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isTrilha}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="tnome" style="font-size: 13px; font-weight: 700">Nome da trilha</label>
+        <input id="tnome" type="text" placeholder="Ex.: Trilha da cachoeira" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="font-size: 13px; font-weight: 700">Dificuldade</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{diffs}}" as="c" hint-placeholder-count="3">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="tkm" style="font-size: 13px; font-weight: 700">Distância e tempo</label>
+        <input id="tkm" type="text" placeholder="Ex.: 4 km · 2 horas" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="tsaida" style="font-size: 13px; font-weight: 700">Ponto de saída</label>
+        <input id="tsaida" type="text" placeholder="Ex.: portaria do Núcleo" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+        <a href="AdminTrilhas.dc.html" style="font-size: 14px; font-weight: 700; color: #1E5B40">Marcar as datas de saída no calendário</a>
+      </div>
+    </sc-if>
+
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+      <span style="font-size: 13px; font-weight: 700">Quando publicar</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <sc-for list="{{whens}}" as="c" hint-placeholder-count="2">
+        <button onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="border: 1px solid {{c.border}}; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}">{{c.label}}</button>
+      </sc-for>
+    </div>
+      <sc-if value="{{isScheduled}}" hint-placeholder-val="{{ false }}">
+        <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="agenda" style="font-size: 13px; font-weight: 700">Data e hora da publicação</label>
+        <input id="agenda" type="text" placeholder="Ex.: quarta, 5/11, 18h" style="height: 48px; border-radius: 12px; border: 1px solid #C9D2CB; padding: 0 14px; font-size: 15px; color: #13241B; background: #FFFFFF">
+      </span>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}">
+      <div style="background: #DCEDE2; border-radius: 18px; padding: 14px 16px; display: flex; gap: 10px; align-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#17432F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size: 14px; font-weight: 700; color: #17432F">{{msg}}</span></div>
+    </sc-if>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <button onClick="{{saveDraft}}" style="border: 2px solid #13241B; cursor: pointer; height: 56px; border-radius: 28px; font-weight: 700; font-size: 15px; background: #FFFFFF; color: #13241B">Salvar rascunho</button>
+      <button onClick="{{publish}}" style="border: none; cursor: pointer; height: 56px; border-radius: 28px; font-weight: 700; font-size: 15px; background: #B4471C; color: #FFFFFF">{{pubLabel}}</button>
+    </div>
+
+  </div>
+  <nav aria-label="Navegação do organizador" style="flex-shrink: 0; height: 80px; background: #13241B; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px; box-sizing: border-box">
+    <a href="AdminInicio.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Painel</a>
+    <a href="AdminPublicar.dc.html" aria-current="page" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFD27A; font-size: 11px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v8M8 12h8"></path></svg>Publicar</a>
+    <a href="AdminEnergia.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"></path></svg>Energia</a>
+    <a href="AdminAprovar.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8 12 3 3 5-6"></path></svg>Aprovar</a>
+    <a href="AdminEquipe.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"></path></svg>Equipe</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { fmt: 'Texto', img: false, type: 'Aviso', aud: 'Todos os moradores', level: 'Importante', cat: 'Falta de água', what: '', when: '', where: '', todo: '', extra: [], showText: false, evCat: 'Cinema', solid: false, enType: 'Queda agora', streets: [], place: 'Núcleo', diff: 'Fácil', whenPub: 'Agora', msg: '' };
+  }
+  chips(labels, cur, pick) {
+    return labels.map((label) => {
+      const on = Array.isArray(cur) ? cur.indexOf(label) >= 0 : cur === label;
+      return {
+        label: label,
+        pressed: on ? 'true' : 'false',
+        bg: on ? '#13241B' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#13241B',
+        border: on ? '#13241B' : '#C9D2CB',
+        pick: () => pick(label)
+      };
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    const set = (k) => (v) => this.setState({ [k]: v, msg: '' });
+    const lvColors = { 'Urgente': ['#FBDCD6', '#9B1C10'], 'Importante': ['#F8EDC9', '#6B4D05'], 'Informativo': ['#DCEDE2', '#17432F'] };
+    const required = {
+      'Urgente': ['SMS', 'Carro de som', 'Representantes'],
+      'Importante': ['SMS', 'Murais', 'Redes sociais'],
+      'Informativo': ['SMS', 'Murais', 'Redes sociais', 'Escolas']
+    };
+    const req = required[s.level];
+    const chosen = req.concat(s.extra.filter((c) => req.indexOf(c) < 0));
+    const toggleChan = (c) => {
+      if (req.indexOf(c) >= 0) return;
+      const cur = this.state.extra.slice();
+      const i = cur.indexOf(c);
+      if (i >= 0) cur.splice(i, 1); else cur.push(c);
+      this.setState({ extra: cur });
+    };
+    const toggleStreet = (r) => {
+      const cur = this.state.streets.slice();
+      const i = cur.indexOf(r);
+      if (i >= 0) cur.splice(i, 1); else cur.push(r);
+      this.setState({ streets: cur, msg: '' });
+    };
+    const audHints = {
+      'Todos os moradores': 'Gestores da casa e jovens recebem.',
+      'Só gestores da casa': 'Só os responsáveis pelas casas recebem.',
+      'Só jovens': 'Aparece no app dos jovens. Avisos urgentes vão sempre também para os gestores.'
+    };
+    const meta = [s.when, s.where].filter((x) => x).join(' · ');
+    const lvTag = { 'Urgente': 'VERMELHO', 'Importante': 'AMARELO', 'Informativo': 'VERDE' }[s.level];
+    const sched = s.whenPub === 'Agendar';
+    return {
+      types: this.chips(['Aviso', 'Evento', 'Energia', 'Guia', 'Trilha'], s.type, set('type')),
+      isAviso: s.type === 'Aviso',
+      isEvento: s.type === 'Evento',
+      isEnergia: s.type === 'Energia',
+      isGuia: s.type === 'Guia',
+      isTrilha: s.type === 'Trilha',
+      audiences: this.chips(['Todos os moradores', 'Só gestores da casa', 'Só jovens'], s.aud, set('aud')),
+      audHint: audHints[s.aud],
+      levels: this.chips(['Urgente', 'Importante', 'Informativo'], s.level, set('level')),
+      cats: this.chips(['Obras', 'Falta de água', 'Falta de luz', 'Coleta de lixo', 'Segurança', 'Horários'], s.cat, set('cat')),
+      fmts: [['Texto', 'Texto', 'O quê, quando, onde e o que fazer'], ['Imagem', 'Imagem', 'O cartaz do comunicado']].map((f) => {
+        const on = s.fmt === f[0];
+        return { label: f[1], sub: f[2], pressed: on ? 'true' : 'false', bg: on ? '#ECE4F5' : '#FFFFFF', border: on ? '#5B3A8C' : '#C9D2CB', pick: () => this.setState({ fmt: f[0], msg: '' }) };
+      }),
+      isImgFmt: s.fmt === 'Imagem',
+      toggleImg: () => this.setState({ img: !this.state.img }),
+      imgLabel: s.img ? 'Imagem adicionada · toque para trocar' : 'Adicionar a imagem do comunicado',
+      imgBg: s.img ? '#ECE4F5' : '#F4F6F1',
+      imgBorder: s.img ? '2px solid #5B3A8C' : '2px dashed #9AA69F',
+      level: s.level,
+      cat: s.cat,
+      lvBg: lvColors[s.level][0],
+      lvFg: lvColors[s.level][1],
+      setWhat: (e) => this.setState({ what: e.target.value, msg: '' }),
+      setWhen: (e) => this.setState({ when: e.target.value, msg: '' }),
+      setWhere: (e) => this.setState({ where: e.target.value, msg: '' }),
+      setTodo: (e) => this.setState({ todo: e.target.value, msg: '' }),
+      pvWhat: s.what || 'O quê',
+      pvMeta: meta || 'Quando · Onde',
+      pvTodo: s.todo || '...',
+      pvRing: (s.level === 'Urgente' ? 'Urgente: faz o celular tocar. ' : 'Notificação silenciosa. ') + 'Para: ' + s.aud.toLowerCase() + '.',
+      channels: this.chips(['SMS', 'Murais', 'Redes sociais', 'Carro de som', 'Escolas', 'Representantes'], chosen, toggleChan),
+      chanHint: 'Obrigatórios para ' + s.level.toLowerCase() + ': ' + req.join(', ') + '.',
+      showText: s.showText,
+      textAttr: s.showText ? 'true' : 'false',
+      textLabel: s.showText ? 'Texto copiado ✓' : 'Copiar texto para SMS e murais',
+      toggleText: () => this.setState({ showText: !this.state.showText }),
+      stdText: '[' + lvTag + '] AVISO OFICIAL – NÚCLEO URBANO DE CARAJÁS\\n\\nO QUÊ: ' + (s.what || '...') + '\\nQUANDO: ' + (s.when || '...') + '\\nONDE: ' + (s.where || '...') + '\\nO QUE FAZER: ' + (s.todo || '...') + '\\nDÚVIDAS: (94) 0000-0000 – Administração do Núcleo\\n\\nRepasse para seus vizinhos.',
+      evCats: this.chips(['Cinema', 'Culinária', 'Videogame', 'Vôlei', 'Futebol', 'Outro'], s.evCat, set('evCat')),
+      solidAttr: s.solid ? 'true' : 'false',
+      solidTrack: s.solid ? '#B4471C' : '#9AA69F',
+      solidKnob: s.solid ? 'flex-end' : 'flex-start',
+      toggleSolid: () => this.setState({ solid: !this.state.solid }),
+      enTypes: this.chips(['Queda agora', 'Desligamento programado'], s.enType, set('enType')),
+      streets: this.chips(['Acará', 'Amazonas', 'Araguaia', 'Arapiuns', 'Caeté', 'Grajaú', 'Guamá', 'Iriri', 'Iguara', 'Itacaiúnas', 'Japurá', 'Jari', 'Juruá', 'Mearim', 'Paru', 'Purus', 'Solimões', 'Tapajós'], s.streets, toggleStreet),
+      places: this.chips(['Núcleo', 'Parauapebas'], s.place, set('place')),
+      diffs: this.chips(['Fácil', 'Média', 'Difícil'], s.diff, set('diff')),
+      whens: this.chips(['Agora', 'Agendar'], s.whenPub, set('whenPub')),
+      isScheduled: sched,
+      hasMsg: !!s.msg,
+      msg: s.msg,
+      pubLabel: sched ? 'Agendar' : 'Publicar agora',
+      saveDraft: () => this.setState({ msg: 'Rascunho salvo. Ele aparece no painel.' }),
+      publish: () => this.setState({ msg: sched ? 'Agendado! Sai no dia e hora marcados.' : 'Publicado! Já aparece no app dos moradores.' })
+    };
+  }
+}
+<\/script>
+</body>
+</html>
+`;export{e as default};

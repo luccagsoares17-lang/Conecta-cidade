@@ -1,0 +1,198 @@
+const e=`<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Meu Carajás Super App – Entrar</title>
+<script src="./support.js"><\/script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input{font-family:inherit}
+.sc > *{flex-shrink:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+  <div class="sc" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 56px 24px 32px 24px; display: flex; flex-direction: column; gap: 16px">
+
+    <div style="display: flex; align-items: center; gap: 10px">
+      <svg width="30" height="36" viewBox="0 0 100 120" aria-hidden="true"><path d="M38.6 26.3 Q50.0 18.0 61.4 26.3 Q71.0 35.1 82.4 41.5 Q93.7 49.8 89.4 63.2 Q84.0 75.0 81.4 87.8 Q77.0 101.2 63.0 101.2 Q50.0 99.7 37.0 101.2 Q23.0 101.2 18.6 87.8 Q16.0 75.0 10.6 63.2 Q6.3 49.8 17.6 41.5 Q29.0 35.1 38.6 26.3 Z" fill="#E9558F"></path><path d="M40.4 32.3 Q50.0 25.4 59.6 32.3 Q67.6 39.7 77.2 45.1 Q86.7 52.1 83.1 63.3 Q78.5 73.3 76.4 84.0 Q72.7 95.3 60.9 95.3 Q50.0 94.0 39.1 95.3 Q27.3 95.3 23.6 84.0 Q21.5 73.3 16.9 63.3 Q13.3 52.1 22.8 45.1 Q32.4 39.7 40.4 32.3 Z" fill="#EC679B"></path><path d="M50.0 58.5 Q56.0 43.6 50.0 25.4 Q44.0 43.6 50.0 58.5 Z M55.2 62.3 Q71.3 63.4 86.7 52.1 Q67.6 52.0 55.2 62.3 Z M53.2 68.5 Q57.2 84.0 72.7 95.3 Q66.8 77.0 53.2 68.5 Z M46.8 68.5 Q33.2 77.0 27.3 95.3 Q42.8 84.0 46.8 68.5 Z M44.8 62.3 Q32.4 52.0 13.3 52.1 Q28.7 63.4 44.8 62.3 Z" fill="#C2346F"></path><circle cx="50" cy="64" r="11.0" fill="#FFE1EC"></circle><circle cx="50" cy="64" r="4.1" fill="#FFF1A8"></circle></svg>
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 20px; letter-spacing: -0.3px">Meu Carajás Super App</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: -0.6px">Entrar</span>
+      <span style="font-size: 15px; color: #4F5E55">Escolha seu perfil e use o e-mail ou celular do cadastro.</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #E2E7E0; border-radius: 24px; padding: 4px; gap: 4px">
+      <sc-for list="{{tabs}}" as="t" hint-placeholder-count="2">
+        <button onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="border: none; cursor: pointer; height: 46px; border-radius: 20px; font-weight: 700; font-size: 15px; background: {{t.bg}}; color: {{t.fg}}">{{t.label}}</button>
+      </sc-for>
+    </div>
+
+    <div style="background: #FFFFFF; border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 14px; border-top: 5px solid {{accent}}">
+      <span style="font-size: 14px; color: #4F5E55">{{tabHint}}</span>
+
+      <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="ident" style="font-size: 13px; font-weight: 700">E-mail ou celular</label>
+        <input id="ident" type="text" value="{{ident}}" onChange="{{setIdent}}" placeholder="{{identPh}}" autocomplete="username" style="height: 52px; border-radius: 14px; border: 2px solid {{identBorder}}; padding: 0 16px; font-size: 16px; color: #13241B; background: #FFFFFF">
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: {{idFg}}; min-height: 18px">{{idMsg}}</span>
+        <sc-if value="{{wrongTab}}" hint-placeholder-val="{{ false }}">
+          <button onClick="{{switchTab}}" style="align-self: flex-start; border: none; cursor: pointer; height: 40px; padding: 0 14px; border-radius: 20px; font-weight: 700; font-size: 13px; background: #13241B; color: #FFFFFF">{{switchLabel}}</button>
+        </sc-if>
+      </span>
+
+      <span style="display: flex; flex-direction: column; gap: 6px">
+        <label for="senha" style="font-size: 13px; font-weight: 700">Senha</label>
+        <span style="display: flex; gap: 8px">
+          <input id="senha" type="{{passType}}" value="{{pass}}" onChange="{{setPass}}" placeholder="Sua senha" autocomplete="current-password" style="flex-grow: 1; min-width: 0; height: 52px; border-radius: 14px; border: 2px solid {{passBorder}}; padding: 0 16px; font-size: 16px; color: #13241B; background: #FFFFFF">
+          <button onClick="{{toggleShow}}" aria-label="Mostrar ou esconder a senha" style="width: 52px; height: 52px; border-radius: 14px; border: 1px solid #C9D2CB; cursor: pointer; background: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#13241B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+        </span>
+      </span>
+
+      <sc-if value="{{hasNotice}}" hint-placeholder-val="{{ false }}">
+        <div style="background: {{noticeBg}}; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-weight: 700; font-size: 14px; color: {{noticeFg}}">{{noticeTitle}}</span>
+          <span style="font-size: 13px; color: #13241B">{{noticeText}}</span>
+          <sc-if value="{{noticeSignup}}" hint-placeholder-val="{{ false }}">
+            <a href="{{signupHref}}" style="text-decoration: none; align-self: flex-start; height: 40px; padding: 0 16px; box-sizing: border-box; border-radius: 20px; background: {{accent}}; color: #FFFFFF; font-weight: 700; font-size: 13px; display: flex; align-items: center">{{signupLabel}}</a>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{canEnter}}" hint-placeholder-val="{{ false }}">
+        <a href="{{enterHref}}" style="text-decoration: none; height: 56px; box-sizing: border-box; border-radius: 28px; background: {{accent}}; color: #FFFFFF; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px">Entrar como {{firstName}}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </sc-if>
+      <sc-if value="{{cannotEnter}}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{tryEnter}}" style="border: none; cursor: pointer; height: 56px; border-radius: 28px; font-weight: 700; font-size: 16px; background: {{accent}}; color: #FFFFFF">Entrar</button>
+      </sc-if>
+
+      <button onClick="{{forgot}}" style="align-self: center; border: none; cursor: pointer; height: 44px; padding: 0 12px; background: transparent; color: #1E5B40; font-weight: 700; font-size: 14px">Esqueci minha senha</button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; align-items: center">
+      <span style="font-size: 14px; color: #4F5E55">Ainda não tem conta?</span>
+      <a href="{{signupHref}}" style="text-decoration: none; width: 100%; height: 52px; box-sizing: border-box; border-radius: 26px; border: 2px solid {{accent}}; color: {{accentText}}; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center">{{signupLabel}}</a>
+      <button style="border: none; cursor: pointer; height: 44px; padding: 0 12px; background: transparent; color: #1E5B40; font-weight: 700; font-size: 14px">ou faça o cadastro pelo WhatsApp</button>
+      <span style="font-size: 12px; color: #4F5E55; text-align: center">Comunicados e alertas do Núcleo chegam por SMS.</span>
+    </div>
+
+    <a href="AdminEntrada.dc.html" style="text-decoration: none; height: 44px; display: flex; align-items: center; justify-content: center; color: #4F5E55; font-size: 13px; font-weight: 600">Sou organizador · abrir o Meu Carajás Organizadores</a>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'gestor', ident: '', pass: '', show: false, tried: false, forgot: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const accounts = [
+      { id: 'lucca@email.com', phone: '94999990012', name: 'Lucca Ribeiro', role: 'gestor', pass: '12345678', status: 'ok' },
+      { id: 'marina@email.com', phone: '94999990013', name: 'Marina Ribeiro', role: 'gestor', pass: '12345678', status: 'ok' },
+      { id: 'davi@email.com', phone: '94999990014', name: 'Davi Ribeiro', role: 'jovem', pass: '12345678', status: 'ok' },
+      { id: 'duda@email.com', phone: '94999990015', name: 'Duda Ribeiro', role: 'jovem', pass: '12345678', status: 'pending' }
+    ];
+    const gest = s.tab === 'gestor';
+    const raw = (s.ident || '').trim().toLowerCase();
+    const digits = raw.replace(/\\D/g, '');
+    const looksEmail = /^[^@\\s]+@[^@\\s]+\\.[a-z]{2,}$/.test(raw);
+    const looksPhone = digits.length >= 10 && !/[a-z@]/.test(raw);
+    const acc = accounts.filter((a) => a.id === raw || (looksPhone && a.phone === digits))[0];
+    let idState = 'empty';
+    if (raw) {
+      if (!looksEmail && !looksPhone) idState = 'typing';
+      else if (!acc) idState = 'notfound';
+      else if (acc.role !== s.tab) idState = 'wrongtab';
+      else if (acc.status === 'pending') idState = 'pending';
+      else idState = 'found';
+    }
+    const roleName = { gestor: 'gestor da casa', jovem: 'morador jovem' };
+    const idMsgs = {
+      empty: ' ',
+      typing: 'Continue digitando o e-mail ou celular…',
+      notfound: '✕ Não encontramos cadastro com esse ' + (looksEmail ? 'e-mail' : 'celular'),
+      wrongtab: acc ? '! Essa conta é de ' + roleName[acc.role] + ': ' + acc.name : '',
+      pending: acc ? '… Conta de ' + acc.name + ' esperando o gestor aprovar' : '',
+      found: acc ? '✓ Conta encontrada: ' + acc.name : ''
+    };
+    const idColors = { empty: '#4F5E55', typing: '#4F5E55', notfound: '#9B1C10', wrongtab: '#6B4D05', pending: '#6B4D05', found: '#17432F' };
+    const passOk = acc && s.pass === acc.pass;
+    const canEnter = idState === 'found' && passOk;
+    let notice = null;
+    if (s.forgot) {
+      notice = idState === 'found'
+        ? { t: 'Código enviado', x: 'Mandamos um código para ' + (looksEmail ? raw : 'o celular') + ' para você criar uma senha nova.', bg: '#DFE9F5', fg: '#24578C', signup: false }
+        : { t: 'Digite seu e-mail ou celular primeiro', x: 'Assim a gente encontra seu cadastro e manda o código.', bg: '#F4F6F1', fg: '#13241B', signup: false };
+    } else if (s.tried) {
+      if (idState === 'empty' || idState === 'typing') notice = { t: 'Falta o e-mail ou celular', x: 'Use o mesmo que você colocou no cadastro.', bg: '#F8EDC9', fg: '#6B4D05', signup: false };
+      else if (idState === 'notfound') notice = { t: 'Você ainda não tem cadastro', x: 'Crie sua conta em poucos passos. ' + (gest ? 'Você vai receber o código da família.' : 'Peça o código da família para o gestor da sua casa.'), bg: '#FBE6DA', fg: '#8E3714', signup: true };
+      else if (idState === 'pending') notice = { t: 'Quase lá!', x: 'Sua conta foi criada, mas o gestor da casa ainda não aprovou. Peça para ele abrir Minha casa no app.', bg: '#F8EDC9', fg: '#6B4D05', signup: false };
+      else if (idState === 'wrongtab') notice = { t: 'Perfil trocado', x: 'Esse cadastro é de ' + roleName[acc.role] + '. Troque a aba lá em cima.', bg: '#F8EDC9', fg: '#6B4D05', signup: false };
+      else if (!passOk) notice = { t: s.pass ? 'Senha incorreta' : 'Falta a senha', x: s.pass ? 'Confira a senha ou toque em “Esqueci minha senha”.' : 'Digite a senha que você criou no cadastro.', bg: '#FBDCD6', fg: '#9B1C10', signup: false };
+    }
+    const tabs = [['gestor', 'Gestor da casa'], ['jovem', 'Morador jovem']].map((t) => {
+      const on = s.tab === t[0];
+      return {
+        label: t[1],
+        pressed: on ? 'true' : 'false',
+        bg: on ? (t[0] === 'gestor' ? '#1E5B40' : '#B4471C') : 'transparent',
+        fg: on ? '#FFFFFF' : '#13241B',
+        pick: () => this.setState({ tab: t[0], tried: false, forgot: false })
+      };
+    });
+    const demo = [
+      { title: 'Gestor: lucca@email.com', sub: 'Senha 12345678 · conta aprovada', tab: 'gestor', ident: 'lucca@email.com' },
+      { title: 'Jovem: davi@email.com', sub: 'Senha 12345678 · conta aprovada', tab: 'jovem', ident: 'davi@email.com' },
+      { title: 'Jovem: duda@email.com', sub: 'Conta esperando o gestor aprovar', tab: 'jovem', ident: 'duda@email.com' },
+      { title: 'Sem cadastro: novo@email.com', sub: 'Mostra o caminho para criar conta', tab: s.tab, ident: 'novo@email.com' }
+    ].map((d) => Object.assign({}, d, { fill: () => this.setState({ tab: d.tab, ident: d.ident, pass: d.ident === 'novo@email.com' ? '' : '12345678', tried: d.ident !== 'lucca@email.com' && d.ident !== 'davi@email.com', forgot: false }) }));
+    return {
+      tabs: tabs,
+      accent: gest ? '#1E5B40' : '#B4471C',
+      accentText: gest ? '#1E5B40' : '#B4471C',
+      tabHint: gest ? 'Para quem é responsável pela casa: acesso completo, energia e permissões dos jovens.' : 'Para os jovens da casa: eventos, trilhas e oportunidades. O gestor libera o resto.',
+      identPh: gest ? 'Ex.: lucca@email.com' : 'Ex.: davi@email.com',
+      ident: s.ident,
+      setIdent: (e) => this.setState({ ident: e.target.value, tried: false, forgot: false }),
+      identBorder: idState === 'found' ? '#1E5B40' : (idState === 'notfound' ? '#B4471C' : '#C9D2CB'),
+      idMsg: idMsgs[idState],
+      idFg: idColors[idState],
+      wrongTab: idState === 'wrongtab',
+      switchLabel: acc ? 'Trocar para ' + (acc.role === 'gestor' ? 'Gestor da casa' : 'Morador jovem') : '',
+      switchTab: () => { if (acc) this.setState({ tab: acc.role, tried: false }); },
+      pass: s.pass,
+      setPass: (e) => this.setState({ pass: e.target.value, tried: false, forgot: false }),
+      passType: s.show ? 'text' : 'password',
+      passBorder: s.tried && idState === 'found' && !passOk ? '#B4471C' : (canEnter ? '#1E5B40' : '#C9D2CB'),
+      toggleShow: () => this.setState({ show: !this.state.show }),
+      hasNotice: !!notice,
+      noticeTitle: notice ? notice.t : '',
+      noticeText: notice ? notice.x : '',
+      noticeBg: notice ? notice.bg : '#FFFFFF',
+      noticeFg: notice ? notice.fg : '#13241B',
+      noticeSignup: !!(notice && notice.signup),
+      signupHref: gest ? 'CadastroGestor.dc.html' : 'CadastroJovem.dc.html',
+      signupLabel: gest ? 'Criar conta de gestor ou adulto' : 'Criar conta de jovem',
+      canEnter: canEnter,
+      cannotEnter: !canEnter,
+      enterHref: gest ? 'Main.dc.html' : 'JovemInicio.dc.html',
+      firstName: acc ? acc.name.split(' ')[0] : '',
+      tryEnter: () => this.setState({ tried: true, forgot: false }),
+      forgot: () => this.setState({ forgot: true, tried: false }),
+      demo: demo
+    };
+  }
+}
+<\/script>
+</body>
+</html>
+`;export{e as default};

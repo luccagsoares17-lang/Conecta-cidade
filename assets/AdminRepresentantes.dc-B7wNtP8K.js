@@ -1,0 +1,126 @@
+const e=`<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Meu Carajás Organizadores – Representantes</title>
+<script src="./support.js"><\/script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=DM+Sans:opsz,wght@9..40,400..700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#1E5B40}a:hover{color:#17432F}
+button,input,textarea{font-family:inherit}
+.sc > *{flex-shrink:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; overflow: hidden; background: #F4F6F1; font-family: 'DM Sans', system-ui, sans-serif; color: #13241B; display: flex; flex-direction: column">
+  <div style="background: #13241B; color: #FFFFFF; padding: 52px 20px 18px 20px; display: flex; align-items: center; gap: 12px; flex-shrink: 0">
+    <a href="AdminInicio.dc.html" aria-label="Voltar para o painel" style="width: 44px; height: 44px; border-radius: 22px; background: #1C3327; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></a>
+    <span style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+      <span style="font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #FFD27A">Meu Carajás Organizadores</span>
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.4px">Representantes de rua</span>
+      <span style="font-size: 13px; color: #CFE3D7">Rua Jari · você é o representante</span>
+    </span>
+  </div>
+  <div class="sc" style="flex-grow: 1; min-height: 0; overflow-y: auto; padding: 16px 20px 24px 20px; display: flex; flex-direction: column; gap: 14px">
+
+    <div style="background: #FFFFFF; border-radius: 20px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px">
+      <span style="display: flex; gap: 8px; align-items: center"><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; background: #F8EDC9; color: #6B4D05; padding: 3px 8px; border-radius: 6px">Importante</span><span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #4F5E55">Repassar pessoalmente</span></span>
+      <span style="font-weight: 700; font-size: 15px">Interrupção no fornecimento de água</span>
+      <span style="font-size: 13px; color: #4F5E55">Quinta-feira, 5/11, das 8h às 14h · Armazene água na quarta à noite</span>
+    </div>
+
+    <div style="background: #13241B; color: #FFFFFF; border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 800; font-size: 22px">{{doneLabel}}</span>
+      <span style="display: block; height: 10px; border-radius: 5px; background: #2E4A3B; overflow: hidden"><span style="display: block; height: 10px; border-radius: 5px; width: {{donePct}}; background: #FFD27A"></span></span>
+      <span style="font-size: 13px; color: #CFE3D7">Casas que não recebem pelo celular. Você garante os últimos 5%.</span>
+    </div>
+
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Casas para visitar</span>
+    <sc-for list="{{houses}}" as="h" hint-placeholder-count="5">
+      <button onClick="{{h.toggle}}" aria-pressed="{{h.pressed}}" style="border: none; cursor: pointer; text-align: left; background: #FFFFFF; border-radius: 18px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; min-height: 64px">
+        <span style="width: 28px; height: 28px; border-radius: 8px; border: 2px solid {{h.boxBorder}}; background: {{h.boxBg}}; display: flex; align-items: center; justify-content: center; flex-shrink: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
+        <span style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0"><span style="font-weight: 700; font-size: 15px; color: #13241B">{{h.addr}}</span><span style="font-size: 12px; color: #4F5E55">{{h.why}}</span></span>
+        <span style="font-size: 12px; font-weight: 700; color: {{h.stFg}}; flex-shrink: 0">{{h.st}}</span>
+      </button>
+    </sc-for>
+
+    <span style="font-family: 'Bricolage Grotesque', system-ui, sans-serif; font-weight: 700; font-size: 18px">Chegou gente nova</span>
+    <div style="background: #FFFFFF; border-radius: 18px; padding: 12px 14px; display: flex; align-items: center; gap: 12px">
+      <span style="display: flex; flex-direction: column; flex-grow: 1"><span style="font-weight: 700; font-size: 15px">Rua Jari, 3</span><span style="font-size: 12px; color: #4F5E55">Família transferida esta semana</span></span>
+      <button onClick="{{welcome}}" aria-pressed="{{welAttr}}" style="border: none; cursor: pointer; height: 44px; padding: 0 14px; border-radius: 22px; font-weight: 700; font-size: 13px; background: {{welBg}}; color: {{welFg}}; flex-shrink: 0">{{welLabel}}</button>
+    </div>
+    <span style="font-size: 12px; color: #4F5E55">Ao dar as boas-vindas, você entrega o QR Code do app e inscreve a família no canal oficial.</span>
+
+  </div>
+  <nav aria-label="Navegação do organizador" style="flex-shrink: 0; height: 80px; background: #13241B; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 4px 18px 4px; box-sizing: border-box">
+    <a href="AdminInicio.dc.html" aria-current="page" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #FFD27A; font-size: 11px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Painel</a>
+    <a href="AdminPublicar.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v8M8 12h8"></path></svg>Publicar</a>
+    <a href="AdminEnergia.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"></path></svg>Energia</a>
+    <a href="AdminAprovar.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8 12 3 3 5-6"></path></svg>Aprovar</a>
+    <a href="AdminEquipe.dc.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; color: #CFE3D7; font-size: 11px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.5a6.5 6.5 0 0 1 3.5 5.5"></path></svg>Equipe</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { done: { h1: true }, wel: false };
+  }
+  chips(labels, cur, pick) {
+    return labels.map((label) => {
+      const on = Array.isArray(cur) ? cur.indexOf(label) >= 0 : cur === label;
+      return {
+        label: label,
+        pressed: on ? 'true' : 'false',
+        bg: on ? '#13241B' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : '#13241B',
+        border: on ? '#13241B' : '#C9D2CB',
+        pick: () => pick(label)
+      };
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    const list = [
+      { id: 'h1', addr: 'Rua Jari, 7', why: 'Idosa mora sozinha · não usa celular' },
+      { id: 'h2', addr: 'Rua Jari, 15', why: 'Sem internet em casa' },
+      { id: 'h3', addr: 'Rua Jari, 22', why: 'Pessoa com deficiência visual' },
+      { id: 'h4', addr: 'Rua Jari, 31', why: 'Trabalha em turnos · não abriu o aviso' },
+      { id: 'h5', addr: 'Rua Jari, 40', why: 'Idoso · prefere aviso pessoalmente' }
+    ];
+    const done = list.filter((h) => s.done[h.id]).length;
+    return {
+      houses: list.map((h) => {
+        const ok = !!s.done[h.id];
+        return Object.assign({}, h, {
+          pressed: ok ? 'true' : 'false',
+          boxBg: ok ? '#1E5B40' : '#FFFFFF',
+          boxBorder: ok ? '#1E5B40' : '#9AA69F',
+          st: ok ? 'Avisado' : 'Pendente',
+          stFg: ok ? '#17432F' : '#8E3714',
+          toggle: () => {
+            const n = Object.assign({}, this.state.done);
+            n[h.id] = !n[h.id];
+            this.setState({ done: n });
+          }
+        });
+      }),
+      doneLabel: done + ' de ' + list.length + ' casas avisadas',
+      donePct: Math.round(done / list.length * 100) + '%',
+      welAttr: s.wel ? 'true' : 'false',
+      welLabel: s.wel ? 'Feito ✓' : 'Dar boas-vindas',
+      welBg: s.wel ? '#DCEDE2' : '#24578C',
+      welFg: s.wel ? '#17432F' : '#FFFFFF',
+      welcome: () => this.setState({ wel: !this.state.wel })
+    };
+  }
+}
+<\/script>
+</body>
+</html>
+`;export{e as default};
