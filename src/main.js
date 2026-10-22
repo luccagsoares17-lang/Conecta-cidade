@@ -14,12 +14,17 @@ carregarModo();
 // ---------------------------------------------------------------------------
 // Rotas: /<NomeDoArquivo> abre design/prototipo/<NomeDoArquivo>.dc.html
 
+// Endereço base do app: "/" na Vercel; "/Conecta-cidade/" no GitHub Pages (definido no build).
+const BASE = import.meta.env.BASE_URL || '/';
+const caminhoDe = (nome) => BASE + nome;
+
 const ROTA_INDICE = 'telas';
 const ROTA_SAIR = 'sair';
 const ROTA_REINICIAR = 'reiniciar';
 
 function rotaAtual() {
-  const nome = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, ''));
+  const caminho = location.pathname.startsWith(BASE) ? location.pathname.slice(BASE.length) : location.pathname;
+  const nome = decodeURIComponent(caminho.replace(/^\/+|\/+$/g, ''));
   if (!nome) return telaInicial;
   if (nome === ROTA_INDICE || nome === ROTA_SAIR || nome === ROTA_REINICIAR) return nome;
   if (!existeTela(nome)) return telaInicial;
@@ -52,7 +57,7 @@ function destinoPermitido(nome) {
 }
 
 function irPara(nome, hash = '') {
-  const url = '/' + nome + location.search + hash;
+  const url = caminhoDe(nome) + location.search + hash;
   if (url !== location.pathname + location.search + location.hash) history.pushState(null, '', url);
   window.dispatchEvent(new Event('cc:rota'));
   if (!hash) window.scrollTo(0, 0);
@@ -62,7 +67,7 @@ function irPara(nome, hash = '') {
 function ajustarLink(props) {
   const alvo = dcLinkTarget(props.href);
   if (alvo) {
-    props.href = '/' + alvo.name + alvo.hash;
+    props.href = caminhoDe(alvo.name) + alvo.hash;
     props['data-dc-link'] = alvo.name;
     if (alvo.hash) props['data-dc-hash'] = alvo.hash;
     if (bloqueada(alvo.name)) {
@@ -238,7 +243,7 @@ function Indice() {
               h(
                 'a',
                 {
-                  href: '/' + t.nome,
+                  href: caminhoDe(t.nome),
                   'data-dc-link': t.nome,
                   ...(bloqueada(t.nome) ? { 'data-dc-bloqueado': '', 'aria-disabled': 'true' } : {}),
                 },
@@ -271,7 +276,7 @@ function App() {
     if (rota !== ROTA_SAIR && rota !== ROTA_REINICIAR) return;
     // /sair encerra a conta no aparelho; /reiniciar também volta os dados de demonstração ao começo.
     (rota === ROTA_SAIR ? sair() : reiniciarDemonstracao()).then(() => {
-      history.replaceState(null, '', '/');
+      history.replaceState(null, '', BASE);
       setRota(rotaAtual());
     });
   }, [rota]);
@@ -280,7 +285,7 @@ function App() {
   const destino = destinoPermitido(rota);
   if (destino === null) return null; // conferindo a conta
   if (destino !== rota) {
-    history.replaceState(null, '', '/' + destino + location.search);
+    history.replaceState(null, '', caminhoDe(destino) + location.search);
     return h(Palco, { key: destino, nome: destino });
   }
   return h(Palco, { key: rota, nome: rota });
@@ -291,5 +296,5 @@ configurar({ irPara });
 createRoot(document.getElementById('app')).render(h(App));
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+  window.addEventListener('load', () => navigator.serviceWorker.register(BASE + 'sw.js').catch(() => {}));
 }

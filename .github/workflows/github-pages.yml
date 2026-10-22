@@ -1,0 +1,43 @@
+# Publica o app no GitHub Pages a cada mudança na main:
+# https://luccagsoares17-lang.github.io/Conecta-cidade/
+# Modo sem banco (VITE_DADOS=local): o link abre para qualquer pessoa, sem conta.
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Build para a subpasta /Conecta-cidade/
+        run: npx vite build --outDir dist-pages
+        env:
+          CC_BASE: /Conecta-cidade/
+          VITE_DADOS: local
+      - name: Endereços diretos (ex.: /Conecta-cidade/Login) abrem o app
+        run: |
+          cp dist-pages/index.html dist-pages/404.html
+          touch dist-pages/.nojekyll
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist-pages
+          publish_branch: gh-pages
+          force_orphan: true

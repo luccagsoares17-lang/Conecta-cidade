@@ -37,5 +37,7 @@ function apiLocal() {
 }
 
 export default defineConfig({
+  // CC_BASE=/Conecta-cidade/ no build do GitHub Pages; na Vercel fica a raiz.
+  base: process.env.CC_BASE || '/',
   plugins: [apiLocal()],
 });

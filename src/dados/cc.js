@@ -52,7 +52,7 @@ async function api(caminho, corpo) {
     opcoes.headers['Content-Type'] = 'application/json';
     opcoes.body = JSON.stringify(corpo);
   }
-  const r = await fetch('/api/' + caminho, opcoes);
+  const r = await fetch((import.meta.env.BASE_URL || '/') + 'api/' + caminho, opcoes);
   const dados = await r.json().catch(() => ({}));
   if (!r.ok) {
     const erro = new Error(dados.erro || 'Não foi possível falar com o servidor.');
