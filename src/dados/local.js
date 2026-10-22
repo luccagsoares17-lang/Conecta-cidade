@@ -54,6 +54,13 @@ function dados() {
 // Contas acrescentadas depois que o aparelho já guardou os dados: entram sem apagar nada.
 function sincronizarContas(d) {
   let mudou = false;
+  // Contas tiradas do piloto saem também do aparelho (as pessoas daqui vêm todas de contas-locais.js).
+  const emails = new Set(contasLocais.pessoas.map((p) => p.email));
+  const codigos = new Set(contasLocais.casas.map((c) => c.codigo));
+  const antes = d.pessoas.length + d.casas.length;
+  d.pessoas = d.pessoas.filter((p) => emails.has(p.email));
+  d.casas = d.casas.filter((c) => codigos.has(c.codigo));
+  if (d.pessoas.length + d.casas.length !== antes) mudou = true;
   for (const c of contasLocais.casas) {
     if (!d.casas.some((x) => x.codigo === c.codigo)) {
       d.casas.push({ id: c.id, codigo: c.codigo, rua: null, numero: null, quarteirao: null });

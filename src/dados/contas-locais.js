@@ -47,10 +47,6 @@ export const contasLocais = {
     {
       "id": 11,
       "codigo": "CKS-9927"
-    },
-    {
-      "id": 12,
-      "codigo": "CKS-6594"
     }
   ],
   "pessoas": [
@@ -150,14 +146,6 @@ export const contasLocais = {
       "email": "luigi@conectacidade.app",
       "perfil": "gestor",
       "senha": "pbkdf2-sha256$210000$zrJpVBzKfzL8q8fk/y6Z4g==$vDLbT3R4IKh3+NmHONFdooR89W/K1ftGKua8R6KQNVA="
-    },
-    {
-      "id": 13,
-      "casa": "CKS-6594",
-      "nome": "Ivisson",
-      "email": "ivisson@conectacidade.app",
-      "perfil": "gestor",
-      "senha": "pbkdf2-sha256$210000$gOnkMHJdPcXJga4yLUjhWg==$sC2bty+Vm7Gl81OK2XLeniHo0S7TdhQSlQyz1ugtVZU="
     }
   ],
   "organizadores": [
@@ -197,6 +185,18 @@ export const contasLocais = {
         "Guia"
       ],
       "codigo": "pbkdf2-sha256$210000$HebjB0yyntJaRsYLM+ocbw==$X7bjteJwsKEnyHovjUiEyKQt7UhMwK0Bvr/t+3t52Ts="
+    },
+    {
+      "id": 4,
+      "nome": "Ivisson",
+      "email": "ivisson@conectacidade.app",
+      "grupo": "Administração do Núcleo",
+      "areas": [
+        "Avisos",
+        "Eventos",
+        "Guia"
+      ],
+      "codigo": "pbkdf2-sha256$210000$XH8ROs9p06pAorCKoqtUEQ==$Dq1avRPMFQACrZl4Nyo4B3ZGb0O1vRmG9b7djUgjDm8="
     }
   ]
 };

@@ -36,9 +36,6 @@ export const semente = {
     },
     {
       "codigo": "CKS-9927"
-    },
-    {
-      "codigo": "CKS-6594"
     }
   ],
   "pessoas": [
@@ -126,13 +123,6 @@ export const semente = {
       "perfil": "gestor",
       "casa": "CKS-9927",
       "senha_hash": "scrypt$16384$8$1$CzgO/3FfIHjLQm0fQIbtAg==$iFXO6LW9sMMO+AaKB/C6Q0ycK8ulmv7RBDFwoEL45o0="
-    },
-    {
-      "nome": "Ivisson",
-      "email": "ivisson@conectacidade.app",
-      "perfil": "gestor",
-      "casa": "CKS-6594",
-      "senha_hash": "scrypt$16384$8$1$sYeE9zBhp677bBGAq41AQg==$9XaVubzkWrpv9M0vDvwmnIQH+c+pdBryoNBkg+Ek8Vk="
     }
   ],
   "organizadores": [
@@ -169,6 +159,17 @@ export const semente = {
         "Guia"
       ],
       "codigo_hash": "scrypt$16384$8$1$yI+/zfSBHyKKy9YC5leWBQ==$h316tSL1vUACzsUNU3vggBFAaModuOzP0iqQTMS75yU="
+    },
+    {
+      "nome": "Ivisson",
+      "email": "ivisson@conectacidade.app",
+      "grupo": "Administração do Núcleo",
+      "areas": [
+        "Avisos",
+        "Eventos",
+        "Guia"
+      ],
+      "codigo_hash": "scrypt$16384$8$1$Qb/c2wOuDC0m1mpkrXhzEQ==$alDVNg3deW1LFO6C3NJGUP2GKPTyNxaZgx197c8gWVY="
     }
   ]
 };

@@ -1,6 +1,6 @@
 # Acessos do piloto
 
-Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Mário e Ivison) e no mesmo dia, depois da troca de nome (Lucca, Mariana, Maria Tereza e Vitor; depois Letícia, Jorge e Felipe; em 22/10, Tony e Luigi, e depois Ivisson). Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
+Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Mário e Ivison) e no mesmo dia, depois da troca de nome (Lucca, Mariana, Maria Tereza e Vitor; depois Letícia, Jorge e Felipe; em 22/10, Tony e Luigi; e o organizador Ivisson). Hoje o app roda **sem banco** (modo `local`): o login é conferido em JavaScript no aparelho, e só estas contas entram. Os dados ficam em cada celular. Detalhes em [`desenvolvimento.md`](desenvolvimento.md#dados-reais-contas-e-banco). **As senhas e os códigos de acesso não ficam no repositório**: foram entregues à equipe em separado. Aqui ficam só os nomes, os perfis e os logins. As contas estão em [`api/_lib/semente.js`](../api/_lib/semente.js), só com o resumo cifrado (scrypt) de cada senha. O servidor cria essas contas sozinho na primeira vez que sobe com o banco vazio.
 
 ## Meu Carajás Super App (moradores)
 
@@ -18,15 +18,12 @@ Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Már
 | Felipe | Gestor da casa | Família 9 · código **CKS-3733** (só ele) | `felipe@conectacidade.app` | Gestor da casa |
 | Tony | Gestor da casa | Família 10 · código **CKS-2961** (só ele) | `tony@conectacidade.app` | Gestor da casa |
 | Luigi | Gestor da casa | Família 11 · código **CKS-9927** (só ele) | `luigi@conectacidade.app` | Gestor da casa |
-| Ivisson | Gestor da casa | Família 12 · código **CKS-6594** (só ele) | `ivisson@conectacidade.app` | Gestor da casa |
 
 - O Lucas é o gestor da Micheline: na tela **Minha casa** ele vê a Micheline e liga ou desliga o que ela pode usar.
 - Permissões iniciais da Micheline, seguindo os requisitos: Eventos **ligado**, Oportunidades **ligado** e Desapego **desligado** ("Desapego só se o gestor liberar").
-- O Gustavo, o Lucca, a Mariana, a Maria Tereza, o Vitor, a Letícia, o Jorge, o Felipe, o Tony, o Luigi e o Ivisson são gestores de famílias só deles, cada uma com seu código; nenhum vê a família dos outros.
+- O Gustavo, o Lucca, a Mariana, a Maria Tereza, o Vitor, a Letícia, o Jorge, o Felipe, o Tony e o Luigi são gestores de famílias só deles, cada uma com seu código; nenhum vê a família dos outros.
 - A Maria Tereza tem "Maria Tereza" como apelido no cadastro, para a saudação sair "Olá, Maria Tereza!".
 - Rua, número e quarteirão das casas ainda não foram informados. Por isso a Minha casa mostra só "você é o gestor".
-
-- O Ivisson (morador, `ivisson@conectacidade.app`) é outra pessoa, diferente do Ivison organizador (`ivison@conectacidade.app`).
 
 ## Meu Carajás Organizadores
 
@@ -35,8 +32,9 @@ Contas criadas a pedido da equipe em 21/10/2026 (Lucas, Micheline, Gustavo, Már
 | Mário | Administração do Núcleo | `mario@conectacidade.app` | Publicar avisos oficiais, eventos e Guia; ver alcance; aprovar eventos de grupos |
 | Ivison | Administração do Núcleo | `ivison@conectacidade.app` | O mesmo do Mário |
 | Ana Alice Gonçalves | Administração do Núcleo | `anaalice@conectacidade.app` | O mesmo do Mário (o Painel diz "Olá, Ana Alice") |
+| Ivisson | Administração do Núcleo | `ivisson@conectacidade.app` | O mesmo do Mário |
 
-Os três entram na tela **Entrada do organizador** com o e-mail e o código de acesso.
+Os quatro entram na tela **Entrada do organizador** com o e-mail e o código de acesso. O Ivisson (`ivisson@`) e o Ivison (`ivison@`) são pessoas diferentes. Em 22/10 o Ivisson chegou a ser criado como gestor da casa (família CKS-6594), por engano; essa conta foi apagada e os aparelhos apagam a cópia dela ao abrir o app.
 
 ## Observações
 
